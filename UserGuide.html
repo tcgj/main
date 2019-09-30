@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Budget Buddy - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Budget Buddy - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>CS2103T W13-4</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -14,15 +14,16 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.9. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#manage-defaults-code-default-code">3.2. Manage defaults : <code>default</code></a></li>
+<li><a href="#manage-the-main-transaction-view-code-view-code">3.3. Manage the main transaction view : <code>view</code></a></li>
+<li><a href="#managing-transactions-code-transaction-code">3.4. Managing transactions : <code>transaction</code></a></li>
+<li><a href="#managing-categories-code-category-code">3.5. Managing categories : <code>category</code></a></li>
+<li><a href="#managing-accounts-code-account-code">3.6. Managing accounts : <code>account</code></a></li>
+<li><a href="#viewing-reports-code-report-code">3.7. Viewing reports : <code>report</code></a></li>
+<li><a href="#managing-budgets-code-budget-code">3.8. Managing budgets : <code>budget</code></a></li>
+<li><a href="#goal-setting-code-goal-code">3.9. Goal setting : <code>goal</code></a></li>
+<li><a href="#tracking-loans-code-loan-code">3.10. Tracking loans : <code>loan</code></a></li>
+<li><a href="#import-and-export-code-import-export-code">3.11. Import and export : <code>import, export</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -34,59 +35,19 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 3 (AB3) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB3 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>Budget Buddy is for computing students who prefer to use a desktop app to manage their expenses.
+More importantly, Budget Buddy is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI)
+while still having the benefits of a Graphical User Interface (GUI).
+If you can type fast, Budget Buddy can get your expense management tasks done faster than traditional GUI apps.
+Furthermore, computing students can take full advantage of Budget Buddy by adding their own functions through custom JavaScript files.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
 <div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
-</li>
-<li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level3/releases">here</a>.</p>
-</li>
-<li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
-</li>
-<li>
-<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
-<div class="imageblock">
-<div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
-</div>
-</div>
-</li>
-<li>
-<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
-e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
-</li>
-<li>
-<p>Some example commands you can try:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
-</li>
-<li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
-</li>
-<li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
-</li>
-<li>
-<p><strong><code>exit</code></strong> : exits the app</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
-</li>
-</ol>
+<div class="paragraph">
+<p>Nothing to see here.</p>
 </div>
 </div>
 </div>
@@ -101,16 +62,16 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words within <code>&lt;&gt;</code> brackets are parameters to be supplied by the user.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Parameters within <code>[]</code> brackets are optional and can be omitted.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p><code>|</code> indicates that a choice must be made between two parameters.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p><code>&#8230;&#8203;</code> indicates a variable number (at least 1) of the specified parameter.</p>
 </li>
 </ul>
 </div>
@@ -119,204 +80,400 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Displays help. If <code>command</code> is specified, view detailed help for that command.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>help [&lt;command]&gt;</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
+<h3 id="manage-defaults-code-default-code"><a class="link" href="#manage-defaults-code-default-code">3.2. Manage defaults : <code>default</code></a></h3>
+<div class="sect3">
+<h4 id="set-default-account-code-default-account-code"><a class="link" href="#set-default-account-code-default-account-code">3.2.1. Set default account : <code>default account</code></a></h4>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A person can have any number of tags (including 0)
-</td>
-</tr>
-</table>
+<p>Sets the default account.</p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Format: <code>default account &lt;id&gt;</code></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
-</li>
-<li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
+<h3 id="manage-the-main-transaction-view-code-view-code"><a class="link" href="#manage-the-main-transaction-view-code-view-code">3.3. Manage the main transaction view : <code>view</code></a></h3>
+<div class="sect3">
+<h4 id="filter-transactions-code-view-filter-code"><a class="link" href="#filter-transactions-code-view-filter-code">3.3.1. Filter transactions : <code>view filter</code></a></h4>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
+<p>Filters the main transaction view. If no arguments are provided, all transactions are shown.
+Otherwise, only transactions meeting all the criteria are shown.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>view filter [a/&lt;account&gt;] [c/&lt;category&gt;] [f/&lt;from date&gt;] [t/&lt;to date&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sort-transactions-code-view-sort-code"><a class="link" href="#sort-transactions-code-view-sort-code">3.3.2. Sort transactions : <code>view sort</code></a></h4>
+<div class="paragraph">
+<p>Sorts transactions by (a)ccount, (c)ategory, (d)ate or (x)amount.
+Specify <code>o/a</code> to sort in ascending order, or <code>o/d</code> to sort in descending order.
+If omitted, sort in ascending order.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>view sort s/&lt;a|c|d|x&gt; [o/&lt;a|d&gt;]</code></p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
+<h3 id="managing-transactions-code-transaction-code"><a class="link" href="#managing-transactions-code-transaction-code">3.4. Managing transactions : <code>transaction</code></a></h3>
+<div class="sect3">
+<h4 id="add-a-transaction-code-transaction-add-code"><a class="link" href="#add-a-transaction-code-transaction-add-code">3.4.1. Add a transaction : <code>transaction add</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>Adds a new transaction of the specified amount and with the given description.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>transaction add x/&lt;amount&gt; d/&lt;description&gt; [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;] [r/&lt;d|w|m|y&gt;]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>If the account is not given, the transaction is inserted into the default account.</p>
 </li>
 <li>
-<p>At least one of the optional fields must be provided.</p>
+<p>If the category is not given, the transaction is not categorised.</p>
 </li>
 <li>
-<p>Existing values will be updated to the input values.</p>
+<p>If the date is not given, the date is set to the current date.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>If the argument ‘r’ is added, the transition is marked as recurring;
+identical entries will be added either daily, weekly, monthly, or yearly.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-a-transaction-code-transaction-edit-code"><a class="link" href="#edit-a-transaction-code-transaction-edit-code">3.4.2. Edit a transaction : <code>transaction edit</code></a></h4>
+<div class="paragraph">
+<p>Edits the specified transaction, setting the specified fields.
+If the ‘recurring’ field is modified, the app will ask if all previous recurring entries should be deleted.</p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Format: <code>transaction edit &lt;id&gt; [x/&lt;amount&gt;] [d/&lt;description&gt;] [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;] [r/&lt;d|w|m|y&gt;]</code></p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
-</li>
-<li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
-</li>
-</ul>
+</div>
+<div class="sect3">
+<h4 id="delete-transaction-s-code-transaction-delete-code"><a class="link" href="#delete-transaction-s-code-transaction-delete-code">3.4.3. Delete transaction(s) : <code>transaction delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the transactions with the specified IDs.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>transaction delete &lt;id &#8230;&#8203;&gt;</code></p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
+<h3 id="managing-categories-code-category-code"><a class="link" href="#managing-categories-code-category-code">3.5. Managing categories : <code>category</code></a></h3>
+<div class="sect3">
+<h4 id="adding-a-category"><a class="link" href="#adding-a-category">3.5.1. Adding a category</a></h4>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Categories do not need to be added; you can simply use the category name and a new category will be created if no such one exists.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-categories-code-category-list-code"><a class="link" href="#list-categories-code-category-list-code">3.5.2. List categories : <code>category list</code></a></h4>
+<div class="paragraph">
+<p>Lists all categories.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rename-a-category-code-category-rename-code"><a class="link" href="#rename-a-category-code-category-rename-code">3.5.3. Rename a category : <code>category rename</code></a></h4>
+<div class="paragraph">
+<p>Renames the specified category.
+Note that this is the same as setting the category of all transactions of category <code>old name</code> to <code>new name</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>category rename o/&lt;old name&gt; n/&lt;new name&gt;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-category-code-category-delete-code"><a class="link" href="#delete-a-category-code-category-delete-code">3.5.4. Delete a category : <code>category delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified category.
+Note that this is the same as un-categorising all transactions under the specified category.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>category delete n/&lt;name&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-accounts-code-account-code"><a class="link" href="#managing-accounts-code-account-code">3.6. Managing accounts : <code>account</code></a></h3>
+<div class="sect3">
+<h4 id="add-an-account-code-account-add-code"><a class="link" href="#add-an-account-code-account-add-code">3.6.1. Add an account : <code>account add</code></a></h4>
+<div class="paragraph">
+<p>Creates a new account with the given name. If the currency symbol is not specified, “$” is used.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account add n/&lt;name&gt; [c/&lt;currency symbol&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-accounts-code-account-list-code"><a class="link" href="#list-accounts-code-account-list-code">3.6.2. List accounts : <code>account list</code></a></h4>
+<div class="paragraph">
+<p>Lists all accounts.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-an-account-code-account-edit-code"><a class="link" href="#edit-an-account-code-account-edit-code">3.6.3. Edit an account : <code>account edit</code></a></h4>
+<div class="paragraph">
+<p>Edits the specified account, setting the specified fields.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account edit &lt;id&gt; [n/&lt;name&gt;] [c/&lt;currency symbol&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-account-s-code-account-delete-code"><a class="link" href="#delete-account-s-code-account-delete-code">3.6.4. Delete account(s) : <code>account delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the accounts with the specified IDs, as in <code>account list</code>.
+Note: you cannot delete an account if there are transactions associated with the account.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account delete &lt;id &#8230;&#8203;&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-reports-code-report-code"><a class="link" href="#viewing-reports-code-report-code">3.7. Viewing reports : <code>report</code></a></h3>
+<div class="paragraph">
+<p>Displays a report.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>report [[f/&lt;from date&gt;] [t/&lt;to date&gt;] | [p/&lt;this month|last month|this week|last week|today|yesterday&gt;]] [total|category]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+<p>You can specify either the start and end date range, inclusive, or name a period.
+If no period is specified, it defaults to the current month-to-date.</p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+<p>You can see a total report that shows your total income and expenditure and budget information,
+if a budget has been set up,  or a report that breaks your income and expenditure down into categories.
+If the type is omitted, it defaults to a total report.</p>
 </li>
 <li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Your goal progress will also be shown in both reports.</p>
 </li>
 </ul>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
-</li>
-<li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
+<h3 id="managing-budgets-code-budget-code"><a class="link" href="#managing-budgets-code-budget-code">3.8. Managing budgets : <code>budget</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
+<p>Displays or sets the budget for the specified period.
+If the period is omitted, it defaults to the entire current month.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>budget [[f/&lt;from date&gt;] [t/&lt;to date&gt;] | [p/&lt;this month|last month|this week|last week|today|yesterday&gt;]] [&lt;amount&gt;|unset]</code></p>
+</div>
+<div class="sect3">
+<h4 id="viewing-budgets"><a class="link" href="#viewing-budgets">3.8.1. Viewing budgets</a></h4>
+<div class="paragraph">
+<p>To view budgets, omit <code>[&lt;amount&gt;|unset]</code> from the command.
+All budgets overlapping the period specified will be displayed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-budgets"><a class="link" href="#setting-budgets">3.8.2. Setting budgets</a></h4>
+<div class="paragraph">
+<p>To set a budget, specify the <code>[&lt;amount&gt;]</code>. Note that budgets cannot overlap.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-budgets"><a class="link" href="#removing-budgets">3.8.3. Removing budgets</a></h4>
+<div class="paragraph">
+<p>To unset a budget, specify <code>[unset]</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="goal-setting-code-goal-code"><a class="link" href="#goal-setting-code-goal-code">3.9. Goal setting : <code>goal</code></a></h3>
+<div class="sect3">
+<h4 id="adding-a-goal-code-goal-add-code"><a class="link" href="#adding-a-goal-code-goal-add-code">3.9.1. Adding a goal : <code>goal add</code></a></h4>
+<div class="paragraph">
+<p>Adds a goal on the specified account to reach the specified amount by the target date or at the end of the specified period.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>goal add [a/&lt;account&gt;] [[d/&lt;target date&gt;] | [p/&lt;this week|this month|next month|this year&gt;]] x/[+]&lt;amount&gt;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p>If the account is omitted, the default account is set.</p>
 </li>
 <li>
-<p>The index refers to the index number shown in the displayed person list.</p>
+<p>If the period is omitted, the target date is set to the last day of the current month.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>If + is specified before amount, then the target amount is set as amount more than the current balance in the target account.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
 </div>
+<div class="sect3">
+<h4 id="view-goals-code-goal-list-code"><a class="link" href="#view-goals-code-goal-list-code">3.9.2. View goals : <code>goal list</code></a></h4>
+<div class="paragraph">
+<p>List all goals.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-goal-s-code-goal-delete-code"><a class="link" href="#delete-goal-s-code-goal-delete-code">3.9.3. Delete goal(s) : <code>goal delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the goals with the specified goal IDs. Goal IDs can be retrieved from <code>goal list</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>goal delete &lt;id &#8230;&#8203;&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tracking-loans-code-loan-code"><a class="link" href="#tracking-loans-code-loan-code">3.10. Tracking loans : <code>loan</code></a></h3>
+<div class="sect3">
+<h4 id="add-a-new-loan-code-loan-out-in-code"><a class="link" href="#add-a-new-loan-code-loan-out-in-code">3.10.1. Add a new loan : <code>loan out|in</code></a></h4>
+<div class="paragraph">
+<p>Adds a new loan out/in entry.
+Each entry has a unique ID (across both out and in entries).
+If date is not given, it is set to the default date.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loan out|in x/&lt;amount&gt; d/&lt;description&gt; [w/&lt;date&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-loans-code-loan-list-code"><a class="link" href="#list-loans-code-loan-list-code">3.10.2. List loans : <code>loan list</code></a></h4>
+<div class="paragraph">
+<p>Displays a list of all loans, sorted by newest first.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loan list [o|i] [s/a]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
+<p>Adding ‘o’ argument filters list to out loans only.</p>
 </li>
 <li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+<p>Adding ‘i’ argument filters list to in loans only.</p>
+</li>
+<li>
+<p>Add <code>s/a</code> to sort the list by amount.</p>
 </li>
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-loan-code-loan-edit-code"><a class="link" href="#edit-loan-code-loan-edit-code">3.10.3. Edit loan : <code>loan edit</code></a></h4>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p>Edits the specified field of the loan entry with the specified ID.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loan edit &lt;id&gt; [x/&lt;amount&gt;] [d/&lt;description&gt;] [w/&lt;date&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="mark-loan-s-as-paid-code-loan-paid-code"><a class="link" href="#mark-loan-s-as-paid-code-loan-paid-code">3.10.4. Mark loan(s) as paid : <code>loan paid</code></a></h4>
+<div class="paragraph">
+<p>Marks the specified loan(s) as paid.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loan paid &lt;id &#8230;&#8203;&gt;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-loan-s-code-loan-delete-code"><a class="link" href="#delete-loan-s-code-loan-delete-code">3.10.5. Delete loan(s) : <code>loan delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the loan(s) with the specified loan ID(s).</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loan delete &lt;id &#8230;&#8203;&gt;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="calculate-loans-code-loan-split-code"><a class="link" href="#calculate-loans-code-loan-split-code">3.10.6. Calculate loans : <code>loan split</code></a></h4>
+<div class="paragraph">
+<p>Splits and calculates a group payment, then prints a list of who owes who.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loan split n/&lt;name&gt; a/&lt;amount paid&gt; &#8230;&#8203;</code></p>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></h3>
+<h3 id="import-and-export-code-import-export-code"><a class="link" href="#import-and-export-code-import-export-code">3.11. Import and export : <code>import, export</code></a></h3>
+<div class="sect3">
+<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">3.11.1. Import a file : <code>import</code></a></h4>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>Imports transactions from the file at the given path.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
+<p>Format: <code>import [f/&lt;format&gt;] [p/&lt;file path&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
+If the path is omitted, a file browser is opened for you to select the file.</p>
+</li>
+<li>
+<p>Format is one of dbs (DBS Bank/POSB), ocbc (OCBC Bank), sc (Standard Chartered), csv (generic comma-separated values file).
+If the format is omitted, automatic detection is attempted.</p>
+</li>
+</ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></h3>
+</div>
+</div>
+<div class="sect3">
+<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">3.11.2. Export transactions : <code>export</code></a></h4>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>Exports all transactions to the given path.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>export [p/&lt;file path&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
+If the path is omitted, a file browser is opened for you to select where to save the file.</p>
+</li>
+<li>
+<p>The file is a comma-separated values file.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -324,43 +481,12 @@ There is no need to save manually.</p>
 <div class="sect1">
 <h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
-</div>
+
 </div>
 </div>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
-</li>
-<li>
-<p><strong>Clear</strong> : <code>clear</code></p>
-</li>
-<li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
-</li>
-<li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
-</li>
-<li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
-</li>
-<li>
-<p><strong>List</strong> : <code>list</code></p>
-</li>
-<li>
-<p><strong>Help</strong> : <code>help</code></p>
-</li>
-</ul>
+
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-16 18:06:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-30 05:03:58 UTC</div></div></div></body></html>
