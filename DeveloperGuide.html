@@ -33,7 +33,14 @@
 <li><a href="#dev-ops">6. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-add-loan">C.1. Use case: Add loan</a></li>
+<li><a href="#use-case-edit-loan">C.2. Use case: Edit loan</a></li>
+<li><a href="#use-case-add-account">C.3. Use case: Add account</a></li>
+<li><a href="#use-case-rename-categories">C.4. Use case: Rename categories</a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
 <li><a href="#product-survey">Appendix F: Product Survey</a></li>
@@ -628,7 +635,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
+<p>has a need to manage expenses and income over a significant period of time</p>
 </li>
 <li>
 <p>prefer desktop apps over other types</p>
@@ -642,10 +649,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <li>
 <p>is reasonably comfortable using CLI apps</p>
 </li>
+<li>
+<p>capable of basic programming to customize the app to their liking</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Value proposition</strong>: manage contacts faster than a typical mouse/GUI driven app</p>
+<p><strong>Value proposition</strong>: manage expenses/income faster than a typical mouse/GUI driven app</p>
 </div>
 </div>
 </div>
@@ -673,70 +683,205 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">new user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see usage instructions</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions when I forget how to use the App</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see an overview of all my spending from month to month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">better judge my expense/income ratio</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">add a new person</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">spendthrift</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set a budget for my monthly spending</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">avoid breaking the bank again</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a person</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove entries that I no longer need</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lazy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">key in recurring expenses just once</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">do not have to enter them over and over again</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">find a person by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate details of persons without having to go through the entire list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careful spender</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">make month-to-month comparisons of spending in a particular category</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see where additional expenses for certain months come from</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cautious spender</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">carry over any budget deficits incurred each month to the following month</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remember to repay it</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user who borrows and loans money frequently</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track who owes me money/who I owe money to</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">settle my debts</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOC student who has to pay school fees regularly</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">track how much I’ll have to pay and when I have to pay it by</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">avoid making late payments</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOC student experienced in writing programs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">write my own scripts to manipulate entries in the app</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">automate and customize the app to my liking</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ambitious user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set goals for my cumulative income</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">work towards my dream home/car/goal</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undo a mistake</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not worry even if I accidentally make an error</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careful spender</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dedicate different accounts to different holidays</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">control how much I spend while on the holidays</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careful spender</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set different currencies for different accounts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see my expenditure during a holiday in the local currency</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lazy person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">import expenses from csv exports from internet banking</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">transfer my records across software</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">supremely lazy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have the program detect recurring transactions and suggest them to me</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not waste time adding them manually</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">paranoid user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have the program show me all possible commands and how to use them</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know exactly what I am doing</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user who prefers visuals</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see a chart of my budget spending across past months</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see how much I have been overspending/underspending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">busy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">move and delete multiple transactions at the same time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be more efficient</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lazy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have the program autofill my command as I am typing it</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enter my transactions more quickly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user who cannot control spending</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set a budget for different purposes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">control my spending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lazy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have the app to have predictive commands based on what transactions I commonly include</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">spend less time typing in my expenses</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fast typer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type out multiple commands all at once</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">type the next command without having to pause</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">person who occasionally goes overseas</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">assign an exchange rate to each foreign currency transaction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get reports on my total expenditure in my home currency</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">busy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see my overall budget surplus/deficit at a glance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">know straight away when I’m below or above my budget for that month</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">meticulous user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see how much I need to budget every month to reach a savings goal based on what the goal is and its deadline</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">plan my budget well</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">busy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my spending in different account books</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">segregate completely unrelated spending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">careless user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">hide <a href="#private-contact-detail">private contact details</a> by default</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">minimize chance of someone else seeing them by accident</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the address book</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unmotivated person</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be rewarded for entering my expenses/income daily</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be motivated to do so and eventually turn it into a habit</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">expense planner</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">record down possible future expenses</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of what I planned to spend on</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">forgetful user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have the app set reminders</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my spending everyday</p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is <code>Budget Buddy</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-delete-transaction" class="discrete">Use case: Delete transaction</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to list transactions.</p>
 </li>
 <li>
-<p>AddressBook shows a list of persons</p>
+<p>Budget Buddy shows a list of transactions for the current account.</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>User requests to delete a specific transaction in the list.</p>
 </li>
 <li>
-<p>AddressBook deletes the person</p>
+<p>Budget Buddy deletes the transaction.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -759,7 +904,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. AddressBook shows an error message.</p>
+<p>3a1. Budget Buddy shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -769,8 +914,209 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
+<div class="sect2">
+<h3 id="use-case-add-loan"><a class="link" href="#use-case-add-loan">C.1. Use case: Add loan</a></h3>
 <div class="paragraph">
-<p><em>{More to be added}</em></p>
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a <a href="#loan-out">loan out</a> for a person.</p>
+</li>
+<li>
+<p>Budget Buddy adds the loan for the given person.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given loan out value is negative.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Budget Buddy shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>2a. The given person does not exist in the loan list.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. Budget Buddy adds the given person to the loan list with a loan entry.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-edit-loan"><a class="link" href="#use-case-edit-loan">C.2. Use case: Edit loan</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list loans.</p>
+</li>
+<li>
+<p>Budget Buddy shows a list of loans.</p>
+</li>
+<li>
+<p>User requests to edit the description of a loan in the list.</p>
+</li>
+<li>
+<p>Budget Buddy edits the description of the specified loan.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>2a. The given loan index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a1. Budget Buddy shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-add-account"><a class="link" href="#use-case-add-account">C.3. Use case: Add account</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a new account.</p>
+</li>
+<li>
+<p>Budget Buddy creates the new account.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. No account name was provided.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Budget Buddy shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-rename-categories"><a class="link" href="#use-case-rename-categories">C.4. Use case: Rename categories</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list all categories.</p>
+</li>
+<li>
+<p>Budget Buddy shows all created categories.</p>
+</li>
+<li>
+<p>User requests to rename a category.</p>
+</li>
+<li>
+<p>Budget Buddy renames the category and displays the list of categories.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The index of the category does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. Budget buddy shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b. The new name of the category is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. Budget Buddy shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -783,15 +1129,12 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
 </li>
 <li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
+<p>Should be able to hold up to 1000000 transactions without a noticeable sluggishness in performance for typical usage.</p>
 </li>
 <li>
 <p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
 </div>
 </div>
@@ -804,9 +1147,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <dd>
 <p>Windows, Linux, Unix, OS-X</p>
 </dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
+<dt class="hdlist1"><a id="loan-out"></a> Loan Out</dt>
 <dd>
-<p>A contact detail that is not meant to be shared with others</p>
+<p>A loan where the user owes another person money.</p>
+</dd>
+<dt class="hdlist1"><a id="loan-in"></a> Loan In</dt>
+<dd>
+<p>A loan where another person owes the user money.</p>
 </dd>
 </dl>
 </div>
@@ -958,4 +1305,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-09-30 05:13:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-01 10:38:35 UTC</div></div></div></body></html>
