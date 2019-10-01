@@ -14,6 +14,15 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
+<li><a href="#manage-defaults-code-default-code">3.2. Manage defaults : <code>default</code></a></li>
+<li><a href="#manage-the-main-transaction-view-code-view-code">3.3. Manage the main transaction view : <code>view</code></a></li>
+<li><a href="#managing-transactions-code-transaction-code">3.4. Managing transactions : <code>transaction</code></a></li>
+<li><a href="#managing-accounts-code-account-code">3.5. Managing accounts : <code>account</code></a></li>
+<li><a href="#managing-categories-code-category-code">3.6. Managing categories : <code>category</code></a></li>
+<li><a href="#viewing-reports-code-report-code">3.7. Viewing reports : <code>report</code></a></li>
+<li><a href="#managing-budgets-code-budget-code">3.8. Managing budgets : <code>budget</code></a></li>
+<li><a href="#goal-setting-code-goal-code">3.9. Goal setting : <code>goal</code></a></li>
+<li><a href="#import-and-export-code-import-export-code">3.10. Import and export : <code>import, export</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -76,6 +85,394 @@ Furthermore, computing students can take full advantage of Budget Buddy by addin
 <p>Format: <code>help [&lt;command]&gt;</code></p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="manage-defaults-code-default-code"><a class="link" href="#manage-defaults-code-default-code">3.2. Manage defaults : <code>default</code></a></h3>
+<div class="sect3">
+<h4 id="set-default-account-code-default-account-code"><a class="link" href="#set-default-account-code-default-account-code">3.2.1. Set default account : <code>default account</code></a></h4>
+<div class="paragraph">
+<p>Sets the default account.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>default account &lt;id&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="manage-the-main-transaction-view-code-view-code"><a class="link" href="#manage-the-main-transaction-view-code-view-code">3.3. Manage the main transaction view : <code>view</code></a></h3>
+<div class="sect3">
+<h4 id="filter-transactions-code-view-filter-code"><a class="link" href="#filter-transactions-code-view-filter-code">3.3.1. Filter transactions : <code>view filter</code></a></h4>
+<div class="paragraph">
+<p>Filters the main transaction view. If no arguments are provided, all transactions are shown.
+Otherwise, only transactions meeting all the criteria are shown.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>view filter [a/&lt;account&gt;] [c/&lt;category&gt;] [f/&lt;from date&gt;] [t/&lt;to date&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sort-transactions-code-view-sort-code"><a class="link" href="#sort-transactions-code-view-sort-code">3.3.2. Sort transactions : <code>view sort</code></a></h4>
+<div class="paragraph">
+<p>Sorts transactions by (a)ccount, (c)ategory, (d)ate or (x)amount.
+Specify <code>o/a</code> to sort in ascending order, or <code>o/d</code> to sort in descending order.
+If omitted, sort in ascending order.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>view sort s/&lt;a|c|d|x&gt; [o/&lt;a|d&gt;]</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-transactions-code-transaction-code"><a class="link" href="#managing-transactions-code-transaction-code">3.4. Managing transactions : <code>transaction</code></a></h3>
+<div class="sect3">
+<h4 id="add-a-transaction-code-transaction-add-code"><a class="link" href="#add-a-transaction-code-transaction-add-code">3.4.1. Add a transaction : <code>transaction add</code></a></h4>
+<div class="paragraph">
+<p>Adds a new transaction of the specified amount and with the given description.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>transaction add x/&lt;amount&gt; d/&lt;description&gt; [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;] [r/&lt;d|w|m|y&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If the account is not given, the transaction is inserted into the default account.</p>
+</li>
+<li>
+<p>If the category is not given, the transaction is not categorised.</p>
+</li>
+<li>
+<p>If the date is not given, the date is set to the current date.</p>
+</li>
+<li>
+<p>If the argument ‘r’ is added, the transition is marked as recurring;
+identical entries will be added either daily, weekly, monthly, or yearly.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-a-transaction-code-transaction-edit-code"><a class="link" href="#edit-a-transaction-code-transaction-edit-code">3.4.2. Edit a transaction : <code>transaction edit</code></a></h4>
+<div class="paragraph">
+<p>Edits the specified transaction, setting the specified fields.
+If the ‘recurring’ field is modified, the app will ask if all previous recurring entries should be deleted.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>transaction edit &lt;id&gt; [x/&lt;amount&gt;] [d/&lt;description&gt;] [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;] [r/&lt;d|w|m|y&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-transaction-s-code-transaction-delete-code"><a class="link" href="#delete-transaction-s-code-transaction-delete-code">3.4.3. Delete transaction(s) : <code>transaction delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the transactions with the specified IDs.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>transaction delete &lt;id &#8230;&#8203;&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-accounts-code-account-code"><a class="link" href="#managing-accounts-code-account-code">3.5. Managing accounts : <code>account</code></a></h3>
+<div class="sect3">
+<h4 id="add-an-account-code-account-add-code"><a class="link" href="#add-an-account-code-account-add-code">3.5.1. Add an account : <code>account add</code></a></h4>
+<div class="paragraph">
+<p>Creates a new account with the given name. If the currency symbol is not specified, “$” is used.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account add n/&lt;name&gt; [c/&lt;currency symbol&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-accounts-code-account-list-code"><a class="link" href="#list-accounts-code-account-list-code">3.5.2. List accounts : <code>account list</code></a></h4>
+<div class="paragraph">
+<p>Lists all accounts.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-an-account-code-account-edit-code"><a class="link" href="#edit-an-account-code-account-edit-code">3.5.3. Edit an account : <code>account edit</code></a></h4>
+<div class="paragraph">
+<p>Edits the specified account, setting the specified fields.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account edit &lt;id&gt; [n/&lt;name&gt;] [c/&lt;currency symbol&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-account-s-code-account-delete-code"><a class="link" href="#delete-account-s-code-account-delete-code">3.5.4. Delete account(s) : <code>account delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the accounts with the specified IDs, as in <code>account list</code>.
+Note: you cannot delete an account if there are transactions associated with the account.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account delete &lt;id &#8230;&#8203;&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-categories-code-category-code"><a class="link" href="#managing-categories-code-category-code">3.6. Managing categories : <code>category</code></a></h3>
+<div class="sect3">
+<h4 id="adding-a-category"><a class="link" href="#adding-a-category">3.6.1. Adding a category</a></h4>
+<div class="paragraph">
+<p>Categories do not need to be added; you can simply use the category name and a new category will be created if no such one exists.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-categories-code-category-list-code"><a class="link" href="#list-categories-code-category-list-code">3.6.2. List categories : <code>category list</code></a></h4>
+<div class="paragraph">
+<p>Lists all categories.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rename-a-category-code-category-rename-code"><a class="link" href="#rename-a-category-code-category-rename-code">3.6.3. Rename a category : <code>category rename</code></a></h4>
+<div class="paragraph">
+<p>Renames the specified category.
+Note that this is the same as setting the category of all transactions of category <code>old name</code> to <code>new name</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>category rename o/&lt;old name&gt; n/&lt;new name&gt;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-category-code-category-delete-code"><a class="link" href="#delete-a-category-code-category-delete-code">3.6.4. Delete a category : <code>category delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified category.
+Note that this is the same as un-categorising all transactions under the specified category.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>category delete n/&lt;name&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-reports-code-report-code"><a class="link" href="#viewing-reports-code-report-code">3.7. Viewing reports : <code>report</code></a></h3>
+<div class="paragraph">
+<p>Displays a report.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>report [[f/&lt;from date&gt;] [t/&lt;to date&gt;] | [p/&lt;this month|last month|this week|last week|today|yesterday&gt;]] [total|category]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You can specify either the start and end date range, inclusive, or name a period.
+If no period is specified, it defaults to the current month-to-date.</p>
+</li>
+<li>
+<p>You can see a total report that shows your total income and expenditure and budget information,
+if a budget has been set up,  or a report that breaks your income and expenditure down into categories.
+If the type is omitted, it defaults to a total report.</p>
+</li>
+<li>
+<p>Your goal progress will also be shown in both reports.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-budgets-code-budget-code"><a class="link" href="#managing-budgets-code-budget-code">3.8. Managing budgets : <code>budget</code></a></h3>
+<div class="paragraph">
+<p>Displays or sets the budget for the specified period.
+If the period is omitted, it defaults to the entire current month.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>budget [[f/&lt;from date&gt;] [t/&lt;to date&gt;] | [p/&lt;this month|last month|this week|last week|today|yesterday&gt;]] [&lt;amount&gt;|unset]</code></p>
+</div>
+<div class="sect3">
+<h4 id="viewing-budgets"><a class="link" href="#viewing-budgets">3.8.1. Viewing budgets</a></h4>
+<div class="paragraph">
+<p>To view budgets, omit <code>[&lt;amount&gt;|unset]</code> from the command.
+All budgets overlapping the period specified will be displayed.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="setting-budgets"><a class="link" href="#setting-budgets">3.8.2. Setting budgets</a></h4>
+<div class="paragraph">
+<p>To set a budget, specify the <code>[&lt;amount&gt;]</code>. Note that budgets cannot overlap.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="removing-budgets"><a class="link" href="#removing-budgets">3.8.3. Removing budgets</a></h4>
+<div class="paragraph">
+<p>To unset a budget, specify <code>[unset]</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="goal-setting-code-goal-code"><a class="link" href="#goal-setting-code-goal-code">3.9. Goal setting : <code>goal</code></a></h3>
+<div class="sect3">
+<h4 id="adding-a-goal-code-goal-add-code"><a class="link" href="#adding-a-goal-code-goal-add-code">3.9.1. Adding a goal : <code>goal add</code></a></h4>
+<div class="paragraph">
+<p>Adds a goal on the specified account to reach the specified amount by the target date or at the end of the specified period.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>goal add [a/&lt;account&gt;] [[d/&lt;target date&gt;] | [p/&lt;this week|this month|next month|this year&gt;]] x/[+]&lt;amount&gt;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If the account is omitted, the default account is set.</p>
+</li>
+<li>
+<p>If the period is omitted, the target date is set to the last day of the current month.</p>
+</li>
+<li>
+<p>If + is specified before amount, then the target amount is set as amount more than the current balance in the target account.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-goals-code-goal-list-code"><a class="link" href="#view-goals-code-goal-list-code">3.9.2. View goals : <code>goal list</code></a></h4>
+<div class="paragraph">
+<p>List all goals.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-goal-s-code-goal-delete-code"><a class="link" href="#delete-goal-s-code-goal-delete-code">3.9.3. Delete goal(s) : <code>goal delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the goals with the specified goal IDs. Goal IDs can be retrieved from <code>goal list</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>goal delete &lt;id &#8230;&#8203;&gt;</code>
+=== Tracking loans : <code>loan</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-new-loan-code-loan-out-in-code"><a class="link" href="#add-a-new-loan-code-loan-out-in-code">3.9.4. Add a new loan : <code>loan out|in</code></a></h4>
+<div class="paragraph">
+<p>Adds a new loan out/in entry.
+Each entry has a unique ID (across both out and in entries).
+If date is not given, it is set to the default date.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loan out|in x/&lt;amount&gt; d/&lt;description&gt; [w/&lt;date&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-loans-code-loan-list-code"><a class="link" href="#list-loans-code-loan-list-code">3.9.5. List loans : <code>loan list</code></a></h4>
+<div class="paragraph">
+<p>Displays a list of all loans, sorted by newest first.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loan list [o|i] [s/a]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Adding ‘o’ argument filters list to out loans only.</p>
+</li>
+<li>
+<p>Adding ‘i’ argument filters list to in loans only.</p>
+</li>
+<li>
+<p>Add <code>s/a</code> to sort the list by amount.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-loan-code-loan-edit-code"><a class="link" href="#edit-loan-code-loan-edit-code">3.9.6. Edit loan : <code>loan edit</code></a></h4>
+<div class="paragraph">
+<p>Edits the specified field of the loan entry with the specified ID.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loan edit &lt;id&gt; [x/&lt;amount&gt;] [d/&lt;description&gt;] [w/&lt;date&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="mark-loan-s-as-paid-code-loan-paid-code"><a class="link" href="#mark-loan-s-as-paid-code-loan-paid-code">3.9.7. Mark loan(s) as paid : <code>loan paid</code></a></h4>
+<div class="paragraph">
+<p>Marks the specified loan(s) as paid.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loan paid &lt;id &#8230;&#8203;&gt;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-loan-s-code-loan-delete-code"><a class="link" href="#delete-loan-s-code-loan-delete-code">3.9.8. Delete loan(s) : <code>loan delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the loan(s) with the specified loan ID(s).</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loan delete &lt;id &#8230;&#8203;&gt;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="calculate-loans-code-loan-split-code"><a class="link" href="#calculate-loans-code-loan-split-code">3.9.9. Calculate loans : <code>loan split</code></a></h4>
+<div class="paragraph">
+<p>Splits and calculates a group payment, then prints a list of who owes who.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>loan split n/&lt;name&gt; a/&lt;amount paid&gt; &#8230;&#8203;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-and-export-code-import-export-code"><a class="link" href="#import-and-export-code-import-export-code">3.10. Import and export : <code>import, export</code></a></h3>
+<div class="sect3">
+<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">3.10.1. Import a file : <code>import</code></a></h4>
+<div class="paragraph">
+<p>Imports transactions from the file at the given path.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>import [f/&lt;format&gt;] [p/&lt;file path&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
+If the path is omitted, a file browser is opened for you to select the file.</p>
+</li>
+<li>
+<p>Format is one of dbs (DBS Bank/POSB), ocbc (OCBC Bank), sc (Standard Chartered), csv (generic comma-separated values file).
+If the format is omitted, automatic detection is attempted.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">3.10.2. Export transactions : <code>export</code></a></h4>
+<div class="paragraph">
+<p>Exports all transactions to the given path.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>export [p/&lt;file path&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
+If the path is omitted, a file browser is opened for you to select where to save the file.</p>
+</li>
+<li>
+<p>The file is a comma-separated values file.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -89,4 +486,4 @@ Furthermore, computing students can take full advantage of Budget Buddy by addin
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-01 13:55:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-01 15:41:18 UTC</div></div></div></body></html>
