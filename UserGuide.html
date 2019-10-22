@@ -355,27 +355,27 @@ All budgets overlapping the period specified will be displayed.</p>
 <h4 id="add-a-new-loan-code-loan-out-in-code"><a class="link" href="#add-a-new-loan-code-loan-out-in-code">3.10.1. Add a new loan : <code>loan out|in</code></a></h4>
 <div class="paragraph">
 <p>Adds a new loan out/in entry.
-Each person has a unique ID and each person&#8217;s loans have unique IDs (across both out and in entries).
-If date is not given, it is set to the default date.</p>
+Each loan has a unique ID (across both out and in entries).
+If date is not given, it is set to the current date.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan out|in p/&lt;person&#8217;s name&gt; x/&lt;amount&gt; d/&lt;description&gt; [w/&lt;date&gt;]</code></p>
+<p>Format: <code>loan out|in p/&lt;person&#8217;s name&gt; x/&lt;amount&gt; [w/&lt;date&gt;] [d/&lt;description&gt;]</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="list-loans-code-loan-list-code"><a class="link" href="#list-loans-code-loan-list-code">3.10.2. List loans : <code>loan list</code></a></h4>
 <div class="paragraph">
-<p>Displays a list of all loans, sorted by newest first.</p>
+<p>Displays a list of all loans, sorted alphabetically by person first, then by newest for each person&#8217;s loans.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan list [p/&lt;person&#8217;s name &#8230;&#8203;&gt;] [o|i] [s/a]</code></p>
+<p>Format: <code>loan list [p/&lt;person &#8230;&#8203;&gt;] [o|i] [s/&lt;a|p&gt;]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Adding a person&#8217;s name filters the list to that/those person(s)'s loans.</p>
+<p>Adding a person&#8217;s name filters the list to that/those person(s)'s loans only.</p>
 </li>
 <li>
 <p>Adding ‘o’ argument filters list to out loans only.</p>
@@ -384,7 +384,7 @@ If date is not given, it is set to the default date.</p>
 <p>Adding ‘i’ argument filters list to in loans only.</p>
 </li>
 <li>
-<p>Add <code>s/a</code> to sort the list by amount.</p>
+<p>Add <code>s/a</code> to sort the list by amount, or <code>s/p</code> to sort by person.</p>
 </li>
 </ul>
 </div>
@@ -397,34 +397,37 @@ If date is not given, it is set to the default date.</p>
 <p>Edits the specified field of the loan entry with the specified ID.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan edit &lt;person number&gt;.&lt;loan number&gt; [x/&lt;amount&gt;] [d/&lt;description&gt;] [w/&lt;date&gt;]</code></p>
+<p>Format: <code>loan edit &lt;loan ID&gt; [&lt;p/person&gt;] [x/&lt;amount&gt;] [d/&lt;description&gt;] [w/&lt;date&gt;]</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="mark-loan-s-as-paid-code-loan-paid-code"><a class="link" href="#mark-loan-s-as-paid-code-loan-paid-code">3.10.4. Mark loan(s) as paid : <code>loan paid</code></a></h4>
 <div class="paragraph">
-<p>Marks the specified loan(s) as paid.</p>
+<p>Marks the specified loan(s) as paid.
+If a person&#8217;s name is specified, all their loans are marked as paid.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan paid &lt;person number&gt;[.&lt;loan number&gt;[- &#8230;&#8203;]] &#8230;&#8203;</code></p>
+<p>Format: <code>loan paid &lt;loan ID &#8230;&#8203;&gt; [&lt;p/person &#8230;&#8203;&gt;]</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="mark-loan-s-as-unpaid-code-loan-unpaid-code"><a class="link" href="#mark-loan-s-as-unpaid-code-loan-unpaid-code">3.10.5. Mark loan(s) as unpaid : <code>loan unpaid</code></a></h4>
 <div class="paragraph">
-<p>Marks the specified loan(s) as unpaid.</p>
+<p>Marks the specified loan(s) as unpaid.
+If a person&#8217;s name is specified, all their loans are marked as unpaid.</p>
 </div>
 <div class="paragraph">
-<p>Format:  <code>loan unpaid &lt;person number&gt;[.&lt;loan number&gt;[- &#8230;&#8203;]] &#8230;&#8203;</code></p>
+<p>Format: <code>loan unpaid &lt;loan ID &#8230;&#8203;&gt; &lt;p/person &#8230;&#8203;&gt;</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="delete-loan-s-code-loan-delete-code"><a class="link" href="#delete-loan-s-code-loan-delete-code">3.10.6. Delete loan(s) : <code>loan delete</code></a></h4>
 <div class="paragraph">
-<p>Deletes the loan(s) with the specified loan ID(s).</p>
+<p>Deletes the loan(s) with the specified loan ID(s).
+If a person&#8217;s name is specified, all of that person&#8217;s loans are deleted.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan delete &lt;person number&gt;[.&lt;loan number&gt;[- &#8230;&#8203;]] &#8230;&#8203;</code></p>
+<p>Format: <code>loan delete &lt;loan ID &#8230;&#8203;&gt; &lt;p/person &#8230;&#8203;&gt;</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -502,4 +505,4 @@ If the path is omitted, a file browser is opened for you to select where to save
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 14:58:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 15:03:05 UTC</div></div></div></body></html>

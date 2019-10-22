@@ -22,10 +22,11 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
+<li><a href="#loans-feature">3.1. Loans Feature</a></li>
+<li><a href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></li>
+<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -337,9 +338,208 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></h3>
+<h3 id="loans-feature"><a class="link" href="#loans-feature">3.1. Loans Feature</a></h3>
 <div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The Loans feature exists outside of the Account/Transaction mechanisms.
+It adds a separate <code>LoansManager</code> alongside the main <code>AccountsManager</code>, with <code>Loan</code> objects stored internally in an <code>internalList</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following class diagram demonstrates the association between the <code>LoansManager</code> and <code>Loan</code> objects
+(miscellaneous methods such as getters and setters are omitted):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LoanClassDiagram.png" alt="LoanClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Each <code>Loan</code> object has the following attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>person:Person</code>&#8201;&#8212;&#8201;The person to whom the loan belongs.</p>
+</li>
+<li>
+<p><code>amount:Amount</code>&#8201;&#8212;&#8201;The amount of money loaned.</p>
+</li>
+<li>
+<p><code>direction:Direction</code>&#8201;&#8212;&#8201;The direction of the loan (either <strong>in</strong> or <strong>out</strong>).</p>
+</li>
+<li>
+<p><code>status:Status</code>&#8201;&#8212;&#8201;The status of the loan (either <strong>paid</strong> or <strong>unpaid</strong>).</p>
+</li>
+<li>
+<p><code>date:Date</code>&#8201;&#8212;&#8201;The date of the loan.</p>
+</li>
+<li>
+<p><code>description:Description</code> (optional)&#8201;&#8212;&#8201;A description of the loan.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To facilitate the manipulation of <code>Loan</code> objects, <code>LoansManager</code> implements the following operations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>LoansManager#getLoans()</code>&#8201;&#8212;&#8201;Gets the current list of loans.</p>
+</li>
+<li>
+<p><code>LoansManager#addLoan(Index toAdd)</code>&#8201;&#8212;&#8201;Adds the <code>Loan toAdd</code> to <code>internalList</code>.</p>
+</li>
+<li>
+<p><code>LoansManager#editLoan(Index toEdit, Loan editedLoan)</code>&#8201;&#8212;&#8201;Edits the loan at <code>Index toEdit</code> to match <code>Loan editedLoan</code>.</p>
+</li>
+<li>
+<p><code>LoansManager#updateLoanStatus(Index toUpdate, Status newStatus)</code>&#8201;&#8212;&#8201;Updates the <code>Status</code> of the loan at <code>Index toUpdate</code> to <code>newStatus</code>.</p>
+</li>
+<li>
+<p><code>LoansManager#deleteLoan(Index toDelete)</code>&#8201;&#8212;&#8201;Deletes the loan at <code>Index toDelete</code> from <code>internalList</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>After each of the above operations, the state of <code>internalList</code> is saved in the file <code>loans.json</code>, which is stored on the local hard disk.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>LoansManager</code> behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application.
+If <code>loans.json</code> exists on the hard disk, its data is loaded into <code>internalList</code>.
+Otherwise, <code>loans.json</code> is created and the <code>LoansManager</code> initializes with an empty <code>internalList</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes the command <code>loan out p/John x/4.20</code> to add a new loan.
+This creates a new loan <code>toAdd</code> of <code>amount</code> 4.20 <code>out</code> to the <code>person</code> John, with the current <code>date</code> being used as the user did not provide one.
+<code>LoansManager#addLoan(Loan toAdd)</code> is then called and <code>toAdd</code> is added to <code>internalList</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the process of adding a loan works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LoanSequenceDiagram.png" alt="LoanSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>In general, the rest of the operations work using a similar sequence of steps.
+Some commands might create a new <code>Loan</code> object (as shown above) while others might simply use the <code>Index</code> of a loan.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes the command <code>loan list</code> to see their current list of loans.
+<code>LoansManager#getLoans()</code> is called.
+An immutable version of <code>internalList</code> sorted by <code>person</code> is retrieved and displayed to the user.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The user executes the command <code>loan edit 1 x/500</code> to edit the <code>amount</code> of the first loan in the list.
+This creates a new <code>editedLoan</code> identical to the first loan in <code>internalList</code>, except that <code>editedLoan</code> has an <code>amount</code> of 500.
+<code>LoansManager#editLoan(Index toEdit, Loan editedLoan)</code> is then called,
+where <code>toEdit</code> is the index of the first loan in <code>internalList</code>,
+and <code>toEdit</code> is replaced with <code>editedLoan</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The user executes the command <code>loan paid 1</code> to update the status of the first loan in the list to <strong>paid</strong>.
+<code>LoansManager#updateLoanStatus(Index toUpdate, Status newStatus)</code> is called
+(where <code>toUpdate</code> is the index of the first loan in <code>internalList</code> and <code>newStatus</code> has the value <code>Status.PAID</code>)
+and the loan at index <code>toUpdate</code> in <code>internalList</code> has its <code>status</code> updated to <code>newStatus</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The command <code>loan unpaid</code> works identically to <code>loan paid</code>, except that <code>newStatus</code> has the value <code>Status.UNPAID</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 6. The user executes the command <code>loan delete 1</code> to delete the first loan in the list.
+<code>LoansManager#deleteLoan(Index toDelete)</code> is called,
+where <code>toDelete</code> is the index of the first loan in <code>internalList</code>,
+and the loan at index <code>toDelete</code> is removed from <code>internalList</code>.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For the commands <code>loan paid</code>, <code>loan unpaid</code> and <code>loan delete</code>,
+if the user targets a loan outside of the list (e.g. index greater than list size)
+an error message will be displayed.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect4">
+<h5 id="multi-loan-targeting"><a class="link" href="#multi-loan-targeting">Multi-Loan Targeting</a></h5>
+<div class="paragraph">
+<p>The user can target and act on multiple loans with a single command.
+For example, <code>loan delete 1 3 4</code> can be used to delete the first, third and fourth loans in <code>internalList</code>.
+Alternatively or additionally, <code>loan delete p/John Mary</code> can also be used
+to delete all the loans of the persons John and Mary in <code>internalList</code>.
+The <code>LoansManager</code> handles this by executing the appropriate operation repeatedly.
+In the case of <code>loan delete 1 3 4</code>, <code>LoansManager#deleteLoan(Index toDelete)</code> is called once for each of the three loans.</p>
+</div>
+<div class="paragraph">
+<p>If any of the targeted loan indices cannot be found by the <code>LoansManager</code> in <code>internalList</code>, they are added to a <code>missingLoanIndices</code> list.
+The <code>missingLoanIndices</code> list is then displayed to the user after all other loans have been acted upon,
+notifying them that the loans with those indices could not be found.</p>
+</div>
+<div class="paragraph">
+<p>Multi-loan targeting is implemented for the commands <code>loan paid</code>, <code>loan unpaid</code> and <code>loan delete</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-structure-of-the-loan-person-interaction"><a class="link" href="#aspect-structure-of-the-loan-person-interaction">Aspect: Structure of the loan - person interaction</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: <code>LoansManager</code> stores <code>internalList</code>; each <code>Loan</code> references a <code>Person</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement and understand.</p>
+</li>
+<li>
+<p>Cons: Takes a longer time to get all the loans belonging to a person.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: <code>LoansManager</code> stores <code>persons</code> list; each <code>Person</code> stores <code>LoanList</code>; each <code>Loan</code> references <code>Person</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to retrieve the person of each loan and retrieve all the loans belonging to a person.</p>
+</li>
+<li>
+<p>Cons: Circular dependency and high coupling, potentially leading to lower testability and a higher bug count.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.2. [Proposed] Undo/Redo feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.2.1. Proposed Implementation</a></h4>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
 It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
@@ -481,7 +681,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -551,20 +751,20 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -595,7 +795,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1299,4 +1499,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 14:58:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 15:03:05 UTC</div></div></div></body></html>
