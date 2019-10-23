@@ -14,8 +14,8 @@
 <li><a href="#Features">3. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#manage-defaults-code-default-code">3.2. Manage defaults : <code>default</code></a></li>
-<li><a href="#manage-the-main-transaction-view-code-view-code">3.3. Manage the main transaction view : <code>view</code></a></li>
+<li><a href="#managing-defaults-code-default-code">3.2. Managing defaults : <code>default</code></a></li>
+<li><a href="#managing-the-main-transaction-view-code-view-code">3.3. Managing the main transaction view : <code>view</code></a></li>
 <li><a href="#managing-transactions-code-transaction-code">3.4. Managing transactions : <code>transaction</code></a></li>
 <li><a href="#managing-accounts-code-account-code">3.5. Managing accounts : <code>account</code></a></li>
 <li><a href="#managing-categories-code-category-code">3.6. Managing categories : <code>category</code></a></li>
@@ -23,7 +23,8 @@
 <li><a href="#managing-budgets-code-budget-code">3.8. Managing budgets : <code>budget</code></a></li>
 <li><a href="#goal-setting-code-goal-code">3.9. Goal setting : <code>goal</code></a></li>
 <li><a href="#tracking-loans-code-loan-code">3.10. Tracking loans : <code>loan</code></a></li>
-<li><a href="#import-and-export-code-import-export-code">3.11. Import and export : <code>import, export</code></a></li>
+<li><a href="#automating-with-rules-code-rule-code">3.11. Automating with rules: <code>rule</code></a></li>
+<li><a href="#import-and-export-code-import-export-code">3.12. Import and export : <code>import, export</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -40,7 +41,7 @@ More importantly, Budget Buddy is <strong>optimized for those who prefer to work
 while still having the benefits of a Graphical User Interface (GUI).
 If you can type fast, Budget Buddy can get your expense management tasks done faster than traditional GUI apps.
 Furthermore, Budget Buddy allows computing students to add their own functions through customized JavaScript files,
-as well as a set of rules to simplify expense tracking.</p>
+as well as a set of rules to simplify expense tracking through automation.</p>
 </div>
 </div>
 </div>
@@ -88,7 +89,7 @@ as well as a set of rules to simplify expense tracking.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="manage-defaults-code-default-code"><a class="link" href="#manage-defaults-code-default-code">3.2. Manage defaults : <code>default</code></a></h3>
+<h3 id="managing-defaults-code-default-code"><a class="link" href="#managing-defaults-code-default-code">3.2. Managing defaults : <code>default</code></a></h3>
 <div class="sect3">
 <h4 id="set-default-account-code-default-account-code"><a class="link" href="#set-default-account-code-default-account-code">3.2.1. Set default account : <code>default account</code></a></h4>
 <div class="paragraph">
@@ -100,7 +101,7 @@ as well as a set of rules to simplify expense tracking.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="manage-the-main-transaction-view-code-view-code"><a class="link" href="#manage-the-main-transaction-view-code-view-code">3.3. Manage the main transaction view : <code>view</code></a></h3>
+<h3 id="managing-the-main-transaction-view-code-view-code"><a class="link" href="#managing-the-main-transaction-view-code-view-code">3.3. Managing the main transaction view : <code>view</code></a></h3>
 <div class="sect3">
 <h4 id="filter-transactions-code-view-filter-code"><a class="link" href="#filter-transactions-code-view-filter-code">3.3.1. Filter transactions : <code>view filter</code></a></h4>
 <div class="paragraph">
@@ -215,7 +216,7 @@ Note: you cannot delete an account if there are transactions associated with the
 <div class="sect2">
 <h3 id="managing-categories-code-category-code"><a class="link" href="#managing-categories-code-category-code">3.6. Managing categories : <code>category</code></a></h3>
 <div class="sect3">
-<h4 id="adding-a-category"><a class="link" href="#adding-a-category">3.6.1. Adding a category</a></h4>
+<h4 id="add-a-category"><a class="link" href="#add-a-category">3.6.1. Add a category</a></h4>
 <div class="paragraph">
 <p>Categories do not need to be added; you can simply use the category name and a new category will be created if no such one exists.</p>
 </div>
@@ -286,20 +287,20 @@ If the period is omitted, it defaults to the entire current month.</p>
 <p>Format: <code>budget [[f/&lt;from date&gt;] [t/&lt;to date&gt;] | [p/&lt;this month|last month|this week|last week|today|yesterday&gt;]] [&lt;amount&gt;|unset]</code></p>
 </div>
 <div class="sect3">
-<h4 id="viewing-budgets"><a class="link" href="#viewing-budgets">3.8.1. Viewing budgets</a></h4>
+<h4 id="view-budgets"><a class="link" href="#view-budgets">3.8.1. View budgets</a></h4>
 <div class="paragraph">
 <p>To view budgets, omit <code>[&lt;amount&gt;|unset]</code> from the command.
 All budgets overlapping the period specified will be displayed.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-budgets"><a class="link" href="#setting-budgets">3.8.2. Setting budgets</a></h4>
+<h4 id="set-budgets"><a class="link" href="#set-budgets">3.8.2. Set budgets</a></h4>
 <div class="paragraph">
 <p>To set a budget, specify the <code>[&lt;amount&gt;]</code>. Note that budgets cannot overlap.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-budgets"><a class="link" href="#removing-budgets">3.8.3. Removing budgets</a></h4>
+<h4 id="remove-budgets"><a class="link" href="#remove-budgets">3.8.3. Remove budgets</a></h4>
 <div class="paragraph">
 <p>To unset a budget, specify <code>[unset]</code>.</p>
 </div>
@@ -308,7 +309,7 @@ All budgets overlapping the period specified will be displayed.</p>
 <div class="sect2">
 <h3 id="goal-setting-code-goal-code"><a class="link" href="#goal-setting-code-goal-code">3.9. Goal setting : <code>goal</code></a></h3>
 <div class="sect3">
-<h4 id="adding-a-goal-code-goal-add-code"><a class="link" href="#adding-a-goal-code-goal-add-code">3.9.1. Adding a goal : <code>goal add</code></a></h4>
+<h4 id="add-a-goal-code-goal-add-code"><a class="link" href="#add-a-goal-code-goal-add-code">3.9.1. Add a goal : <code>goal add</code></a></h4>
 <div class="paragraph">
 <p>Adds a goal on the specified account to reach the specified amount by the target date or at the end of the specified period.</p>
 </div>
@@ -441,9 +442,81 @@ If a person&#8217;s name is specified, all of that person&#8217;s loans are dele
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-and-export-code-import-export-code"><a class="link" href="#import-and-export-code-import-export-code">3.11. Import and export : <code>import, export</code></a></h3>
+<h3 id="automating-with-rules-code-rule-code"><a class="link" href="#automating-with-rules-code-rule-code">3.11. Automating with rules: <code>rule</code></a></h3>
 <div class="sect3">
-<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">3.11.1. Import a file : <code>import</code></a></h4>
+<h4 id="add-a-new-rule-code-rule-add-code"><a class="link" href="#add-a-new-rule-code-rule-add-code">3.11.1. Add a new rule: <code>rule add</code></a></h4>
+<div class="paragraph">
+<p>Adds a new rule to the rule engine.
+A rule can be formed with both scripts and expressions.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>rule add pred/&lt;expression | script&gt; act/&lt;expression | script&gt;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Expression Format:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Predicate: &lt;attribute&gt; &lt;predicate operator&gt; &lt;value&gt;</p>
+</li>
+<li>
+<p>Action: &lt;action operator&gt; &lt;value&gt;</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Script:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Specify name of script.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-rules-code-rule-list-code"><a class="link" href="#list-rules-code-rule-list-code">3.11.2. List rules: <code>rule list</code></a></h4>
+<div class="paragraph">
+<p>Displays a list of all rules, sorted by the date a rule was added.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>rule list</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-a-rule-code-rule-edit-code"><a class="link" href="#edit-a-rule-code-rule-edit-code">3.11.3. Edit a rule: <code>rule edit</code></a></h4>
+<div class="paragraph">
+<p>Edits the specified fields in the rule with the specified ID.
+Both predicate and action can be modified.</p>
+</div>
+<div class="paragraph">
+<p>Format: `rule edit &lt;rule ID&gt; [pred/&lt;expression | script&gt;] [act/&lt;expression | script&gt;]</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-rule-code-rule-delete-code"><a class="link" href="#delete-a-rule-code-rule-delete-code">3.11.4. Delete a rule: <code>rule delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes a rule with the specified rule ID.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>rule delete &lt;rule ID&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-and-export-code-import-export-code"><a class="link" href="#import-and-export-code-import-export-code">3.12. Import and export : <code>import, export</code></a></h3>
+<div class="sect3">
+<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">3.12.1. Import a file : <code>import</code></a></h4>
 <div class="paragraph">
 <p>Imports transactions from the file at the given path.</p>
 </div>
@@ -468,7 +541,7 @@ If the format is omitted, automatic detection is attempted.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">3.11.2. Export transactions : <code>export</code></a></h4>
+<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">3.12.2. Export transactions : <code>export</code></a></h4>
 <div class="paragraph">
 <p>Exports all transactions to the given path.</p>
 </div>
@@ -505,4 +578,4 @@ If the path is omitted, a file browser is opened for you to select where to save
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 06:30:30 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 06:41:38 UTC</div></div></div></body></html>
