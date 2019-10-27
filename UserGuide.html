@@ -370,23 +370,27 @@ If date is not given, it is set to the current date.</p>
 <p>Displays a list of all loans, sorted alphabetically by person first, then by newest for each person&#8217;s loans.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan list [p/&lt;person &#8230;&#8203;&gt;] [o|i] [s/&lt;a|p&gt;]</code></p>
+<p>Format: <code>loan list [out|in|unpaid|paid &#8230;&#8203;] [p/&lt;person&gt; &#8230;&#8203;] [x/&lt;amount&gt; &#8230;&#8203;] [w/&lt;date&gt; &#8230;&#8203;] [d/&lt;description&gt; &#8230;&#8203;] [s/&lt;w|x|p&gt;]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Adding a person&#8217;s name filters the list to that/those person(s)'s loans only.</p>
+<p>Filter the list using one or more of the <code>out</code>, <code>in</code>, <code>unpaid</code>, <code>paid</code> filters.</p>
 </li>
 <li>
-<p>Adding ‘o’ argument filters list to out loans only.</p>
+<p>Filter persons, amounts, dates and descriptions in the list by adding one or more of the <code>p/&lt;person&gt;</code>, <code>x/&lt;amount&gt;</code>, <code>w/&lt;date&gt;</code>, <code>d/&lt;description&gt;</code> filters.</p>
 </li>
 <li>
-<p>Adding ‘i’ argument filters list to in loans only.</p>
-</li>
+<p>Sort the list by date, amount, or persons using <code>s/w</code>, <code>s/x</code>, or <code>s/p</code> respectively.</p>
+<div class="ulist">
+<ul>
 <li>
-<p>Add <code>s/a</code> to sort the list by amount, or <code>s/p</code> to sort by person.</p>
+<p>Adding <code>s/x</code> when the list is already sorted by amount will reverse the order of sorting (e.g. descending to ascending). This works for all available sorts.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -679,4 +683,4 @@ will be reported only when the script is run.
 <div class="sectionbody">
 
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 15:36:52 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-27 15:57:09 UTC</div></div></div></body></html>
