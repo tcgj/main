@@ -20,16 +20,18 @@
 <li><a href="#managing-accounts-code-account-code">3.5. Managing accounts: <code>account</code></a></li>
 <li><a href="#managing-categories-code-category-code">3.6. Managing categories: <code>category</code></a></li>
 <li><a href="#viewing-reports-code-report-code">3.7. Viewing reports: <code>report</code></a></li>
-<li><a href="#managing-budgets-code-budget-code">3.8. Managing budgets: <code>budget</code></a></li>
-<li><a href="#goal-setting-code-goal-code">3.9. Goal setting: <code>goal</code></a></li>
-<li><a href="#tracking-loans-code-loan-code">3.10. Tracking loans: <code>loan</code></a></li>
-<li><a href="#automating-with-rules-code-rule-code">3.11. Automating with rules: <code>rule</code></a></li>
-<li><a href="#import-and-export-code-import-export-code">3.12. Import and export: <code>import, export</code></a></li>
-<li><a href="#scripting-code-script-code">3.13. Scripting: <code>script</code></a></li>
+<li><a href="#tracking-loans-code-loan-code">3.8. Tracking loans: <code>loan</code></a></li>
+<li><a href="#automating-with-rules-code-rule-code">3.9. Automating with rules: <code>rule</code></a></li>
+<li><a href="#import-and-export-code-import-export-code">3.10. Import and export: <code>import, export</code></a></li>
+<li><a href="#Scripting">3.11. Scripting: <code>script</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#command-summary">5. Command Summary</a>
+<ul class="sectlevel2">
+<li><a href="#rules">5.1. Rules</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -50,13 +52,97 @@ as well as a set of rules to simplify expense tracking through automation.</p>
 <h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Nothing to see here.</p>
+<p><em>Ensure that Java 11 is installed on your system.</em></p>
+</div>
+<div class="paragraph">
+<p>Download the latest version of Budget Buddy <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/releases">here</a>.</p>
+</div>
+<div class="paragraph">
+<p>Place the <em>budgetbuddy.jar</em> file in your desired home folder. This folder will contain all data saved into Budget Buddy.</p>
+</div>
+<div class="paragraph">
+<p>Double click the <em>budgetbuddy.jar</em> file to launch Budget Buddy.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Launching for the first time</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A default account will created.</p>
+</li>
+<li>
+<p>Type <code>transaction out x/100 d/This is my first transaction!</code> to add a new spending.</p>
+</li>
+<li>
+<p>To view your accounts, type <code>account list</code></p>
+</li>
+<li>
+<p>To view available commands, type <code>help</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>If the application does not run, follow the instructions below based on your operating system:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Mac/Linux:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Launch <em>Terminal</em></p>
+</li>
+<li>
+<p>Navigate to the home folder where <em>budgetbuddy.jar</em> is, using the <code>cd</code> command, e.g. <code>cd ~/Documents/BudgetBuddy</code></p>
+</li>
+<li>
+<p>Execute the jar file using <code>java -jar budgetbuddy.jar</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Windows:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Launch <em>Cmd</em>, or Windows' Command Prompt</p>
+</li>
+<li>
+<p>Navigate to the home folder where <em>budgetbuddy.jar</em> is, using the <code>cd</code> command, e.g. <code>cd Documents\BudgetBuddy</code></p>
+</li>
+<li>
+<p>Execute the jar file using <code>java -jar budgetbuddy.jar</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>Budget Buddy comes with many tools to help you manage your expenses better! You can create multiple accounts,
+add and remove transactions that you have made, and even track any outstanding loans that you may have.</p>
+</div>
+<div class="paragraph">
+<p>What&#8217;s more? Automate processes by using rules. Typing repetitive descriptions? Set the description of a transaction
+automatically by using a keyword! Set a Food category automatically each time you make a food
+transaction! Automate everything!</p>
+</div>
+<div class="paragraph">
+<p>If you know how to code in JavaScript, great news for you too. Write and evaluate your own scripts within the application,
+do complicated things in a snap. And even use your script in rules!</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -65,7 +151,10 @@ as well as a set of rules to simplify expense tracking through automation.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Words within <code>&lt;&gt;</code> brackets are parameters to be supplied by the user.</p>
+<p>Commands start with a category, and a command type usually follows, e.g. <code>rule add</code></p>
+</li>
+<li>
+<p>Words written using <code>&lt;&gt;</code> brackets are parameters to be supplied by the user.</p>
 </li>
 <li>
 <p>Parameters within <code>[]</code> brackets are optional and can be omitted.</p>
@@ -143,7 +232,7 @@ If omitted, sort in ascending order.</p>
 <p>If the account is not given, the transaction is inserted into the default account.</p>
 </li>
 <li>
-<p>If the category is not given, the transaction is not categorised.</p>
+<p>If the category is not given, the transaction is not categorized.</p>
 </li>
 <li>
 <p>If the date is not given, the date is set to the current date.</p>
@@ -279,82 +368,9 @@ If the type is omitted, it defaults to a total report.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-budgets-code-budget-code"><a class="link" href="#managing-budgets-code-budget-code">3.8. Managing budgets: <code>budget</code></a></h3>
-<div class="paragraph">
-<p>Displays or sets the budget for the specified period.
-If the period is omitted, it defaults to the entire current month.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>budget [[f/&lt;from date&gt;] [t/&lt;to date&gt;] | [p/&lt;this month|last month|this week|last week|today|yesterday&gt;]] [&lt;amount&gt;|unset]</code></p>
-</div>
+<h3 id="tracking-loans-code-loan-code"><a class="link" href="#tracking-loans-code-loan-code">3.8. Tracking loans: <code>loan</code></a></h3>
 <div class="sect3">
-<h4 id="view-budgets"><a class="link" href="#view-budgets">3.8.1. View budgets</a></h4>
-<div class="paragraph">
-<p>To view budgets, omit <code>[&lt;amount&gt;|unset]</code> from the command.
-All budgets overlapping the period specified will be displayed.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="set-budgets"><a class="link" href="#set-budgets">3.8.2. Set budgets</a></h4>
-<div class="paragraph">
-<p>To set a budget, specify the <code>[&lt;amount&gt;]</code>. Note that budgets cannot overlap.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="remove-budgets"><a class="link" href="#remove-budgets">3.8.3. Remove budgets</a></h4>
-<div class="paragraph">
-<p>To unset a budget, specify <code>[unset]</code>.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="goal-setting-code-goal-code"><a class="link" href="#goal-setting-code-goal-code">3.9. Goal setting: <code>goal</code></a></h3>
-<div class="sect3">
-<h4 id="add-a-goal-code-goal-add-code"><a class="link" href="#add-a-goal-code-goal-add-code">3.9.1. Add a goal: <code>goal add</code></a></h4>
-<div class="paragraph">
-<p>Adds a goal on the specified account to reach the specified amount by the target date or at the end of the specified period.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>goal add [a/&lt;account&gt;] [[d/&lt;target date&gt;] | [p/&lt;this week|this month|next month|this year&gt;]] x/[+]&lt;amount&gt;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>If the account is omitted, the default account is set.</p>
-</li>
-<li>
-<p>If the period is omitted, the target date is set to the last day of the current month.</p>
-</li>
-<li>
-<p>If + is specified before amount, then the target amount is set as amount more than the current balance in the target account.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="view-goals-code-goal-list-code"><a class="link" href="#view-goals-code-goal-list-code">3.9.2. View goals: <code>goal list</code></a></h4>
-<div class="paragraph">
-<p>List all goals.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-goal-s-code-goal-delete-code"><a class="link" href="#delete-goal-s-code-goal-delete-code">3.9.3. Delete goal(s): <code>goal delete</code></a></h4>
-<div class="paragraph">
-<p>Deletes the goals with the specified goal IDs. Goal IDs can be retrieved from <code>goal list</code>.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>goal delete &lt;id &#8230;&#8203;&gt;</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="tracking-loans-code-loan-code"><a class="link" href="#tracking-loans-code-loan-code">3.10. Tracking loans: <code>loan</code></a></h3>
-<div class="sect3">
-<h4 id="add-a-new-loan-code-loan-out-in-code"><a class="link" href="#add-a-new-loan-code-loan-out-in-code">3.10.1. Add a new loan: <code>loan out|in</code></a></h4>
+<h4 id="add-a-new-loan-code-loan-out-in-code"><a class="link" href="#add-a-new-loan-code-loan-out-in-code">3.8.1. Add a new loan: <code>loan out|in</code></a></h4>
 <div class="paragraph">
 <p>Adds a new loan out/in entry.
 Each loan has a unique ID (across both out and in entries).
@@ -365,7 +381,7 @@ If date is not given, it is set to the current date.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-loans-code-loan-list-code"><a class="link" href="#list-loans-code-loan-list-code">3.10.2. List loans: <code>loan list</code></a></h4>
+<h4 id="list-loans-code-loan-list-code"><a class="link" href="#list-loans-code-loan-list-code">3.8.2. List loans: <code>loan list</code></a></h4>
 <div class="paragraph">
 <p>Displays a list of all loans, sorted alphabetically by person first, then by newest for each person&#8217;s loans.</p>
 </div>
@@ -398,7 +414,7 @@ If date is not given, it is set to the current date.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-loan-code-loan-edit-code"><a class="link" href="#edit-loan-code-loan-edit-code">3.10.3. Edit loan: <code>loan edit</code></a></h4>
+<h4 id="edit-loan-code-loan-edit-code"><a class="link" href="#edit-loan-code-loan-edit-code">3.8.3. Edit loan: <code>loan edit</code></a></h4>
 <div class="paragraph">
 <p>Edits the specified field of the loan entry with the specified ID.</p>
 </div>
@@ -407,7 +423,7 @@ If date is not given, it is set to the current date.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="mark-loan-s-as-paid-code-loan-paid-code"><a class="link" href="#mark-loan-s-as-paid-code-loan-paid-code">3.10.4. Mark loan(s) as paid: <code>loan paid</code></a></h4>
+<h4 id="mark-loan-s-as-paid-code-loan-paid-code"><a class="link" href="#mark-loan-s-as-paid-code-loan-paid-code">3.8.4. Mark loan(s) as paid: <code>loan paid</code></a></h4>
 <div class="paragraph">
 <p>Marks the specified loan(s) as paid.
 If a person&#8217;s name is specified, all their loans are marked as paid.</p>
@@ -417,7 +433,7 @@ If a person&#8217;s name is specified, all their loans are marked as paid.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="mark-loan-s-as-unpaid-code-loan-unpaid-code"><a class="link" href="#mark-loan-s-as-unpaid-code-loan-unpaid-code">3.10.5. Mark loan(s) as unpaid: <code>loan unpaid</code></a></h4>
+<h4 id="mark-loan-s-as-unpaid-code-loan-unpaid-code"><a class="link" href="#mark-loan-s-as-unpaid-code-loan-unpaid-code">3.8.5. Mark loan(s) as unpaid: <code>loan unpaid</code></a></h4>
 <div class="paragraph">
 <p>Marks the specified loan(s) as unpaid.
 If a person&#8217;s name is specified, all their loans are marked as unpaid.</p>
@@ -427,7 +443,7 @@ If a person&#8217;s name is specified, all their loans are marked as unpaid.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-loan-s-code-loan-delete-code"><a class="link" href="#delete-loan-s-code-loan-delete-code">3.10.6. Delete loan(s): <code>loan delete</code></a></h4>
+<h4 id="delete-loan-s-code-loan-delete-code"><a class="link" href="#delete-loan-s-code-loan-delete-code">3.8.6. Delete loan(s): <code>loan delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes the loan(s) with the specified loan ID(s).
 If a person&#8217;s name is specified, all of that person&#8217;s loans are deleted.</p>
@@ -437,7 +453,7 @@ If a person&#8217;s name is specified, all of that person&#8217;s loans are dele
 </div>
 </div>
 <div class="sect3">
-<h4 id="calculate-loans-code-loan-split-code"><a class="link" href="#calculate-loans-code-loan-split-code">3.10.7. Calculate loans: <code>loan split</code></a></h4>
+<h4 id="calculate-loans-code-loan-split-code"><a class="link" href="#calculate-loans-code-loan-split-code">3.8.7. Calculate loans: <code>loan split</code></a></h4>
 <div class="paragraph">
 <p>Splits and calculates a group payment, then displays a list of who owes who how much.</p>
 </div>
@@ -467,39 +483,87 @@ If a person&#8217;s name is specified, all of that person&#8217;s loans are dele
 </div>
 </div>
 <div class="sect2">
-<h3 id="automating-with-rules-code-rule-code"><a class="link" href="#automating-with-rules-code-rule-code">3.11. Automating with rules: <code>rule</code></a></h3>
+<h3 id="automating-with-rules-code-rule-code"><a class="link" href="#automating-with-rules-code-rule-code">3.9. Automating with rules: <code>rule</code></a></h3>
 <div class="sect3">
-<h4 id="add-a-new-rule-code-rule-add-code"><a class="link" href="#add-a-new-rule-code-rule-add-code">3.11.1. Add a new rule: <code>rule add</code></a></h4>
+<h4 id="add-a-new-rule-code-rule-add-code"><a class="link" href="#add-a-new-rule-code-rule-add-code">3.9.1. Add a new rule: <code>rule add</code></a></h4>
 <div class="paragraph">
 <p>Adds a new rule to the rule engine.
-A rule can be formed with both scripts and expressions.</p>
+A rule can be formed using either expressions or scripts, or both.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>rule add pred/&lt;expression | script&gt; act/&lt;expression | script&gt;</code></p>
+<p>Format: <code>rule add pred/&lt;expression | script name&gt; act/&lt;expression | script name&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Refer to <a href="#Scripting">Section 3.11, &#8220;Scripting: <code>script</code>&#8221;</a> for script usage.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
+<div class="paragraph">
+<p><strong>Expression Formatting Guide:</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Expression Format:</p>
+<p>Predicate: In the order of <code>&lt;attribute&gt; &lt;predicate operator&gt; &lt;value&gt;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Predicate: &lt;attribute&gt; &lt;predicate operator&gt; &lt;value&gt;</p>
+<p>An attribute can be one of the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>inamt</code> : Transaction amount inwards</p>
 </li>
 <li>
-<p>Action: &lt;action operator&gt; &lt;value&gt;</p>
+<p><code>outamt</code> : Transaction amount outwards</p>
+</li>
+<li>
+<p><code>desc</code> : Transaction description</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Script:</p>
+<p>A predicate operator can be one of the following:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Specify name of script.</p>
+<p><code>=</code> : equality operator</p>
+</li>
+<li>
+<p><code>&lt;</code> , <code>&lt;=</code>  , <code>&gt;=</code> , <code>&gt;</code> : inequality operators</p>
+</li>
+<li>
+<p><code>contains</code> : string comparison operator</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>A value can be a number or a string of length not more than 50 characters</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Action: In the order of <code>&lt;action operator&gt; &lt;value&gt;</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>An action operator can be one of the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>setcategory</code> : Adds a category to the transaction</p>
+</li>
+<li>
+<p><code>setdesc</code> : Sets the description of the transaction</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>A value is as described in a predicate expression</p>
 </li>
 </ul>
 </div>
@@ -510,26 +574,26 @@ A rule can be formed with both scripts and expressions.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-rules-code-rule-list-code"><a class="link" href="#list-rules-code-rule-list-code">3.11.2. List rules: <code>rule list</code></a></h4>
+<h4 id="list-rules-code-rule-list-code"><a class="link" href="#list-rules-code-rule-list-code">3.9.2. List rules: <code>rule list</code></a></h4>
 <div class="paragraph">
-<p>Displays a list of all rules, sorted by the date a rule was added.</p>
+<p>Displays the list of all existing rules, sorted by the order in which a rule was added.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>rule list</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-a-rule-code-rule-edit-code"><a class="link" href="#edit-a-rule-code-rule-edit-code">3.11.3. Edit a rule: <code>rule edit</code></a></h4>
+<h4 id="edit-a-rule-code-rule-edit-code"><a class="link" href="#edit-a-rule-code-rule-edit-code">3.9.3. Edit a rule: <code>rule edit</code></a></h4>
 <div class="paragraph">
 <p>Edits the specified fields in the rule with the specified ID.
-Both predicate and action can be modified.</p>
+Both the predicate and action can be modified.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>rule edit &lt;rule ID&gt; [pred/&lt;expression | script&gt;] [act/&lt;expression | script&gt;]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-rule-code-rule-delete-code"><a class="link" href="#delete-a-rule-code-rule-delete-code">3.11.4. Delete a rule: <code>rule delete</code></a></h4>
+<h4 id="delete-a-rule-code-rule-delete-code"><a class="link" href="#delete-a-rule-code-rule-delete-code">3.9.4. Delete a rule: <code>rule delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes a rule with the specified rule ID.</p>
 </div>
@@ -539,9 +603,9 @@ Both predicate and action can be modified.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-and-export-code-import-export-code"><a class="link" href="#import-and-export-code-import-export-code">3.12. Import and export: <code>import, export</code></a></h3>
+<h3 id="import-and-export-code-import-export-code"><a class="link" href="#import-and-export-code-import-export-code">3.10. Import and export: <code>import, export</code></a></h3>
 <div class="sect3">
-<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">3.12.1. Import a file: <code>import</code></a></h4>
+<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">3.10.1. Import a file: <code>import</code></a></h4>
 <div class="paragraph">
 <p>Imports transactions from the file at the given path.</p>
 </div>
@@ -566,7 +630,7 @@ If the format is omitted, automatic detection is attempted.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">3.12.2. Export transactions: <code>export</code></a></h4>
+<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">3.10.2. Export transactions: <code>export</code></a></h4>
 <div class="paragraph">
 <p>Exports all transactions to the given path.</p>
 </div>
@@ -591,9 +655,9 @@ If the path is omitted, a file browser is opened for you to select where to save
 </div>
 </div>
 <div class="sect2">
-<h3 id="scripting-code-script-code"><a class="link" href="#scripting-code-script-code">3.13. Scripting: <code>script</code></a></h3>
+<h3 id="Scripting"><a class="link" href="#Scripting">3.11. Scripting: <code>script</code></a></h3>
 <div class="sect3">
-<h4 id="evaluate-a-script-code-script-eval-code"><a class="link" href="#evaluate-a-script-code-script-eval-code">3.13.1. Evaluate a script: <code>script eval</code></a></h4>
+<h4 id="evaluate-a-script-code-script-eval-code"><a class="link" href="#evaluate-a-script-code-script-eval-code">3.11.1. Evaluate a script: <code>script eval</code></a></h4>
 <div class="paragraph">
 <p>Evaluates a script and displays the result.</p>
 </div>
@@ -613,7 +677,7 @@ If the path is omitted, a file browser is opened for you to select where to save
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-stored-script-code-script-add-code"><a class="link" href="#add-a-stored-script-code-script-add-code">3.13.2. Add a stored script: <code>script add</code></a></h4>
+<h4 id="add-a-stored-script-code-script-add-code"><a class="link" href="#add-a-stored-script-code-script-add-code">3.11.2. Add a stored script: <code>script add</code></a></h4>
 <div class="paragraph">
 <p>Stores a script for future invocation.</p>
 </div>
@@ -650,7 +714,7 @@ will be reported only when the script is run.
 </div>
 </div>
 <div class="sect3">
-<h4 id="run-a-stored-script-code-script-run-code"><a class="link" href="#run-a-stored-script-code-script-run-code">3.13.3. Run a stored script: <code>script run</code></a></h4>
+<h4 id="run-a-stored-script-code-script-run-code"><a class="link" href="#run-a-stored-script-code-script-run-code">3.11.3. Run a stored script: <code>script run</code></a></h4>
 <div class="paragraph">
 <p>Runs a previously-stored script.</p>
 </div>
@@ -675,12 +739,51 @@ will be reported only when the script is run.
 <div class="sect1">
 <h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p><strong>Q:</strong> Which version of Java do I require to run this application?</p>
+</div>
+<div class="paragraph">
+<p><strong>A:</strong> Java 11</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Q:</strong> How do I switch between the different tabs without clicking on them?</p>
+</div>
+<div class="paragraph">
+<p><strong>A:</strong> Simply execute the <code>list</code> command for that category, e.g. <code>rule list</code>.
+On the other hand, executing any command from that category will switch you over as well.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Q:</strong> How do I reset the application data?</p>
+</div>
+<div class="paragraph">
+<p><strong>A:</strong> All data is stored within the same folder as your execution path, under the "data/" folder.
+Deleting that folder will reset the application data.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
 <div class="sectionbody">
-
+<div class="sect2">
+<h3 id="rules"><a class="link" href="#rules">5.1. Rules</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>rule add</code> - Add a new rule</p>
+</li>
+<li>
+<p><code>rule list</code> - List rules</p>
+</li>
+<li>
+<p><code>rule edit</code> - Edit a rule</p>
+</li>
+<li>
+<p><code>rule delete</code> - Delete a rule</p>
+</li>
+</ul>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 10:16:33 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 12:04:52 UTC</div></div></div></body></html>
