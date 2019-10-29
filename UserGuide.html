@@ -271,10 +271,10 @@ If the ‘recurring’ field is modified, the app will ask if all previous recur
 <div class="sect3">
 <h4 id="add-an-account-code-account-add-code"><a class="link" href="#add-an-account-code-account-add-code">3.5.1. Add an account: <code>account add</code></a></h4>
 <div class="paragraph">
-<p>Creates a new account with the given name. If the currency symbol is not specified, “$” is used.</p>
+<p>Creates a new account with the given name and an optional description</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>account add n/&lt;name&gt; [c/&lt;currency symbol&gt;]</code></p>
+<p>Format: <code>account add [n/&lt;name&gt;] [d/&lt;description&gt;]</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -289,17 +289,26 @@ If the ‘recurring’ field is modified, the app will ask if all previous recur
 <p>Edits the specified account, setting the specified fields.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>account edit &lt;id&gt; [n/&lt;name&gt;] [c/&lt;currency symbol&gt;]</code></p>
+<p>Format: <code>account edit &lt;id&gt; [n/&lt;name&gt;] [d/&lt;description&gt;]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-account-s-code-account-delete-code"><a class="link" href="#delete-account-s-code-account-delete-code">3.5.4. Delete account(s): <code>account delete</code></a></h4>
+<h4 id="delete-account-code-account-delete-code"><a class="link" href="#delete-account-code-account-delete-code">3.5.4. Delete account: <code>account delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes the accounts with the specified IDs, as in <code>account list</code>.
 Note: you cannot delete an account if there are transactions associated with the account.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>account delete &lt;id &#8230;&#8203;&gt;</code></p>
+<p>Format: <code>account delete &lt;id&gt;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-account-code-account-find-code"><a class="link" href="#find-account-code-account-find-code">3.5.5. Find account: <code>account find</code></a></h4>
+<div class="paragraph">
+<p>Finds the accounts with the specified keywords, as in <code>account list</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account find &lt;keyword&gt;</code></p>
 </div>
 </div>
 </div>
@@ -786,4 +795,4 @@ Deleting that folder will reset the application data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 15:51:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 16:02:54 UTC</div></div></div></body></html>
