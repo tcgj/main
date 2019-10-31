@@ -382,11 +382,24 @@ If the type is omitted, it defaults to a total report.</p>
 <h4 id="add-a-new-loan-code-loan-out-in-code"><a class="link" href="#add-a-new-loan-code-loan-out-in-code">3.8.1. Add a new loan: <code>loan out|in</code></a></h4>
 <div class="paragraph">
 <p>Adds a new loan out/in entry.
-Each loan has a unique ID (across both out and in entries).
-If date is not given, it is set to the current date.</p>
+Each loan has a unique ID.
+If a date is not given, it is set to the current date. The description is also optional.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan out|in p/&lt;person&#8217;s name&gt; x/&lt;amount&gt; [w/&lt;date&gt;] [d/&lt;description&gt;]</code></p>
+<p>Format: <code>loan out|in p/&lt;person&gt; x/&lt;amount&gt; [w/&lt;date&gt;] [d/&lt;description&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>loan out p/John Doe x/50 w/23/04/2018</code></p>
+</li>
+<li>
+<p><code>loan in p/Jane Doe x/100 d/Lent me some money for booze.</code></p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -395,24 +408,24 @@ If date is not given, it is set to the current date.</p>
 <p>Displays a list of all loans, sorted alphabetically by person first, then by newest for each person&#8217;s loans.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan list [out|in|unpaid|paid &#8230;&#8203;] [p/&lt;person&gt; &#8230;&#8203;] [x/&lt;amount&gt; &#8230;&#8203;] [w/&lt;date&gt; &#8230;&#8203;] [d/&lt;description&gt; &#8230;&#8203;] [s/&lt;w|x|p&gt;]</code></p>
+<p>Format: <code>loan list [out|in|unpaid|paid &#8230;&#8203;] [p/&lt;person&gt; &#8230;&#8203;] [x/&lt;amount&gt; &#8230;&#8203;] [w/&lt;date&gt; &#8230;&#8203;] [d/&lt;description&gt; &#8230;&#8203;] [s/w|x|p]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Filter the list using one or more of the <code>out</code>, <code>in</code>, <code>unpaid</code>, <code>paid</code> filters.</p>
+<p>Filter loans using one or more of the <code>out</code>, <code>in</code>, <code>unpaid</code>, <code>paid</code> filters.</p>
 </li>
 <li>
-<p>Filter persons, amounts, dates and descriptions in the list by adding one or more of the <code>p/&lt;person&gt;</code>, <code>x/&lt;amount&gt;</code>, <code>w/&lt;date&gt;</code>, <code>d/&lt;description&gt;</code> filters.</p>
+<p>Filter loans persons, amounts, dates and descriptions by adding one or more of the <code>p/&lt;person&gt;</code>, <code>x/&lt;amount&gt;</code>, <code>w/&lt;date&gt;</code>, <code>d/&lt;description&gt;</code> filters.</p>
 </li>
 <li>
-<p>Sort the list by date, amount, or persons using <code>s/w</code>, <code>s/x</code>, or <code>s/p</code> respectively.</p>
+<p>Sort loans by date, amount, or persons' names using <code>s/w</code>, <code>s/x</code>, or <code>s/p</code> respectively.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Adding <code>s/x</code> when the list is already sorted by amount will reverse the order of sorting (e.g. descending to ascending). This works for all available sorts.</p>
+<p>Sorting the list using the same method when it is already sorted will reverse the order of sorting (e.g. descending to ascending).</p>
 </li>
 </ul>
 </div>
@@ -420,74 +433,175 @@ If date is not given, it is set to the current date.</p>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>loan list out unpaid p/John Doe</code><br>
+Lists all unpaid loans out to the person named "John Doe".</p>
+</li>
+<li>
+<p><code>loan list s/p</code><br>
+<code>loan list s/p</code>
+Lists all loans sorted by persons in alphabetical order. Then lists all loans again, but sorted by persons in reverse alphabetical order.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
 <h4 id="edit-loan-code-loan-edit-code"><a class="link" href="#edit-loan-code-loan-edit-code">3.8.3. Edit loan: <code>loan edit</code></a></h4>
 <div class="paragraph">
-<p>Edits the specified field of the loan entry with the specified ID.</p>
+<p>Edits the specified field of the loan entry with the specified index.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan edit &lt;loan ID&gt; [&lt;p/person&gt;] [x/&lt;amount&gt;] [d/&lt;description&gt;] [w/&lt;date&gt;]</code></p>
+<p>Format: <code>loan edit &lt;index&gt; [&lt;p/person&gt;] [x/&lt;amount&gt;] [d/&lt;description&gt;] [w/&lt;date&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the loan with the specified index. The index refers to the index number shown in the displayed loan list. The index must be a positive integer 1, 2, 3&#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>loan list</code><br>
+<code>loan edit 1 x/500 d/Dude owes me so much money I can&#8217;t even.</code><br>
+Lists all loans, then edits the amount and description of the first person in the list to the given values.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
 <h4 id="mark-loan-s-as-paid-code-loan-paid-code"><a class="link" href="#mark-loan-s-as-paid-code-loan-paid-code">3.8.4. Mark loan(s) as paid: <code>loan paid</code></a></h4>
 <div class="paragraph">
 <p>Marks the specified loan(s) as paid.
-If a person&#8217;s name is specified, all their loans are marked as paid.</p>
+If a person&#8217;s name is specified, all their loans are also marked as paid.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan paid &lt;loan ID &#8230;&#8203;&gt; [&lt;p/person &#8230;&#8203;&gt;]</code></p>
+<p>Format: <code>loan paid &lt;index &#8230;&#8203;&gt; [&lt;p/person &#8230;&#8203;&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>loan list</code><br>
+<code>loan paid 1 2 3</code><br>
+Lists all loans, then marks the first three loans in the list as <strong>paid</strong>.</p>
+</li>
+<li>
+<p><code>loan paid p/John p/Adam</code><br>
+Marks all loans in from and out to John and Adam as <strong>paid</strong>.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
 <h4 id="mark-loan-s-as-unpaid-code-loan-unpaid-code"><a class="link" href="#mark-loan-s-as-unpaid-code-loan-unpaid-code">3.8.5. Mark loan(s) as unpaid: <code>loan unpaid</code></a></h4>
 <div class="paragraph">
 <p>Marks the specified loan(s) as unpaid.
-If a person&#8217;s name is specified, all their loans are marked as unpaid.</p>
+If a person&#8217;s name is specified, all their loans are marked as unpaid.
+This feature works identically to <code>loan paid</code>, except the command word is <code>unpaid</code> instead of <code>paid</code>.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan unpaid &lt;loan ID &#8230;&#8203;&gt; &lt;p/person &#8230;&#8203;&gt;</code></p>
+<p>Format: <code>loan unpaid &lt;index &#8230;&#8203;&gt; &lt;p/person &#8230;&#8203;&gt;</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="delete-loan-s-code-loan-delete-code"><a class="link" href="#delete-loan-s-code-loan-delete-code">3.8.6. Delete loan(s): <code>loan delete</code></a></h4>
 <div class="paragraph">
-<p>Deletes the loan(s) with the specified loan ID(s).
+<p>Deletes the loan(s) with the specified loan index/indices.
 If a person&#8217;s name is specified, all of that person&#8217;s loans are deleted.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan delete &lt;loan ID &#8230;&#8203;&gt; &lt;p/person &#8230;&#8203;&gt;</code></p>
+<p>Format: <code>loan delete &lt;index &#8230;&#8203;&gt; &lt;p/person &#8230;&#8203;&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>loan list</code><br>
+<code>loan delete 1</code><br>
+Lists all loans, then deletes the first loan in the list.</p>
+</li>
+<li>
+<p><code>loan delete p/John</code><br>
+Deletes all loans in from and out to John.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
 <h4 id="calculate-loans-code-loan-split-code"><a class="link" href="#calculate-loans-code-loan-split-code">3.8.7. Calculate loans: <code>loan split</code></a></h4>
 <div class="paragraph">
-<p>Splits and calculates a group payment, then displays a list of who owes who how much.</p>
+<p>Splits a joint payment equally among group members, then displays a list of who owes who how much.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan split [me/&lt;your name&gt; w/&lt;date&gt; d/&lt;description&gt;] n/&lt;name&gt; x/&lt;amount paid&gt; &#8230;&#8203;</code></p>
+<p>Format: <code>loan split p/&lt;person&gt; x/&lt;amount paid&gt; &#8230;&#8203; [me/&lt;your name&gt; w/&lt;date&gt; d/&lt;description&gt;]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
+<p>Each <code>&lt;person&gt;</code> corresponds to an <code>&lt;amount paid&gt;</code>, representing how much the <code>person</code> paid for the group initially.<br>
+The order of all <code>person`s should match the order of `amount paid</code>.</p>
+</li>
+<li>
 <p>Adding the optional <code>me/</code> will add all debts from the resulting list to your loan list.</p>
 <div class="paragraph">
-<p><code>&lt;your name&gt;</code> must match one of the names among the other <code>n/&lt;name&gt;</code> names.</p>
+<p><code>&lt;your name&gt;</code> must match one of the persons among the other <code>p/&lt;person&gt;</code> names.</p>
 </div>
 </li>
 <li>
-<p>Adding <code>w/</code> will set the date of the loans added to your list.</p>
+<p>Adding <code>w/</code> will set the <code>&lt;date&gt;</code> of the loans added to your list.</p>
 </li>
 <li>
-<p>Adding <code>d/</code> will set the description of the loans added to your list.</p>
+<p>Adding <code>d/</code> will set the <code>&lt;description&gt;</code> of the loans added to your list.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>loan split p/John p/Mary p/Peter x/0 x/40 x/60</code><br>
+Calculates the money owed between <code>John</code>, <code>Mary</code> and <code>Peter</code> for a scenario where (initially) <code>Mary</code> paid <code>40</code> and <code>Peter</code> paid <code>60</code>.<br>
+The resulting display should show that <code>John</code> owes <code>Mary</code> <strong>$6.66</strong> and also owes <code>Peter</code> <strong>$26.67</strong>.</p>
+</li>
+<li>
+<p><code>loan split p/John p/Mary p/Peter x/0 x/10 x/90 me/Mary d/Dinner.</code><br>
+In this scenario, <code>Mary</code> paid <code>10</code> and <code>Peter</code> paid <code>90</code>.
+Furthermore, <code>me/Mary</code> marks <code>Mary</code> as the user (you), so any debts <code>Mary</code> owes/is owed will be added to the normal loan list with the description <code>Dinner</code>.<br>
+The resulting display should show that <code>John</code> owes <code>Peter</code> <strong>$33.33</strong> and <code>You</code> owe <code>Peter</code> <strong>$23.33</strong>.
+The latter debt will also have been added to your loan list, which can be checked using the command <code>loan list</code>.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -795,4 +909,4 @@ Deleting that folder will reset the application data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 03:23:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 13:37:14 UTC</div></div></div></body></html>
