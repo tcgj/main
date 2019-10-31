@@ -1,0 +1,502 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Chen Jiehan - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Budget Buddy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-W13-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Chen Jiehan - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-budget-buddy"><a class="link" href="#project-budget-buddy">PROJECT: Budget Buddy</a></h2>
+<div class="sectionbody">
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>BudgetBuddy is a desktop expense tracker application designed for computing students who wish to better manage their expenses.
+The user interacts with it using a Command-Line Interface (CLI), and it has a Graphical User Interface (GUI) created with JavaFX.
+It is written in Java, and has about 15 kLoC. The purpose of this Project Portfolio Page is to present my contribution to BudgetBuddy.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview-of-the-project"><a class="link" href="#overview-of-the-project">Overview of the Project</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Budget Buddy possesses a fair number of features to equip the user the ability to track and manage their expenses,
+as well as customize their user experience to according to their preference.</p>
+</div>
+<div class="paragraph">
+<p>As an expense tracker, Budget Buddy offers the ability for users to record their transactions occurred in life.
+The user can create different accounts to manage different types of transactions.
+For example, when a user wants to view his expenses spent overseas, he can create a separate account named 'trip' to record the transactions spent in the trip.
+Moreover, a category or a few categories can be set to remind the users the use of the transaction made.</p>
+</div>
+<div class="paragraph">
+<p>To help the users track their loans that they own others or are owed to them, Budget Buddy offers a feature called loan so that
+the users can remind themselves to pay back or reclaim borrowed money. Unbalanced group payments can also be split equally,
+and the resulting debts the user owes or is owed can be recorded as loans automatically.</p>
+</div>
+<div class="paragraph">
+<p>Among other financial trackers, Budget Buddy outstands in terms of its functionality of customizing the user experience through rules.
+To ease the process of managing the expenses, users can create rules to automate a series of actions.
+For example, they could create a rule that adds a transaction to a specific category if said transaction exceeds a certain amount.</p>
+</div>
+<div class="paragraph">
+<p>Taken the fact that our main target users is computing students into consideration, Budget Buddy provides the functionality
+for users to utilize their computing knowledge to write custom scripts to manipulate the app.
+For example, users are able to write scripts to add huge number of transactions, or scripts to trigger alarms when their expenses
+have exceeded a certain limit.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added <strong>the feature of account and related commands</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: allows the user to manage their accounts to facilitate the tracking of expenses, including <strong>add/delete/edit/list/find</strong> the accounts.</p>
+</li>
+<li>
+<p>Justification: This feature lays the foundation for the product because a user needs accounts to carry out all other activities, e.g. manage the transactions in a particular account.</p>
+</li>
+<li>
+<p>Highlights: This feature affects many other existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation was demanding as it required carefully design to fit the entire architecture.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added the help window that allows the user to navigate to the website when they are in need of help.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#=undefined&amp;search=ChenJiehan318">RepoSense Report</a>]_</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
+</li>
+<li>
+<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+</li>
+<li>
+<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
+</li>
+<li>
+<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
+</li>
+<li>
+<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
+</li>
+<li>
+<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><em>{you can add/remove categories in the list above}</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="managing-accounts-code-account-code"><a class="link" href="#managing-accounts-code-account-code">Managing accounts: <code>account</code></a></h3>
+<div class="sect3">
+<h4 id="add-an-account-code-account-add-code"><a class="link" href="#add-an-account-code-account-add-code">Add an account: <code>account add</code></a></h4>
+<div class="paragraph">
+<p>You can create a new account. Each account has a unique ID and name. The user can choose to customise a description to describe the use of the account.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account add [n/&lt;name&gt;] [d/&lt;description&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>account add n/Japan trip</code>
+You have created an account with name of 'Japan trip'.</p>
+</li>
+<li>
+<p><code>account add n/Japan trip d/expense spent in Japan</code>
+You have created an account with name of 'Japan trip' and description of 'expense spent in Japan'.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-accounts-code-account-list-code"><a class="link" href="#list-accounts-code-account-list-code">List accounts: <code>account list</code></a></h4>
+<div class="paragraph">
+<p>If you want to see the full list of accounts you currently own, you can enter command and a list of all accounts will be displayed.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account list</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-an-account-code-account-edit-code"><a class="link" href="#edit-an-account-code-account-edit-code">Edit an account: <code>account edit</code></a></h4>
+<div class="paragraph">
+<p>You can edit the account you think that needs modified. You can choose to edit either the name or the description of the account, or both.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account edit &lt;id&gt; [n/&lt;name&gt;] [d/&lt;description&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Edits the account with the specified index. The index refers to the index number shown in the displayed account list. The index must be a positive integer 1, 2, 3&#8230;&#8203;</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values will be updated to the input values.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>*<code>account edit 1 n/food</code>
+The name of your first account will be changed to 'food'.
+*<code>account edit 1 d/money spent on food</code>
+The name of your first account will be changed to 'money spent on food'.
+*<code>account edit 1 n/food d/money spent on food</code>
+The name of your first account will be changed to 'food', at the same time the description of the same account will be changed to 'money spent on food'.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-account-code-account-delete-code"><a class="link" href="#delete-account-code-account-delete-code">Delete account: <code>account delete</code></a></h4>
+<div class="paragraph">
+<p>You can delete the account with the specified ID, as in <code>account list</code>.
+Note: you cannot delete an account if there are transactions associated with the account.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account delete &lt;id&gt;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the account with the specified index. The index refers to the index number shown in the displayed account list. The index must be a positive integer 1, 2, 3&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>account delete 2</code>
+You have deleted the second account in your account list.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="find-account-code-account-find-code"><a class="link" href="#find-account-code-account-find-code">Find account: <code>account find</code></a></h4>
+<div class="paragraph">
+<p>If you want to see a specific type of accounts you have, or find a specific account, you can find the account(s) with a specified keyword.
+A list of account(s) contain the keyword in their names will be displayed.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account find &lt;keyword&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="paragraph">
+<p>*<code>account find trip</code>
+You can see a list of accounts with the word 'trip' contained in their names.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="accounts-feature"><a class="link" href="#accounts-feature">Accounts Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The Accounts Feature allows the users to manage their accounts.
+It is managed by <code>AccountsManager</code>, with <code>Account</code> objects stored internally in a <code>Accounts</code> and <code>filteredAccounts</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following class diagram demonstrates the association between the <code>AccountsManager</code> and <code>Account</code> objects
+(miscellaneous methods such as getters and setters are omitted):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AccountClassDiagram.png" alt="AccountClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Each <code>Account</code> object has the following attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name:Name</code>&#8201;&#8212;&#8201;The name of account created.</p>
+</li>
+<li>
+<p><code>description:Description</code>&#8201;&#8212;&#8201;A description of the account to describe the use of the account.</p>
+</li>
+<li>
+<p><code>transactionList:TransactionList</code>&#8201;&#8212;&#8201;The list of transactions associated with the account.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To facilitate the manipulation of <code>Account</code> objects, <code>AccountsManager</code> implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountsManager#updateFilteredAccountList(Predicate&lt;Account&gt; predicate)</code>&#8201;&#8212;&#8201;Updates the current predicate of <code>filteredAccounts</code> to <code>predicate</code>.</p>
+</li>
+<li>
+<p><code>AccountsManager#getFilteredAccountList()</code>&#8201;&#8212;&#8201;Gets <code>filteredAccounts</code>, representing the accounts in <code>accounts</code> after filtering.</p>
+</li>
+<li>
+<p><code>AccountsManage#resetFilteredAccountList()</code>&#8201;&#8212;&#8201;Reset <code>filteredAccounts</code> so that all accounts present in <code>accounts</code> exist in <code>filteredAccounts</code>.</p>
+</li>
+<li>
+<p><code>AccountsManage#getAccounts()</code>&#8201;&#8212;&#8201;Gets <code>accounts</code>, representing the accounts in <code>accounts</code>.</p>
+</li>
+<li>
+<p><code>AccountsManage#size()</code>&#8201;&#8212;&#8201;Gets the length of the <code>accounts</code>, representing the number of accounts currently in <code>accounts</code>.</p>
+</li>
+<li>
+<p><code>AccountsManage#addAccount(Account toAdd)</code>&#8201;&#8212;&#8201;Adds the <code>Account toAdd</code> to <code>accounts</code>.</p>
+</li>
+<li>
+<p><code>AccountsManage#deleteAccount(Account toDelete)</code>&#8201;&#8212;&#8201;Deletes the account at <code>Index toDelete</code> from <code>accounts</code>.</p>
+</li>
+<li>
+<p><code>AccountsManage#editAccount(Index toEdit, Account editedAccount)</code>&#8201;&#8212;&#8201;Edits the account at <code>Index Edit</code> to match <code>Account editedAccount</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each user-given command makes use of one or more of the above operations.
+For example, <code>account edit</code> will call <code>AccountsManager#resetFilteredAccountList</code> to update the <code>filteredAccounts</code>,
+so that all accounts present in <code>accounts</code> will be present in <code>filteredAccounts</code>, then <code>AccountsManager#editAccount</code> to edit the targeted account,
+finally <code>AccountsManager#getFilteredAccountList()</code> to display the remaining accounts.</p>
+</div>
+<div class="paragraph">
+<p>After each command, the state of <code>accounts</code> is saved in the file <code>accounts.json</code>.
+ <code>accounts.json</code> itself is stored on the local hard disk in a <code>data</code> folder, which is in the same directory as <code>budgetbuddy.jar</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>AccountsManager</code> behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application.
+If <code>accounts.json</code> exists on the hard disk, its data is loaded into <code>accounts</code>.
+Otherwise, <code>accounts.json</code> is created and the <code>AccountsManager</code> initializes with an <code>accounts</code> containing a default account.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes the command <code>account add n/Japan trip d/expense spent in Japan</code> to add a new account.
+This creates a new account <code>toAdd</code> with the <code>name</code> as Japan trip and <code>description</code> as expense spent in Japan.
+<code>AccountsManager#addAccount(Account toAdd)</code> is then called and <code>toAdd</code> is added to <code>accounts</code>.
+<code>filteredAccountList</code> will be automatically updated to match <code>accounts</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the process of adding an account works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AccountSequenceDiagram.png" alt="AccountSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>In general, the rest of the operations work using a similar sequence of steps.
+Some commands might create a new <code>Account</code> object (as shown above) while others might just use the <code>Index</code> of an account.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes the command <code>account find trip</code> to find account contains the keyword trip specified.
+First, <code>AccountsManager#resetFilteredAccountList</code> is called, updating <code>filteredAccounts</code> to match the <code>accounts</code>.
+<code>AccountsManager#updateFilteredAccountList</code> is then called, setting the predicate of <code>filteredAccounts</code> according to the input parameters.
+Finally, <code>AccountsManager#getFilteredAccounts</code> is called.
+An immutable version of <code>filteredAccounts</code> (filtered) is retrieved and displayed to the user.
+In this case, an account with the <code>name</code> as Japan trip and <code>description</code> as expense spent in Japan will be displayed.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The user executes the command <code>loan delete 2</code> to delete the second account in the <code>accounts</code>.
+Firstly, <code>AccountsManager#resetFilteredAccountList</code> will be called to update the <code>filteredAccounts</code>,
+so that all accounts present in <code>accounts</code> will be present in <code>filteredAccounts</code>,
+then <code>AccountsManager#deleteAccount</code> will be called to delete <code>toDelete</code> account from <code>accounts</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The user executes the command <code>loan edit 3 n/food</code> to edit the <code>name</code> of the first account in the list.
+This creates a new <code>editedAccount</code> identical to the third account in <code>accounts</code>, except that <code>editedAccount</code> has a <code>name</code> of food.
+<code>AccountsManager#editAccount(Index toEdit, Account editedAccount)</code> is then called,
+where <code>toEdit</code> is the index of the third account in <code>accounts</code>,
+and <code>toEdit</code> is replaced with <code>editedAccount</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes the process when the user executes the command <code>account edit</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AccountActivityDiagram.png" alt="AccountActivityDiagram">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For the commands <code>account edit</code>, <code>account delete</code>,
+if the user targets an account outside of the list (e.g. index greater than list size)
+an error message will be displayed.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-interaction-with-ui-the-list-retrieved-by-code-logicmanager-code"><a class="link" href="#aspect-interaction-with-ui-the-list-retrieved-by-code-logicmanager-code">Aspect: Interaction with ui - the list retrieved by <code>LogicManager</code></a></h5>
+<div class="paragraph">
+<p>In the mainWindow of ui, <code>AccountTab</code> is associated with a list of accounts. However, two lists of accounts are required.
+One stores all the current accounts present in <code>accounts</code>, the other one stores the <code>filteredAccounts</code> with the filtered accounts after <code>account find</code> executes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: <code>AccountTab</code> is only associated with <code>filteredAccounts</code> as <code>filteredAccounts</code> stores all accounts.
+After each command, <code>AccountsManager#resetFilteredAccountList</code> is called to reset the predicate to be true, so that <code>filteredAccounts</code> matches <code>accounts</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Only one list of accounts is associated with <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>Cons: It is counter-intuitive as <code>filteredAccounts</code> is supposed to stored the accounts that have been selected.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: <code>AccountListPanel</code> is associated with both <code>filteredAccounts</code> and <code>accounts</code>, and the display of the list switches when necessary.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to understand and align with the common sense.</p>
+</li>
+<li>
+<p>Cons: Hard to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
+<div class="sectionbody">
+<hr>
+<div class="paragraph">
+<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 20:39:57 UTC</div></div></div></body></html>

@@ -345,7 +345,184 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect3">
 <h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The Accounts Feature allows the users to manage their accounts.</p>
+<p>The Accounts Feature allows the users to manage their accounts.
+It is managed by <code>AccountsManager</code>, with <code>Account</code> objects stored internally in a <code>Accounts</code> and <code>filteredAccounts</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following class diagram demonstrates the association between the <code>AccountsManager</code> and <code>Account</code> objects
+(miscellaneous methods such as getters and setters are omitted):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AccountClassDiagram.png" alt="AccountClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Each <code>Account</code> object has the following attributes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name:Name</code>&#8201;&#8212;&#8201;The name of account created.</p>
+</li>
+<li>
+<p><code>description:Description</code>&#8201;&#8212;&#8201;A description of the account to describe the use of the account.</p>
+</li>
+<li>
+<p><code>transactionList:TransactionList</code>&#8201;&#8212;&#8201;The list of transactions associated with the account.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To facilitate the manipulation of <code>Account</code> objects, <code>AccountsManager</code> implements the following operations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountsManager#updateFilteredAccountList(Predicate&lt;Account&gt; predicate)</code>&#8201;&#8212;&#8201;Updates the current predicate of <code>filteredAccounts</code> to <code>predicate</code>.</p>
+</li>
+<li>
+<p><code>AccountsManager#getFilteredAccountList()</code>&#8201;&#8212;&#8201;Gets <code>filteredAccounts</code>, representing the accounts in <code>accounts</code> after filtering.</p>
+</li>
+<li>
+<p><code>AccountsManage#resetFilteredAccountList()</code>&#8201;&#8212;&#8201;Reset <code>filteredAccounts</code> so that all accounts present in <code>accounts</code> exist in <code>filteredAccounts</code>.</p>
+</li>
+<li>
+<p><code>AccountsManage#getAccounts()</code>&#8201;&#8212;&#8201;Gets <code>accounts</code>, representing the accounts in <code>accounts</code>.</p>
+</li>
+<li>
+<p><code>AccountsManage#size()</code>&#8201;&#8212;&#8201;Gets the length of the <code>accounts</code>, representing the number of accounts currently in <code>accounts</code>.</p>
+</li>
+<li>
+<p><code>AccountsManage#addAccount(Account toAdd)</code>&#8201;&#8212;&#8201;Adds the <code>Account toAdd</code> to <code>accounts</code>.</p>
+</li>
+<li>
+<p><code>AccountsManage#deleteAccount(Account toDelete)</code>&#8201;&#8212;&#8201;Deletes the account at <code>Index toDelete</code> from <code>accounts</code>.</p>
+</li>
+<li>
+<p><code>AccountsManage#editAccount(Index toEdit, Account editedAccount)</code>&#8201;&#8212;&#8201;Edits the account at <code>Index Edit</code> to match <code>Account editedAccount</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each user-given command makes use of one or more of the above operations.
+For example, <code>account edit</code> will call <code>AccountsManager#resetFilteredAccountList</code> to update the <code>filteredAccounts</code>,
+so that all accounts present in <code>accounts</code> will be present in <code>filteredAccounts</code>, then <code>AccountsManager#editAccount</code> to edit the targeted account,
+finally <code>AccountsManager#getFilteredAccountList()</code> to display the remaining accounts.</p>
+</div>
+<div class="paragraph">
+<p>After each command, the state of <code>accounts</code> is saved in the file <code>accounts.json</code>.
+ <code>accounts.json</code> itself is stored on the local hard disk in a <code>data</code> folder, which is in the same directory as <code>budgetbuddy.jar</code>.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>AccountsManager</code> behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application.
+If <code>accounts.json</code> exists on the hard disk, its data is loaded into <code>accounts</code>.
+Otherwise, <code>accounts.json</code> is created and the <code>AccountsManager</code> initializes with an <code>accounts</code> containing a default account.</p>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes the command <code>account add n/Japan trip d/expense spent in Japan</code> to add a new account.
+This creates a new account <code>toAdd</code> with the <code>name</code> as Japan trip and <code>description</code> as expense spent in Japan.
+<code>AccountsManager#addAccount(Account toAdd)</code> is then called and <code>toAdd</code> is added to <code>accounts</code>.
+<code>filteredAccountList</code> will be automatically updated to match <code>accounts</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates how the process of adding an account works:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AccountSequenceDiagram.png" alt="AccountSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>In general, the rest of the operations work using a similar sequence of steps.
+Some commands might create a new <code>Account</code> object (as shown above) while others might just use the <code>Index</code> of an account.</p>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes the command <code>account find trip</code> to find account contains the keyword trip specified.
+First, <code>AccountsManager#resetFilteredAccountList</code> is called, updating <code>filteredAccounts</code> to match the <code>accounts</code>.
+<code>AccountsManager#updateFilteredAccountList</code> is then called, setting the predicate of <code>filteredAccounts</code> according to the input parameters.
+Finally, <code>AccountsManager#getFilteredAccounts</code> is called.
+An immutable version of <code>filteredAccounts</code> (filtered) is retrieved and displayed to the user.
+In this case, an account with the <code>name</code> as Japan trip and <code>description</code> as expense spent in Japan will be displayed.</p>
+</div>
+<div class="paragraph">
+<p>Step 4. The user executes the command <code>loan delete 2</code> to delete the second account in the <code>accounts</code>.
+Firstly, <code>AccountsManager#resetFilteredAccountList</code> will be called to update the <code>filteredAccounts</code>,
+so that all accounts present in <code>accounts</code> will be present in <code>filteredAccounts</code>,
+then <code>AccountsManager#deleteAccount</code> will be called to delete <code>toDelete</code> account from <code>accounts</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 5. The user executes the command <code>loan edit 3 n/food</code> to edit the <code>name</code> of the first account in the list.
+This creates a new <code>editedAccount</code> identical to the third account in <code>accounts</code>, except that <code>editedAccount</code> has a <code>name</code> of food.
+<code>AccountsManager#editAccount(Index toEdit, Account editedAccount)</code> is then called,
+where <code>toEdit</code> is the index of the third account in <code>accounts</code>,
+and <code>toEdit</code> is replaced with <code>editedAccount</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes the process when the user executes the command <code>account edit</code>:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AccountActivityDiagram.png" alt="AccountActivityDiagram">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+For the commands <code>account edit</code>, <code>account delete</code>,
+if the user targets an account outside of the list (e.g. index greater than list size)
+an error message will be displayed.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-interaction-with-ui-the-list-retrieved-by-code-logicmanager-code"><a class="link" href="#aspect-interaction-with-ui-the-list-retrieved-by-code-logicmanager-code">Aspect: Interaction with ui - the list retrieved by <code>LogicManager</code></a></h5>
+<div class="paragraph">
+<p>In the mainWindow of ui, <code>AccountTab</code> is associated with a list of accounts. However, two lists of accounts are required.
+One stores all the current accounts present in <code>accounts</code>, the other one stores the <code>filteredAccounts</code> with the filtered accounts after <code>account find</code> executes.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: <code>AccountTab</code> is only associated with <code>filteredAccounts</code> as <code>filteredAccounts</code> stores all accounts.
+After each command, <code>AccountsManager#resetFilteredAccountList</code> is called to reset the predicate to be true, so that <code>filteredAccounts</code> matches <code>accounts</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Only one list of accounts is associated with <code>LogicManager</code>.</p>
+</li>
+<li>
+<p>Cons: It is counter-intuitive as <code>filteredAccounts</code> is supposed to stored the accounts that have been selected.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: <code>AccountListPanel</code> is associated with both <code>filteredAccounts</code> and <code>accounts</code>, and the display of the list switches when necessary.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to understand and align with the common sense.</p>
+</li>
+<li>
+<p>Cons: Hard to implement.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -665,7 +842,7 @@ Using the example command executed above, the display will show that <code>John<
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-structure-of-the-loan-person-interaction"><a class="link" href="#aspect-structure-of-the-loan-person-interaction">Aspect: Structure of the loan - person interaction</a></h5>
 <div class="ulist">
@@ -756,7 +933,7 @@ integrates with the logic.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
 <div class="paragraph">
 <p><em>TODO: design considerations</em></p>
 </div>
@@ -791,7 +968,7 @@ in effect, custom commands to be created.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.4.2. Design considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design considerations</a></h4>
 <div class="paragraph">
 <p><em>TODO</em></p>
 </div>
@@ -942,7 +1119,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.5.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
 <div class="ulist">
@@ -1760,4 +1937,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 20:25:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 20:39:57 UTC</div></div></div></body></html>
