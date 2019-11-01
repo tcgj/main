@@ -15,11 +15,11 @@
 <li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help: <code>help</code></a></li>
-<li><a href="#managing-defaults-code-default-code">4.2. Managing defaults: <code>default</code></a></li>
+<li><a href="#managing-defaults-code-default-code-coming-in-v2-0">4.2. Managing defaults: <code>default</code> (coming in v2.0)</a></li>
 <li><a href="#managing-the-main-transaction-view-code-view-code">4.3. Managing the main transaction view: <code>view</code></a></li>
 <li><a href="#managing-transactions-code-transaction-code">4.4. Managing transactions: <code>transaction</code></a></li>
 <li><a href="#managing-accounts-code-account-code">4.5. Managing accounts: <code>account</code></a></li>
-<li><a href="#managing-categories-code-category-code">4.6. Managing categories: <code>category</code></a></li>
+<li><a href="#managing-categories-code-category-code-coming-in-v2-0">4.6. Managing categories: <code>category</code> (Coming in v2.0)</a></li>
 <li><a href="#tracking-loans-code-loan-code">4.7. Tracking loans: <code>loan</code></a></li>
 <li><a href="#automating-with-rules-code-rule-code">4.8. Automating with rules: <code>rule</code></a></li>
 <li><a href="#Scripting">4.9. Scripting: <code>script</code></a></li>
@@ -198,9 +198,9 @@ do complicated things in a snap. And even use your script in rules!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-defaults-code-default-code"><a class="link" href="#managing-defaults-code-default-code">4.2. Managing defaults: <code>default</code></a></h3>
+<h3 id="managing-defaults-code-default-code-coming-in-v2-0"><a class="link" href="#managing-defaults-code-default-code-coming-in-v2-0">4.2. Managing defaults: <code>default</code> (coming in v2.0)</a></h3>
 <div class="sect3">
-<h4 id="set-default-account-code-default-account-code"><a class="link" href="#set-default-account-code-default-account-code">4.2.1. Set default account: <code>default account</code></a></h4>
+<h4 id="set-default-account-code-default-account-code-coming-in-v2-0"><a class="link" href="#set-default-account-code-default-account-code-coming-in-v2-0">4.2.1. Set default account: <code>default account</code> (coming in v2.0)</a></h4>
 <div class="paragraph">
 <p>Sets the default account.</p>
 </div>
@@ -212,7 +212,7 @@ do complicated things in a snap. And even use your script in rules!</p>
 <div class="sect2">
 <h3 id="managing-the-main-transaction-view-code-view-code"><a class="link" href="#managing-the-main-transaction-view-code-view-code">4.3. Managing the main transaction view: <code>view</code></a></h3>
 <div class="sect3">
-<h4 id="filter-transactions-code-view-filter-code"><a class="link" href="#filter-transactions-code-view-filter-code">4.3.1. Filter transactions: <code>view filter</code></a></h4>
+<h4 id="filter-transactions-code-view-filter-code-coming-in-v2-0"><a class="link" href="#filter-transactions-code-view-filter-code-coming-in-v2-0">4.3.1. Filter transactions: <code>view filter</code> (Coming in v2.0)</a></h4>
 <div class="paragraph">
 <p>Filters the main transaction view. If no arguments are provided, all transactions are shown.
 Otherwise, only transactions meeting all the criteria are shown.</p>
@@ -222,7 +222,7 @@ Otherwise, only transactions meeting all the criteria are shown.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="sort-transactions-code-view-sort-code"><a class="link" href="#sort-transactions-code-view-sort-code">4.3.2. Sort transactions: <code>view sort</code></a></h4>
+<h4 id="sort-transactions-code-view-sort-code-coming-in-v2-0"><a class="link" href="#sort-transactions-code-view-sort-code-coming-in-v2-0">4.3.2. Sort transactions: <code>view sort</code> (Coming in v2.0)</a></h4>
 <div class="paragraph">
 <p>Sorts transactions by (a)ccount, (c)ategory, (d)ate or (x)amount.
 Specify <code>o/a</code> to sort in ascending order, or <code>o/d</code> to sort in descending order.
@@ -241,14 +241,14 @@ If omitted, sort in ascending order.</p>
 <p>Adds a new transaction of the specified amount and with the given description.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>txn out|in x/&lt;amount&gt; d/&lt;description&gt; [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;] [r/&lt;d|w|m|y&gt;]</code></p>
+<p>Format: <code>txn dn/out|in x/&lt;amount&gt; d/&lt;description&gt; [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;] [r/&lt;d|w|m|y&gt;]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>If the account is not given, the transaction is inserted into the default account.</p>
+<p>If the account is not given, the transaction is inserted into the active account.</p>
 </li>
 <li>
 <p>If the category is not given, the transaction is not categorized.</p>
@@ -272,7 +272,7 @@ identical entries will be added either daily, weekly, monthly, or yearly.</p>
 If the ‘recurring’ field is modified, the app will ask if all previous recurring entries should be deleted.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>txn edit &lt;id&gt; out|in [x/&lt;amount&gt;] [d/&lt;description&gt;] [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;] [r/&lt;d|w|m|y&gt;]</code></p>
+<p>Format: <code>txn edit &lt;id&gt; dn/out|in [x/&lt;amount&gt;] [d/&lt;description&gt;] [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;] [r/&lt;d|w|m|y&gt;]</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -408,21 +408,21 @@ You can see a list of accounts with the word 'trip' contained in their names.</p
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-categories-code-category-code"><a class="link" href="#managing-categories-code-category-code">4.6. Managing categories: <code>category</code></a></h3>
+<h3 id="managing-categories-code-category-code-coming-in-v2-0"><a class="link" href="#managing-categories-code-category-code-coming-in-v2-0">4.6. Managing categories: <code>category</code> (Coming in v2.0)</a></h3>
 <div class="sect3">
-<h4 id="add-a-category"><a class="link" href="#add-a-category">4.6.1. Add a category</a></h4>
+<h4 id="add-a-category-coming-in-v2-0"><a class="link" href="#add-a-category-coming-in-v2-0">4.6.1. Add a category (Coming in v2.0)</a></h4>
 <div class="paragraph">
 <p>Categories do not need to be added; you can simply use the category name and a new category will be created if no such one exists.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-categories-code-category-list-code"><a class="link" href="#list-categories-code-category-list-code">4.6.2. List categories: <code>category list</code></a></h4>
+<h4 id="list-categories-code-category-list-code-coming-in-v2-0"><a class="link" href="#list-categories-code-category-list-code-coming-in-v2-0">4.6.2. List categories: <code>category list</code> (Coming in v2.0)</a></h4>
 <div class="paragraph">
 <p>Lists all categories.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="rename-a-category-code-category-rename-code"><a class="link" href="#rename-a-category-code-category-rename-code">4.6.3. Rename a category: <code>category rename</code></a></h4>
+<h4 id="rename-a-category-code-category-rename-code-coming-in-v2-0"><a class="link" href="#rename-a-category-code-category-rename-code-coming-in-v2-0">4.6.3. Rename a category: <code>category rename</code> (Coming in v2.0)</a></h4>
 <div class="paragraph">
 <p>Renames the specified category.
 Note that this is the same as setting the category of all transactions of category <code>old name</code> to <code>new name</code>.</p>
@@ -432,7 +432,7 @@ Note that this is the same as setting the category of all transactions of catego
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-category-code-category-delete-code"><a class="link" href="#delete-a-category-code-category-delete-code">4.6.4. Delete a category: <code>category delete</code></a></h4>
+<h4 id="delete-a-category-code-category-delete-code-coming-in-v2-0"><a class="link" href="#delete-a-category-code-category-delete-code-coming-in-v2-0">4.6.4. Delete a category: <code>category delete</code> (Coming in v2.0)</a></h4>
 <div class="paragraph">
 <p>Deletes the specified category.
 Note that this is the same as un-categorising all transactions under the specified category.</p>
@@ -1189,4 +1189,4 @@ Deleting that folder will reset the application data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 02:00:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 02:05:18 UTC</div></div></div></body></html>
