@@ -22,17 +22,19 @@
 <li><a href="#managing-categories-code-category-code">4.6. Managing categories: <code>category</code></a></li>
 <li><a href="#tracking-loans-code-loan-code">4.7. Tracking loans: <code>loan</code></a></li>
 <li><a href="#automating-with-rules-code-rule-code">4.8. Automating with rules: <code>rule</code></a></li>
-<li><a href="#import-and-export-code-import-export-code">4.9. Import and export: <code>import, export</code></a></li>
-<li><a href="#Scripting">4.10. Scripting: <code>script</code></a></li>
-<li><a href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">4.11. Managing budgets <strong>(Coming in v2.0)</strong> : <code>budget</code></a></li>
-<li><a href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">4.12. Goal setting <strong>(Coming in v2.0)</strong> : <code>goal</code></a></li>
-<li><a href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">4.13. Viewing reports <strong>(Coming in v2.0)</strong>: <code>report</code></a></li>
+<li><a href="#Scripting">4.9. Scripting: <code>script</code></a></li>
+<li><a href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">4.10. Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></li>
+<li><a href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">4.11. Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></li>
+<li><a href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">4.12. Managing budgets <strong>(Coming in v2.0)</strong> : <code>budget</code></a></li>
+<li><a href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">4.13. Goal setting <strong>(Coming in v2.0)</strong> : <code>goal</code></a></li>
+<li><a href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">4.14. Viewing reports <strong>(Coming in v2.0)</strong>: <code>report</code></a></li>
 </ul>
 </li>
-<li><a href="#faq">5. FAQ</a></li>
-<li><a href="#command-summary">6. Command Summary</a>
+<li><a href="#scripting-api">5. Scripting API</a></li>
+<li><a href="#faq">6. FAQ</a></li>
+<li><a href="#command-summary">7. Command Summary</a>
 <ul class="sectlevel2">
-<li><a href="#rules">6.1. Rules</a></li>
+<li><a href="#rules">7.1. Rules</a></li>
 </ul>
 </li>
 </ul>
@@ -681,7 +683,7 @@ A rule can be formed using either expressions or scripts, or both.</p>
 <p>Format: <code>rule add pred/&lt;expression | script name&gt; act/&lt;expression | script name&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>Refer to <a href="#Scripting">Section 4.10, &#8220;Scripting: <code>script</code>&#8221;</a> for script usage.</p>
+<p>Refer to <a href="#Scripting">Section 4.9, &#8220;Scripting: <code>script</code>&#8221;</a> for script usage.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -790,61 +792,27 @@ Both the predicate and action can be modified.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-and-export-code-import-export-code"><a class="link" href="#import-and-export-code-import-export-code">4.9. Import and export: <code>import, export</code></a></h3>
-<div class="sect3">
-<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">4.9.1. Import a file: <code>import</code></a></h4>
+<h3 id="Scripting"><a class="link" href="#Scripting">4.9. Scripting: <code>script</code></a></h3>
 <div class="paragraph">
-<p>Imports transactions from the file at the given path.</p>
+<p>The scripting engine allows you to evaluate arbitrary scripts to perform complex operations on your transaction data,
+as well as extend the application and add commands and features of your own.</p>
 </div>
-<div class="paragraph">
-<p>Format: <code>import [f/&lt;format&gt;] [p/&lt;file path&gt;]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
-If the path is omitted, a file browser is opened for you to select the file.</p>
-</li>
-<li>
-<p>Format is one of dbs (DBS Bank/POSB), ocbc (OCBC Bank), sc (Standard Chartered), csv (generic comma-separated values file).
-If the format is omitted, automatic detection is attempted.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Scripts have full access to the application&#8217;s internals, as well as all Java standard library classes and APIs.
+It is possible to corrupt the application state by execution of a malicious or buggy script. There are no guarantees on
+application behaviour if scripts are used.
+</td>
+</tr>
+</table>
 </div>
 <div class="sect3">
-<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">4.9.2. Export transactions: <code>export</code></a></h4>
-<div class="paragraph">
-<p>Exports all transactions to the given path.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>export [p/&lt;file path&gt;]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
-If the path is omitted, a file browser is opened for you to select where to save the file.</p>
-</li>
-<li>
-<p>The file is a comma-separated values file.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Scripting"><a class="link" href="#Scripting">4.10. Scripting: <code>script</code></a></h3>
-<div class="sect3">
-<h4 id="evaluate-a-script-code-script-eval-code"><a class="link" href="#evaluate-a-script-code-script-eval-code">4.10.1. Evaluate a script: <code>script eval</code></a></h4>
+<h4 id="evaluate-a-script-code-script-eval-code"><a class="link" href="#evaluate-a-script-code-script-eval-code">4.9.1. Evaluate a script: <code>script eval</code></a></h4>
 <div class="paragraph">
 <p>Evaluates a script and displays the result.</p>
 </div>
@@ -864,7 +832,7 @@ If the path is omitted, a file browser is opened for you to select where to save
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-stored-script-code-script-add-code"><a class="link" href="#add-a-stored-script-code-script-add-code">4.10.2. Add a stored script: <code>script add</code></a></h4>
+<h4 id="add-a-stored-script-code-script-add-code"><a class="link" href="#add-a-stored-script-code-script-add-code">4.9.2. Add a stored script: <code>script add</code></a></h4>
 <div class="paragraph">
 <p>Stores a script for future invocation.</p>
 </div>
@@ -901,7 +869,16 @@ will be reported only when the script is run.
 </div>
 </div>
 <div class="sect3">
-<h4 id="run-a-stored-script-code-script-run-code"><a class="link" href="#run-a-stored-script-code-script-run-code">4.10.3. Run a stored script: <code>script run</code></a></h4>
+<h4 id="delete-a-stored-script-code-script-delete-code"><a class="link" href="#delete-a-stored-script-code-script-delete-code">4.9.3. Delete a stored script: <code>script delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes a previously-stored script.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>script delete &lt;script name&gt;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="run-a-stored-script-code-script-run-code"><a class="link" href="#run-a-stored-script-code-script-run-code">4.9.4. Run a stored script: <code>script run</code></a></h4>
 <div class="paragraph">
 <p>Runs a previously-stored script.</p>
 </div>
@@ -920,54 +897,187 @@ will be reported only when the script is run.
 </div>
 </div>
 </div>
+<div class="sect3">
+<h4 id="list-stored-scripts-code-script-list-code"><a class="link" href="#list-stored-scripts-code-script-list-code">4.9.5. List stored scripts: <code>script list</code></a></h4>
+<div class="paragraph">
+<p>Lists stored scripts.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>script list</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="reset-the-scripting-environment-code-script-reset-code"><a class="link" href="#reset-the-scripting-environment-code-script-reset-code">4.9.6. Reset the scripting environment: <code>script reset</code></a></h4>
+<div class="paragraph">
+<p>Resets the scripting environment.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>script reset</code></p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="managing-budgets-strong-coming-in-v2-0-strong-code-budget-code"><a class="link" href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">4.11. Managing budgets <strong>(Coming in v2.0)</strong> : <code>budget</code></a></h3>
+<h3 id="import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code"><a class="link" href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">4.10. Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></h3>
+<div class="sect3">
+<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">4.10.1. Import a file: <code>import</code></a></h4>
+<div class="paragraph">
+<p>Imports transactions from the file at the given path.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>import [f/&lt;format&gt;] [p/&lt;file path&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
+If the path is omitted, a file browser is opened for you to select the file.</p>
+</li>
+<li>
+<p>Format is one of dbs (DBS Bank/POSB), ocbc (OCBC Bank), sc (Standard Chartered), csv (generic comma-separated values file).
+If the format is omitted, automatic detection is attempted.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">4.10.2. Export transactions: <code>export</code></a></h4>
+<div class="paragraph">
+<p>Exports all transactions to the given path.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>export [p/&lt;file path&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
+If the path is omitted, a file browser is opened for you to select where to save the file.</p>
+</li>
+<li>
+<p>The file is a comma-separated values file.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="aliases-strong-coming-in-v1-4-strong-code-alias-code"><a class="link" href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">4.11. Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></h3>
+<div class="sect3">
+<h4 id="add-an-alias-code-alias-add-code"><a class="link" href="#add-an-alias-code-alias-add-code">4.11.1. Add an alias: <code>alias add</code></a></h4>
+<div class="paragraph">
+<p>Adds an alias.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>alias add &lt;alias name&gt; c/&lt;alias replacement&gt;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>When executed, the alias name will be replaced by the replacement, and the resulting command line executed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example, suppose you add an alias named <code>abcd efgh 7890</code>, with replacement <code>script run x</code>.</p>
+</li>
+<li>
+<p>Executing <code>abcd efgh 7890 abcd</code> is equivalent to executing <code>script run x abcd</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The alias name must appear at the start of a command line, followed by a space, for it to be recognised.</p>
+</li>
+<li>
+<p>There is no restriction on the characters in the alias name. However, leading and trailing whitespace will be trimmed.</p>
+</li>
+<li>
+<p>Aliases can expand to other aliases.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Built-in commands take precedence. If you add an alias with the same name as a built-in command, it will have no effect.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-an-alias-code-alias-delete-code"><a class="link" href="#delete-an-alias-code-alias-delete-code">4.11.2. Delete an alias: <code>alias delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes an alias.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>alias delete &lt;alias name&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-budgets-strong-coming-in-v2-0-strong-code-budget-code"><a class="link" href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">4.12. Managing budgets <strong>(Coming in v2.0)</strong> : <code>budget</code></a></h3>
 <div class="paragraph">
 <p>Displays or sets the budget for the specified period.</p>
 </div>
 <div class="sect3">
-<h4 id="view-budgets-code-budget-list-code"><a class="link" href="#view-budgets-code-budget-list-code">4.11.1. View budgets: <code>budget list</code></a></h4>
+<h4 id="view-budgets-code-budget-list-code"><a class="link" href="#view-budgets-code-budget-list-code">4.12.1. View budgets: <code>budget list</code></a></h4>
 <div class="paragraph">
 <p>Views the list of budgets currently stored.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-budgets-code-budget-add-code"><a class="link" href="#add-budgets-code-budget-add-code">4.11.2. Add budgets: <code>budget add</code></a></h4>
+<h4 id="add-budgets-code-budget-add-code"><a class="link" href="#add-budgets-code-budget-add-code">4.12.2. Add budgets: <code>budget add</code></a></h4>
 <div class="paragraph">
 <p>This command sets a budget. Note that budgets cannot overlap.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="remove-budgets-code-budget-delete-code"><a class="link" href="#remove-budgets-code-budget-delete-code">4.11.3. Remove budgets: <code>budget delete</code></a></h4>
+<h4 id="remove-budgets-code-budget-delete-code"><a class="link" href="#remove-budgets-code-budget-delete-code">4.12.3. Remove budgets: <code>budget delete</code></a></h4>
 <div class="paragraph">
 <p>This command removes a budget from the list.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="goal-setting-strong-coming-in-v2-0-strong-code-goal-code"><a class="link" href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">4.12. Goal setting <strong>(Coming in v2.0)</strong> : <code>goal</code></a></h3>
+<h3 id="goal-setting-strong-coming-in-v2-0-strong-code-goal-code"><a class="link" href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">4.13. Goal setting <strong>(Coming in v2.0)</strong> : <code>goal</code></a></h3>
 <div class="sect3">
-<h4 id="add-a-goal-code-goal-add-code"><a class="link" href="#add-a-goal-code-goal-add-code">4.12.1. Add a goal: <code>goal add</code></a></h4>
+<h4 id="add-a-goal-code-goal-add-code"><a class="link" href="#add-a-goal-code-goal-add-code">4.13.1. Add a goal: <code>goal add</code></a></h4>
 <div class="paragraph">
 <p>Adds a goal on the specified account to reach the specified amount by the target date or at the end of the specified period.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-goals-code-goal-list-code"><a class="link" href="#view-goals-code-goal-list-code">4.12.2. View goals: <code>goal list</code></a></h4>
+<h4 id="view-goals-code-goal-list-code"><a class="link" href="#view-goals-code-goal-list-code">4.13.2. View goals: <code>goal list</code></a></h4>
 <div class="paragraph">
 <p>List all goals.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-goal-s-code-goal-delete-code"><a class="link" href="#delete-goal-s-code-goal-delete-code">4.12.3. Delete goal(s): <code>goal delete</code></a></h4>
+<h4 id="delete-goal-s-code-goal-delete-code"><a class="link" href="#delete-goal-s-code-goal-delete-code">4.13.3. Delete goal(s): <code>goal delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes the goal with the specified goal ID.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-reports-strong-coming-in-v2-0-strong-code-report-code"><a class="link" href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">4.13. Viewing reports <strong>(Coming in v2.0)</strong>: <code>report</code></a></h3>
+<h3 id="viewing-reports-strong-coming-in-v2-0-strong-code-report-code"><a class="link" href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">4.14. Viewing reports <strong>(Coming in v2.0)</strong>: <code>report</code></a></h3>
 <div class="paragraph">
 <p>Displays a report.</p>
 </div>
@@ -998,7 +1108,21 @@ If the type is omitted, it defaults to a total report.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
+<h2 id="scripting-api"><a class="link" href="#scripting-api">5. Scripting API</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Nashorn scripting engine is used. All features and Java class access of the Nashorn engine are available. See the <a href="https://docs.oracle.com/en/java/javase/11/nashorn/nashorn-java-api.html">Nashorn documentation</a> for more details.</p>
+</div>
+<div class="paragraph">
+<p>Currently, the only exposed interface to the Budget Buddy model is <code>bb</code>, which exposes the full application model to scripts.</p>
+</div>
+<div class="paragraph">
+<p>Convenience functions as well as access to the UI will be added in v1.4.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">6. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q:</strong> Which version of Java do I require to run this application?</p>
@@ -1025,10 +1149,10 @@ Deleting that folder will reset the application data.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">7. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="rules"><a class="link" href="#rules">6.1. Rules</a></h3>
+<h3 id="rules"><a class="link" href="#rules">7.1. Rules</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1047,4 +1171,4 @@ Deleting that folder will reset the application data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 20:39:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 01:54:04 UTC</div></div></div></body></html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tee Hao Wei - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Budget Buddy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-W13-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tee Hao Wei - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-budget-buddy"><a class="link" href="#project-budget-buddy">PROJECT: Budget Buddy</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Budget Buddy is a desktop expense tracker application that allows users to track their expenses. The main method of input by the user is using a command-line interface (CLI), but the application presents information using a graphical interface. It targets users from the School of Computing in the National University of Singapore, who are generally comfortable with command-line interfaces.</p>
+</div>
+<div class="paragraph">
+<p>Budget Buddy has the usual requisite features of an expense tracker: transactions, accounts, categories, loan tracking and a loan splitter. Because we are targetting computing students, Budget Buddy also has a scripting engine, allowing users to write scripts that perform complex operations and extend the functionality of the application.</p>
+</div>
+<div class="paragraph">
+<p>Budget Buddy benefits users by allowing them to know what they are spending on, so they can make informed decisions to change their spending behaviour and achieve their financial goals.</p>
+</div>
+<div class="paragraph">
+<p>Budget Buddy is based on the AddressBook-Level3 application by SE-EDU, and currently consists of about 15 thousand lines of code.</p>
+</div>
+<div class="paragraph">
+<p>My main contributions are the scripting engine, import and export feature and alias feature, as well as managing releases and integration of contributions from other team members.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section summarises the contributions I made to Budget Buddy.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: added a scripting engine and library</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What: This feature provides the user the ability to evaluate arbitrary scripts which have full access to the data and user interface of the application, and save these scripts in a library for convenient reuse.</p>
+</li>
+<li>
+<p>Why: This feature allows the user to perform complex operations that may be inconvenient or impossible to do through the CLI, and extend the application with new commands and features on their own, without having to modify the application&#8217;s source code directly.</p>
+</li>
+<li>
+<p>Highlights: This feature required thought to provide a ergonomic interface to allow scripts to do common operations easily, without restricting scripts from doing more complex operations.</p>
+</li>
+<li>
+<p>Credits: This feature is implemented using the Nashorn JavaScript engine, bundled with Java 11.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement</strong>: added the ability to import and export transactions</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What: This feature provides the user the ability to import and export transactions.</p>
+</li>
+<li>
+<p>Why: This feature allows the user to import transactions exported from their bank transaction history and export transactions for further manipulation in an external program, such as Google Sheets or Excel.</p>
+</li>
+<li>
+<p>Highlights: This feature required retrieving exports from various banks and writing parsers for each of their formats.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: added a command alias feature to allow users to create shorthands</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong>:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Managed releases <code>v1.1</code> to <code>v1.3</code> (4 releases) on GitHub</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the GUI color scheme; see PRs <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a></p>
+</li>
+<li>
+<p>Wrote additional tests for existing features to increase coverage from 88% to 92%; see PRs <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Did cosmetic tweaks to existing contents of the User Guide; see PR <a href="https://github.com">#14</a></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reviewed PRs (with non-trivial comments) <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+</li>
+<li>
+<p>Rebased PRs #nn, #nn, #nn</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated Netlify, Coveralls and Codacy to the team repository</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section includes the parts of the user guide that I wrote, to demonstrate my ability to write end-user facing documentation.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code"><a class="link" href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></h3>
+<div class="sect3">
+<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">Import a file: <code>import</code></a></h4>
+<div class="paragraph">
+<p>Imports transactions from the file at the given path.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>import [f/&lt;format&gt;] [p/&lt;file path&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
+If the path is omitted, a file browser is opened for you to select the file.</p>
+</li>
+<li>
+<p>Format is one of dbs (DBS Bank/POSB), ocbc (OCBC Bank), sc (Standard Chartered), csv (generic comma-separated values file).
+If the format is omitted, automatic detection is attempted.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">Export transactions: <code>export</code></a></h4>
+<div class="paragraph">
+<p>Exports all transactions to the given path.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>export [p/&lt;file path&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
+If the path is omitted, a file browser is opened for you to select where to save the file.</p>
+</li>
+<li>
+<p>The file is a comma-separated values file.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Scripting"><a class="link" href="#Scripting">Scripting: <code>script</code></a></h3>
+<div class="paragraph">
+<p>The scripting engine allows you to evaluate arbitrary scripts to perform complex operations on your transaction data,
+as well as extend the application and add commands and features of your own.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Scripts have full access to the application&#8217;s internals, as well as all Java standard library classes and APIs.
+It is possible to corrupt the application state by execution of a malicious or buggy script. There are no guarantees on
+application behaviour if scripts are used.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="evaluate-a-script-code-script-eval-code"><a class="link" href="#evaluate-a-script-code-script-eval-code">Evaluate a script: <code>script eval</code></a></h4>
+<div class="paragraph">
+<p>Evaluates a script and displays the result.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>script eval &lt;script&gt;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The scripting language is JavaScript (specifically, ECMAScript 5.1).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-a-stored-script-code-script-add-code"><a class="link" href="#add-a-stored-script-code-script-add-code">Add a stored script: <code>script add</code></a></h4>
+<div class="paragraph">
+<p>Stores a script for future invocation.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>script add &lt;script name&gt; [p/&lt;file path&gt; | s/&lt;script&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The script name may contain only alphanumeric characters, underscores, and dashes.</p>
+</li>
+<li>
+<p>If neither a file path nor the script code is given, a file browser is opened for you to
+select the script file.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+The script is not checked for correctness before it is stored. Any syntax errors
+will be reported only when the script is run.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-stored-script-code-script-delete-code"><a class="link" href="#delete-a-stored-script-code-script-delete-code">Delete a stored script: <code>script delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes a previously-stored script.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>script delete &lt;script name&gt;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="run-a-stored-script-code-script-run-code"><a class="link" href="#run-a-stored-script-code-script-run-code">Run a stored script: <code>script run</code></a></h4>
+<div class="paragraph">
+<p>Runs a previously-stored script.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>script run &lt;script name&gt; [&lt;argument&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The argument is the rest of the command line after the script name, and is passed to the script as a single string.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-stored-scripts-code-script-list-code"><a class="link" href="#list-stored-scripts-code-script-list-code">List stored scripts: <code>script list</code></a></h4>
+<div class="paragraph">
+<p>Lists stored scripts.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>script list</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="reset-the-scripting-environment-code-script-reset-code"><a class="link" href="#reset-the-scripting-environment-code-script-reset-code">Reset the scripting environment: <code>script reset</code></a></h4>
+<div class="paragraph">
+<p>Resets the scripting environment.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>script reset</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="aliases-strong-coming-in-v1-4-strong-code-alias-code"><a class="link" href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></h3>
+<div class="sect3">
+<h4 id="add-an-alias-code-alias-add-code"><a class="link" href="#add-an-alias-code-alias-add-code">Add an alias: <code>alias add</code></a></h4>
+<div class="paragraph">
+<p>Adds an alias.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>alias add &lt;alias name&gt; c/&lt;alias replacement&gt;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>When executed, the alias name will be replaced by the replacement, and the resulting command line executed.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>For example, suppose you add an alias named <code>abcd efgh 7890</code>, with replacement <code>script run x</code>.</p>
+</li>
+<li>
+<p>Executing <code>abcd efgh 7890 abcd</code> is equivalent to executing <code>script run x abcd</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The alias name must appear at the start of a command line, followed by a space, for it to be recognised.</p>
+</li>
+<li>
+<p>There is no restriction on the characters in the alias name. However, leading and trailing whitespace will be trimmed.</p>
+</li>
+<li>
+<p>Aliases can expand to other aliases.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Built-in commands take precedence. If you add an alias with the same name as a built-in command, it will have no effect.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-an-alias-code-alias-delete-code"><a class="link" href="#delete-an-alias-code-alias-delete-code">Delete an alias: <code>alias delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes an alias.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>alias delete &lt;alias name&gt;</code></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section includes the parts of the user guide that I wrote, to demonstrate my ability to write technical documentation and the technical depth of my contributions to the project.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="import-and-export"><a class="link" href="#import-and-export">Import and export</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The import functionality takes in a file and parses it into <code>Transaction</code>s.</p>
+</div>
+<div class="paragraph">
+<p>All of the supported formats are comma-separated value (CSV) files. The bulk of
+the work is parsing the different ways the different banks represent the same data,
+and mapping each column from bank transaction export into the fields contained by
+Budget Buddy <code>Transaction</code>s.</p>
+</div>
+<div class="paragraph">
+<p>The following class diagram illustrates the design of the import and export function.</p>
+</div>
+<div class="paragraph">
+<p><em>TODO: Class diagram</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design considerations</a></h4>
+<div class="paragraph">
+<p><em>TODO</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="scripting"><a class="link" href="#scripting">Scripting</a></h3>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<div class="paragraph">
+<p>The scripting engine works independently of the rest of the application.
+At its core, it uses the Nashorn ECMAScript 5.1 engine bundled with Java 11 to
+evaluate scripts.</p>
+</div>
+<div class="paragraph">
+<p>A set of convenience functions are provided to make basic tasks, such as manipulating
+transactions and accounts, easier. The full model and UI are nevertheless exposed to
+scripts, and scripts are able to access any classes provided in the Java 11 standard
+library, as well as any dependencies included in the application.</p>
+</div>
+<div class="paragraph">
+<p>There is a simple mechanism to store scripts to be run in future. This works together
+with rules to give the ability to have complex predicates and actions outside of
+those supported inherently by the program. This also works with aliases to allow,
+in effect, custom commands to be created.</p>
+</div>
+<div class="paragraph">
+<p>The following class diagram illustrates the design of the scripting engine and model.</p>
+</div>
+<div class="paragraph">
+<p><em>TODO: Class diagram</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design considerations</a></h4>
+<div class="paragraph">
+<p><em>TODO</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="aliases"><a class="link" href="#aliases">Aliases</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">Implementation</a></h4>
+<div class="paragraph">
+<p>The alias is a simple hook into the command parsing engine. If there is no
+built-in command corresponding to a command line, then the alias map is checked.
+If there is a matching alias, then the alias name in the command line is replaced,
+and the command execution is re-tried.</p>
+</div>
+<div class="paragraph">
+<p>To prevent alias loops where the user creates an alias <code>x</code> mapping to <code>y</code>, and an
+alias <code>y</code> mapping to <code>x</code>, we track the aliases that have been applied, and
+stop evaluation if we see that the same alias has been applied more than once.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">Design considerations</a></h4>
+<div class="paragraph">
+<p><em>TODO</em></p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 01:54:04 UTC</div></div></div></body></html>
