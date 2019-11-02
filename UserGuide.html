@@ -15,26 +15,31 @@
 <li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help: <code>help</code></a></li>
-<li><a href="#managing-defaults-code-default-code-coming-in-v2-0">4.2. Managing defaults: <code>default</code> (coming in v2.0)</a></li>
-<li><a href="#managing-the-main-transaction-view-code-view-code">4.3. Managing the main transaction view: <code>view</code></a></li>
-<li><a href="#managing-transactions-code-transaction-code">4.4. Managing transactions: <code>transaction</code></a></li>
-<li><a href="#managing-accounts-code-account-code">4.5. Managing accounts: <code>account</code></a></li>
-<li><a href="#managing-categories-code-category-code-coming-in-v2-0">4.6. Managing categories: <code>category</code> (Coming in v2.0)</a></li>
-<li><a href="#tracking-loans-code-loan-code">4.7. Tracking loans: <code>loan</code></a></li>
-<li><a href="#automating-with-rules-code-rule-code">4.8. Automating with rules: <code>rule</code></a></li>
-<li><a href="#Scripting">4.9. Scripting: <code>script</code></a></li>
-<li><a href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">4.10. Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></li>
-<li><a href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">4.11. Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></li>
-<li><a href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">4.12. Managing budgets <strong>(Coming in v2.0)</strong> : <code>budget</code></a></li>
-<li><a href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">4.13. Goal setting <strong>(Coming in v2.0)</strong> : <code>goal</code></a></li>
-<li><a href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">4.14. Viewing reports <strong>(Coming in v2.0)</strong>: <code>report</code></a></li>
+<li><a href="#managing-transactions-code-txn-code">4.2. Managing transactions: <code>txn</code></a></li>
+<li><a href="#managing-accounts-code-account-code">4.3. Managing accounts: <code>account</code></a></li>
+<li><a href="#tracking-loans-code-loan-code">4.4. Tracking loans: <code>loan</code></a></li>
+<li><a href="#automating-with-rules-code-rule-code">4.5. Automating with rules: <code>rule</code></a></li>
+<li><a href="#Scripting">4.6. Scripting: <code>script</code></a></li>
+<li><a href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">4.7. Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></li>
+<li><a href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">4.8. Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></li>
 </ul>
 </li>
-<li><a href="#scripting-api">5. Scripting API</a></li>
-<li><a href="#faq">6. FAQ</a></li>
-<li><a href="#command-summary">7. Command Summary</a>
+<li><a href="#coming-in-v2-0">5. Coming In v2.0</a>
 <ul class="sectlevel2">
-<li><a href="#rules">7.1. Rules</a></li>
+<li><a href="#managing-defaults-strong-coming-in-v2-0-strong-code-default-code">5.1. Managing defaults <strong>(Coming in v2.0)</strong> : <code>default</code></a></li>
+<li><a href="#managing-the-main-transaction-view-strong-coming-in-v2-0-strong-code-view-code">5.2. Managing the main transaction view <strong>(Coming in v2.0)</strong> : <code>view</code></a></li>
+<li><a href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">5.3. Managing budgets <strong>(Coming in v2.0)</strong> : <code>budget</code></a></li>
+<li><a href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">5.4. Goal setting <strong>(Coming in v2.0)</strong> : <code>goal</code></a></li>
+<li><a href="#managing-categories-strong-coming-in-v2-0-strong-code-category-code">5.5. Managing categories <strong>(Coming in v2.0)</strong> : <code>category</code></a></li>
+<li><a href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">5.6. Viewing reports <strong>(Coming in v2.0)</strong>: <code>report</code></a></li>
+<li><a href="#getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code">5.7. Getting help with specific commands <strong>(Coming in v2.0)</strong>: <code>help</code></a></li>
+</ul>
+</li>
+<li><a href="#scripting-api">6. Scripting API</a></li>
+<li><a href="#faq">7. FAQ</a></li>
+<li><a href="#command-summary">8. Command Summary</a>
+<ul class="sectlevel2">
+<li><a href="#rules">8.1. Rules</a></li>
 </ul>
 </li>
 </ul>
@@ -142,7 +147,7 @@ below.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Welcome to the Budget Buddy User Guide! You can scroll down to start looking at the in-depth features of Budget Buddy,
-or select a topic from the <em>Table of Contents</em> right above.</p>
+or select a topic from the <em>Table of Contents</em> above.</p>
 </div>
 </div>
 </div>
@@ -191,52 +196,16 @@ do complicated things in a snap. And even use your script in rules!</p>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1. Viewing help: <code>help</code></a></h3>
 <div class="paragraph">
-<p>Displays help. If <code>command</code> is specified, view detailed help for that command.</p>
+<p>Provides a link to this user guide.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>help [&lt;command&gt;]</code></p>
+<p>Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-defaults-code-default-code-coming-in-v2-0"><a class="link" href="#managing-defaults-code-default-code-coming-in-v2-0">4.2. Managing defaults: <code>default</code> (coming in v2.0)</a></h3>
+<h3 id="managing-transactions-code-txn-code"><a class="link" href="#managing-transactions-code-txn-code">4.2. Managing transactions: <code>txn</code></a></h3>
 <div class="sect3">
-<h4 id="set-default-account-code-default-account-code-coming-in-v2-0"><a class="link" href="#set-default-account-code-default-account-code-coming-in-v2-0">4.2.1. Set default account: <code>default account</code> (coming in v2.0)</a></h4>
-<div class="paragraph">
-<p>Sets the default account.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>default account &lt;id&gt;</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="managing-the-main-transaction-view-code-view-code"><a class="link" href="#managing-the-main-transaction-view-code-view-code">4.3. Managing the main transaction view: <code>view</code></a></h3>
-<div class="sect3">
-<h4 id="filter-transactions-code-view-filter-code-coming-in-v2-0"><a class="link" href="#filter-transactions-code-view-filter-code-coming-in-v2-0">4.3.1. Filter transactions: <code>view filter</code> (Coming in v2.0)</a></h4>
-<div class="paragraph">
-<p>Filters the main transaction view. If no arguments are provided, all transactions are shown.
-Otherwise, only transactions meeting all the criteria are shown.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>view filter [a/&lt;account&gt;] [c/&lt;category&gt;] [f/&lt;from date&gt;] [t/&lt;to date&gt;]</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="sort-transactions-code-view-sort-code-coming-in-v2-0"><a class="link" href="#sort-transactions-code-view-sort-code-coming-in-v2-0">4.3.2. Sort transactions: <code>view sort</code> (Coming in v2.0)</a></h4>
-<div class="paragraph">
-<p>Sorts transactions by (a)ccount, (c)ategory, (d)ate or (x)amount.
-Specify <code>o/a</code> to sort in ascending order, or <code>o/d</code> to sort in descending order.
-If omitted, sort in ascending order.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>view sort s/&lt;a|c|d|x&gt; [o/&lt;a|d&gt;]</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="managing-transactions-code-transaction-code"><a class="link" href="#managing-transactions-code-transaction-code">4.4. Managing transactions: <code>transaction</code></a></h3>
-<div class="sect3">
-<h4 id="add-a-transaction-code-txn-out-in-code"><a class="link" href="#add-a-transaction-code-txn-out-in-code">4.4.1. Add a transaction: <code>txn out|in</code></a></h4>
+<h4 id="add-a-transaction-code-txn-out-in-code"><a class="link" href="#add-a-transaction-code-txn-out-in-code">4.2.1. Add a transaction: <code>txn out|in</code></a></h4>
 <div class="paragraph">
 <p>Adds a new transaction of the specified amount and with the given description.</p>
 </div>
@@ -266,7 +235,7 @@ identical entries will be added either daily, weekly, monthly, or yearly.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-a-transaction-code-txn-edit-code"><a class="link" href="#edit-a-transaction-code-txn-edit-code">4.4.2. Edit a transaction: <code>txn edit</code></a></h4>
+<h4 id="edit-a-transaction-code-txn-edit-code"><a class="link" href="#edit-a-transaction-code-txn-edit-code">4.2.2. Edit a transaction: <code>txn edit</code></a></h4>
 <div class="paragraph">
 <p>Edits the specified transaction, setting the specified fields.
 If the ‘recurring’ field is modified, the app will ask if all previous recurring entries should be deleted.</p>
@@ -276,7 +245,7 @@ If the ‘recurring’ field is modified, the app will ask if all previous recur
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-transaction-s-code-txn-delete-code"><a class="link" href="#delete-transaction-s-code-txn-delete-code">4.4.3. Delete transaction(s): <code>txn delete</code></a></h4>
+<h4 id="delete-transaction-s-code-txn-delete-code"><a class="link" href="#delete-transaction-s-code-txn-delete-code">4.2.3. Delete transaction(s): <code>txn delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes the transaction with the specified ID.</p>
 </div>
@@ -286,9 +255,9 @@ If the ‘recurring’ field is modified, the app will ask if all previous recur
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-accounts-code-account-code"><a class="link" href="#managing-accounts-code-account-code">4.5. Managing accounts: <code>account</code></a></h3>
+<h3 id="managing-accounts-code-account-code"><a class="link" href="#managing-accounts-code-account-code">4.3. Managing accounts: <code>account</code></a></h3>
 <div class="sect3">
-<h4 id="add-an-account-code-account-add-code"><a class="link" href="#add-an-account-code-account-add-code">4.5.1. Add an account: <code>account add</code></a></h4>
+<h4 id="add-an-account-code-account-add-code"><a class="link" href="#add-an-account-code-account-add-code">4.3.1. Add an account: <code>account add</code></a></h4>
 <div class="paragraph">
 <p>You can create a new account. Each account has a unique ID and name. The user can choose to customise a description to describe the use of the account.</p>
 </div>
@@ -312,7 +281,7 @@ You have created an account with name of 'Japan trip' and description of 'expens
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-accounts-code-account-list-code"><a class="link" href="#list-accounts-code-account-list-code">4.5.2. List accounts: <code>account list</code></a></h4>
+<h4 id="list-accounts-code-account-list-code"><a class="link" href="#list-accounts-code-account-list-code">4.3.2. List accounts: <code>account list</code></a></h4>
 <div class="paragraph">
 <p>If you want to see the full list of accounts you currently own, you can enter command and a list of all accounts will be displayed.</p>
 </div>
@@ -321,7 +290,7 @@ You have created an account with name of 'Japan trip' and description of 'expens
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-an-account-code-account-edit-code"><a class="link" href="#edit-an-account-code-account-edit-code">4.5.3. Edit an account: <code>account edit</code></a></h4>
+<h4 id="edit-an-account-code-account-edit-code"><a class="link" href="#edit-an-account-code-account-edit-code">4.3.3. Edit an account: <code>account edit</code></a></h4>
 <div class="paragraph">
 <p>You can edit the account you think that needs modified. You can choose to edit either the name or the description of the account, or both.</p>
 </div>
@@ -358,7 +327,7 @@ The name of your first account will be changed to 'food', at the same time the d
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-account-code-account-delete-code"><a class="link" href="#delete-account-code-account-delete-code">4.5.4. Delete account: <code>account delete</code></a></h4>
+<h4 id="delete-account-code-account-delete-code"><a class="link" href="#delete-account-code-account-delete-code">4.3.4. Delete account: <code>account delete</code></a></h4>
 <div class="paragraph">
 <p>You can delete the account with the specified ID, as in <code>account list</code>.
 Note: you cannot delete an account if there are transactions associated with the account.</p>
@@ -390,7 +359,7 @@ You have deleted the second account in your account list.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="find-account-code-account-find-code"><a class="link" href="#find-account-code-account-find-code">4.5.5. Find account: <code>account find</code></a></h4>
+<h4 id="find-account-code-account-find-code"><a class="link" href="#find-account-code-account-find-code">4.3.5. Find account: <code>account find</code></a></h4>
 <div class="paragraph">
 <p>If you want to see a specific type of accounts you have, or find a specific account, you can find the account(s) with a specified keyword.
 A list of account(s) contain the keyword in their names will be displayed.</p>
@@ -408,44 +377,9 @@ You can see a list of accounts with the word 'trip' contained in their names.</p
 </div>
 </div>
 <div class="sect2">
-<h3 id="managing-categories-code-category-code-coming-in-v2-0"><a class="link" href="#managing-categories-code-category-code-coming-in-v2-0">4.6. Managing categories: <code>category</code> (Coming in v2.0)</a></h3>
+<h3 id="tracking-loans-code-loan-code"><a class="link" href="#tracking-loans-code-loan-code">4.4. Tracking loans: <code>loan</code></a></h3>
 <div class="sect3">
-<h4 id="add-a-category-coming-in-v2-0"><a class="link" href="#add-a-category-coming-in-v2-0">4.6.1. Add a category (Coming in v2.0)</a></h4>
-<div class="paragraph">
-<p>Categories do not need to be added; you can simply use the category name and a new category will be created if no such one exists.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="list-categories-code-category-list-code-coming-in-v2-0"><a class="link" href="#list-categories-code-category-list-code-coming-in-v2-0">4.6.2. List categories: <code>category list</code> (Coming in v2.0)</a></h4>
-<div class="paragraph">
-<p>Lists all categories.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="rename-a-category-code-category-rename-code-coming-in-v2-0"><a class="link" href="#rename-a-category-code-category-rename-code-coming-in-v2-0">4.6.3. Rename a category: <code>category rename</code> (Coming in v2.0)</a></h4>
-<div class="paragraph">
-<p>Renames the specified category.
-Note that this is the same as setting the category of all transactions of category <code>old name</code> to <code>new name</code>.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>category rename o/&lt;old name&gt; n/&lt;new name&gt;</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-a-category-code-category-delete-code-coming-in-v2-0"><a class="link" href="#delete-a-category-code-category-delete-code-coming-in-v2-0">4.6.4. Delete a category: <code>category delete</code> (Coming in v2.0)</a></h4>
-<div class="paragraph">
-<p>Deletes the specified category.
-Note that this is the same as un-categorising all transactions under the specified category.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>category delete n/&lt;name&gt;</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="tracking-loans-code-loan-code"><a class="link" href="#tracking-loans-code-loan-code">4.7. Tracking loans: <code>loan</code></a></h3>
-<div class="sect3">
-<h4 id="add-a-new-loan-code-loan-out-in-code"><a class="link" href="#add-a-new-loan-code-loan-out-in-code">4.7.1. Add a new loan: <code>loan out|in</code></a></h4>
+<h4 id="add-a-new-loan-code-loan-out-in-code"><a class="link" href="#add-a-new-loan-code-loan-out-in-code">4.4.1. Add a new loan: <code>loan out|in</code></a></h4>
 <div class="paragraph">
 <p>Adds a new loan out/in entry.
 Each loan has a unique ID.
@@ -469,7 +403,7 @@ If a date is not given, it is set to the current date. The description is also o
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-loans-code-loan-list-code"><a class="link" href="#list-loans-code-loan-list-code">4.7.2. List loans: <code>loan list</code></a></h4>
+<h4 id="list-loans-code-loan-list-code"><a class="link" href="#list-loans-code-loan-list-code">4.4.2. List loans: <code>loan list</code></a></h4>
 <div class="paragraph">
 <p>Displays a list of all loans, sorted alphabetically by person first, then by newest for each person&#8217;s loans.</p>
 </div>
@@ -518,7 +452,7 @@ Lists all loans sorted by persons in alphabetical order. Then lists all loans ag
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-loan-code-loan-edit-code"><a class="link" href="#edit-loan-code-loan-edit-code">4.7.3. Edit loan: <code>loan edit</code></a></h4>
+<h4 id="edit-loan-code-loan-edit-code"><a class="link" href="#edit-loan-code-loan-edit-code">4.4.3. Edit loan: <code>loan edit</code></a></h4>
 <div class="paragraph">
 <p>Edits the specified field of the loan entry with the specified index.</p>
 </div>
@@ -556,7 +490,7 @@ Lists all loans, then edits the amount and description of the first person in th
 </div>
 </div>
 <div class="sect3">
-<h4 id="mark-loan-s-as-paid-code-loan-paid-code"><a class="link" href="#mark-loan-s-as-paid-code-loan-paid-code">4.7.4. Mark loan(s) as paid: <code>loan paid</code></a></h4>
+<h4 id="mark-loan-s-as-paid-code-loan-paid-code"><a class="link" href="#mark-loan-s-as-paid-code-loan-paid-code">4.4.4. Mark loan(s) as paid: <code>loan paid</code></a></h4>
 <div class="paragraph">
 <p>Marks the specified loan(s) as paid.
 If a person&#8217;s name is specified, all their loans are also marked as paid.</p>
@@ -582,7 +516,7 @@ Marks all loans in from and out to John and Adam as <strong>paid</strong>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="mark-loan-s-as-unpaid-code-loan-unpaid-code"><a class="link" href="#mark-loan-s-as-unpaid-code-loan-unpaid-code">4.7.5. Mark loan(s) as unpaid: <code>loan unpaid</code></a></h4>
+<h4 id="mark-loan-s-as-unpaid-code-loan-unpaid-code"><a class="link" href="#mark-loan-s-as-unpaid-code-loan-unpaid-code">4.4.5. Mark loan(s) as unpaid: <code>loan unpaid</code></a></h4>
 <div class="paragraph">
 <p>Marks the specified loan(s) as unpaid.
 If a person&#8217;s name is specified, all their loans are marked as unpaid.
@@ -593,7 +527,7 @@ This feature works identically to <code>loan paid</code>, except the command wor
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-loan-s-code-loan-delete-code"><a class="link" href="#delete-loan-s-code-loan-delete-code">4.7.6. Delete loan(s): <code>loan delete</code></a></h4>
+<h4 id="delete-loan-s-code-loan-delete-code"><a class="link" href="#delete-loan-s-code-loan-delete-code">4.4.6. Delete loan(s): <code>loan delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes the loan(s) with the specified loan index/indices.
 If a person&#8217;s name is specified, all of that person&#8217;s loans are deleted.</p>
@@ -619,7 +553,7 @@ Deletes all loans in from and out to John.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="calculate-loans-code-loan-split-code"><a class="link" href="#calculate-loans-code-loan-split-code">4.7.7. Calculate loans: <code>loan split</code></a></h4>
+<h4 id="calculate-loans-code-loan-split-code"><a class="link" href="#calculate-loans-code-loan-split-code">4.4.7. Calculate loans: <code>loan split</code></a></h4>
 <div class="paragraph">
 <p>Splits a joint payment equally among group members, then displays a list of who owes who how much.</p>
 </div>
@@ -672,18 +606,60 @@ The latter debt will also have been added to your loan list, which can be checke
 </div>
 </div>
 <div class="sect2">
-<h3 id="automating-with-rules-code-rule-code"><a class="link" href="#automating-with-rules-code-rule-code">4.8. Automating with rules: <code>rule</code></a></h3>
+<h3 id="automating-with-rules-code-rule-code"><a class="link" href="#automating-with-rules-code-rule-code">4.5. Automating with rules: <code>rule</code></a></h3>
+<div class="paragraph">
+<p><strong>Introducing the <em>Rule Engine</em>.</strong>
+A way for you to automate certain actions based on a certain predicate.
+Spend less time typing repetitive commands, and spend more time keeping track of your expenses!</p>
+</div>
+<div class="paragraph">
+<p>Rules have the following structure: If "predicate" is true, then perform "action".</p>
+</div>
+<div class="paragraph">
+<p>All rules in the Rule Engine will be executed on a transaction, when:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>it is a new transaction and has been successfully added into an account.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>OR</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>it is an existing transaction and has been successfully edited.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+All rules will be executed in the order they were added.
+Rules with conflicting actions will therefore be allowed.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect3">
-<h4 id="add-a-new-rule-code-rule-add-code"><a class="link" href="#add-a-new-rule-code-rule-add-code">4.8.1. Add a new rule: <code>rule add</code></a></h4>
+<h4 id="add-a-new-rule-code-rule-add-code"><a class="link" href="#add-a-new-rule-code-rule-add-code">4.5.1. Add a new rule: <code>rule add</code></a></h4>
 <div class="paragraph">
 <p>Adds a new rule to the rule engine.
+Both the predicate and action have to be specified.
 A rule can be formed using either expressions or scripts, or both.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>rule add pred/&lt;expression | script name&gt; act/&lt;expression | script name&gt;</code></p>
 </div>
 <div class="paragraph">
-<p>Refer to <a href="#Scripting">Section 4.9, &#8220;Scripting: <code>script</code>&#8221;</a> for script usage.</p>
+<p>Refer to <a href="#Scripting">Section 4.6, &#8220;Scripting: <code>script</code>&#8221;</a> for script usage.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -781,7 +757,7 @@ A rule can be formed using either expressions or scripts, or both.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-rules-code-rule-list-code"><a class="link" href="#list-rules-code-rule-list-code">4.8.2. List rules: <code>rule list</code></a></h4>
+<h4 id="list-rules-code-rule-list-code"><a class="link" href="#list-rules-code-rule-list-code">4.5.2. List rules: <code>rule list</code></a></h4>
 <div class="paragraph">
 <p>Displays the list of all existing rules, sorted by the order in which a rule was added.</p>
 </div>
@@ -790,7 +766,7 @@ A rule can be formed using either expressions or scripts, or both.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="edit-a-rule-code-rule-edit-code"><a class="link" href="#edit-a-rule-code-rule-edit-code">4.8.3. Edit a rule: <code>rule edit</code></a></h4>
+<h4 id="edit-a-rule-code-rule-edit-code"><a class="link" href="#edit-a-rule-code-rule-edit-code">4.5.3. Edit a rule: <code>rule edit</code></a></h4>
 <div class="paragraph">
 <p>Edits the specified fields in the rule with the specified ID.
 Both the predicate and action can be modified.</p>
@@ -800,7 +776,7 @@ Both the predicate and action can be modified.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-rule-code-rule-delete-code"><a class="link" href="#delete-a-rule-code-rule-delete-code">4.8.4. Delete a rule: <code>rule delete</code></a></h4>
+<h4 id="delete-a-rule-code-rule-delete-code"><a class="link" href="#delete-a-rule-code-rule-delete-code">4.5.4. Delete a rule: <code>rule delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes a rule with the specified rule ID.</p>
 </div>
@@ -810,7 +786,7 @@ Both the predicate and action can be modified.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Scripting"><a class="link" href="#Scripting">4.9. Scripting: <code>script</code></a></h3>
+<h3 id="Scripting"><a class="link" href="#Scripting">4.6. Scripting: <code>script</code></a></h3>
 <div class="paragraph">
 <p>The scripting engine allows you to evaluate arbitrary scripts to perform complex operations on your transaction data,
 as well as extend the application and add commands and features of your own.</p>
@@ -830,7 +806,7 @@ application behaviour if scripts are used.
 </table>
 </div>
 <div class="sect3">
-<h4 id="evaluate-a-script-code-script-eval-code"><a class="link" href="#evaluate-a-script-code-script-eval-code">4.9.1. Evaluate a script: <code>script eval</code></a></h4>
+<h4 id="evaluate-a-script-code-script-eval-code"><a class="link" href="#evaluate-a-script-code-script-eval-code">4.6.1. Evaluate a script: <code>script eval</code></a></h4>
 <div class="paragraph">
 <p>Evaluates a script and displays the result.</p>
 </div>
@@ -850,7 +826,7 @@ application behaviour if scripts are used.
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-a-stored-script-code-script-add-code"><a class="link" href="#add-a-stored-script-code-script-add-code">4.9.2. Add a stored script: <code>script add</code></a></h4>
+<h4 id="add-a-stored-script-code-script-add-code"><a class="link" href="#add-a-stored-script-code-script-add-code">4.6.2. Add a stored script: <code>script add</code></a></h4>
 <div class="paragraph">
 <p>Stores a script for future invocation.</p>
 </div>
@@ -887,7 +863,7 @@ will be reported only when the script is run.
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-stored-script-code-script-delete-code"><a class="link" href="#delete-a-stored-script-code-script-delete-code">4.9.3. Delete a stored script: <code>script delete</code></a></h4>
+<h4 id="delete-a-stored-script-code-script-delete-code"><a class="link" href="#delete-a-stored-script-code-script-delete-code">4.6.3. Delete a stored script: <code>script delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes a previously-stored script.</p>
 </div>
@@ -896,7 +872,7 @@ will be reported only when the script is run.
 </div>
 </div>
 <div class="sect3">
-<h4 id="run-a-stored-script-code-script-run-code"><a class="link" href="#run-a-stored-script-code-script-run-code">4.9.4. Run a stored script: <code>script run</code></a></h4>
+<h4 id="run-a-stored-script-code-script-run-code"><a class="link" href="#run-a-stored-script-code-script-run-code">4.6.4. Run a stored script: <code>script run</code></a></h4>
 <div class="paragraph">
 <p>Runs a previously-stored script.</p>
 </div>
@@ -916,7 +892,7 @@ will be reported only when the script is run.
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-stored-scripts-code-script-list-code"><a class="link" href="#list-stored-scripts-code-script-list-code">4.9.5. List stored scripts: <code>script list</code></a></h4>
+<h4 id="list-stored-scripts-code-script-list-code"><a class="link" href="#list-stored-scripts-code-script-list-code">4.6.5. List stored scripts: <code>script list</code></a></h4>
 <div class="paragraph">
 <p>Lists stored scripts.</p>
 </div>
@@ -925,7 +901,7 @@ will be reported only when the script is run.
 </div>
 </div>
 <div class="sect3">
-<h4 id="reset-the-scripting-environment-code-script-reset-code"><a class="link" href="#reset-the-scripting-environment-code-script-reset-code">4.9.6. Reset the scripting environment: <code>script reset</code></a></h4>
+<h4 id="reset-the-scripting-environment-code-script-reset-code"><a class="link" href="#reset-the-scripting-environment-code-script-reset-code">4.6.6. Reset the scripting environment: <code>script reset</code></a></h4>
 <div class="paragraph">
 <p>Resets the scripting environment.</p>
 </div>
@@ -935,9 +911,9 @@ will be reported only when the script is run.
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code"><a class="link" href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">4.10. Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></h3>
+<h3 id="import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code"><a class="link" href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">4.7. Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></h3>
 <div class="sect3">
-<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">4.10.1. Import a file: <code>import</code></a></h4>
+<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">4.7.1. Import a file: <code>import</code></a></h4>
 <div class="paragraph">
 <p>Imports transactions from the file at the given path.</p>
 </div>
@@ -962,7 +938,7 @@ If the format is omitted, automatic detection is attempted.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">4.10.2. Export transactions: <code>export</code></a></h4>
+<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">4.7.2. Export transactions: <code>export</code></a></h4>
 <div class="paragraph">
 <p>Exports all transactions to the given path.</p>
 </div>
@@ -987,9 +963,9 @@ If the path is omitted, a file browser is opened for you to select where to save
 </div>
 </div>
 <div class="sect2">
-<h3 id="aliases-strong-coming-in-v1-4-strong-code-alias-code"><a class="link" href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">4.11. Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></h3>
+<h3 id="aliases-strong-coming-in-v1-4-strong-code-alias-code"><a class="link" href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">4.8. Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></h3>
 <div class="sect3">
-<h4 id="add-an-alias-code-alias-add-code"><a class="link" href="#add-an-alias-code-alias-add-code">4.11.1. Add an alias: <code>alias add</code></a></h4>
+<h4 id="add-an-alias-code-alias-add-code"><a class="link" href="#add-an-alias-code-alias-add-code">4.8.1. Add an alias: <code>alias add</code></a></h4>
 <div class="paragraph">
 <p>Adds an alias.</p>
 </div>
@@ -1040,7 +1016,7 @@ Built-in commands take precedence. If you add an alias with the same name as a b
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-an-alias-code-alias-delete-code"><a class="link" href="#delete-an-alias-code-alias-delete-code">4.11.2. Delete an alias: <code>alias delete</code></a></h4>
+<h4 id="delete-an-alias-code-alias-delete-code"><a class="link" href="#delete-an-alias-code-alias-delete-code">4.8.2. Delete an alias: <code>alias delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes an alias.</p>
 </div>
@@ -1049,53 +1025,132 @@ Built-in commands take precedence. If you add an alias with the same name as a b
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="coming-in-v2-0"><a class="link" href="#coming-in-v2-0">5. Coming In v2.0</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Look forward to these features coming up in version 2.0 of Budget Buddy!</p>
+</div>
 <div class="sect2">
-<h3 id="managing-budgets-strong-coming-in-v2-0-strong-code-budget-code"><a class="link" href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">4.12. Managing budgets <strong>(Coming in v2.0)</strong> : <code>budget</code></a></h3>
+<h3 id="managing-defaults-strong-coming-in-v2-0-strong-code-default-code"><a class="link" href="#managing-defaults-strong-coming-in-v2-0-strong-code-default-code">5.1. Managing defaults <strong>(Coming in v2.0)</strong> : <code>default</code></a></h3>
+<div class="sect3">
+<h4 id="set-default-account-code-default-account-code"><a class="link" href="#set-default-account-code-default-account-code">5.1.1. Set default account: <code>default account</code></a></h4>
+<div class="paragraph">
+<p>Sets the default account.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>default account &lt;id&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-the-main-transaction-view-strong-coming-in-v2-0-strong-code-view-code"><a class="link" href="#managing-the-main-transaction-view-strong-coming-in-v2-0-strong-code-view-code">5.2. Managing the main transaction view <strong>(Coming in v2.0)</strong> : <code>view</code></a></h3>
+<div class="sect3">
+<h4 id="filter-transactions-code-view-filter-code"><a class="link" href="#filter-transactions-code-view-filter-code">5.2.1. Filter transactions: <code>view filter</code></a></h4>
+<div class="paragraph">
+<p>Filters the main transaction view. If no arguments are provided, all transactions are shown.
+Otherwise, only transactions meeting all the criteria are shown.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>view filter [a/&lt;account&gt;] [c/&lt;category&gt;] [f/&lt;from date&gt;] [t/&lt;to date&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sort-transactions-code-view-sort-code"><a class="link" href="#sort-transactions-code-view-sort-code">5.2.2. Sort transactions: <code>view sort</code></a></h4>
+<div class="paragraph">
+<p>Sorts transactions by (a)ccount, (c)ategory, (d)ate or (x)amount.
+Specify <code>o/a</code> to sort in ascending order, or <code>o/d</code> to sort in descending order.
+If omitted, sort in ascending order.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>view sort s/&lt;a|c|d|x&gt; [o/&lt;a|d&gt;]</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-budgets-strong-coming-in-v2-0-strong-code-budget-code"><a class="link" href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">5.3. Managing budgets <strong>(Coming in v2.0)</strong> : <code>budget</code></a></h3>
 <div class="paragraph">
 <p>Displays or sets the budget for the specified period.</p>
 </div>
 <div class="sect3">
-<h4 id="view-budgets-code-budget-list-code"><a class="link" href="#view-budgets-code-budget-list-code">4.12.1. View budgets: <code>budget list</code></a></h4>
+<h4 id="view-budgets-code-budget-list-code"><a class="link" href="#view-budgets-code-budget-list-code">5.3.1. View budgets: <code>budget list</code></a></h4>
 <div class="paragraph">
 <p>Views the list of budgets currently stored.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="add-budgets-code-budget-add-code"><a class="link" href="#add-budgets-code-budget-add-code">4.12.2. Add budgets: <code>budget add</code></a></h4>
+<h4 id="add-budgets-code-budget-add-code"><a class="link" href="#add-budgets-code-budget-add-code">5.3.2. Add budgets: <code>budget add</code></a></h4>
 <div class="paragraph">
 <p>This command sets a budget. Note that budgets cannot overlap.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="remove-budgets-code-budget-delete-code"><a class="link" href="#remove-budgets-code-budget-delete-code">4.12.3. Remove budgets: <code>budget delete</code></a></h4>
+<h4 id="remove-budgets-code-budget-delete-code"><a class="link" href="#remove-budgets-code-budget-delete-code">5.3.3. Remove budgets: <code>budget delete</code></a></h4>
 <div class="paragraph">
 <p>This command removes a budget from the list.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="goal-setting-strong-coming-in-v2-0-strong-code-goal-code"><a class="link" href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">4.13. Goal setting <strong>(Coming in v2.0)</strong> : <code>goal</code></a></h3>
+<h3 id="goal-setting-strong-coming-in-v2-0-strong-code-goal-code"><a class="link" href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">5.4. Goal setting <strong>(Coming in v2.0)</strong> : <code>goal</code></a></h3>
 <div class="sect3">
-<h4 id="add-a-goal-code-goal-add-code"><a class="link" href="#add-a-goal-code-goal-add-code">4.13.1. Add a goal: <code>goal add</code></a></h4>
+<h4 id="add-a-goal-code-goal-add-code"><a class="link" href="#add-a-goal-code-goal-add-code">5.4.1. Add a goal: <code>goal add</code></a></h4>
 <div class="paragraph">
 <p>Adds a goal on the specified account to reach the specified amount by the target date or at the end of the specified period.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="view-goals-code-goal-list-code"><a class="link" href="#view-goals-code-goal-list-code">4.13.2. View goals: <code>goal list</code></a></h4>
+<h4 id="view-goals-code-goal-list-code"><a class="link" href="#view-goals-code-goal-list-code">5.4.2. View goals: <code>goal list</code></a></h4>
 <div class="paragraph">
 <p>List all goals.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-goal-s-code-goal-delete-code"><a class="link" href="#delete-goal-s-code-goal-delete-code">4.13.3. Delete goal(s): <code>goal delete</code></a></h4>
+<h4 id="delete-goal-s-code-goal-delete-code"><a class="link" href="#delete-goal-s-code-goal-delete-code">5.4.3. Delete goal(s): <code>goal delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes the goal with the specified goal ID.</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-reports-strong-coming-in-v2-0-strong-code-report-code"><a class="link" href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">4.14. Viewing reports <strong>(Coming in v2.0)</strong>: <code>report</code></a></h3>
+<h3 id="managing-categories-strong-coming-in-v2-0-strong-code-category-code"><a class="link" href="#managing-categories-strong-coming-in-v2-0-strong-code-category-code">5.5. Managing categories <strong>(Coming in v2.0)</strong> : <code>category</code></a></h3>
+<div class="sect3">
+<h4 id="add-a-category"><a class="link" href="#add-a-category">5.5.1. Add a category</a></h4>
+<div class="paragraph">
+<p>Categories do not need to be added; you can simply use the category name and a new category will be created if no such one exists.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-categories-code-category-list-code"><a class="link" href="#list-categories-code-category-list-code">5.5.2. List categories: <code>category list</code></a></h4>
+<div class="paragraph">
+<p>Lists all categories.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rename-a-category-code-category-rename-code"><a class="link" href="#rename-a-category-code-category-rename-code">5.5.3. Rename a category: <code>category rename</code></a></h4>
+<div class="paragraph">
+<p>Renames the specified category.
+Note that this is the same as setting the category of all transactions of category <code>old name</code> to <code>new name</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>category rename o/&lt;old name&gt; n/&lt;new name&gt;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-category-code-category-delete-code"><a class="link" href="#delete-a-category-code-category-delete-code">5.5.4. Delete a category: <code>category delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified category.
+Note that this is the same as un-categorising all transactions under the specified category.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>category delete n/&lt;name&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-reports-strong-coming-in-v2-0-strong-code-report-code"><a class="link" href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">5.6. Viewing reports <strong>(Coming in v2.0)</strong>: <code>report</code></a></h3>
 <div class="paragraph">
 <p>Displays a report.</p>
 </div>
@@ -1123,10 +1178,19 @@ If the type is omitted, it defaults to a total report.</p>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code"><a class="link" href="#getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code">5.7. Getting help with specific commands <strong>(Coming in v2.0)</strong>: <code>help</code></a></h3>
+<div class="paragraph">
+<p>Displays detailed help for a specific command.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>help &lt;command word&gt;</code></p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="scripting-api"><a class="link" href="#scripting-api">5. Scripting API</a></h2>
+<h2 id="scripting-api"><a class="link" href="#scripting-api">6. Scripting API</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>The Nashorn scripting engine is used. All features and Java class access of the Nashorn engine are available. See the <a href="https://docs.oracle.com/en/java/javase/11/nashorn/nashorn-java-api.html">Nashorn documentation</a> for more details.</p>
@@ -1140,7 +1204,7 @@ If the type is omitted, it defaults to a total report.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">6. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">7. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q:</strong> Which version of Java do I require to run this application?</p>
@@ -1167,10 +1231,10 @@ Deleting that folder will reset the application data.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">7. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">8. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="rules"><a class="link" href="#rules">7.1. Rules</a></h3>
+<h3 id="rules"><a class="link" href="#rules">8.1. Rules</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1189,4 +1253,4 @@ Deleting that folder will reset the application data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 12:53:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 12:56:20 UTC</div></div></div></body></html>

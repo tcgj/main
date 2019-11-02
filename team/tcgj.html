@@ -196,10 +196,52 @@ more, depending on how the user uses it.</p>
 </table>
 <div class="sect2">
 <h3 id="automating-with-rules-code-rule-code"><a class="link" href="#automating-with-rules-code-rule-code">Automating with rules: <code>rule</code></a></h3>
+<div class="paragraph">
+<p><strong>Introducing the <em>Rule Engine</em>.</strong>
+A way for you to automate certain actions based on a certain predicate.
+Spend less time typing repetitive commands, and spend more time keeping track of your expenses!</p>
+</div>
+<div class="paragraph">
+<p>Rules have the following structure: If "predicate" is true, then perform "action".</p>
+</div>
+<div class="paragraph">
+<p>All rules in the Rule Engine will be executed on a transaction, when:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>it is a new transaction and has been successfully added into an account.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>OR</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>it is an existing transaction and has been successfully edited.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+All rules will be executed in the order they were added.
+Rules with conflicting actions will therefore be allowed.
+</td>
+</tr>
+</table>
+</div>
 <div class="sect3">
 <h4 id="add-a-new-rule-code-rule-add-code"><a class="link" href="#add-a-new-rule-code-rule-add-code">Add a new rule: <code>rule add</code></a></h4>
 <div class="paragraph">
 <p>Adds a new rule to the rule engine.
+Both the predicate and action have to be specified.
 A rule can be formed using either expressions or scripts, or both.</p>
 </div>
 <div class="paragraph">
@@ -433,4 +475,4 @@ integrates with the logic.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 12:53:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 12:56:20 UTC</div></div></div></body></html>
