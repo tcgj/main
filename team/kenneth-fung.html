@@ -319,7 +319,7 @@ Deletes all loans in from and out to John.</p>
 <p>Splits a joint payment equally among group members, then displays a list of who owes who how much.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan split p/&lt;person&gt; x/&lt;amount paid&gt; &#8230;&#8203; [me/&lt;your name&gt; w/&lt;date&gt; d/&lt;description&gt;]</code></p>
+<p>Format: <code>loan split p/&lt;person&gt; x/&lt;amount paid&gt; [max/&lt;limit&gt;] &#8230;&#8203; [me/&lt;your name&gt; w/&lt;date&gt; d/&lt;description&gt;]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -328,6 +328,13 @@ Deletes all loans in from and out to John.</p>
 <li>
 <p>Each <code>&lt;person&gt;</code> corresponds to an <code>&lt;amount paid&gt;</code>, representing how much the <code>person</code> paid for the group initially.<br>
 The order of each <code>person</code> should match the order of their <code>amount paid</code>.</p>
+</li>
+<li>
+<p>The final amount a <code>person</code> ends up paying can be restricted to a <code>&lt;limit&gt;</code>.
+Persons with limits should be placed at the <strong>head</strong> of the list of persons,
+and the order of all <code>limits</code> should match the order of <code>persons</code> (as with <code>amount paid</code>).
+This is to allow you to enter limits only for those persons who require them.<br>
+The sum of all limits cannot exceed the total amount already paid by all persons.</p>
 </li>
 <li>
 <p>Adding the optional <code>me/</code> will add all debts from the resulting list to your loan list.</p>
@@ -341,6 +348,17 @@ The order of each <code>person</code> should match the order of their <code>amou
 <li>
 <p>Adding <code>d/</code> will set the <code>&lt;description&gt;</code> of the loans added to your list.</p>
 </li>
+<li>
+<p>To switch between your loan list and split list, press <code>Ctrl + D</code> (or <code>Cmd + D</code> for Mac) while on the Loans tab.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The split list will initially be empty,
+but once a list is calculated it will persist in the Loans tab across sessions (until a new calculation is made).</p>
+</li>
+</ul>
+</div>
+</li>
 </ul>
 </div>
 </div>
@@ -351,16 +369,19 @@ The order of each <code>person</code> should match the order of their <code>amou
 <div class="ulist">
 <ul>
 <li>
-<p><code>loan split p/John p/Mary p/Peter x/0 x/40 x/60</code><br>
+<p><code>loan split p/John x/0 p/Mary x/40 p/Peter x/60</code><br>
 Calculates the money owed between <code>John</code>, <code>Mary</code> and <code>Peter</code> for a scenario where (initially) <code>Mary</code> paid <code>40</code> and <code>Peter</code> paid <code>60</code>.<br>
 The resulting display should show that <code>John</code> owes <code>Mary</code> <strong>$6.66</strong> and also owes <code>Peter</code> <strong>$26.67</strong>.</p>
 </li>
 <li>
-<p><code>loan split p/John p/Mary p/Peter x/0 x/10 x/90 me/Mary d/Dinner.</code><br>
+<p><code>loan split p/John x/0 max/10 p/Mary x/10 p/Peter x/90 me/Mary d/Dinner.</code><br>
 In this scenario, <code>Mary</code> paid <code>10</code> and <code>Peter</code> paid <code>90</code>.
-Furthermore, <code>me/Mary</code> marks <code>Mary</code> as the user (you), so any debts <code>Mary</code> owes/is owed will be added to the normal loan list with the description <code>Dinner</code>.<br>
-The resulting display should show that <code>John</code> owes <code>Peter</code> <strong>$33.33</strong> and <code>You</code> owe <code>Peter</code> <strong>$23.33</strong>.
-The latter debt will also have been added to your loan list, which can be checked using the command <code>loan list</code>.</p>
+<code>max/10</code> restricts the final amount <code>John</code> pays/owes to <code>10</code>, despite the total amount being <code>0 + 10 + 90 = 100</code>.
+Furthermore, <code>me/Mary</code> marks <code>Mary</code> as the user (you),
+so any debts <code>Mary</code> owes/is owed will be added to the normal loan list with the description <code>Dinner.</code>.<br>
+The resulting display should show that <code>John</code> owes <code>Peter</code> <strong>$10</strong> and <code>You</code> owe <code>Peter</code> <strong>$35</strong>.
+The latter debt will also have been added to your loan list,
+which can be checked using the command <code>loan list</code> or by pressing the hotkey mentioned above.</p>
 </li>
 </ul>
 </div>
@@ -734,4 +755,4 @@ Using the example command executed above, the display will show that <code>John<
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 20:47:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-04 20:55:32 UTC</div></div></div></body></html>
