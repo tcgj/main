@@ -405,7 +405,7 @@ If a date is not given, it is set to the current date. The description is also o
 <div class="sect3">
 <h4 id="list-loans-code-loan-list-code"><a class="link" href="#list-loans-code-loan-list-code">4.4.2. List loans: <code>loan list</code></a></h4>
 <div class="paragraph">
-<p>Displays a list of all loans, sorted alphabetically by person first, then by newest for each person&#8217;s loans.</p>
+<p>Displays a list of all loans. Optionally, filters and/or sorts the list.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>loan list [out|in|unpaid|paid &#8230;&#8203;] [p/&lt;person&gt; &#8230;&#8203;] [x/&lt;amount&gt; &#8230;&#8203;] [w/&lt;date&gt; &#8230;&#8203;] [d/&lt;description&gt; &#8230;&#8203;] [s/w|x|p]</code></p>
@@ -438,6 +438,18 @@ For example, <code>loan list out p/Duke</code> will result in the filter: <code>
 </div>
 </div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Adding a new loan to the list will reset all filters. Other list operations (edit, paid/unpaid, delete) will not.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -449,7 +461,7 @@ Lists all unpaid loans out to the person named "John Doe".</p>
 </li>
 <li>
 <p><code>loan list s/p</code><br>
-<code>loan list s/p</code>
+<code>loan list s/p</code><br>
 Lists all loans sorted by persons in alphabetical order. Then lists all loans again, but sorted by persons in reverse alphabetical order.</p>
 </li>
 </ul>
@@ -1282,4 +1294,4 @@ Deleting that folder will reset the application data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 14:38:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 18:50:58 UTC</div></div></div></body></html>
