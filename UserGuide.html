@@ -679,7 +679,8 @@ Spend less time typing repetitive commands, and spend more time keeping track of
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-All rules will be executed in the order they were added.
+All rules will be executed from the bottom of the list upwards.
+Typically, this is the order in which the rules were added.
 Rules with conflicting actions will therefore be allowed.
 </td>
 </tr>
@@ -823,6 +824,28 @@ Both the predicate and action can be modified.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>rule delete &lt;rule ID&gt;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="swap-two-rules-code-rule-swap-code"><a class="link" href="#swap-two-rules-code-rule-swap-code">4.5.5. Swap two rules: <code>rule swap</code></a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Ths will affect the execution order of the rules.
+Rules will be executed from the bottom of the list upwards.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Swaps the position of two specified rules in the Rule Engine.</p>
+</div>
+<div class="paragraph">
+<p>Format: `rule swap &lt;rule 1 ID&gt; &lt;rule 2 ID&gt;</p>
 </div>
 </div>
 </div>
@@ -1294,4 +1317,4 @@ Deleting that folder will reset the application data.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 01:23:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 02:29:40 UTC</div></div></div></body></html>
