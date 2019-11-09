@@ -17,11 +17,10 @@
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help: <code>help</code></a></li>
 <li><a href="#managing-transactions-code-txn-code">4.2. Managing transactions: <code>txn</code></a></li>
 <li><a href="#managing-accounts-code-account-code">4.3. Managing accounts: <code>account</code></a></li>
-<li><a href="#tracking-loans-code-loan-code">4.4. Tracking loans: <code>loan</code></a></li>
+<li><a href="#managing-loans-code-loan-code">4.4. Managing loans: <code>loan</code></a></li>
 <li><a href="#automating-with-rules-code-rule-code">4.5. Automating with rules: <code>rule</code></a></li>
 <li><a href="#Scripting">4.6. Scripting: <code>script</code></a></li>
-<li><a href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">4.7. Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></li>
-<li><a href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">4.8. Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></li>
+<li><a href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">4.7. Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></li>
 </ul>
 </li>
 <li><a href="#coming-in-v2-0">5. Coming In v2.0</a>
@@ -32,14 +31,20 @@
 <li><a href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">5.4. Goal setting <strong>(Coming in v2.0)</strong> : <code>goal</code></a></li>
 <li><a href="#managing-categories-strong-coming-in-v2-0-strong-code-category-code">5.5. Managing categories <strong>(Coming in v2.0)</strong> : <code>category</code></a></li>
 <li><a href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">5.6. Viewing reports <strong>(Coming in v2.0)</strong>: <code>report</code></a></li>
-<li><a href="#getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code">5.7. Getting help with specific commands <strong>(Coming in v2.0)</strong>: <code>help</code></a></li>
+<li><a href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">5.7. Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></li>
+<li><a href="#getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code">5.8. Getting help with specific commands <strong>(Coming in v2.0)</strong>: <code>help</code></a></li>
 </ul>
 </li>
 <li><a href="#scripting-api">6. Scripting API</a></li>
 <li><a href="#faq">7. FAQ</a></li>
 <li><a href="#command-summary">8. Command Summary</a>
 <ul class="sectlevel2">
-<li><a href="#rules">8.1. Rules</a></li>
+<li><a href="#help">8.1. Help</a></li>
+<li><a href="#transactions">8.2. Transactions</a></li>
+<li><a href="#accounts">8.3. Accounts</a></li>
+<li><a href="#loans">8.4. Loans</a></li>
+<li><a href="#rules">8.5. Rules</a></li>
+<li><a href="#script">8.6. Script</a></li>
 </ul>
 </li>
 </ul>
@@ -86,7 +91,7 @@ below.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>A default account will created.</p>
+<p>A default account will be created.</p>
 </li>
 <li>
 <p>Type <code>txn dn/out x/100 d/This is my first transaction!</code> to add a new spending.</p>
@@ -95,7 +100,7 @@ below.</p>
 <p>To view your accounts, type <code>account list</code></p>
 </li>
 <li>
-<p>To view available commands, type <code>help</code></p>
+<p>To view other available commands, type <code>help</code></p>
 </li>
 </ul>
 </div>
@@ -146,8 +151,8 @@ below.</p>
 <h2 id="getting-started"><a class="link" href="#getting-started">3. Getting Started</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Welcome to the Budget Buddy User Guide! You can scroll down to start looking at the in-depth features of Budget Buddy,
-or select a topic from the <em>Table of Contents</em> above.</p>
+<p>Welcome to the Budget Buddy User Guide! You can scroll down to get an in-depth look at each of Budget Buddy&#8217;s features,
+or jump straight to a specific section from the <em>Table of Contents</em> above.</p>
 </div>
 </div>
 </div>
@@ -155,17 +160,20 @@ or select a topic from the <em>Table of Contents</em> above.</p>
 <h2 id="Features"><a class="link" href="#Features">4. Features</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Budget Buddy comes with many tools to help you manage your expenses better! You can create multiple accounts,
-add and remove transactions that you have made, and even track any outstanding loans that you may have.</p>
+<p>Budget Buddy comes with many tools to help you manage your expenses better!
+You can create different accounts, record your transactions,
+track money you owe people or that people owe to you,
+and even instantly split a bill between you and your friends!</p>
 </div>
 <div class="paragraph">
-<p>What&#8217;s more? Automate processes by using rules. Typing repetitive descriptions? Set the description of a transaction
-automatically by using a keyword! Set a Food category automatically each time you make a food
-transaction! Automate everything!</p>
+<p>What&#8217;s more? Automate processes with rules. Typing the same description for transactions again and again?
+Set the description of a transaction automatically by using a keyword!
+Sort your spendings on food into a Food category automatically! Automate everything!</p>
 </div>
 <div class="paragraph">
-<p>If you know how to code in JavaScript, great news for you too. Write and evaluate your own scripts within the application,
-do complicated things in a snap. And even use your script in rules!</p>
+<p>If you know how to code in JavaScript, there&#8217;s great news for you too.
+Write and evaluate your own scripts within Budget Buddy.
+Do complicated things in a snap. You can even integrate your scripts into your custom rules!</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -377,12 +385,18 @@ You can see a list of accounts with the word 'trip' contained in their names.</p
 </div>
 </div>
 <div class="sect2">
-<h3 id="tracking-loans-code-loan-code"><a class="link" href="#tracking-loans-code-loan-code">4.4. Tracking loans: <code>loan</code></a></h3>
+<h3 id="managing-loans-code-loan-code"><a class="link" href="#managing-loans-code-loan-code">4.4. Managing loans: <code>loan</code></a></h3>
+<div class="paragraph">
+<p>This feature enables you to keep track of who owes you money - and exactly how much they owe you.
+Never again allow those small sums you lend out to accumulate into a massive pile of forgotten gold.
+You can also record who you owe money to, saving you the embarrassment of being publicly reminded by your loan shark friends.
+Finally, it can even help you calculate who owes who how much
+when you and said friends wake in the morning after an expensive night out.</p>
+</div>
 <div class="sect3">
 <h4 id="add-a-new-loan-code-loan-out-in-code"><a class="link" href="#add-a-new-loan-code-loan-out-in-code">4.4.1. Add a new loan: <code>loan out|in</code></a></h4>
 <div class="paragraph">
 <p>Adds a new loan out/in entry.
-Each loan has a unique ID.
 If a date is not given, it is set to the current date. The description is also optional.</p>
 </div>
 <div class="paragraph">
@@ -415,10 +429,14 @@ If a date is not given, it is set to the current date. The description is also o
 <div class="ulist">
 <ul>
 <li>
-<p>Filter loans using one or more of the <code>out</code>, <code>in</code>, <code>unpaid</code>, <code>paid</code> filters.</p>
+<p>Filter loans using one or two of the <code>out</code>, <code>in</code>, <code>unpaid</code>, <code>paid</code> filters.
+If two are used, they should not be duplicates.
+Contrasting filters can be used (e.g. <code>out in</code>) but they will be joined with logical <code>AND</code>,
+so the resulting list would be empty.</p>
 </li>
 <li>
-<p>Filter loans persons, amounts, dates and descriptions by adding one or more of the <code>p/&lt;person&gt;</code>, <code>x/&lt;amount&gt;</code>, <code>w/&lt;date&gt;</code>, <code>d/&lt;description&gt;</code> filters.</p>
+<p>Filter loans by persons, amounts, dates and descriptions
+by adding one or more of the <code>p/&lt;person&gt;</code>, <code>x/&lt;amount&gt;</code>, <code>w/&lt;date&gt;</code>, <code>d/&lt;description&gt;</code> filters.</p>
 </li>
 <li>
 <p>If more than one filter is used, filters will be joined using logical <code>AND</code>.
@@ -429,7 +447,8 @@ For example, <code>loan list out p/Duke</code> will result in the filter: <code>
 <div class="ulist">
 <ul>
 <li>
-<p>Sorting the list using the same method when it is already sorted will reverse the order of sorting (e.g. descending to ascending).</p>
+<p>Sorting the list using the same method when it is already sorted will reverse the order of sorting
+(e.g. newest date first to oldest date first).</p>
 </li>
 </ul>
 </div>
@@ -470,7 +489,7 @@ Lists all loans sorted by persons in alphabetical order. Then lists all loans ag
 <div class="sect3">
 <h4 id="edit-loan-code-loan-edit-code"><a class="link" href="#edit-loan-code-loan-edit-code">4.4.3. Edit loan: <code>loan edit</code></a></h4>
 <div class="paragraph">
-<p>Edits the specified field of the loan entry with the specified index.</p>
+<p>Edits the specified field(s) of the loan entry with the specified index.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>loan edit &lt;index&gt; [&lt;p/person&gt;] [x/&lt;amount&gt;] [d/&lt;description&gt;] [w/&lt;date&gt;]</code></p>
@@ -480,7 +499,9 @@ Lists all loans sorted by persons in alphabetical order. Then lists all loans ag
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the loan with the specified index. The index refers to the index number shown in the displayed loan list. The index must be a positive integer 1, 2, 3&#8230;&#8203;</p>
+<p>Edits the loan with the specified index.
+The index refers to the index number shown in the currently displayed loan list.
+The index must be a positive integer (e.g. 1, 2, 3&#8230;&#8203;).</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -508,11 +529,31 @@ Lists all loans, then edits the amount and description of the first person in th
 <div class="sect3">
 <h4 id="mark-loan-s-as-paid-code-loan-paid-code"><a class="link" href="#mark-loan-s-as-paid-code-loan-paid-code">4.4.4. Mark loan(s) as paid: <code>loan paid</code></a></h4>
 <div class="paragraph">
-<p>Marks the specified loan(s) as paid.
-If a person&#8217;s name is specified, all their loans are also marked as paid.</p>
+<p>Marks the specified loan(s) as paid.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan paid &lt;index &#8230;&#8203;&gt; [&lt;p/person &#8230;&#8203;&gt;]</code></p>
+<p>Format: <code>loan paid [&lt;index &#8230;&#8203;&gt;] [&lt;p/person &#8230;&#8203;&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>If a person&#8217;s name is specified, all their loans are marked as paid.</p>
+</li>
+<li>
+<p>At least one index or person must be specified.</p>
+</li>
+<li>
+<p>Marking an already paid loan will re-mark the loan as paid (to no visible effect).</p>
+</li>
+<li>
+<p>If multiple indices and/or persons are targeted but an index or person cannot be found in the currently displayed list,
+the indices and/or persons that can be found will still be marked.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -526,7 +567,7 @@ Lists all loans, then marks the first three loans in the list as <strong>paid</s
 </li>
 <li>
 <p><code>loan paid p/John p/Adam</code><br>
-Marks all loans in from and out to John and Adam as <strong>paid</strong>.</p>
+Marks all loans pertaining to John and Adam as <strong>paid</strong>.</p>
 </li>
 </ul>
 </div>
@@ -535,37 +576,22 @@ Marks all loans in from and out to John and Adam as <strong>paid</strong>.</p>
 <h4 id="mark-loan-s-as-unpaid-code-loan-unpaid-code"><a class="link" href="#mark-loan-s-as-unpaid-code-loan-unpaid-code">4.4.5. Mark loan(s) as unpaid: <code>loan unpaid</code></a></h4>
 <div class="paragraph">
 <p>Marks the specified loan(s) as unpaid.
-If a person&#8217;s name is specified, all their loans are marked as unpaid.
-This feature works identically to <code>loan paid</code>, except the command word is <code>unpaid</code> instead of <code>paid</code>.</p>
+This feature works identically to <code>loan paid</code>, except the command word is <code>unpaid</code> instead of <code>paid</code>
+and the loans are marked as <strong>unpaid</strong> instead of <strong>paid</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan unpaid &lt;index &#8230;&#8203;&gt; &lt;p/person &#8230;&#8203;&gt;</code></p>
+<p>Format: <code>loan unpaid [&lt;index &#8230;&#8203;&gt;] [&lt;p/person &#8230;&#8203;&gt;]</code></p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="delete-loan-s-code-loan-delete-code"><a class="link" href="#delete-loan-s-code-loan-delete-code">4.4.6. Delete loan(s): <code>loan delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes the loan(s) with the specified loan index/indices.
-If a person&#8217;s name is specified, all of that person&#8217;s loans are deleted.</p>
+This feature works identically to <code>loan paid</code>, except the command word is <code>delete</code> instead of <code>paid</code>
+and the loans are deleted from the list instead of being marked.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan delete &lt;index &#8230;&#8203;&gt; &lt;p/person &#8230;&#8203;&gt;</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>loan list</code><br>
-<code>loan delete 1</code><br>
-Lists all loans, then deletes the first loan in the list.</p>
-</li>
-<li>
-<p><code>loan delete p/John</code><br>
-Deletes all loans in from and out to John.</p>
-</li>
-</ul>
+<p>Format: <code>loan delete [&lt;index &#8230;&#8203;&gt;] [&lt;p/person &#8230;&#8203;&gt;]</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -588,8 +614,10 @@ The order of each <code>person</code> should match the order of their <code>amou
 <p>The final amount a <code>person</code> ends up paying can be restricted to a <code>&lt;limit&gt;</code>.
 Persons with limits should be placed at the <strong>head</strong> of the list of persons,
 and the order of all <code>limits</code> should match the order of <code>persons</code> (as with <code>amount paid</code>).
-This is to allow you to enter limits only for those persons who require them.<br>
-The sum of all limits cannot exceed the total amount already paid by all persons.</p>
+This is to allow you to enter limits only for those persons who require them.</p>
+<div class="paragraph">
+<p>The sum of all limits cannot exceed the total amount already paid by all persons.</p>
+</div>
 </li>
 <li>
 <p>Adding the optional <code>me/</code> will add all debts from the resulting list to your loan list.</p>
@@ -976,61 +1004,9 @@ will be reported only when the script is run.
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code"><a class="link" href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">4.7. Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></h3>
+<h3 id="aliases-strong-coming-in-v1-4-strong-code-alias-code"><a class="link" href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">4.7. Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></h3>
 <div class="sect3">
-<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">4.7.1. Import a file: <code>import</code></a></h4>
-<div class="paragraph">
-<p>Imports transactions from the file at the given path.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>import [f/&lt;format&gt;] [p/&lt;file path&gt;]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
-If the path is omitted, a file browser is opened for you to select the file.</p>
-</li>
-<li>
-<p>Format is one of dbs (DBS Bank/POSB), ocbc (OCBC Bank), sc (Standard Chartered), csv (generic comma-separated values file).
-If the format is omitted, automatic detection is attempted.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">4.7.2. Export transactions: <code>export</code></a></h4>
-<div class="paragraph">
-<p>Exports all transactions to the given path.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>export [p/&lt;file path&gt;]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
-If the path is omitted, a file browser is opened for you to select where to save the file.</p>
-</li>
-<li>
-<p>The file is a comma-separated values file.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="aliases-strong-coming-in-v1-4-strong-code-alias-code"><a class="link" href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">4.8. Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></h3>
-<div class="sect3">
-<h4 id="add-an-alias-code-alias-add-code"><a class="link" href="#add-an-alias-code-alias-add-code">4.8.1. Add an alias: <code>alias add</code></a></h4>
+<h4 id="add-an-alias-code-alias-add-code"><a class="link" href="#add-an-alias-code-alias-add-code">4.7.1. Add an alias: <code>alias add</code></a></h4>
 <div class="paragraph">
 <p>Adds an alias.</p>
 </div>
@@ -1081,7 +1057,7 @@ Built-in commands take precedence. If you add an alias with the same name as a b
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-an-alias-code-alias-delete-code"><a class="link" href="#delete-an-alias-code-alias-delete-code">4.8.2. Delete an alias: <code>alias delete</code></a></h4>
+<h4 id="delete-an-alias-code-alias-delete-code"><a class="link" href="#delete-an-alias-code-alias-delete-code">4.7.2. Delete an alias: <code>alias delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes an alias.</p>
 </div>
@@ -1244,7 +1220,59 @@ If the type is omitted, it defaults to a total report.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code"><a class="link" href="#getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code">5.7. Getting help with specific commands <strong>(Coming in v2.0)</strong>: <code>help</code></a></h3>
+<h3 id="import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code"><a class="link" href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">5.7. Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></h3>
+<div class="sect3">
+<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">5.7.1. Import a file: <code>import</code></a></h4>
+<div class="paragraph">
+<p>Imports transactions from the file at the given path.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>import [f/&lt;format&gt;] [p/&lt;file path&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
+If the path is omitted, a file browser is opened for you to select the file.</p>
+</li>
+<li>
+<p>Format is one of dbs (DBS Bank/POSB), ocbc (OCBC Bank), sc (Standard Chartered), csv (generic comma-separated values file).
+If the format is omitted, automatic detection is attempted.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">5.7.2. Export transactions: <code>export</code></a></h4>
+<div class="paragraph">
+<p>Exports all transactions to the given path.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>export [p/&lt;file path&gt;]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
+If the path is omitted, a file browser is opened for you to select where to save the file.</p>
+</li>
+<li>
+<p>The file is a comma-separated values file.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code"><a class="link" href="#getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code">5.8. Getting help with specific commands <strong>(Coming in v2.0)</strong>: <code>help</code></a></h3>
 <div class="paragraph">
 <p>Displays detailed help for a specific command.</p>
 </div>
@@ -1291,7 +1319,7 @@ On the other hand, executing any command from that category will switch you over
 </div>
 <div class="paragraph">
 <p><strong>A:</strong> All data is stored within the same folder as your execution path, under the "data/" folder.
-Deleting that folder will reset the application data.</p>
+Deleting that folder will reset the application data upon rebooting the application.</p>
 </div>
 </div>
 </div>
@@ -1299,7 +1327,95 @@ Deleting that folder will reset the application data.</p>
 <h2 id="command-summary"><a class="link" href="#command-summary">8. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="rules"><a class="link" href="#rules">8.1. Rules</a></h3>
+<h3 id="help"><a class="link" href="#help">8.1. Help</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>help</code> - Get the link to the user guide</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="transactions"><a class="link" href="#transactions">8.2. Transactions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>txn out|in</code> - Add a new transaction</p>
+</li>
+<li>
+<p><code>txn list</code> - List transactions for the active account</p>
+</li>
+<li>
+<p><code>txn edit</code> - Edit a transaction</p>
+</li>
+<li>
+<p><code>txn delete</code> - Delete a transaction</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="accounts"><a class="link" href="#accounts">8.3. Accounts</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>account add</code> - Add a new account</p>
+</li>
+<li>
+<p><code>account list</code> - List accounts</p>
+</li>
+<li>
+<p><code>account switch</code> - Switch the current active account</p>
+</li>
+<li>
+<p><code>account edit</code> - Edit an account</p>
+</li>
+<li>
+<p><code>account find</code> - Find accounts</p>
+</li>
+<li>
+<p><code>account report</code> - Print a report of an account</p>
+</li>
+<li>
+<p><code>account overview</code> - Export HTML overview of all accounts</p>
+</li>
+<li>
+<p><code>account delete</code> - Delete an account</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="loans"><a class="link" href="#loans">8.4. Loans</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>loan out|in</code> - Add a new loan</p>
+</li>
+<li>
+<p><code>loan list</code> - List loans</p>
+</li>
+<li>
+<p><code>loan edit</code> - Edit a loan</p>
+</li>
+<li>
+<p><code>loan paid</code> - Mark loan(s) as paid</p>
+</li>
+<li>
+<p><code>loan unpaid</code> - Mark loan(s) as unpaid</p>
+</li>
+<li>
+<p><code>loan delete</code> - Delete loan(s)</p>
+</li>
+<li>
+<p><code>loan split</code> - Split a bill</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="rules"><a class="link" href="#rules">8.5. Rules</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1307,6 +1423,9 @@ Deleting that folder will reset the application data.</p>
 </li>
 <li>
 <p><code>rule list</code> - List rules</p>
+</li>
+<li>
+<p><code>rule swap</code> - Swap rule positions</p>
 </li>
 <li>
 <p><code>rule edit</code> - Edit a rule</p>
@@ -1317,5 +1436,30 @@ Deleting that folder will reset the application data.</p>
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="script"><a class="link" href="#script">8.6. Script</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><code>script eval</code> - Evaluate a script</p>
+</li>
+<li>
+<p><code>script add</code> - Add a script</p>
+</li>
+<li>
+<p><code>script list</code> - List scripts</p>
+</li>
+<li>
+<p><code>script run</code> - Run an added script</p>
+</li>
+<li>
+<p><code>script delete</code> - Delete a script</p>
+</li>
+<li>
+<p><code>script reset</code> - Reset the scripting environment</p>
+</li>
+</ul>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 13:35:39 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 13:48:19 UTC</div></div></div></body></html>
