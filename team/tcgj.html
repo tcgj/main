@@ -1,13 +1,16 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Chong Guang Jun - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Budget Buddy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-W13-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Chong Guang Jun - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-budget-buddy"><a class="link" href="#project-budget-buddy">PROJECT: Budget Buddy</a></h2>
+<h2 id="project-budget-buddy"><a class="link" href="#project-budget-buddy">1. PROJECT: Budget Buddy</a></h2>
 <div class="sectionbody">
-
+<div class="paragraph">
+<p>This portfolio serves to provide a breakdown of what I have contributed as a student in the software engineering project,
+<strong>Budget Buddy</strong>.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="about-budget-buddy"><a class="link" href="#about-budget-buddy">About Budget Buddy</a></h2>
+<h2 id="about-budget-buddy"><a class="link" href="#about-budget-buddy">2. About Budget Buddy</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Budget Buddy is a desktop-based expense tracking application made for students, NUS School of Computing students in particular,
@@ -23,10 +26,14 @@ The end result is a expense tracking application with focus on programmers, to m
 loans that the user might have made. Rules can be added to make repetitive tasks automated, and scripts can even allow the user
 to create mass changes to data in their own way by themselves.</p>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-role"><a class="link" href="#project-role">3. Project Role</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>My task in this project is the rule engine feature, which allows for the automation in the application, executing certain tasks
-automatically upon the addition of a new transaction. The following sections will elaborate on the feature, which includes
-the additions I have made to both the user and developer guides.</p>
+<p>My task in this project is the Rule Engine feature, which allows for the automation in the application, executing certain tasks
+automatically upon the addition of a new transaction. The following sections will elaborate on this feature, which includes the additions I have made to both the user and developer guides.</p>
 </div>
 <hr>
 <div class="paragraph">
@@ -48,10 +55,10 @@ the additions I have made to both the user and developer guides.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p><em>filename.txt</em></p>
+<p><strong><em>filename.txt</em></strong></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>Italicized text like this indicates that this is a filename that can be found within the application.</p>
+<p>Bold italicized text like this indicates that this is a filename that can be found within the application.</p>
 </div></div></td>
 </tr>
 <tr>
@@ -67,64 +74,89 @@ the additions I have made to both the user and developer guides.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">4. Summary of contributions</a></h2>
 <div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section provides an overview of my contribution to this application.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="major-enhancement"><a class="link" href="#major-enhancement">4.1. Major enhancement:</a></h3>
 <div class="paragraph">
-<p>(Clear description of purpose, enhancement added: what does it do + justification)</p>
+<p>Added the ability to add/list/edit/remove rules, as well as executing them.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to add/remove/edit rules</strong></p>
-<div class="ulist">
-<ul>
-<li>
-<p>What it does: Allows the user to define a set of rules in the rule engine which will be executed by the rule engine upon
-the addition of every new transaction. A rule may carry out an action depending on whether the transaction satisfies the rule&#8217;s requirement.</p>
+<p><strong>What it does</strong>: Allows the user to define a set of rules in the rule engine which will be executed by the rule engine upon
+adding/editing a transaction. A rule may carry out an action depending on whether the transaction satisfies the rule&#8217;s condition,
+or "predicate".</p>
 </li>
 <li>
-<p>Justification: This feature improves the application significantly because for day-to-day transactions, there may be many
+<p><strong>Justification</strong>: This feature improves the application significantly because for day-to-day transactions, there may be many
 repetitions in what the user types. The app can therefore help users save time by automating such repetitive processes, or even
 more, depending on how the user uses it.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+<p><strong>Highlights</strong>: Setting up rules was a challenge, as it created an additional source of "logic" besides commands, which required a new structure
+from the bottom up. A method to process rules had to be made, and considering that both expressions and scripts can be used for rules, a unified
+way to process them was required.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minor-enhancement"><a class="link" href="#minor-enhancement">4.2. Minor enhancement:</a></h3>
+<div class="paragraph">
+<p>Set up panel management within the GUI.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: Allow easy switching between panels within the same frame.</p>
 </li>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p><strong>Highlights</strong>: Different panels were required based on the currently active tab, hence managing panels properly allowed
+for switching between them to be much easier.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="code-contributed"><a class="link" href="#code-contributed">4.3. Code contributed:</a></h3>
+<div class="paragraph">
+<p>I have contributed over 30 pull requests to the repository as of 11 November 2019.</p>
+</div>
+<div class="paragraph">
+<p>All of my contributions can be found here: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#=undefined&amp;search=tcgj">RepoSense Analysis</a>]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">4.4. Other contributions:</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>GUI Enhancements:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the GUI layout and colour scheme: Pull requests <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/60">#60</a>, <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/95">#95</a>, <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/185">#185</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
-</li>
-<li>
-<p><strong>Other contributions</strong>:</p>
+<p>Bug fixes:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Fix bugs noted during PE dry run: Pull request <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/153">#153</a></p>
 </li>
 </ul>
 </div>
@@ -134,7 +166,7 @@ more, depending on how the user uses it.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Contributed to the User Guide and Developer Guide. See Section 5 and 6 below for detailed breakdown.</p>
 </li>
 </ul>
 </div>
@@ -144,45 +176,21 @@ more, depending on how the user uses it.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>Project-wide refactoring on package naming to remove existing references to AB3: Pull request <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/52">#52</a></p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>Reviewed <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/issues?q=reviewed-by%3Atcgj">50+</a> pull requests by the team</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">5. Contributions to the User Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -190,19 +198,44 @@ more, depending on how the user uses it.</p>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section shows what I have contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>You can refer to the full User Guide <a href="https://ay1920s1-cs2103t-w13-4.github.io/main/UserGuide.html">here</a>.</p>
+</div>
 <div class="sect2">
-<h3 id="automating-with-rules-code-rule-code"><a class="link" href="#automating-with-rules-code-rule-code">Automating with rules: <code>rule</code></a></h3>
+<h3 id="overview-of-contributions"><a class="link" href="#overview-of-contributions">5.1. Overview of Contributions</a></h3>
+<div class="paragraph">
+<p>Below is an overview of my contributions to the User Guide.</p>
+</div>
+<div class="sect3">
+<h4 id="improve-user-experience"><a class="link" href="#improve-user-experience">5.1.1. Improve user experience</a></h4>
+<div class="paragraph">
+<p>I added multiple sections and introductory paragraphs, which include the <em>Introduction, Quick Start, Getting Started, Features, and FAQ</em>,
+that provide clarification and support in usage for the users who are using the application for the first time, or need help with troubleshooting.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-main-content-into-the-user-guide"><a class="link" href="#add-main-content-into-the-user-guide">5.1.2. Add main content into the User Guide</a></h4>
+<div class="paragraph">
+<p>I wrote detailed sections about the usage of commands that are in the Budget Buddy application, to guide users in the format and
+specifications required for those commands. An extract from the User Guide that were written by me is shown in section 5.2 below.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="automating-with-rules-code-rule-code"><a class="link" href="#automating-with-rules-code-rule-code">5.2. Automating with rules: <code>rule</code></a></h3>
 <div class="paragraph">
 <p><strong>Introducing the <em>Rule Engine</em>.</strong>
 A way for you to automate certain actions based on a certain predicate.
 Spend less time typing repetitive commands, and spend more time keeping track of your expenses!</p>
 </div>
 <div class="paragraph">
-<p>Rules have the following structure: If "predicate" is true, then perform "action".</p>
+<p>Rules have the following structure: If "predicate" is true, then perform "action". By creating a
+predicate which defines the condition you set, you can perform any action you create whenever a
+transaction is added/edited, if the transaction satisfies that condition.</p>
 </div>
 <div class="paragraph">
 <p>All rules in the Rule Engine will be executed on a transaction, when:</p>
@@ -210,17 +243,10 @@ Spend less time typing repetitive commands, and spend more time keeping track of
 <div class="ulist">
 <ul>
 <li>
-<p>it is a new transaction and has been successfully added into an account.</p>
+<p>It is a new transaction and has been successfully added into an account. <strong>OR</strong></p>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>OR</p>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p>it is an existing transaction and has been successfully edited.</p>
+<p>It is an existing transaction and has been successfully edited.</p>
 </li>
 </ul>
 </div>
@@ -239,17 +265,28 @@ Rules with conflicting actions will therefore be allowed.
 </table>
 </div>
 <div class="sect3">
-<h4 id="add-a-new-rule-code-rule-add-code"><a class="link" href="#add-a-new-rule-code-rule-add-code">Add a new rule: <code>rule add</code></a></h4>
+<h4 id="add-a-new-rule-code-rule-add-code"><a class="link" href="#add-a-new-rule-code-rule-add-code">5.2.1. Add a new rule: <code>rule add</code></a></h4>
 <div class="paragraph">
 <p>Adds a new rule to the rule engine.
 Both the predicate and action have to be specified.
 A rule can be formed using either expressions or scripts, or both.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>rule add pred/&lt;expression | script name&gt; act/&lt;expression | script name&gt;</code></p>
+<p>Format: <code>rule add p/&lt;expression | script name&gt; a/&lt;expression | script name&gt;</code></p>
 </div>
-<div class="paragraph">
-<p>Refer to <a href="#Scripting">[Scripting]</a> for script usage.</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Note that scripts used in rules are not validated; make sure they are free from error.
+Predicate scripts that do not return a boolean <em>will be executed</em>, but will therefore implicitly return false.
+Action scripts will be executed if the predicate returns true, and any return value will be discarded.
+</td>
+</tr>
+</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -299,7 +336,8 @@ A rule can be formed using either expressions or scripts, or both.</p>
 </li>
 <li>
 <p>A value can be a number or a string of length not more than 180 characters
-It can contain the following special characters: <em>!#$%&amp;'*+=?`/[{|}]~^.-</em></p>
+It can contain the following special characters:<br>
+!#$%&amp;'*=?`+_/[{|}]~^.-</p>
 </li>
 </ul>
 </div>
@@ -348,88 +386,69 @@ and is not required for <code>set_in</code>, <code>set_out</code> and <code>swit
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p><strong>Script Usage in Rules:</strong></p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>Scripts used in rules have access to two additional arguments:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The transaction to test/act upon is stored in "<em>argv[0]</em>"</p>
+</li>
+<li>
+<p>The account that the transaction belongs to is stored in "<em>argv[1]</em>"</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Refer to <a href="#Scripting">[Scripting]</a> for general script usage.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>rule add p/outamt &gt;= 100 a/prep_desc [Large Spending]</code><br>
+Adds a new rule that specifies that if an outward transaction has an amount more
+than or equal to $100, prepend the transaction&#8217;s description with "[Large Spending]".</p>
+</li>
+<li>
+<p><code>rule add p/desc contains food a/set_cat Food</code><br>
+Adds a new rule that specifies that if a transaction description contains "food",
+add the category "Food" to that transaction.</p>
+</li>
+<li>
+<p><code>rule add p/IsMonthlyAllowance a/set_desc Monthly Allowance</code><br>
+Adds a new rule that specifies that if the script named "IsMonthlyAllowance"
+returns true, change the transaction&#8217;s description to "Monthly Allowance".</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="list-rules-code-rule-list-code"><a class="link" href="#list-rules-code-rule-list-code">List rules: <code>rule list</code></a></h4>
+<h4 id="list-rules-code-rule-list-code"><a class="link" href="#list-rules-code-rule-list-code">5.2.2. List rules: <code>rule list</code></a></h4>
 <div class="paragraph">
-<p>Displays the list of all existing rules, sorted by the order in which a rule was added.</p>
+<p>Displays the list of all existing rules in the Rule Engine.
+Rules are sorted by the order in which they were added.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>rule list</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edit-a-rule-code-rule-edit-code"><a class="link" href="#edit-a-rule-code-rule-edit-code">Edit a rule: <code>rule edit</code></a></h4>
-<div class="paragraph">
-<p>Edits the specified fields in the rule with the specified ID.
-Both the predicate and action can be modified.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>rule edit &lt;rule ID&gt; [pred/&lt;expression | script&gt;] [act/&lt;expression | script&gt;]</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-a-rule-code-rule-delete-code"><a class="link" href="#delete-a-rule-code-rule-delete-code">Delete a rule: <code>rule delete</code></a></h4>
-<div class="paragraph">
-<p>Deletes a rule with the specified rule ID.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>rule delete &lt;rule ID&gt;</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="swap-two-rules-code-rule-swap-code"><a class="link" href="#swap-two-rules-code-rule-swap-code">Swap two rules: <code>rule swap</code></a></h4>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Ths will affect the execution order of the rules.
-Rules will be executed from the top of the list downwards.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Swaps the position of two specified rules in the Rule Engine.</p>
-</div>
-<div class="paragraph">
-<p>Format: `rule swap &lt;rule 1 ID&gt; &lt;rule 2 ID&gt;</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="managing-budgets-strong-coming-in-v2-0-strong-code-budget-code"><a class="link" href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">Managing budgets <strong>(Coming in v2.0)</strong> : <code>budget</code></a></h3>
-<div class="paragraph">
-<p>Displays or sets the budget for the specified period.</p>
-</div>
-<div class="sect3">
-<h4 id="view-budgets-code-budget-list-code"><a class="link" href="#view-budgets-code-budget-list-code">View budgets: <code>budget list</code></a></h4>
-<div class="paragraph">
-<p>Views the list of budgets currently stored.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-budgets-code-budget-add-code"><a class="link" href="#add-budgets-code-budget-add-code">Add budgets: <code>budget add</code></a></h4>
-<div class="paragraph">
-<p>This command sets a budget. Note that budgets cannot overlap.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="remove-budgets-code-budget-delete-code"><a class="link" href="#remove-budgets-code-budget-delete-code">Remove budgets: <code>budget delete</code></a></h4>
-<div class="paragraph">
-<p>This command removes a budget from the list.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">6. Contributions to the Developer Guide</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -437,14 +456,28 @@ Rules will be executed from the top of the list downwards.
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>This section shows what I have contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>You can refer to the full Developer Guide <a href="https://ay1920s1-cs2103t-w13-4.github.io/main/DeveloperGuide.html">here</a>.</p>
+</div>
 <div class="sect2">
-<h3 id="rules-feature"><a class="link" href="#rules-feature">Rules Feature</a></h3>
+<h3 id="overview-of-contributions-2"><a class="link" href="#overview-of-contributions-2">6.1. Overview of Contributions</a></h3>
+<div class="paragraph">
+<p>Below is an overview of my contributions to the Developer Guide.</p>
+</div>
 <div class="sect3">
-<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<h4 id="add-main-content-into-the-developer-guide"><a class="link" href="#add-main-content-into-the-developer-guide">6.1.1. Add main content into the Developer Guide</a></h4>
+<div class="paragraph">
+<p>I wrote detailed sections about the implementations of functionality in the Budget Buddy application, drawn UML diagrams, and documented some use cases
+for the Developer Guide. A few extracts of the Developer Guide that were written by me are shown in section 6.2 and 6.3 below.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="rule-management-feature"><a class="link" href="#rule-management-feature">6.2. Rule Management Feature</a></h3>
 <div class="paragraph">
 <p>The Rules feature exists as an integration onto the Transaction system. It makes use
 of syntax processing, together with scripts to provide an automation solution to
@@ -456,6 +489,8 @@ given that the predicate returns true. This predicate-action split allows us to 
 testing from performing, which helps to increase reusability of individual predicates
 and actions.</p>
 </div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">6.2.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Basic attributes and operators are exposed to provide users a way of writing simple
 tests on transactions without having to manually check and make changes. Storing rules
@@ -463,44 +498,176 @@ works similarly to LoansManager, where individual rules are stored in a
 <code>RuleManager</code> which manages all CRUD operations.</p>
 </div>
 <div class="paragraph">
-<p>All rules are stored in in a JSON file formatted to be retrieved and parsed by the
+<p>All rules are stored in a JSON file when added, formatted to be retrieved and parsed by the
 application when relaunched.</p>
 </div>
 <div class="paragraph">
-<p>The following class diagram illustrates the structure of the rule model and how it
-integrates with the logic.</p>
+<p>The following class diagram illustrates the structure of the <code><strong>Rule</strong></code> Model component.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/RuleClassDiagram.png" alt="RuleClassDiagram">
+<img src="../images/RuleModelClassDiagram.png" alt="RuleModelClassDiagram">
 </div>
+<div class="title">Figure 1. Structure of the Rule Model Component</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The rest of the <code><strong>Script</strong></code> and <code><strong>Model</strong></code> components have been omitted to give focus on the <code>Rule</code> model component.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p><em>TODO: class diagram</em></p>
+<p>As mentioned above, rules are defined as a pair of predicate and action, which as seen in the above diagram, is divided into
+the two abstract classes <code><strong>RulePredicate</strong></code> and <code><strong>RuleAction</strong></code>. These two classes are abstract due to two implementation
+types, either script or expression. Their concrete classes are <code><strong>PredicateExpression</strong></code> and <code><strong>ActionExpression</strong></code>
+for expressions and <code><strong>PredicateScript</strong></code> and <code><strong>ActionScript</strong></code> for scripts respectively.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="rule-execution-feature"><a class="link" href="#rule-execution-feature">6.3. Rule Execution Feature</a></h3>
+<div class="paragraph">
+<p>The structure of rules were separated from the logic of rule execution to maintain the separation of concerns between the
+<code><strong>Model</strong></code> and <code><strong>Logic</strong></code> components.</p>
+</div>
+<div class="paragraph">
+<p>Rule execution is hooked into the evaluation of adding or editing a <code><strong>Transaction</strong></code>. This means that for every new transaction,
+all rules within the Rule Engine will be executed on that transaction. The same can be said for modifying a transaction.</p>
+</div>
+<div class="paragraph">
+<p>The implementation of the Rule execution is elaborated on below.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">6.3.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The <code><strong>RuleEngine</strong></code> is a static class used for interfacing with all the rule processings functionality.</p>
+</div>
+<div class="paragraph">
+<p>Two executable classes are used in the execution of a rule, <code><strong>Testable</strong></code> and <code><strong>Performable</strong></code>.
+A <code><strong>Testable</strong></code> represents the executable form of a <code><strong>RulePredicate</strong></code>, which may be either an expression or a script.
+Correspondingly, a <code><strong>Performable</strong></code> represents the executable form of a <code><strong>RuleAction</strong></code>, which may also be either an
+expression or a script.</p>
+</div>
+<div class="paragraph">
+<p>Before executing the existing rules, the index of the transaction and the account that the transaction belongs to are
+supplied to the <code><strong>RuleEngine</strong></code> through the <code><strong>RuleEngine#executeRules</strong></code> method. This allows for the retrieval of the transaction
+when a rule is executed against it.</p>
+</div>
+<div class="paragraph">
+<p>When a rule is executed, this is firstly represented as the execution of the <code><strong>Testable#test</strong></code> method on the given transaction.
+If the test passes, the predicate is true, and therefore the action is performed. This is represented as the execution of
+the <code><strong>Performable#perform</strong></code> method on the given transaction.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows the interaction between the <code><strong>RuleEngine</strong></code> and the different objects involved in the
+execution of the rules on a transaction:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/RuleSequenceDiagram.png" alt="RuleSequenceDiagram">
+<img src="../images/RuleExecutionSequenceDiagram.png" alt="RuleExecutionSequenceDiagram">
 </div>
+<div class="title">Figure 2. Sequence diagram representing Rule Execution after adding a new Transaction</div>
 </div>
 <div class="paragraph">
-<p><em>TODO: sequence diagram</em></p>
+<p>Shown above is a sequence diagram which takes place during the execution of the <code><strong>TransactionAddCommand</strong></code>,
+after the new transaction has already been added. The <code><strong>RuleEngine</strong></code> takes over, and retrieves the relevant handlers from
+<code><strong>Model</strong></code>.</p>
+</div>
+<div class="paragraph">
+<p>Thereafter, the list of rules is retrieved from the <code><strong>RuleManager</strong></code>. The <code><strong>RuleEngine</strong></code> iterates through the list,
+using the <code><strong>RulePredicate</strong></code> and <code><strong>RuleAction</strong></code> of each rule to create the required <code><strong>Testable</strong></code> for testing on the
+transaction, as well as the <code><strong>Performable</strong></code> for performing the action.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram shows in greater detail the workflow of executing rules.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/RuleActivityDiagram.png" alt="RuleActivityDiagram">
+<img src="../images/RuleExecutionActivityDiagram.png" alt="RuleExecutionActivityDiagram">
+</div>
+<div class="title">Figure 3. Activity diagram of the different paths involved in the workflow of executing rules</div>
+</div>
+<div class="paragraph">
+<p>The activity diagram above has a slightly different context as the sequence diagram, to show a separate use case. In this
+diagram, instead of a new transaction that is added, we have a transaction that is edited. Both types of commands do not affect
+the workflow of rule execution.</p>
+</div>
+<div class="paragraph">
+<p>In this diagram, the generation of a <code><strong>Testable</strong></code> and <code><strong>Performable</strong></code> is shown in greater detail.</p>
+</div>
+<div class="paragraph">
+<p><code><strong>Testable</strong></code> is an interface which, like <code><strong>RulePredicate</strong></code>, have its implementations split into expressions and scripts,
+namely <code><strong>TestableExpression</strong></code> and <code><strong>TestableScript</strong></code>.</p>
+</div>
+<div class="paragraph">
+<p>Similarly, <code><strong>Performable</strong></code> is an interface which, like <code><strong>RuleAction</strong></code>, have its implementations split into expressions
+and scripts, namely <code><strong>PerformableExpression</strong></code> and <code><strong>PerformableScript</strong></code>.</p>
+</div>
+<div class="paragraph">
+<p>Expressions are generated by the <code><strong>RuleEngine</strong></code> when either the <code><strong>RulePredicate</strong></code> or <code><strong>RuleAction</strong></code> are of the expression type.
+The <code><strong>RuleEngine</strong></code> will retrieve the correct expression constructor from an internal hash map based on the <code><strong>Operator</strong></code>,
+and create the expression using the given attribute and/or value.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>For example, we have an predicate <code>p/desc contains food</code>. One of the classes implementing <code><strong>TestableExpression</strong></code>,
+<code><strong>ContainsExpression</strong></code>, is created since the predicate has the <strong>Operator:</strong> <code>contains</code>. The corresponding <strong>Attribute:</strong> <code>desc</code>
+and <strong>Value:</strong> <code>food</code> in the predicate are provided into the <code><strong>ContainsExpression</strong></code> constructor during instantiation.</p>
+</div>
 </div>
 </div>
 <div class="paragraph">
-<p><em>TODO: activity diagram</em></p>
+<p>Scripts, on the other hand, are generated by the <code><strong>RuleEngine</strong></code> when either the <code><strong>RulePredicate</strong></code> or <code><strong>RuleAction</strong></code> are of
+the script type. The <code><strong>RuleEngine</strong></code> will generate the corresponding <code><strong>Testable</strong></code> or <code><strong>Performable</strong></code> by first retrieving
+the script from the <code><strong>ScriptLibrary</strong></code> based on its <code><strong>ScriptName</strong></code>. Following that, a <code><strong>TestableScript</strong></code> or <code><strong>PerformableScript</strong></code>
+is instantiated with a function <code><strong>ScriptEvaluator</strong></code>, which evaluates the script given the transaction and account. This
+function is then called when <code><strong>Testable#test</strong></code> or <code><strong>Performable#perform</strong></code> is executed.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="paragraph">
-<p><em>TODO: design considerations</em></p>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">6.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-duplication-of-predicates-and-actions-in-model-and-logic"><a class="link" href="#aspect-duplication-of-predicates-and-actions-in-model-and-logic">Aspect: Duplication of predicates and actions in model and logic</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Both predicates and actions have their corresponding versions in both model and logic.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Able to split the logic flow and execution code from the data in model.</p>
+</li>
+<li>
+<p>Cons: Seemingly duplicate classes, such as <code><strong>PredicateExpression</strong></code> and <code><strong>TestableExpression</strong></code>, which increases the number
+of classes.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: All execution data and logic is stored in the rule model rather than logic.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduce class duplication, less confusion.</p>
+</li>
+<li>
+<p>Cons: <code><strong>Model</strong></code> and <code><strong>Logic</strong></code> will have unnecessary coupling which reduces testability and makes maintenance and integration harder.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 18:42:05 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 19:02:41 UTC</div></div></div></body></html>
