@@ -14,7 +14,7 @@
 <li><a href="#getting-started">3. Getting Started</a></li>
 <li><a href="#Features">4. Features</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">4.1. Viewing help: <code>help</code></a></li>
+<li><a href="#help-command">4.1. Viewing help: <code>help</code></a></li>
 <li><a href="#managing-transactions-code-txn-code">4.2. Managing transactions: <code>txn</code></a></li>
 <li><a href="#managing-accounts-code-account-code">4.3. Managing accounts: <code>account</code></a></li>
 <li><a href="#managing-loans-code-loan-code">4.4. Managing loans: <code>loan</code></a></li>
@@ -54,12 +54,13 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Budget Buddy is an all-in-one expense tracking application for computing students who prefer to use a desktop app
-to manage their expenses. More importantly, Budget Buddy is <strong>optimized for those who prefer to work with a Command
+<p>Budget Buddy is an all-in-one expense tracking application for students from the School of Computing (SoC)
+at the National University of Singapore (NUS) who prefer to use a desktop app to manage their expenses.
+More importantly, Budget Buddy is <strong>optimized for those who prefer to work with a Command
 Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI).
 If you type fast, Budget Buddy can get your expense management tasks done faster than traditional GUI apps.
-Furthermore, Budget Buddy allows computing students to add their own functions through customized JavaScript files,
-as well as a set of rules to simplify expense tracking through automation.</p>
+Furthermore, Budget Buddy allows users with computing know-how to add their own functions through customized JavaScript files,
+as well as set rules to simplify expense tracking through automation.</p>
 </div>
 <div class="paragraph">
 <p>This user guide provides in-depth documentation of the current as well as upcoming features, including the setup
@@ -160,7 +161,7 @@ or jump straight to a specific section from the <em>Table of Contents</em> above
 <h2 id="Features"><a class="link" href="#Features">4. Features</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Budget Buddy comes with many tools to help you manage your expenses better!
+<p>Budget Buddy comes with many tools to help you manage your expenses better.
 You can create different accounts, record your transactions,
 track money you owe people or that people owe to you,
 and even instantly split a bill between you and your friends!</p>
@@ -168,12 +169,16 @@ and even instantly split a bill between you and your friends!</p>
 <div class="paragraph">
 <p>What&#8217;s more? Automate processes with rules. Typing the same description for transactions again and again?
 Set the description of a transaction automatically by using a keyword!
-Sort your spendings on food into a Food category automatically! Automate everything!</p>
+Sort your spendings on food into a <em>Food</em> category automatically! Automate everything!</p>
 </div>
 <div class="paragraph">
 <p>If you know how to code in JavaScript, there&#8217;s great news for you too.
 Write and evaluate your own scripts within Budget Buddy.
-Do complicated things in a snap. You can even integrate your scripts into your custom rules!</p>
+Do complicated things in a snap. You can even integrate your scripts into your own custom rules!</p>
+</div>
+<div class="paragraph">
+<p>Before diving into the commands you can execute in Budget Buddy,
+you should first familiarize yourself with the syntax that will be used throughout this guide.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -201,10 +206,48 @@ Do complicated things in a snap. You can even integrate your scripts into your c
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1. Viewing help: <code>help</code></a></h3>
 <div class="paragraph">
-<p>Provides a link to this user guide.</p>
+<p>Budget Buddy also comes with various keyboard shortcuts,
+further helping you to use the app with the keyboard alone.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Shortcut</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>F1</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Executes the <code>help</code> command, details of which can be found <a href="#help-command">here</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Ctrl</kbd>+<kbd>Shift</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switches focus to the input text box</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Ctrl</kbd>+<kbd>Tab</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Switches the current active tab to the next tab in the list</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>Ctrl</kbd>+<kbd>D</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">(<em> <strong>Loan</strong> tab only </em>) Switches between the loan list and split list, more details <a href="#loan-split">here</a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>From this point on, each of Budget Buddy&#8217;s commands will be discussed in detail.</p>
+</div>
+<div class="sect2">
+<h3 id="help-command"><a class="link" href="#help-command">4.1. Viewing help: <code>help</code></a></h3>
+<div class="paragraph">
+<p>This command opens a window containing a link to this user guide,
+which can be useful should you ever forget how to execute a certain command.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
@@ -529,6 +572,11 @@ In the overview, you are able to see the balance, the total expenses, the total 
 </div>
 <div class="sect2">
 <h3 id="managing-loans-code-loan-code"><a class="link" href="#managing-loans-code-loan-code">4.4. Managing loans: <code>loan</code></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/LoanUG1.png" alt="LoanUG1" width="85%">
+</div>
+</div>
 <div class="paragraph">
 <p>This feature enables you to keep track of who owes you money - and exactly how much they owe you.
 Never again allow those small sums you lend out to accumulate into a massive pile of forgotten gold.
@@ -539,11 +587,19 @@ when you and said friends wake in the morning after an expensive night out.</p>
 <div class="sect3">
 <h4 id="add-a-new-loan-code-loan-out-in-code"><a class="link" href="#add-a-new-loan-code-loan-out-in-code">4.4.1. Add a new loan: <code>loan out|in</code></a></h4>
 <div class="paragraph">
-<p>Adds a new loan out/in entry.
-If a date is not given, it is set to the current date. The description is also optional.</p>
+<p>This command adds a new entry to the loan list in the main display panel.
+The loan will be inserted in an appropriate position based on the list&#8217;s current sorted order.
+For example, if the list is sorted by amount in descending order and the new loan has the largest amount,
+it will appear at the top of the list.</p>
+</div>
+<div class="paragraph">
+<p>To execute this command, type the details of the loan in the following format.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>loan out|in p/&lt;person&gt; x/&lt;amount&gt; [w/&lt;date&gt;] [d/&lt;description&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>If a date is not provided, the loan&#8217;s date is set to the current date.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -551,10 +607,12 @@ If a date is not given, it is set to the current date. The description is also o
 <div class="ulist">
 <ul>
 <li>
-<p><code>loan out p/John Doe x/50 w/23/04/2018</code></p>
+<p><code>loan out p/John Doe x/50 w/23/04/2019</code><br>
+Adds a new loan of $50 out to John Doe on the date 23/04/2019.</p>
 </li>
 <li>
-<p><code>loan in p/Jane Doe x/100 d/Lent me some money for booze.</code></p>
+<p><code>loan in p/Jane Doe x/100 d/Lent me some money for booze.</code><br>
+Adds a new loan of $100 in from Jane Doe, with the description "Lent me some money for booze.".</p>
 </li>
 </ul>
 </div>
@@ -562,13 +620,18 @@ If a date is not given, it is set to the current date. The description is also o
 <div class="sect3">
 <h4 id="list-loans-code-loan-list-code"><a class="link" href="#list-loans-code-loan-list-code">4.4.2. List loans: <code>loan list</code></a></h4>
 <div class="paragraph">
-<p>Displays a list of all loans. Optionally, filters and/or sorts the list.</p>
+<p>This command displays the list of loans in the main display panel.
+Arguments can be added to sort and filter the list.
+The full command format with all its possible arguments is as follows.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>loan list [out|in|unpaid|paid &#8230;&#8203;] [p/&lt;person&gt; &#8230;&#8203;] [x/&lt;amount&gt; &#8230;&#8203;] [w/&lt;date&gt; &#8230;&#8203;] [d/&lt;description&gt; &#8230;&#8203;] [s/w|x|p]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
+<div class="paragraph">
+<p><strong>Filtering</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -579,38 +642,32 @@ so the resulting list would be empty.</p>
 </li>
 <li>
 <p>Filter loans by persons, amounts, dates and descriptions
-by adding one or more of the <code>p/&lt;person&gt;</code>, <code>x/&lt;amount&gt;</code>, <code>w/&lt;date&gt;</code>, <code>d/&lt;description&gt;</code> filters.</p>
+by adding one or more of the <code>p/&lt;person&gt;</code>, <code>x/&lt;amount&gt;</code>, <code>w/&lt;date&gt;</code>, <code>d/&lt;description&gt;</code> filters respectively.</p>
 </li>
 <li>
 <p>If more than one filter is used, filters will be joined using logical <code>AND</code>.
-For example, <code>loan list out p/Duke</code> will result in the filter: <code>loans out AND loans with Duke</code>.</p>
+For example, <code>loan list out p/Duke</code> will result in the filter: loans out <code>AND</code> loans involving Duke.</p>
 </li>
 <li>
-<p>Sort loans by date, amount, or persons' names using <code>s/w</code>, <code>s/x</code>, or <code>s/p</code> respectively.</p>
+<p>Adding a new loan to the list will reset all filters. Other list operations (edit, paid/unpaid, delete) will not.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Sorting</strong></p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Sorting the list using the same method when it is already sorted will reverse the order of sorting
+<p>Sort loans by date, amount, or persons' names using <code>s/w</code>, <code>s/x</code>, or <code>s/p</code> respectively.</p>
+</li>
+<li>
+<p>Sorting the list by a property when it is already sorted by that property will reverse the order of sorting
 (e.g. newest date first to oldest date first).</p>
 </li>
 </ul>
 </div>
-</li>
-</ul>
 </div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Adding a new loan to the list will reset all filters. Other list operations (edit, paid/unpaid, delete) will not.
-</td>
-</tr>
-</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -632,7 +689,14 @@ Lists all loans sorted by persons in alphabetical order. Then lists all loans ag
 <div class="sect3">
 <h4 id="edit-loan-code-loan-edit-code"><a class="link" href="#edit-loan-code-loan-edit-code">4.4.3. Edit loan: <code>loan edit</code></a></h4>
 <div class="paragraph">
-<p>Edits the specified field(s) of the loan entry with the specified index.</p>
+<p>This command edits the details of an existing loan in the list.
+Once edited, the loan will be re-sorted into an appropriate position based on its new details and the current sort order.
+For example, if the list is sorted by date with the newest loan first,
+editing the loan at the top of the list to have the oldest date will move it to the bottom of the list.</p>
+</div>
+<div class="paragraph">
+<p>To execute this command, type the index of the loan (as seen in the main display panel) and the details to be edited
+in the following format.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>loan edit &lt;index&gt; [&lt;p/person&gt;] [x/&lt;amount&gt;] [d/&lt;description&gt;] [w/&lt;date&gt;]</code></p>
@@ -642,9 +706,8 @@ Lists all loans sorted by persons in alphabetical order. Then lists all loans ag
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the loan with the specified index.
-The index refers to the index number shown in the currently displayed loan list.
-The index must be a positive integer (e.g. 1, 2, 3&#8230;&#8203;).</p>
+<p>The index refers to the index number shown in the currently displayed loan list.
+It must be a positive integer (e.g. 1, 2, 3&#8230;&#8203;).</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
@@ -664,7 +727,7 @@ The index must be a positive integer (e.g. 1, 2, 3&#8230;&#8203;).</p>
 <li>
 <p><code>loan list</code><br>
 <code>loan edit 1 x/500 d/Dude owes me so much money I can&#8217;t even.</code><br>
-Lists all loans, then edits the amount and description of the first person in the list to the given values.</p>
+Lists all loans, then edits the amount and description of the first loan in the list to the given values.</p>
 </li>
 </ul>
 </div>
@@ -672,7 +735,18 @@ Lists all loans, then edits the amount and description of the first person in th
 <div class="sect3">
 <h4 id="mark-loan-s-as-paid-code-loan-paid-code"><a class="link" href="#mark-loan-s-as-paid-code-loan-paid-code">4.4.4. Mark loan(s) as paid: <code>loan paid</code></a></h4>
 <div class="paragraph">
-<p>Marks the specified loan(s) as paid.</p>
+<p>This command marks one or more loans in the list as <strong>paid</strong>.
+A paid loan can be visually distinguished by a large "tick" icon to the left of its index:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LoanUG2.png" alt="LoanUG2" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>Multiple loans can be marked at once.
+This can be done by specifying several indices or at least one person to target.
+The format of the command is as follows.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>loan paid [&lt;index &#8230;&#8203;&gt;] [&lt;p/person &#8230;&#8203;&gt;]</code></p>
@@ -718,9 +792,17 @@ Marks all loans pertaining to John and Adam as <strong>paid</strong>.</p>
 <div class="sect3">
 <h4 id="mark-loan-s-as-unpaid-code-loan-unpaid-code"><a class="link" href="#mark-loan-s-as-unpaid-code-loan-unpaid-code">4.4.5. Mark loan(s) as unpaid: <code>loan unpaid</code></a></h4>
 <div class="paragraph">
-<p>Marks the specified loan(s) as unpaid.
-This feature works identically to <code>loan paid</code>, except the command word is <code>unpaid</code> instead of <code>paid</code>
-and the loans are marked as <strong>unpaid</strong> instead of <strong>paid</strong>.</p>
+<p>This command marks one or more loans in the list as <strong>unpaid</strong>.
+When a paid loan is marked as unpaid, its tick icon will disappear:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LoanUG3.png" alt="LoanUG3" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>This command is executed in an identical manner to <code>loan paid</code>.
+Its format is as follows.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>loan unpaid [&lt;index &#8230;&#8203;&gt;] [&lt;p/person &#8230;&#8203;&gt;]</code></p>
@@ -729,18 +811,30 @@ and the loans are marked as <strong>unpaid</strong> instead of <strong>paid</str
 <div class="sect3">
 <h4 id="delete-loan-s-code-loan-delete-code"><a class="link" href="#delete-loan-s-code-loan-delete-code">4.4.6. Delete loan(s): <code>loan delete</code></a></h4>
 <div class="paragraph">
-<p>Deletes the loan(s) with the specified loan index/indices.
-This feature works identically to <code>loan paid</code>, except the command word is <code>delete</code> instead of <code>paid</code>
-and the loans are deleted from the list instead of being marked.</p>
+<p>This command deletes one or more loans from the list.
+Similarly to <code>loan paid</code> and <code>loan unpaid</code>, multiple loans can be deleted at once.
+Its format is as follows.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>loan delete [&lt;index &#8230;&#8203;&gt;] [&lt;p/person &#8230;&#8203;&gt;]</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="calculate-loans-code-loan-split-code"><a class="link" href="#calculate-loans-code-loan-split-code">4.4.7. Calculate loans: <code>loan split</code></a></h4>
+<h4 id="loan-split"><a class="link" href="#loan-split">4.4.7. Calculate loans: <code>loan split</code></a></h4>
 <div class="paragraph">
-<p>Splits a joint payment equally among group members, then displays a list of who owes who how much.</p>
+<p>This command takes a group of persons and a list of amounts each person has paid,
+before calculating which persons need to pay which other persons
+such that the total amount paid is split equally among all the group&#8217;s members.</p>
+</div>
+<div class="paragraph">
+<p>For example, let&#8217;s say you&#8217;re out for dinner with two friends.
+When the hundred-dollar bill arrives, you pay for the first sixty and one of your two friends pays for the remaining forty.
+The <code>loan split</code> command can now help you to calculate how much your two friends owe you,
+such that the hundred-dollar bill is split equally among you three.</p>
+</div>
+<div class="paragraph">
+<p>This command comes with many optional arguments, all of which are explained below.
+The format of the command is as follows.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>loan split p/&lt;person&gt; x/&lt;amount paid&gt; [max/&lt;limit&gt;] &#8230;&#8203; [me/&lt;your name&gt; w/&lt;date&gt; d/&lt;description&gt;]</code></p>
@@ -751,17 +845,35 @@ and the loans are deleted from the list instead of being marked.</p>
 <ul>
 <li>
 <p>Each <code>&lt;person&gt;</code> corresponds to an <code>&lt;amount paid&gt;</code>, representing how much the <code>person</code> paid for the group initially.<br>
-The order of each <code>person</code> should match the order of their <code>amount paid</code>.</p>
+The order of a <code>person</code> in the list should match the order of their <code>amount paid</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Limiting a Person&#8217;s Share</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The final amount a <code>person</code> ends up paying can be restricted to a <code>&lt;limit&gt;</code>.</p>
 </li>
 <li>
-<p>The final amount a <code>person</code> ends up paying can be restricted to a <code>&lt;limit&gt;</code>.
-Persons with limits should be placed at the <strong>head</strong> of the list of persons,
-and the order of all <code>limits</code> should match the order of <code>persons</code> (as with <code>amount paid</code>).
+<p>The order of all <code>limits</code> should match the order of all <code>persons</code>
+i.e. the first <code>&lt;limit&gt;</code> in the input will correspond to the first <code>&lt;person&gt;</code>,
+the second <code>&lt;limit&gt;</code> the second <code>&lt;person&gt;</code>, and so on.
+As such, persons with limits should be placed at the head of the list.
 This is to allow you to enter limits only for those persons who require them.</p>
-<div class="paragraph">
-<p>The sum of all limits cannot exceed the total amount already paid by all persons.</p>
-</div>
 </li>
+<li>
+<p>The sum of all limits should not exceed the total amount paid by all persons.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Automatically Adding Debts to Your Loan List</strong></p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>Adding the optional <code>me/</code> will add all debts from the resulting list to your loan list.</p>
 <div class="paragraph">
@@ -769,25 +881,30 @@ This is to allow you to enter limits only for those persons who require them.</p
 </div>
 </li>
 <li>
-<p>Adding <code>w/</code> will set the <code>&lt;date&gt;</code> of the loans added to your list.</p>
+<p>Adding <code>w/</code> will set the <code>&lt;date&gt;</code> of the loans added to your loan list.</p>
 </li>
 <li>
-<p>Adding <code>d/</code> will set the <code>&lt;description&gt;</code> of the loans added to your list.</p>
-</li>
-<li>
-<p>To switch between your loan list and split list, press <code>Ctrl + D</code> (or <code>Cmd + D</code> for Mac) while on the Loans tab.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The split list will initially be empty,
-but once a list is calculated it will persist in the Loans tab across sessions (until a new calculation is made).</p>
-</li>
-</ul>
-</div>
+<p>Adding <code>d/</code> will set the <code>&lt;description&gt;</code> of the loans added to your loan list.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>To switch between your loan list and split list, press <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>D</kbd></span> (or <span class="keyseq"><kbd>Cmd</kbd>+<kbd>D</kbd></span> for Mac) while on the Loan tab.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The split list will initially be empty,
+but once a list is calculated it will persist in the Loan tab across sessions (until a new calculation is made).
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -797,19 +914,35 @@ but once a list is calculated it will persist in the Loans tab across sessions (
 <li>
 <p><code>loan split p/John x/0 p/Mary x/40 p/Peter x/60</code><br>
 Calculates the money owed between <code>John</code>, <code>Mary</code> and <code>Peter</code> for a scenario where (initially) <code>Mary</code> paid <code>40</code> and <code>Peter</code> paid <code>60</code>.<br>
-The resulting display should show that <code>John</code> owes <code>Mary</code> <strong>$6.66</strong> and also owes <code>Peter</code> <strong>$26.67</strong>.</p>
+The resulting display should show that <code>John</code> owes <code>Mary</code> <strong>$6.66</strong> and also owes <code>Peter</code> <strong>$26.67</strong>, as seen in the image below.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LoanUG4.png" alt="LoanUG4" width="85%">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>loan split p/John x/0 max/10 p/Mary x/10 p/Peter x/90 me/Mary d/Dinner.</code><br>
 In this scenario, <code>Mary</code> paid <code>10</code> and <code>Peter</code> paid <code>90</code>.
 <code>max/10</code> restricts the final amount <code>John</code> pays/owes to <code>10</code>, despite the total amount being <code>0 + 10 + 90 = 100</code>.
 Furthermore, <code>me/Mary</code> marks <code>Mary</code> as the user (you),
 so any debts <code>Mary</code> owes/is owed will be added to the normal loan list with the description <code>Dinner.</code>.<br>
-The resulting display should show that <code>John</code> owes <code>Peter</code> <strong>$10</strong> and <code>You</code> owe <code>Peter</code> <strong>$35</strong>.
-The latter debt will also have been added to your loan list,
-which can be checked using the command <code>loan list</code> or by pressing the hotkey mentioned above.</p>
+The resulting display should show that <code>John</code> owes <code>Peter</code> <strong>$10</strong> and <code>You</code> owe <code>Peter</code> <strong>$35</strong>, as seen below.</p>
 </li>
 </ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LoanUG5.png" alt="LoanUG5" width="85%">
+</div>
+</div>
+<div class="paragraph">
+<p>The latter debt will also have been added to your loan list,
+which can be checked using the command <code>loan list</code> or by pressing the hotkey mentioned above.</p>
 </div>
 </div>
 </div>
@@ -1709,4 +1842,4 @@ Deleting that folder will reset the application data upon rebooting the applicat
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 19:14:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 19:20:59 UTC</div></div></div></body></html>

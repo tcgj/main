@@ -12,7 +12,7 @@
 <div class="paragraph">
 <p>Budget Buddy is a desktop application that allows users to track their expenses.
 The user interacts with it using a Command-Line Interface (CLI), and it has a Graphical User Interface (GUI) created with JavaFX.
-It is written in Java, and has about 15 kLoC.</p>
+It is written in Java, and has about 20 kLoC.</p>
 </div>
 </div>
 </div>
@@ -39,15 +39,11 @@ Budget Buddy also allows users to utilize their computing know-how to write cust
 For example, users can write scripts to add huge numbers of transactions,
 or scripts to trigger alarms when their expenses have exceeded a certain limit.</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="my-role"><a class="link" href="#my-role">My Role</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p>My role in the project was to implement all facets regarding the <strong>loans</strong> feature.
 Chiefly, I added the ability for the user to add, edit, view and delete loans.
-Users can also mark loans as paid or unpaid, and when viewing their list of loans they can sort or filter the list by amount, date and more.
+Users can also mark loans as paid or unpaid,
+and when viewing their list of loans they can sort or filter the list by amount, date and more.
 I was also responsible for implementing the complex algorithm necessary to split and divide an initially unbalanced group payment;
 the main challenge in this scenario was to devise an algorithm that worked for any group size and every variation of initial unbalance.</p>
 </div>
@@ -71,12 +67,15 @@ upholding the quality of project documentation, and ensuring the team remained o
 Splitting group payments through the app allows the user in avoiding messy miscalculations and over/under-paying their friends.</p>
 </li>
 <li>
-<p><strong>Justification</strong>: This feature improves the product significantly, as both lending/borrowing money and paying for large items as a group are common occurrences that affect one&#8217;s expenses.</p>
+<p><strong>Justification</strong>: This feature improves the product significantly,
+as both lending/borrowing money and paying for large items as a group are common occurrences that affect one&#8217;s expenses,
+especially for students.</p>
 </li>
 <li>
-<p><strong>Highlights</strong>: Implementing loan-tracking required an in-depth analysis of design alternatives, especially regarding the structure of the loan-person relationship.
+<p><strong>Highlights</strong>: Implementing loan-tracking required an in-depth analysis of design alternatives,
+especially regarding the structure of the loan-person relationship.
 Building it on top of and mutating the original brownfield project also proved challenging.
-Splitting group payments proved difficult due to needing an accurate yet efficient algorithm.
+Splitting group payments proved difficult due to the need for an accurate yet efficient algorithm.
 Great care had to be taken to correctly implement each of the many steps in the complex final result.</p>
 </li>
 </ul>
@@ -108,7 +107,10 @@ Great care had to be taken to correctly implement each of the many steps in the 
 <p>PRs reviewed (with non-trivial review comments):
 <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/56">#56</a>,
 <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/60">#60</a>,
-<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/80">#80</a></p>
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/80">#80</a>,
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/157">#157</a>,
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/178">#178</a>,
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/183">#183</a></p>
 </li>
 </ul>
 </div>
@@ -118,6 +120,7 @@ Great care had to be taken to correctly implement each of the many steps in the 
 </li>
 </ul>
 </div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 <div class="sect1">
@@ -129,12 +132,21 @@ Great care had to be taken to correctly implement each of the many steps in the 
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are a few sections I contributed to the User Guide.
+They showcase my ability to write documentation targeting end-users.
+Due to limited space, not all my contributions could be included;
+please refer to the full <a href="https://ay1920s1-cs2103t-w13-4.github.io/main/UserGuide.html#managing-loans-code-loan-code">User Guide</a>
+to read them in their entirety. I was responsible for the section on <strong>Managing Loans</strong>.</em></p></td>
 </tr>
 </tbody>
 </table>
 <div class="sect2">
 <h3 id="managing-loans-code-loan-code"><a class="link" href="#managing-loans-code-loan-code">Managing loans: <code>loan</code></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LoanUG1.png" alt="LoanUG1" width="85%">
+</div>
+</div>
 <div class="paragraph">
 <p>This feature enables you to keep track of who owes you money - and exactly how much they owe you.
 Never again allow those small sums you lend out to accumulate into a massive pile of forgotten gold.
@@ -142,143 +154,22 @@ You can also record who you owe money to, saving you the embarrassment of being 
 Finally, it can even help you calculate who owes who how much
 when you and said friends wake in the morning after an expensive night out.</p>
 </div>
-<div class="sect3">
-<h4 id="add-a-new-loan-code-loan-out-in-code"><a class="link" href="#add-a-new-loan-code-loan-out-in-code">Add a new loan: <code>loan out|in</code></a></h4>
-<div class="paragraph">
-<p>Adds a new loan out/in entry.
-If a date is not given, it is set to the current date. The description is also optional.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>loan out|in p/&lt;person&gt; x/&lt;amount&gt; [w/&lt;date&gt;] [d/&lt;description&gt;]</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>loan out p/John Doe x/50 w/23/04/2018</code></p>
-</li>
-<li>
-<p><code>loan in p/Jane Doe x/100 d/Lent me some money for booze.</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="list-loans-code-loan-list-code"><a class="link" href="#list-loans-code-loan-list-code">List loans: <code>loan list</code></a></h4>
-<div class="paragraph">
-<p>Displays a list of all loans. Optionally, filters and/or sorts the list.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>loan list [out|in|unpaid|paid &#8230;&#8203;] [p/&lt;person&gt; &#8230;&#8203;] [x/&lt;amount&gt; &#8230;&#8203;] [w/&lt;date&gt; &#8230;&#8203;] [d/&lt;description&gt; &#8230;&#8203;] [s/w|x|p]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Filter loans using one or two of the <code>out</code>, <code>in</code>, <code>unpaid</code>, <code>paid</code> filters.
-If two are used, they should not be duplicates.
-Contrasting filters can be used (e.g. <code>out in</code>) but they will be joined with logical <code>AND</code>,
-so the resulting list would be empty.</p>
-</li>
-<li>
-<p>Filter loans by persons, amounts, dates and descriptions
-by adding one or more of the <code>p/&lt;person&gt;</code>, <code>x/&lt;amount&gt;</code>, <code>w/&lt;date&gt;</code>, <code>d/&lt;description&gt;</code> filters.</p>
-</li>
-<li>
-<p>If more than one filter is used, filters will be joined using logical <code>AND</code>.
-For example, <code>loan list out p/Duke</code> will result in the filter: <code>loans out AND loans with Duke</code>.</p>
-</li>
-<li>
-<p>Sort loans by date, amount, or persons' names using <code>s/w</code>, <code>s/x</code>, or <code>s/p</code> respectively.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Sorting the list using the same method when it is already sorted will reverse the order of sorting
-(e.g. newest date first to oldest date first).</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Adding a new loan to the list will reset all filters. Other list operations (edit, paid/unpaid, delete) will not.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>loan list out unpaid p/John Doe</code><br>
-Lists all unpaid loans out to the person named "John Doe".</p>
-</li>
-<li>
-<p><code>loan list s/p</code><br>
-<code>loan list s/p</code><br>
-Lists all loans sorted by persons in alphabetical order. Then lists all loans again, but sorted by persons in reverse alphabetical order.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="edit-loan-code-loan-edit-code"><a class="link" href="#edit-loan-code-loan-edit-code">Edit loan: <code>loan edit</code></a></h4>
-<div class="paragraph">
-<p>Edits the specified field(s) of the loan entry with the specified index.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>loan edit &lt;index&gt; [&lt;p/person&gt;] [x/&lt;amount&gt;] [d/&lt;description&gt;] [w/&lt;date&gt;]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Edits the loan with the specified index.
-The index refers to the index number shown in the currently displayed loan list.
-The index must be a positive integer (e.g. 1, 2, 3&#8230;&#8203;).</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>loan list</code><br>
-<code>loan edit 1 x/500 d/Dude owes me so much money I can&#8217;t even.</code><br>
-Lists all loans, then edits the amount and description of the first person in the list to the given values.</p>
-</li>
-</ul>
-</div>
-</div>
+<div style="page-break-after: always;"></div>
 <div class="sect3">
 <h4 id="mark-loan-s-as-paid-code-loan-paid-code"><a class="link" href="#mark-loan-s-as-paid-code-loan-paid-code">Mark loan(s) as paid: <code>loan paid</code></a></h4>
 <div class="paragraph">
-<p>Marks the specified loan(s) as paid.</p>
+<p>This command marks one or more loans in the list as <strong>paid</strong>.
+A paid loan can be visually distinguished by a large "tick" icon to the left of its index:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LoanUG2.png" alt="LoanUG2" width="50%">
+</div>
+</div>
+<div class="paragraph">
+<p>Multiple loans can be marked at once.
+This can be done by specifying several indices or at least one person to target.
+The format of the command is as follows.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>loan paid [&lt;index &#8230;&#8203;&gt;] [&lt;p/person &#8230;&#8203;&gt;]</code></p>
@@ -320,33 +211,24 @@ Marks all loans pertaining to John and Adam as <strong>paid</strong>.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect3">
-<h4 id="mark-loan-s-as-unpaid-code-loan-unpaid-code"><a class="link" href="#mark-loan-s-as-unpaid-code-loan-unpaid-code">Mark loan(s) as unpaid: <code>loan unpaid</code></a></h4>
-<div class="paragraph">
-<p>Marks the specified loan(s) as unpaid.
-This feature works identically to <code>loan paid</code>, except the command word is <code>unpaid</code> instead of <code>paid</code>
-and the loans are marked as <strong>unpaid</strong> instead of <strong>paid</strong>.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>loan unpaid [&lt;index &#8230;&#8203;&gt;] [&lt;p/person &#8230;&#8203;&gt;]</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-loan-s-code-loan-delete-code"><a class="link" href="#delete-loan-s-code-loan-delete-code">Delete loan(s): <code>loan delete</code></a></h4>
-<div class="paragraph">
-<p>Deletes the loan(s) with the specified loan index/indices.
-This feature works identically to <code>loan paid</code>, except the command word is <code>delete</code> instead of <code>paid</code>
-and the loans are deleted from the list instead of being marked.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>loan delete [&lt;index &#8230;&#8203;&gt;] [&lt;p/person &#8230;&#8203;&gt;]</code></p>
-</div>
+<div style="page-break-after: always;"></div>
 </div>
 <div class="sect3">
 <h4 id="calculate-loans-code-loan-split-code"><a class="link" href="#calculate-loans-code-loan-split-code">Calculate loans: <code>loan split</code></a></h4>
 <div class="paragraph">
-<p>Splits a joint payment equally among group members, then displays a list of who owes who how much.</p>
+<p>This command takes a group of persons and a list of amounts each person has paid,
+before calculating which persons need to pay which other persons
+such that the total amount paid is split equally among all the group&#8217;s members.</p>
+</div>
+<div class="paragraph">
+<p>For example, let&#8217;s say you&#8217;re out for dinner with two friends.
+When the hundred-dollar bill arrives, you pay for the first sixty and one of your two friends pays for the remaining forty.
+The <code>loan split</code> command can now help you to calculate how much your two friends owe you,
+such that the hundred-dollar bill is split equally among you three.</p>
+</div>
+<div class="paragraph">
+<p>This command comes with many optional arguments, all of which are explained below.
+The format of the command is as follows.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>loan split p/&lt;person&gt; x/&lt;amount paid&gt; [max/&lt;limit&gt;] &#8230;&#8203; [me/&lt;your name&gt; w/&lt;date&gt; d/&lt;description&gt;]</code></p>
@@ -357,17 +239,35 @@ and the loans are deleted from the list instead of being marked.</p>
 <ul>
 <li>
 <p>Each <code>&lt;person&gt;</code> corresponds to an <code>&lt;amount paid&gt;</code>, representing how much the <code>person</code> paid for the group initially.<br>
-The order of each <code>person</code> should match the order of their <code>amount paid</code>.</p>
+The order of a <code>person</code> in the list should match the order of their <code>amount paid</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Limiting a Person&#8217;s Share</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The final amount a <code>person</code> ends up paying can be restricted to a <code>&lt;limit&gt;</code>.</p>
 </li>
 <li>
-<p>The final amount a <code>person</code> ends up paying can be restricted to a <code>&lt;limit&gt;</code>.
-Persons with limits should be placed at the <strong>head</strong> of the list of persons,
-and the order of all <code>limits</code> should match the order of <code>persons</code> (as with <code>amount paid</code>).
+<p>The order of all <code>limits</code> should match the order of all <code>persons</code>
+i.e. the first <code>&lt;limit&gt;</code> in the input will correspond to the first <code>&lt;person&gt;</code>,
+the second <code>&lt;limit&gt;</code> the second <code>&lt;person&gt;</code>, and so on.
+As such, persons with limits should be placed at the head of the list.
 This is to allow you to enter limits only for those persons who require them.</p>
-<div class="paragraph">
-<p>The sum of all limits cannot exceed the total amount already paid by all persons.</p>
-</div>
 </li>
+<li>
+<p>The sum of all limits should not exceed the total amount paid by all persons.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Automatically Adding Debts to Your Loan List</strong></p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>Adding the optional <code>me/</code> will add all debts from the resulting list to your loan list.</p>
 <div class="paragraph">
@@ -375,25 +275,31 @@ This is to allow you to enter limits only for those persons who require them.</p
 </div>
 </li>
 <li>
-<p>Adding <code>w/</code> will set the <code>&lt;date&gt;</code> of the loans added to your list.</p>
+<p>Adding <code>w/</code> will set the <code>&lt;date&gt;</code> of the loans added to your loan list.</p>
 </li>
 <li>
-<p>Adding <code>d/</code> will set the <code>&lt;description&gt;</code> of the loans added to your list.</p>
-</li>
-<li>
-<p>To switch between your loan list and split list, press <code>Ctrl + D</code> (or <code>Cmd + D</code> for Mac) while on the Loans tab.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The split list will initially be empty,
-but once a list is calculated it will persist in the Loans tab across sessions (until a new calculation is made).</p>
-</li>
-</ul>
-</div>
+<p>Adding <code>d/</code> will set the <code>&lt;description&gt;</code> of the loans added to your loan list.</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div style="page-break-after: always;"></div>
+<div class="paragraph">
+<p>To switch between your loan list and split list, press <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>D</kbd></span> (or <span class="keyseq"><kbd>Cmd</kbd>+<kbd>D</kbd></span> for Mac) while on the Loan tab.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The split list will initially be empty,
+but once a list is calculated it will persist in the Loan tab across sessions (until a new calculation is made).
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -403,20 +309,37 @@ but once a list is calculated it will persist in the Loans tab across sessions (
 <li>
 <p><code>loan split p/John x/0 p/Mary x/40 p/Peter x/60</code><br>
 Calculates the money owed between <code>John</code>, <code>Mary</code> and <code>Peter</code> for a scenario where (initially) <code>Mary</code> paid <code>40</code> and <code>Peter</code> paid <code>60</code>.<br>
-The resulting display should show that <code>John</code> owes <code>Mary</code> <strong>$6.66</strong> and also owes <code>Peter</code> <strong>$26.67</strong>.</p>
+The resulting display should show that <code>John</code> owes <code>Mary</code> <strong>$6.66</strong> and also owes <code>Peter</code> <strong>$26.67</strong>, as seen in the image below.</p>
 </li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LoanUG4.png" alt="LoanUG4" width="85%">
+</div>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p><code>loan split p/John x/0 max/10 p/Mary x/10 p/Peter x/90 me/Mary d/Dinner.</code><br>
 In this scenario, <code>Mary</code> paid <code>10</code> and <code>Peter</code> paid <code>90</code>.
 <code>max/10</code> restricts the final amount <code>John</code> pays/owes to <code>10</code>, despite the total amount being <code>0 + 10 + 90 = 100</code>.
 Furthermore, <code>me/Mary</code> marks <code>Mary</code> as the user (you),
 so any debts <code>Mary</code> owes/is owed will be added to the normal loan list with the description <code>Dinner.</code>.<br>
-The resulting display should show that <code>John</code> owes <code>Peter</code> <strong>$10</strong> and <code>You</code> owe <code>Peter</code> <strong>$35</strong>.
-The latter debt will also have been added to your loan list,
-which can be checked using the command <code>loan list</code> or by pressing the hotkey mentioned above.</p>
+The resulting display should show that <code>John</code> owes <code>Peter</code> <strong>$10</strong> and <code>You</code> owe <code>Peter</code> <strong>$35</strong>, as seen below.</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LoanUG5.png" alt="LoanUG5" width="85%">
+</div>
+</div>
+<div class="paragraph">
+<p>The latter debt will also have been added to your loan list,
+which can be checked using the command <code>loan list</code> or by pressing the hotkey mentioned above.</p>
+</div>
+<div style="page-break-after: always;"></div>
 </div>
 </div>
 </div>
@@ -430,7 +353,11 @@ which can be checked using the command <code>loan list</code> or by pressing the
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are a few sections I contributed to the Developer Guide.
+They showcase my ability to write technical documentation and the technical depth of my contributions to the project.
+Due to limited space, not all my contributions could be included;
+please refer to the full <a href="https://ay1920s1-cs2103t-w13-4.github.io/main/DeveloperGuide.html#loans-feature">Developer Guide</a>
+to read them in their entirety. I was responsible for the section detailing the <strong>Loans Feature</strong>.</em></p></td>
 </tr>
 </tbody>
 </table>
@@ -443,188 +370,78 @@ which can be checked using the command <code>loan list</code> or by pressing the
 It adds a separate <code>LoansManager</code> alongside the main <code>AccountsManager</code>, with <code>Loan</code> objects stored internally in an <code>internalList</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following class diagram demonstrates the association between the <code>LoansManager</code> and <code>Loan</code> objects
-(miscellaneous methods such as getters and setters are omitted):</p>
+<p>The following class diagram demonstrates the association between the <code>LoansManager</code> and <code>Loan</code> objects.
+Miscellaneous methods (such as <code>LoansManager#getLoans</code> and <code>LoansManager#getLoansCount</code>) are omitted.</p>
 </div>
-<div class="imageblock">
+<div id="loan-class-diagram" class="imageblock">
 <div class="content">
 <img src="../images/LoanClassDiagram.png" alt="LoanClassDiagram">
 </div>
+<div class="title">Figure 1. Class Diagram of the Loans Model</div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The <code>Debtor</code> class and <code>debtors</code> list belonging to <code>LoansManager</code> have been omitted to reduce complexity.
-Both will be depicted later when discussing the <code>loan split</code> command.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Each <code>Loan</code> object has the following attributes:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>person:Person</code>&#8201;&#8212;&#8201;The person to whom the loan belongs.</p>
-</li>
-<li>
-<p><code>amount:Amount</code>&#8201;&#8212;&#8201;The amount of money loaned.</p>
-</li>
-<li>
-<p><code>direction:Direction</code>&#8201;&#8212;&#8201;The direction of the loan (either <strong>in</strong> or <strong>out</strong>).</p>
-</li>
-<li>
-<p><code>status:Status</code>&#8201;&#8212;&#8201;The status of the loan (either <strong>paid</strong> or <strong>unpaid</strong>).</p>
-</li>
-<li>
-<p><code>date:Date</code>&#8201;&#8212;&#8201;The date of the loan.</p>
-</li>
-<li>
-<p><code>description:Description</code>&#8201;&#8212;&#8201;A description of the loan.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>To facilitate the manipulation of <code>Loan</code> objects, <code>LoansManager</code> implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>LoansManager#updateFilteredList(Predicate&lt;Loan&gt; predicate)</code>&#8201;&#8212;&#8201;Updates the current predicate of <code>filteredLoans</code> to <code>predicate</code>.</p>
-</li>
-<li>
-<p><code>LoansManager#sortLoans(Comparator&lt;Loan&gt; sorter)</code>&#8201;&#8212;&#8201;Sorts <code>internalList</code> using the given <code>sorter</code>.</p>
-</li>
-<li>
-<p><code>LoansManager#getFilteredLoans()</code>&#8201;&#8212;&#8201;Gets <code>filteredLoans</code>, representing the loans in <code>internalList</code> after filtering.</p>
-</li>
-<li>
-<p><code>LoansManager#addLoan(Loan toAdd)</code>&#8201;&#8212;&#8201;Adds the <code>Loan toAdd</code> to <code>internalList</code>.</p>
-</li>
-<li>
-<p><code>LoansManager#editLoan(Index toEdit, Loan editedLoan)</code>&#8201;&#8212;&#8201;Edits the loan at <code>Index toEdit</code> to match <code>Loan editedLoan</code>.</p>
-</li>
-<li>
-<p><code>LoansManager#deleteLoan(Index toDelete)</code>&#8201;&#8212;&#8201;Deletes the loan at <code>Index toDelete</code> from <code>internalList</code>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Each user-given command makes use of one or more of the above operations.
-For example, <code>loan delete</code> will call <code>LoansManager#deleteLoan</code> to delete the targeted loan(s), then <code>LoansManager#getFilteredLoans</code> to display the remaining loans.</p>
-</div>
-<div class="paragraph">
-<p>After each command, the state of <code>internalList</code> is saved in the file <code>loans.json</code>.
-<code>loans.json</code> itself is stored on the local hard disk in a <code>data</code> folder, which is in the same directory as <code>budgetbuddy.jar</code>.</p>
-</div>
+<div style="page-break-after: always;"></div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the <code>LoansManager</code> behaves at each step.</p>
 </div>
 <div class="paragraph">
-<p>Step 1. The user launches the application.
+<p>Step 1.
+The user launches the application.
 If <code>loans.json</code> exists on the hard disk, its data is loaded into <code>internalList</code>.
 Otherwise, <code>loans.json</code> is created and the <code>LoansManager</code> initializes with an <code>internalList</code> containing a few sample loans.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes the command <code>loan out p/John x/4.20</code> to add a new loan.
-This creates a new loan <code>toAdd</code> of <code>amount</code> 4.20 <code>out</code> to the <code>person</code> John, with the current <code>date</code> being used as the user did not provide one.
-<code>LoansManager#addLoan(Loan toAdd)</code> is then called and <code>toAdd</code> is added to <code>internalList</code>.</p>
+<p>Step 2.
+The user executes the command <code>loan out p/John x/4.20 d/Paid for his lunch</code> to add a new loan.
+This creates a new loan <code>toAdd</code> of <code>amount</code> 4.20 <code>out</code> to the <code>person</code> John, with the description <code>Paid for his lunch</code>.
+Since the user did not provide a date, the current system date is used for the <code>date</code> of <code>toAdd</code>.
+<code>LoansManager#addLoan(Loan toAdd)</code> is called and
+(after verifying that <code>toAdd</code> does not already exist in <code>internalList</code>)
+<code>toAdd</code> is added to <code>internalList</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram illustrates how the process of adding a loan works:</p>
+<p>The following sequence diagram illustrates the process of adding a loan:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/LoanSequenceDiagram.png" alt="LoanSequenceDiagram">
 </div>
+<div class="title">Figure 2. Sequence Diagram for Adding a Loan</div>
 </div>
 <div class="paragraph">
 <p>In general, the rest of the operations work using a similar sequence of steps.
-Some commands might create a new <code>Loan</code> object (as shown above) while others might just use the <code>Index</code> of a loan.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes the command <code>loan list out p/John w/1/11/19 s/x</code> to see all loans <code>out</code> to <code>John</code> dated <code>1/11/19</code>, sorted by amount.
-First, <code>LoansManager#sortLoans</code> is called, sorting <code>internalList</code> by the amount of each loan.
-<code>LoansManager#updateFilteredList</code> is then called, setting the predicate of <code>filteredLoans</code> according to the input parameters.
-Finally, <code>LoansManager#getFilteredLoans</code> is called.
-An immutable version of <code>filteredLoans</code> (filtered and sorted as per user input) is retrieved and displayed to the user.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. The user executes the command <code>loan edit 1 x/500</code> to edit the <code>amount</code> of the first loan in the list.
-This creates a new <code>editedLoan</code> identical to the first loan in <code>internalList</code>, except that <code>editedLoan</code> has an <code>amount</code> of 500.
-<code>LoansManager#editLoan(Index toEdit, Loan editedLoan)</code> is then called,
-where <code>toEdit</code> is the index of the first loan in <code>internalList</code>,
-and <code>toEdit</code> is replaced with <code>editedLoan</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 5. The user executes the command <code>loan paid 1</code> to update the status of the first loan in the list to <strong>paid</strong>.
-While the command syntax is different, <code>LoansManager#editLoan(Index toEdit, Loan editedLoan)</code> is reused
-with an <code>editedLoan</code> identical to the target loan at <code>Index toEdit</code> - except for its <code>Status</code>, which is set to <code>Status.PAID</code>.
-<code>LoansManager#editLoan</code> is reused here since changing the status of a loan is functionally identical to editing its other properties.
-The command syntax differs only to make the app more user-friendly.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The command <code>loan unpaid</code> works identically to <code>loan paid</code>, except that the <code>Status</code> of <code>editedLoan</code> is set to <code>Status.UNPAID</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes the command <code>loan delete 1</code> to delete the first loan in the list.
-<code>LoansManager#deleteLoan(Index toDelete)</code> is called,
-where <code>toDelete</code> is the index of the first loan in <code>internalList</code>,
-and the loan at index <code>toDelete</code> is removed from <code>internalList</code>.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-For the commands <code>loan paid</code>, <code>loan unpaid</code> and <code>loan delete</code>,
-if the user targets a loan outside of the list (e.g. index greater than list size)
-an error message will be displayed.
-</td>
-</tr>
-</table>
+Some commands might create a new <code>Loan</code> object (as shown above) while others might just use the <code>Index</code> of a loan (e.g. <code>loan delete</code>).</p>
 </div>
 <div class="sect4">
 <h5 id="multi-loan-targeting"><a class="link" href="#multi-loan-targeting">Multi-Loan Targeting</a></h5>
 <div class="paragraph">
 <p>The user can target and act on multiple loans with a single command.
-For example, <code>loan paid 1 3 4</code> can be used to mark the first, third and fourth loans in <code>internalList</code> as <strong>paid</strong>.
+For example, <code>loan paid 1 3 4</code> can be used to mark the first, third and fourth loans in <code>internalList</code> as <code>PAID</code>.
 Alternatively or additionally, <code>loan paid p/John p/Mary</code> can also be used
 to mark all the loans of the persons John and Mary in <code>internalList</code>.
 The <code>LoansManager</code> handles this by executing the appropriate operation repeatedly.
 In the case of <code>loan paid 1 3 4</code>, <code>LoansManager#editLoan</code> is called once for each of the three loans.</p>
 </div>
 <div class="paragraph">
-<p>If any of the targeted loan indices cannot be found by the <code>LoansManager</code> in <code>internalList</code>, they are added to a <code>missingLoanIndices</code> list.
-The <code>missingLoanIndices</code> list is then displayed to the user after all other loans have been acted upon,
-notifying them that the loans with those indices could not be found.</p>
+<p>To account for the fact that the list size might change after each operation,
+the size of the list before and after each operation is compared.
+If it has changed, the targeted indices are adjusted accordingly.</p>
 </div>
 <div class="paragraph">
-<p>Multi-loan targeting is implemented for the commands <code>loan paid</code>, <code>loan unpaid</code> and <code>loan delete</code>.
-In the case of <code>loan delete</code>, since the indices of loans in the list would change after each deletion, targeted indices are decremented after each deletion.</p>
+<p>If any of the target loan indices cannot be found by the <code>LoansManager</code> in <code>internalList</code>,
+they are added to a <code>missingLoanIndices</code> list.
+Similarly, target persons that cannot be found are added to a <code>missingPersons</code> list.
+Both lists are displayed to the user after other target loans that are in <code>internalList</code> have been acted upon,
+notifying the user that the target <code>indices</code>/<code>persons</code> could not be found.</p>
+</div>
+<div class="paragraph">
+<p>Multi-loan targeting is implemented for the commands <code>loan paid</code>, <code>loan unpaid</code> and <code>loan delete</code>.</p>
 </div>
 </div>
 <div class="sect4">
 <h5 id="loan-splitting"><a class="link" href="#loan-splitting">Loan Splitting</a></h5>
 <div class="paragraph">
 <p>Loan splitting exists as a command that the user can execute.
-Its main purpose is to split a large, initially unbalanced group payment equally among the group&#8217;s members.
+Its purpose is to split a large, initially unbalanced group payment equally among the group&#8217;s members.
 The following example scenario should clarify the purpose of the command:</p>
 </div>
 <div class="exampleblock">
@@ -642,75 +459,58 @@ From this list, John can now see that he owes Peter <strong>$33.33</strong> and 
 </div>
 </div>
 <div class="paragraph">
-<p>To display the results of the calculations, <code>LoansManager</code> holds a list of <code>debtors</code> containing <code>Debtor</code> objects.
-The following class diagram illustrates the relationship between the <code>LoansManager</code> and the <code>Debtor</code> class:</p>
+<p>Given below is an example scenario to demonstrate how the final list is calculated.
+The algorithm as a whole can be summarized in the activity diagram below,
+which might prove helpful for following the steps in the example scenario:</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/LoanSplitClassDiagram.png" alt="LoanSplitClassDiagram">
+<img src="../images/LoanSplitActivityDiagram.png" alt="LoanSplitActivityDiagram">
 </div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The <code>LoansManager</code> in the above diagram is the same <code>LoansManager</code> as the one in the class diagram containing the <code>Loan</code> class.
-The <code>Debtor</code> class and its associations were not depicted earlier as they are used only for the <code>loan split</code> command.
-</td>
-</tr>
-</table>
+<div class="title">Figure 3. Activity Diagram for Loan Split Algorithm</div>
 </div>
 <div class="paragraph">
-<p>Each <code>Debtor</code> object has the following attributes:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>debtor:Person</code>&#8201;&#8212;&#8201;The person who owes money to one or more creditors.</p>
-</li>
-<li>
-<p><code>creditors:HashMap&lt;Person, Amount&gt;</code>&#8201;&#8212;&#8201;A list of persons that the <code>debtor</code> owes money to, mapped to the amount of money owed.
-Each entry in the <code>HashMap</code> represents a creditor, with their name as the <code>Person</code> key and the amount owed as the corresponding <code>Amount</code> value.</p>
-</li>
-</ul>
+<p>Step 1.
+The user executes the command <code>loan split p/Ben p/Duke p/Adam p/Zed x/0 x/20 x/80 x/50 max/10 me/Ben d/Dinner</code>.
+In this scenario, out of the total bill of <strong>$150</strong>,
+<code>Ben</code> has paid <strong>$0</strong>,
+<code>Duke</code> has paid <strong>$20</strong>,
+<code>Adam</code> has paid <strong>$80</strong>
+and <code>Zed</code> has paid <strong>$50</strong>.
+Furthermore, <code>max/10</code> specifies that <code>Ben</code> should only pay/owe up to <strong>$10</strong> overall.
+Finally, <code>me/Ben</code> marks <code>Ben</code> as the user;
+all debts involving <code>Ben</code> should be added to the normal loan list with the description <code>Dinner</code>.</p>
 </div>
 <div class="paragraph">
-<p><code>LoansManager</code> also implements the <code>getDebtors</code> and <code>setDebtors</code> operations to get/set the <code>debtors</code> list.
-<code>setDebtors</code> is used in <code>LoanSplitCommand#execute</code> to hold the <code>Debtor</code> objects created for the latest execution of <code>loan split</code>.
-To display the results of the command, <code>getDebtors</code> is then called through the <code>Logic</code> component by the <code>Ui</code> component.</p>
+<p>Step 2.
+<code>LoanSplitCommandParser</code> parses the persons, amounts, and max shares into <code>List&lt;Person&gt;</code>, <code>List&lt;Amount&gt;</code> and <code>List&lt;Long&gt;</code> respectively.
+<code>me/Ben</code> and <code>d/Dinner</code> are parsed into <code>Optional&lt;Person&gt;</code> and <code>Optional&lt;Description&gt;</code>.
+A new <code>LoanSplitCommand</code> is instantiated with the lists and optional objects.</p>
 </div>
 <div class="paragraph">
-<p>Given below is an example scenario to demonstrate how the calculations are performed in <code>LoanSplitCommand#execute</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user executes the command <code>loan split p/John p/Mary p/Peter p/Bruce p/Thomas x/0 x/20 x/90 x/110 x/50 me/Mary d/For dinner</code>.</p>
-</div>
-<div class="paragraph">
-<p>Step 2. <code>LoanSplitCommandParser</code> parses each <code>p/&lt;person&gt;</code> into a <code>Person</code> object and each <code>x/&lt;amount&gt;</code> into an <code>Amount</code> object.
-A <code>List&lt;Person&gt;</code> and <code>List&lt;Amount&gt;</code> are created to hold the <code>Person</code> and <code>Amount</code> objects.
-Next, <code>me/Mary</code> is parsed into an <code>Optional&lt;Person&gt;</code> object and <code>d/For dinner</code> is parsed into an <code>Optional&lt;Description&gt;</code> object.
-A new <code>LoanSplitCommand</code> object is then created, with the two lists and two <code>Optional</code> objects passed to its constructor.</p>
-</div>
-<div class="paragraph">
-<p>Step 3. <code>LoanSplitCommand</code> constructs a <code>HashMap&lt;Person, Amount&gt; personAmountMap</code> using <code>List&lt;Person&gt;</code> and <code>List&lt;Amount&gt;</code>.
-It then begins the calculation of results using the following algorithm.</p>
+<p>Step 3.
+<code>LoanSplitCommand</code> replaces <code>Ben</code> in <code>List&lt;Person&gt;</code> with a <code>Person</code> with the <code>Name</code> <code>You</code>.
+Using the static methods of a <code>LoanSplitCalculator</code> class, it then begins executing the following algorithm:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Each <code>Person</code> in <code>personAmountMap</code> is assigned an individual <code>balance</code>.
-Each balance is calculated using the <code>Person</code> 's <code>Amount</code> value in <code>personAmountMap</code> minus the ideal amount paid <code>perPerson</code>.
-With the example command executed above, ideal amount <code>perPerson</code> would be <strong>$54</strong> (derived from <code>270 / 5</code>).</p>
+<p>The <code>defaultSharePerPerson</code> is calculated.
+In this scenario, <strong>$150</strong> should be split among the 4 persons.
+However, as <code>Ben</code> has a max share of <strong>$10</strong>, the other 3 persons must divide <strong>$140</strong> among themselves,
+resulting in a <code>defaultSharePerPerson</code> of <strong>$46.66</strong>.</p>
 </li>
 <li>
-<p>Using <code>CollectionUtil#generateCombinations</code>, a list of all possible sub-groups (combinations) of persons is generated.
-With the example command executed above, the number of sub-groups for the 5 persons would be <strong>32</strong>.</p>
+<p>Each person in <code>List&lt;Person&gt;</code> is given a <code>balance</code>,
+calculated using the amount they paid initially (from <code>List&lt;Amount&gt;</code>)
+minus either the <code>defaultSharePerPerson</code> or their max share if present.</p>
 </li>
 <li>
-<p>For each sub-group of persons, if the sum of their balances is <strong>zero</strong>, then the following steps are performed:</p>
+<p>A list of all possible sub-groups (combinations) of persons is generated.
+In this scenario, the number of sub-groups for the 4 persons would be <strong>16</strong>.</p>
+</li>
+<li>
+<p>For each sub-group, if the sum of their balances is <strong>zero</strong>, then the following steps are performed:</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -718,7 +518,8 @@ With the example command executed above, the number of sub-groups for the 5 pers
 </li>
 <li>
 <p>Transfer money between the two such that one or both of their balances reaches zero.
-The person(s) with a balance of zero are then removed, and a record of the <code>debtor</code>, <code>creditor</code> and <code>amountTransferred</code> is stored in a <code>List&lt;DebtorCreditorAmount&gt;</code>.</p>
+The person(s) with a balance of zero are then removed from the group,
+and a record of the <code>debtor</code>, <code>creditor</code> and <code>amountTransferred</code> is stored in a <code>List&lt;DebtorCreditorAmount&gt;</code>.</p>
 </li>
 <li>
 <p>Repeat until the sub-group contains less than two persons.</p>
@@ -732,59 +533,19 @@ The person(s) with a balance of zero are then removed, and a record of the <code
 </ol>
 </div>
 <div class="paragraph">
-<p>Step 4. As the example command executed above included the optional <code>me/Mary</code> and <code>d/For dinner</code>, all debts involving the person with the name <code>Mary</code> are used to create loans with the description <code>For dinner</code>.
+<p>Step 4.
+All debts involving the person <code>You</code> in <code>List&lt;Person&gt;</code>
+are used to create loans with the description <code>Dinner</code>.
 These loans are added to <code>internalList</code> in <code>LoansManager</code> using <code>LoansManager#addLoan</code>.</p>
 </div>
 <div class="paragraph">
 <p>Step 5. The list of <code>debtors</code> in <code>LoansManager</code> is displayed to the user.
-Using the example command executed above, the display will show that <code>John</code> owes <code>Bruce</code> <strong>$54</strong>, <code>You</code> (<code>Mary</code>, the user) owe <code>Peter</code> <strong>$34</strong>, and <code>Thomas</code> owes <code>Peter</code> and <code>Bruce</code> <strong>$2</strong> each.</p>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes the process described above:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/LoanSplitActivityDiagram.png" alt="LoanSplitActivityDiagram">
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-structure-of-the-loan-person-interaction"><a class="link" href="#aspect-structure-of-the-loan-person-interaction">Aspect: Structure of the loan - person interaction</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice)</strong>: <code>LoansManager</code> stores <code>internalList</code>; each <code>Loan</code> references a <code>Person</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement and understand.</p>
-</li>
-<li>
-<p>Cons: Takes a longer time to get all the loans belonging to a person.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2</strong>: <code>LoansManager</code> stores <code>persons</code> list; each <code>Person</code> stores <code>LoanList</code>; each <code>Loan</code> references <code>Person</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to retrieve the person of each loan and retrieve all the loans belonging to a person.</p>
-</li>
-<li>
-<p>Cons: Circular dependency and high coupling, potentially leading to lower testability and a higher bug count.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
+In this scenario, the display will show that
+<code>Duke</code> owes <code>Adam</code> <strong>$26.66</strong>
+and <code>You</code> (<code>Ben</code>, the user) owe <code>Zed</code> and <code>Adam</code> <strong>$3.32</strong> and <strong>$6.68</strong> respectively.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 19:14:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 19:20:59 UTC</div></div></div></body></html>
