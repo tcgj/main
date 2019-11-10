@@ -330,8 +330,7 @@ In addition, the user&#8217;s custom scripts are saved in the <code>/scripts/</c
 It is managed by <code>AccountsManager</code>, with <code>Account</code> objects stored internally in a <code>Accounts</code> and <code>filteredAccounts</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following class diagram demonstrates the association between the <code>AccountsManager</code> and <code>Account</code> objects
-(miscellaneous methods such as getters and setters are omitted):</p>
+<p>The class diagram below shows how the <code>AccountsManager</code> maanges its list of <code>Account</code> objects:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -352,6 +351,18 @@ It is managed by <code>AccountsManager</code>, with <code>Account</code> objects
 <li>
 <p><code>transactionList:TransactionList</code>&#8201;&#8212;&#8201;The list of transactions associated with the account.</p>
 </li>
+<li>
+<p><code>isActiveBooleanProperty:BooleanProperty</code>&#8201;&#8212;&#8201;The boolean property indicating whether an account is active or inactive.</p>
+</li>
+<li>
+<p><code>balance:long</code>&#8201;&#8212;&#8201;The balance of the account, calculated by the net sum of expenses and income.</p>
+</li>
+<li>
+<p><code>balanceLongProperty:LongProperty</code>&#8201;&#8212;&#8201;The Long property of the balance.</p>
+</li>
+<li>
+<p><code>categoryset:Set&lt;Category&gt;</code>&#8201;&#8212;&#8201;The set of categories involved in the account.</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
@@ -360,57 +371,95 @@ It is managed by <code>AccountsManager</code>, with <code>Account</code> objects
 <div class="ulist">
 <ul>
 <li>
-<p><code>AccountsManager#updateFilteredAccountList(Predicate&lt;Account&gt; predicate)</code>&#8201;&#8212;&#8201;Updates the current predicate of <code>filteredAccounts</code> to <code>predicate</code>.</p>
+<p><code>AccountsManager#updateFilteredAccountList(Predicate&lt;Account&gt; predicate)</code>&#8201;&#8212;&#8201;Updates the predicate of <code>filteredAccounts</code>.</p>
 </li>
 <li>
-<p><code>AccountsManager#getFilteredAccountList()</code>&#8201;&#8212;&#8201;Gets <code>filteredAccounts</code>, representing the accounts in <code>accounts</code> after filtering.</p>
+<p><code>AccountsManager#getFilteredAccountList()</code>&#8201;&#8212;&#8201;Gets the list of <code>filteredAccounts</code> after applying its <code>predicate</code>.</p>
 </li>
 <li>
-<p><code>AccountsManage#resetFilteredAccountList()</code>&#8201;&#8212;&#8201;Reset <code>filteredAccounts</code> so that all accounts present in <code>accounts</code> exist in <code>filteredAccounts</code>.</p>
+<p><code>AccountsManager#resetFilteredAccountList()</code>&#8201;&#8212;&#8201;Reset <code>filteredAccounts</code> so that all accounts present in <code>accounts</code> exist in <code>filteredAccounts</code>.</p>
 </li>
 <li>
-<p><code>AccountsManage#getAccounts()</code>&#8201;&#8212;&#8201;Gets <code>accounts</code>, representing the accounts in <code>accounts</code>.</p>
+<p><code>AccountsManager#getActiveTransactionList()</code>&#8201;&#8212;&#8201;Gets the <code>activeTransactionList</code> of the active account.</p>
 </li>
 <li>
-<p><code>AccountsManage#size()</code>&#8201;&#8212;&#8201;Gets the length of the <code>accounts</code>, representing the number of accounts currently in <code>accounts</code>.</p>
+<p><code>AccountsManager#getAccounts()</code>&#8201;&#8212;&#8201;Gets the list of <code>accounts</code>.</p>
 </li>
 <li>
-<p><code>AccountsManage#addAccount(Account toAdd)</code>&#8201;&#8212;&#8201;Adds the <code>Account toAdd</code> to <code>accounts</code>.</p>
+<p><code>AccountsManager#size()</code>&#8201;&#8212;&#8201;Gets the size of the <code>accounts</code> list.</p>
 </li>
 <li>
-<p><code>AccountsManage#deleteAccount(Account toDelete)</code>&#8201;&#8212;&#8201;Deletes the account at <code>Index toDelete</code> from <code>accounts</code>.</p>
+<p><code>AccountsManager#addAccount(Account toAdd)</code>&#8201;&#8212;&#8201;Adds the <code>Account toAdd</code> to <code>accounts</code>.</p>
 </li>
 <li>
-<p><code>AccountsManage#editAccount(Index toEdit, Account editedAccount)</code>&#8201;&#8212;&#8201;Edits the account at <code>Index Edit</code> to match <code>Account editedAccount</code>.</p>
+<p><code>AccountsManager#deleteAccount(Account toDelete)</code>&#8201;&#8212;&#8201;Deletes the account at <code>Index toDelete</code> from <code>accounts</code>.</p>
+</li>
+<li>
+<p><code>AccountsManager#editAccount(Index toEdit, Account editedAccount)</code>&#8201;&#8212;&#8201;Edits the account at <code>Index Edit</code> to match <code>Account editedAccount</code>.</p>
+</li>
+<li>
+<p><code>AccountsManager#switchActiveAccount(Index targetAccountIndex)</code>&#8201;&#8212;&#8201;Inactivate the current active account, and activate the target account.</p>
+</li>
+<li>
+<p><code>AccountsManager#unsetActiveAccount()</code>&#8201;&#8212;&#8201;Inactivate any currently active account.</p>
+</li>
+<li>
+<p><code>AccountsManager#setActiveAccount(Index toSet)</code>&#8201;&#8212;&#8201;Activate the target account.</p>
+</li>
+<li>
+<p><code>AccountsManager#getAccount()</code>&#8201;&#8212;&#8201;Gets the target account.</p>
+</li>
+<li>
+<p><code>AccountsManager#getActiveAccountIndex()</code>&#8201;&#8212;&#8201;Gets the index of the currently active account.</p>
+</li>
+<li>
+<p><code>AccountsManager#getActiveAccount()</code>&#8201;&#8212;&#8201;Gets the currently active account.</p>
+</li>
+<li>
+<p><code>AccountsManager#transactionListSwitchSource(Account account)</code>&#8201;&#8212;&#8201;Switches the account source for the TransactionList.</p>
+</li>
+<li>
+<p><code>AccountsManager#transactionListUpdateSource()</code>&#8201;&#8212;&#8201;Updates the transactionList linked to the currentActiveAccount.</p>
+</li>
+<li>
+<p><code>AccountsManager#exportReport()</code>&#8201;&#8212;&#8201;Exports the overview report of all accounts.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Each user-given command makes use of one or more of the above operations.
+<p>When the user inputs a command, several of the above operations are carried out.
 For example, <code>account edit</code> will call <code>AccountsManager#resetFilteredAccountList</code> to update the <code>filteredAccounts</code>,
-so that all accounts present in <code>accounts</code> will be present in <code>filteredAccounts</code>, then <code>AccountsManager#editAccount</code> to edit the targeted account,
-finally <code>AccountsManager#getFilteredAccountList()</code> to display the remaining accounts.</p>
+so that all accounts present in <code>accounts</code> will be present in <code>filteredAccounts</code>,
+then <code>AccountsManager#editAccount</code> to edit the account,
+finally <code>AccountsManager#getFilteredAccountList()</code> to display the list of accounts.</p>
 </div>
 <div class="paragraph">
-<p>After each command, the state of <code>accounts</code> is saved in the file <code>accounts.json</code>.
- <code>accounts.json</code> itself is stored on the local hard disk in a <code>data</code> folder, which is in the same directory as <code>budgetbuddy.jar</code>.</p>
+<p>After each command, the list of <code>accounts</code> is saved in <code>accounts.json</code>,
+which is stored in a <code>data</code> folder in the same directory as <code>budgetbuddy.jar</code>.</p>
 </div>
 <div class="paragraph">
 <p>Given below is an example usage scenario and how the <code>AccountsManager</code> behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p>Step 1. The user launches the application.
-If <code>accounts.json</code> exists on the hard disk, its data is loaded into <code>accounts</code>.
-Otherwise, <code>accounts.json</code> is created and the <code>AccountsManager</code> initializes with an <code>accounts</code> containing a default account.</p>
+If this is the first time it is launched,
+<code>accounts.json</code> is created and the <code>AccountsManager</code> initializes with an <code>accounts</code> containing a default account.
+Otherwise, the data in <code>accounts.json</code> is loaded into <code>accounts</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes the command <code>account add n/Japan trip d/expense spent in Japan</code> to add a new account.
+<p>Step 2. The user executes <code>account add n/Japan trip d/expense spent in Japan</code> to add a new account.
 This creates a new account <code>toAdd</code> with the <code>name</code> as Japan trip and <code>description</code> as expense spent in Japan.
-<code>AccountsManager#addAccount(Account toAdd)</code> is then called and <code>toAdd</code> is added to <code>accounts</code>.
+<code>AccountsManager#addAccount(Account toAdd)</code> adds <code>toAdd</code> to <code>accounts</code>.
 <code>filteredAccountList</code> will be automatically updated to match <code>accounts</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram illustrates how the process of adding an account works:</p>
+<p>Step 3. The user executes the command <code>account find trip</code> to find account contains the keyword trip specified.
+<code>AccountsManager#updateFilteredAccountList</code> sets the predicate of <code>filteredAccounts</code> according to the input parameters.
+Finally, <code>AccountsManager#getFilteredAccounts</code> retrieves an immutable version of <code>filteredAccounts</code> (filtered) to display to the user.
+In this case, an account with the <code>name</code> as Japan trip and <code>description</code> as expense spent in Japan will be displayed.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how finding the accounts containing specified keyword works:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -418,37 +467,39 @@ This creates a new account <code>toAdd</code> with the <code>name</code> as Japa
 </div>
 </div>
 <div class="paragraph">
-<p>In general, the rest of the operations work using a similar sequence of steps.
-Some commands might create a new <code>Account</code> object (as shown above) while others might just use the <code>Index</code> of an account.</p>
+<p>Most of the commands and operations behave in the same way.
+The only difference will be the the action taken by the operation (e.g. finding account or adding account).</p>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes the command <code>account find trip</code> to find account contains the keyword trip specified.
-First, <code>AccountsManager#resetFilteredAccountList</code> is called, updating <code>filteredAccounts</code> to match the <code>accounts</code>.
-<code>AccountsManager#updateFilteredAccountList</code> is then called, setting the predicate of <code>filteredAccounts</code> according to the input parameters.
-Finally, <code>AccountsManager#getFilteredAccounts</code> is called.
-An immutable version of <code>filteredAccounts</code> (filtered) is retrieved and displayed to the user.
-In this case, an account with the <code>name</code> as Japan trip and <code>description</code> as expense spent in Japan will be displayed.</p>
-</div>
-<div class="paragraph">
-<p>Step 4. The user executes the command <code>loan delete 2</code> to delete the second account in the <code>accounts</code>.
-Firstly, <code>AccountsManager#resetFilteredAccountList</code> will be called to update the <code>filteredAccounts</code>,
+<p>Step 4. The user executes <code>account delete 2</code> to delete the second account in the <code>accounts</code>.
+Firstly, <code>AccountsManager#resetFilteredAccountList</code> will update the <code>filteredAccounts</code>,
 so that all accounts present in <code>accounts</code> will be present in <code>filteredAccounts</code>,
-then <code>AccountsManager#deleteAccount</code> will be called to delete <code>toDelete</code> account from <code>accounts</code>.</p>
+then <code>AccountsManager#deleteAccount</code> deletes <code>toDelete</code> account from <code>accounts</code>.</p>
 </div>
 <div class="paragraph">
-<p>Step 5. The user executes the command <code>loan edit 3 n/food</code> to edit the <code>name</code> of the first account in the list.
-This creates a new <code>editedAccount</code> identical to the third account in <code>accounts</code>, except that <code>editedAccount</code> has a <code>name</code> of food.
-<code>AccountsManager#editAccount(Index toEdit, Account editedAccount)</code> is then called,
-where <code>toEdit</code> is the index of the third account in <code>accounts</code>,
-and <code>toEdit</code> is replaced with <code>editedAccount</code>.</p>
+<p>Step 5. The user executes <code>account edit 3 n/food</code> to edit the <code>name</code> of the first account.
+A new <code>editedAccount</code> is created, which is the same as the first third account except for its <code>name</code> which is food.
+<code>AccountsManager#editAccount(Index toEdit, Account editedAccount</code> replaces the account at index <code>toEdit</code> with <code>editedAccount.</code></p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarizes the process when the user executes the command <code>account edit</code>:</p>
+<p>The activity diagram below shows what happens when the user executes <code>account edit</code>:</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/AccountActivityDiagram.png" alt="AccountActivityDiagram">
 </div>
+</div>
+<div class="paragraph">
+<p>Step 6. The user executes <code>account report 2</code> to view the details of the second account.
+Firstly, <code>AccountsManager#resetFilteredAccountList</code> will update the <code>filteredAccounts</code>,
+so that all accounts present in <code>accounts</code> will be present in <code>filteredAccounts</code>,
+then <code>AccountsManager#getAccount</code> and <code>Account#getAccountInfo</code> are used to display the details of the second account.</p>
+</div>
+<div class="paragraph">
+<p>Step 7. The user executes <code>account overview</code> to view the report of all accounts in an html export file.
+Firstly, <code>AccountsManager#resetFilteredAccountList</code> will update the <code>filteredAccounts</code>,
+so that all accounts present in <code>accounts</code> will be present in <code>filteredAccounts</code>,
+then <code>AccountsManager#exportReport</code> generates the overview of all accounts html file to the exports folder.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -457,9 +508,9 @@ and <code>toEdit</code> is replaced with <code>editedAccount</code>.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-For the commands <code>account edit</code>, <code>account delete</code>,
-if the user targets an account outside of the list (e.g. index greater than list size)
-an error message will be displayed.
+For <code>account edit</code>, <code>account delete</code> and <code>account report</code>,
+if the user targets an index beyond the last index,
+an error message is displayed.
 </td>
 </tr>
 </table>
@@ -1824,4 +1875,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 13:48:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 02:41:02 UTC</div></div></div></body></html>
