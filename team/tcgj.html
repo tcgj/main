@@ -269,20 +269,6 @@ transaction is added/edited, if the transaction satisfies that condition.</p>
 <div class="paragraph">
 <p>As you can see, 2 of the rules from <a href="#Figure1">Rules in the rule list</a> were applied on the transaction, and added categories to it.</p>
 </div>
-<div class="admonitionblock warning">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
-</td>
-<td class="content">
-All rules will be executed from the top of the list downwards.
-Typically, this is the order in which the rules were added.
-Rules with conflicting actions will therefore be allowed.
-</td>
-</tr>
-</table>
-</div>
 <div class="sect3">
 <h4 id="add-a-new-rule-code-rule-add-code"><a class="link" href="#add-a-new-rule-code-rule-add-code">5.2.1. Add a new rule: <code>rule add</code></a></h4>
 <div class="paragraph">
@@ -292,20 +278,6 @@ A rule can be formed using either expressions or scripts, or both.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>rule add p/&lt;expression | script name&gt; a/&lt;expression | script name&gt;</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-Note that scripts used in rules are not validated; make sure they are free from error.
-Predicate scripts that do not return a boolean <em>will be executed</em>, but will therefore implicitly return false.
-Action scripts will be executed if the predicate returns true, and any return value will be discarded.
-</td>
-</tr>
-</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -361,96 +333,12 @@ It can contain the following special characters:<br>
 </ul>
 </div>
 </li>
-<li>
-<p><strong>Action</strong>: In the order of <code>&lt;action operator&gt; [&lt;value&gt;]</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>An action operator can be one of the following:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>set_cat</code> : Adds a category to the transaction</p>
-</li>
-<li>
-<p><code>remove_cat</code> : Removes a category from the transaction</p>
-</li>
-<li>
-<p><code>set_desc</code> : Sets the description of the transaction</p>
-</li>
-<li>
-<p><code>app_desc</code> : Appends a value to the description</p>
-</li>
-<li>
-<p><code>prep_desc</code> : Prepends a value to the description</p>
-</li>
-<li>
-<p><code>set_in</code> : Sets the direction of the transaction to be inwards</p>
-</li>
-<li>
-<p><code>set_out</code> : Sets the direction of the transaction to be outwards</p>
-</li>
-<li>
-<p><code>switch_direct</code> : Switches the current direction of the transaction</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>A value is as described in a predicate expression,
-and is not required for <code>set_in</code>, <code>set_out</code> and <code>switch_direct</code></p>
-</li>
-</ul>
-</div>
-</li>
 </ul>
 </div>
 <div class="paragraph">
-<p><strong>Script Usage in Rules:</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Scripts used in rules have access to two additional arguments:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>The transaction to test/act upon is stored in <code>argv[0]</code></p>
-</li>
-<li>
-<p>The account that the transaction belongs to is stored in <code>argv[1]</code></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Refer to <a href="#Scripting">[Scripting]</a> for general script usage.</p>
-</li>
-</ul>
+<p>The rest of the formatting guide can be found in the User Guide.</p>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>rule add p/outamt &gt;= 100 a/prep_desc [Large Spending]</code><br>
-Adds a new rule that specifies that if an outward transaction has an amount more
-than or equal to $100, prepend the transaction&#8217;s description with "[Large Spending]".</p>
-</li>
-<li>
-<p><code>rule add p/desc contains food a/set_cat Food</code><br>
-Adds a new rule that specifies that if a transaction description contains "food",
-add the category "Food" to that transaction.</p>
-</li>
-<li>
-<p><code>rule add p/IsMonthlyAllowance a/set_desc Monthly Allowance</code><br>
-Adds a new rule that specifies that if the script named "IsMonthlyAllowance"
-returns true, change the transaction&#8217;s description to "Monthly Allowance".</p>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect3">
@@ -712,4 +600,4 @@ of classes.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:39:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 11:56:54 UTC</div></div></div></body></html>
