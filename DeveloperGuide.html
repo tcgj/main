@@ -23,13 +23,17 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#accounts-feature">3.1. Accounts Feature</a></li>
-<li><a href="#loans-feature">3.2. Loans Feature</a></li>
-<li><a href="#rule-management-feature">3.3. Rule Management Feature</a></li>
-<li><a href="#rule-execution-feature">3.4. Rule Execution Feature</a></li>
-<li><a href="#scripting">3.5. Scripting</a></li>
-<li><a href="#aliases">3.6. [Proposed] Aliases</a></li>
-<li><a href="#logging">3.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
+<li><a href="#active-account">3.2. Active Account</a></li>
+<li><a href="#transaction-model">3.3. Transaction Model</a></li>
+<li><a href="#adding-transactions-code-txn-code">3.4. Adding Transactions: <code>txn</code></a></li>
+<li><a href="#editing-transactions-code-txn-edit-code">3.5. Editing transactions: <code>txn edit</code></a></li>
+<li><a href="#loans-feature">3.6. Loans Feature</a></li>
+<li><a href="#rule-management-feature">3.7. Rule Management Feature</a></li>
+<li><a href="#rule-execution-feature">3.8. Rule Execution Feature</a></li>
+<li><a href="#scripting">3.9. Scripting</a></li>
+<li><a href="#aliases">3.10. [Proposed] Aliases</a></li>
+<li><a href="#logging">3.11. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.12. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -561,9 +565,361 @@ After each command, <code>AccountsManager#resetFilteredAccountList</code> is cal
 </div>
 </div>
 <div class="sect2">
-<h3 id="loans-feature"><a class="link" href="#loans-feature">3.2. Loans Feature</a></h3>
+<h3 id="active-account"><a class="link" href="#active-account">3.2. Active Account</a></h3>
 <div class="sect3">
 <h4 id="implementation-3"><a class="link" href="#implementation-3">3.2.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The active <code>Account</code> allows operations on <code>Transaction</code> objects to not have to specify the concerning <code>Account</code> when
+the command is entered. This allows for a more user-friendly and intuitive experience with managing finances. By updating
+<code>ActiveAccountIndex</code> where appropriate, the <code>activeAccount</code> is implemented on the idea that users want to continue to
+manipulate transactions within the same <code>Account</code> that they last interacted with.</p>
+</div>
+<div class="paragraph">
+<p>The current active <code>Account</code> is indicated in the UI by a highlight as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ActiveAccount1.png" alt="ActiveAccount1">
+</div>
+<div class="title">Figure 9. Screenshot of the UI showing the highlighted active Account.</div>
+</div>
+<div class="paragraph">
+<p>The following user commands, if executed successfully, can change the active account:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountAddCommand</code>&#8201;&#8212;&#8201;The added <code>Account</code> becomes the active account.</p>
+</li>
+<li>
+<p><code>AccountDeleteCommand</code>&#8201;&#8212;&#8201;If the active <code>Account</code> is deleted, a new active <code>Account</code> will be selected.</p>
+</li>
+<li>
+<p><code>AccountEditCommand</code>&#8201;&#8212;&#8201;The edited <code>Account</code> becomes the active account.</p>
+</li>
+<li>
+<p><code>AccountFindCommand</code>&#8201;&#8212;&#8201;The first <code>Account</code> in the list is set as the active <code>Account</code>.</p>
+</li>
+<li>
+<p><code>AccountListCommand</code>&#8201;&#8212;&#8201;The first <code>Account</code> in the list is set as the active <code>Account</code>.</p>
+</li>
+<li>
+<p><code>AccountReportCommand</code>&#8201;&#8212;&#8201;The target <code>Account</code> is set as the new active <code>Account</code>.</p>
+</li>
+<li>
+<p><code>AccountSwitchCommand</code>&#8201;&#8212;&#8201;The target <code>Account</code> is set as the new active <code>Account</code>.</p>
+</li>
+<li>
+<p><code>TransactionAddCommand</code>&#8201;&#8212;&#8201;The target <code>Account</code> is set as the new active <code>Account</code>.</p>
+</li>
+<li>
+<p><code>TransactionEditCommand</code>&#8201;&#8212;&#8201;The target <code>Account</code> is set as the new active <code>Account</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-responsive-ui-for-showing-the-active-code-account-code"><a class="link" href="#aspect-responsive-ui-for-showing-the-active-code-account-code">Aspect: responsive UI for showing the active <code>Account</code></a></h5>
+<div class="paragraph">
+<p>An <code>Extractor</code> is used to update the UI when an <code>Account</code> is set as active, or when the <code>balance</code> is updated. This is because
+the <code>FilteredList&lt;Account&gt;</code> only updates automatically when the Accounts themselves are changed, but not when their internal
+elements are altered.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Use an <code>Extractor</code> to listen for changes to <code>isActiveBooleanProperty</code> and <code>balanceLongProperty</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less overhead/unnecessary movement of accounts</p>
+</li>
+<li>
+<p>Cons: Not as easy for new developers to understand and implement.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Refresh the account list by forcing removal and re-addition of each of the accounts.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, no need to change members to adapt to the <code>Property</code> class, and easier for newer developers to read and understand.</p>
+</li>
+<li>
+<p>Cons: High overhead, as more and more accounts are added to the BudgetBuddy.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="transaction-model"><a class="link" href="#transaction-model">3.3. Transaction Model</a></h3>
+<div class="sect3">
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
+<div class="paragraph">
+<p>Transactions are the main elements of the BudgetBuddy&#8217;s expenses tracker. Within each <code>Account</code>, a <code>TransactionList</code> is
+stored, and inside each <code>TransactionList</code>, <code>Transaction</code> objects are stored internally in the <code>internalList</code> of the
+<code>TransactionList</code>.</p>
+</div>
+<div class="paragraph">
+<p>The class diagram below shows how <code>Transaction</code> objects are stored within an <code>Account</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TransactionClassDiagram.png" alt="TransactionClassDiagram">
+</div>
+<div class="title">Figure 10. Class Diagram of the Transactions Model</div>
+</div>
+<div class="paragraph">
+<p>Each <code>Transaction</code> object must have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>direction: Direction</code>&#8201;&#8212;&#8201;The direction of the transaction (either <code>IN</code> for money inflow or <code>OUT</code> for money outflow).</p>
+</li>
+<li>
+<p><code>amount: Amount</code>&#8201;&#8212;&#8201;The amount of money transacted.</p>
+</li>
+<li>
+<p><code>date: LocalDate</code>&#8201;&#8212;&#8201;The date of the transaction.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Optional attributes for <code>Transaction</code> objects:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>description: Description</code>&#8201;&#8212;&#8201;A short description about the transaction.</p>
+</li>
+<li>
+<p><code>categories: Set&lt;Category&gt;</code>&#8201;&#8212;&#8201;A <code>Set</code> of <code>Category</code> objects that categorize the transaction.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Because <code>Transaction</code> and <code>TransactionList</code> objects are contained within <code>Account</code> objects, which are in turn stored within the
+<code>AccountsManager</code>, it is called when any operations is made on a <code>Transaction</code>. Additionally, <code>AccountsManager</code> has an
+<code>activeTransactionList</code> which holds the <code>TransactionList</code> of the current active <code>Account</code>. <code>activeTransactionList</code> is then
+wrapped by a <code>SortedList</code> and <code>FilteredList</code> to enable the sorting and filtering of the <code>Transaction</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>These methods in <code>AccountsManager</code> below that manipulate the <code>activeTransactionList</code> are called when the list of
+transactions needs to be filtered/sorted:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountsManager#getFilteredTransactionList()</code>&#8201;&#8212;&#8201;Returns an <code>ObservableList</code> of the filtered transactions.</p>
+</li>
+<li>
+<p><code>AccountsManager#updateFilteredTransactionList(Predicate&lt;Transaction&gt; predicate)</code>&#8201;&#8212;&#8201;Updates the <code>Predicate&lt;Transaction&gt;</code> of the <code>FilteredList</code> to filter by the given <code>Predicate&lt;Transaction&gt;</code></p>
+</li>
+<li>
+<p><code>AccountsManager#resetFilteredTransactionList()</code>&#8201;&#8212;&#8201;Resets and removes any filter on the <code>FilteredList</code>.</p>
+</li>
+<li>
+<p><code>AccountsManager#updateSortedTransactionList(Comparator&lt;Transaction&gt; comparator)</code>&#8201;&#8212;&#8201;Updates the <code>Comparator&lt;Transaction&gt;</code> of the <code>SortedList</code> to sort by the given <code>Comparator&lt;Transaction&gt;</code></p>
+</li>
+<li>
+<p><code>AccountsManager#resetSortedTransactionList()</code>&#8201;&#8212;&#8201;Resets the <code>Comparator</code> on the <code>FilteredList</code> to the default comparator.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When <code>Transaction</code> objects are added/edited/deleted, the following implemented methods are called from <code>Account</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Account#addTransaction(Transaction toAdd)</code>&#8201;&#8212;&#8201;Adds a <code>Transaction</code> to the <code>transactionList</code>.</p>
+</li>
+<li>
+<p><code>Account#updateTransaction(Index txnIndex, Transaction editedTxn)</code>&#8201;&#8212;&#8201;Sets a <code>Transaction</code> to the <code>transactionList</code> at the specified <code>Index</code>.</p>
+</li>
+<li>
+<p><code>Account#deleteTransaction(Transaction toDelete)</code>&#8201;&#8212;&#8201;Deletes a <code>Transaction</code> from the <code>transactionList</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Transaction</code> objects are saved within their respective <code>Account</code> objects after every command, and they are saved
+into the file <code>accounts.json</code>, stored in the same directory as the JAR executable.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-reference-to-respective-account-in-transaction"><a class="link" href="#aspect-reference-to-respective-account-in-transaction">Aspect: Reference to respective Account in Transaction</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: <code>Transaction</code> has no reference to <code>Account</code>; any commands that create/edit/delete <code>Transaction</code> objects
+are called via the active <code>Account</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduced coupling, which makes testing/maintenance easier.</p>
+</li>
+<li>
+<p>Cons: More methods are required to ensure the logic of <code>Transaction</code> commands and the current active <code>Account</code>,
+instead of calling getAccount() on a <code>Transaction</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: <code>Transaction</code> holds a reference to <code>Account</code>; commands that create/edit/delete <code>Transaction</code> objects
+directly reach the <code>Account</code> through the <code>Transaction</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It would result in shorter code by avoiding having to go through <code>AccountsManager</code> to find the respective <code>Account</code>.</p>
+</li>
+<li>
+<p>Cons: This would result in a circular dependency between <code>Transaction</code> and <code>Account</code>, as well as high coupling.
+This lowers testability and increases the risk of bugs.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-transactions-code-txn-code"><a class="link" href="#adding-transactions-code-txn-code">3.4. Adding Transactions: <code>txn</code></a></h3>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>txn</code> command is processed and executed at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1: The user (ideally an NUS Computing Student) executes <code>txn dn/out x/50 d/books a/school</code> to add a purchase of $50 worth of
+books, to be added to the <code>school</code> <code>Account</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2: <code>LogicManager</code> calls <code>parseCommand</code> on the command string <code>txn dn/out x/50 d/books a/school</code></p>
+</div>
+<div class="paragraph">
+<p>Step 3: <code>CommandLineParser</code> creates a new <code>TransactionAddCommandParser</code> by identifying the <code>txn</code> String that represents a
+<code>TransactionAddCommand</code></p>
+</div>
+<div class="paragraph">
+<p>Step 4: <code>TransactionAddCommandParser</code> parses the rest of the command string <code>dn/out x/50 d/books a/school</code> and return a
+new <code>TransactionAddCommand</code> with the parsed details.</p>
+</div>
+<div class="paragraph">
+<p>Step 5: <code>LogicManager</code> then calls <code>execute()</code> on the <code>TransactionAddCommand</code>, which gets the <code>Account</code> <code>school</code> from the
+<code>AccountsManager</code></p>
+</div>
+<div class="paragraph">
+<p>Step 6: <code>addTransaction</code> is called on the returned <code>Account</code> to add the <code>Transaction</code> to the <code>TransactionList</code> of
+the Account`.</p>
+</div>
+<div class="paragraph">
+<p>Step 7: After adding the <code>Transaction</code>, RuleEngine is called to execute its rules over the newly added <code>Transaction</code>.
+The full diagram sequence diagram for this step can be found <a href="#rule-execution-sequence-diagram">below</a>, in the Implementation of the Rules Execution feature.</p>
+</div>
+<div class="paragraph">
+<p>Step 8: The <code>Account</code> which was added to is set as the active <code>Account</code> with <code>setActiveAccount()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 9: Finally, <code>TransactionAddCommand</code> returns a <code>CommandResult</code> to the <code>LogicManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 10: Before <code>LogicManager</code> returns the <code>CommandResult</code>, it calls <code>save(Model model)</code> on the <code>StorageManager</code>, which
+saves all the <code>Account</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates the scenario as described above (the execution of <code>txn dn/out x/50 d/books a/school</code>):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TransactionSequenceDiagram.png" alt="TransactionSequenceDiagram">
+</div>
+<div class="title">Figure 11. Sequence Diagram of the TransactionAddCommand</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-transactions-code-txn-edit-code"><a class="link" href="#editing-transactions-code-txn-edit-code">3.5. Editing transactions: <code>txn edit</code></a></h3>
+<div class="paragraph">
+<p><code>txn edit</code> allows users to edit any attribute of the <code>Transaction</code>. It uses a <code>TransactionEditDescriptor</code> to store the details
+of the new <code>Transaction</code>, then uses <code>getUpdatedTransaction</code> to generate the edited <code>Transaction</code> as well as validate that
+changes have been made to the transaction.</p>
+</div>
+<div class="paragraph">
+<p>Below is an example scenario to demonstrate how a <code>Transaction</code> is edited, as well as certain additional steps that are taken when certain
+attributes of the <code>Transaction</code> are edited, for example to edit the <code>Account</code> or to edit the <code>categories</code>. The activity diagram
+accompanies this explanation, to help visualise the steps that might take place.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TransactionActivityDiagram.png" alt="TransactionActivityDiagram">
+</div>
+<div class="title">Figure 12. Activity Diagram of the execution of a TransactionEditCommand</div>
+</div>
+<div class="paragraph">
+<p>Assume that <code>txn add dn/out x/20 d/bill a/home</code> was just executed, and that the <code>Transaction</code> shows up in the first index:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/TransactionEdit1.png" alt="TransactionEdit1">
+</div>
+<div class="title">Figure 13. Screenshot of previously added transaction</div>
+</div>
+<div class="paragraph">
+<p>Step 1: The user (ideally an NUS Computing Student) executes <code>txn edit 1 x/28 d/phone bill a/personal c/phone c/bill</code>
+to edit the previously added <code>Transaction</code> to a $28 phone bill, to be added to the <code>personal</code> <code>Account</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2: <code>LogicManager</code> calls <code>parseCommand</code> on the command string <code>txn edit 1 x/28 d/phone bill a/personal c/phone c/bill</code></p>
+</div>
+<div class="paragraph">
+<p>Step 3: <code>CommandLineParser</code> creates a new <code>TransactionEditCommandParser</code> by identifying the <code>txn edit</code> String that represents a
+<code>TransactionAddCommand</code></p>
+</div>
+<div class="paragraph">
+<p>Step 4: <code>TransactionAddCommandParser</code> parses the rest of the command string <code>1 x/28 d/phone bill a/personal c/phone c/bill</code> and return a
+new <code>TransactionEditCommand</code> along with the <code>TransactionEditDescriptor</code> and the <code>updatedAccountName</code>, which represents the
+<code>Name</code> of the new target <code>Account</code>. A new <code>Set&lt;Categories&gt;</code> is also created from the <code>c/phone</code> and <code>c/bill</code> arguments provided.</p>
+</div>
+<div class="paragraph">
+<p>Step 5: <code>LogicManager</code> then calls <code>execute()</code> on the <code>TransactionEditCommand</code>. Then, the original <code>Transaction</code> is obtained,
+followed by the target <code>Account</code> and the edited <code>Transaction</code> via <code>getUpdatedTransaction</code>. Meanwhile, validation occurs
+at every step, to ensure that the parsed attributes conform to the requirements to edit the `Transaction.</p>
+</div>
+<div class="paragraph">
+<p>Step 6: <code>deleteTransaction</code> is called on the <code>Account</code> containing the <code>Transaction</code> to be edited.</p>
+</div>
+<div class="paragraph">
+<p>Step 7: <code>addTransaction</code> is called on the target <code>Account</code>, followed by the execution of the RulesEngine, similar to the
+situation as shown <a href="#rule-execution-sequence-diagram">further below</a>.</p>
+</div>
+<div class="paragraph">
+<p>Step 8: The <code>Account</code> which was added to is set as the active <code>Account</code> with <code>setActiveAccount()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 9: Finally, <code>TransactionAddCommand</code> returns a <code>CommandResult</code> to the <code>LogicManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 10: Before <code>LogicManager</code> returns the <code>CommandResult</code>, it calls <code>save(Model model)</code> on the <code>StorageManager</code>, which
+saves all the <code>Account</code> objects.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="loans-feature"><a class="link" href="#loans-feature">3.6. Loans Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">3.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The Loans feature exists outside of the Account/Transaction mechanisms.
 It adds a separate <code>LoansManager</code> alongside the main <code>AccountsManager</code>, with <code>Loan</code> objects stored internally in an <code>internalList</code>.</p>
@@ -576,7 +932,7 @@ Miscellaneous methods (such as <code>LoansManager#getLoans</code> and <code>Loan
 <div class="content">
 <img src="images/LoanClassDiagram.png" alt="LoanClassDiagram">
 </div>
-<div class="title">Figure 9. Class Diagram of the Loans Model</div>
+<div class="title">Figure 14. Class Diagram of the Loans Model</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -680,7 +1036,7 @@ Since the user did not provide a date, the current system date is used for the <
 <div class="content">
 <img src="images/LoanSequenceDiagram.png" alt="LoanSequenceDiagram">
 </div>
-<div class="title">Figure 10. Sequence Diagram for Adding a Loan</div>
+<div class="title">Figure 15. Sequence Diagram for Adding a Loan</div>
 </div>
 <div class="paragraph">
 <p>In general, the rest of the operations work using a similar sequence of steps.
@@ -814,7 +1170,7 @@ For your convenience, the <a href="#loan-class-diagram">class diagram of the Loa
 <div class="content">
 <img src="images/LoanClassDiagram.png" alt="LoanClassDiagram">
 </div>
-<div class="title">Figure 11. Reproduction of Class Diagram of the Loans Model</div>
+<div class="title">Figure 16. Reproduction of Class Diagram of the Loans Model</div>
 </div>
 <div class="paragraph">
 <p>Each <code>Debtor</code> object has the following attributes:</p>
@@ -844,7 +1200,7 @@ which might prove helpful for following the steps in the example scenario:</p>
 <div class="content">
 <img src="images/LoanSplitActivityDiagram.png" alt="LoanSplitActivityDiagram">
 </div>
-<div class="title">Figure 12. Activity Diagram for Loan Split Algorithm</div>
+<div class="title">Figure 17. Activity Diagram for Loan Split Algorithm</div>
 </div>
 <div class="paragraph">
 <p>Step 1.
@@ -924,7 +1280,7 @@ and <code>You</code> (<code>Ben</code>, the user) owe <code>Zed</code> and <code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.2.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-structure-of-the-loan-person-interaction"><a class="link" href="#aspect-structure-of-the-loan-person-interaction">Aspect: Structure of the loan - person interaction</a></h5>
 <div class="ulist">
@@ -961,7 +1317,7 @@ and <code>You</code> (<code>Ben</code>, the user) owe <code>Zed</code> and <code
 </div>
 </div>
 <div class="sect2">
-<h3 id="rule-management-feature"><a class="link" href="#rule-management-feature">3.3. Rule Management Feature</a></h3>
+<h3 id="rule-management-feature"><a class="link" href="#rule-management-feature">3.7. Rule Management Feature</a></h3>
 <div class="paragraph">
 <p>The Rules feature exists as an integration onto the Transaction system. It makes use
 of syntax processing, together with scripts to provide an automation solution to
@@ -974,7 +1330,7 @@ testing from performing, which helps to increase reusability of individual predi
 and actions.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.3.1. Implementation</a></h4>
+<h4 id="implementation-6"><a class="link" href="#implementation-6">3.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Basic attributes and operators are exposed to provide users a way of writing simple
 tests on transactions without having to manually check and make changes. Storing rules
@@ -992,7 +1348,7 @@ application when relaunched.</p>
 <div class="content">
 <img src="images/RuleModelClassDiagram.png" alt="RuleModelClassDiagram">
 </div>
-<div class="title">Figure 13. Structure of the Rule Model Component</div>
+<div class="title">Figure 18. Structure of the Rule Model Component</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1066,7 +1422,7 @@ methods such as the <code><strong>RuleManager#swapRules</strong></code> as menti
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.3.2. Design Considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-structure-of-expressions-for-rule-data-management"><a class="link" href="#aspect-structure-of-expressions-for-rule-data-management">Aspect: Structure of expressions for rule data management</a></h5>
 <div class="ulist">
@@ -1141,7 +1497,7 @@ much more complicated, as the entire script will be contained within the class.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="rule-execution-feature"><a class="link" href="#rule-execution-feature">3.4. Rule Execution Feature</a></h3>
+<h3 id="rule-execution-feature"><a class="link" href="#rule-execution-feature">3.8. Rule Execution Feature</a></h3>
 <div class="paragraph">
 <p>The structure of rules were separated from the logic of rule execution to maintain the separation of concerns between the
 <code><strong>Model</strong></code> and <code><strong>Logic</strong></code> components.</p>
@@ -1154,7 +1510,7 @@ all rules within the Rule Engine will be executed on that transaction. The same 
 <p>The implementation of the Rule execution is elaborated on below.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-5"><a class="link" href="#implementation-5">3.4.1. Implementation</a></h4>
+<h4 id="implementation-7"><a class="link" href="#implementation-7">3.8.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The <code><strong>RuleEngine</strong></code> is a static class used for interfacing with all the rule processings functionality.</p>
 </div>
@@ -1178,11 +1534,11 @@ the <code><strong>Performable#perform</strong></code> method on the given transa
 <p>The following sequence diagram shows the interaction between the <code><strong>RuleEngine</strong></code> and the different objects involved in the
 execution of the rules on a transaction:</p>
 </div>
-<div class="imageblock">
+<div id="rule-execution-sequence-diagram" class="imageblock">
 <div class="content">
 <img src="images/RuleExecutionSequenceDiagram.png" alt="RuleExecutionSequenceDiagram">
 </div>
-<div class="title">Figure 14. Sequence diagram representing Rule Execution after adding a new Transaction</div>
+<div class="title">Figure 19. Sequence diagram representing Rule Execution after adding a new Transaction</div>
 </div>
 <div class="paragraph">
 <p>Shown above is a sequence diagram which takes place during the execution of the <code><strong>TransactionAddCommand</strong></code>,
@@ -1201,7 +1557,7 @@ transaction, as well as the <code><strong>Performable</strong></code>s for perfo
 <div class="content">
 <img src="images/RuleExecutionActivityDiagram.png" alt="RuleExecutionActivityDiagram">
 </div>
-<div class="title">Figure 15. Activity diagram of the different paths involved in the workflow of executing rules</div>
+<div class="title">Figure 20. Activity diagram of the different paths involved in the workflow of executing rules</div>
 </div>
 <div class="paragraph">
 <p>The activity diagram above has a slightly different context as the sequence diagram, to show a separate use case. In this
@@ -1242,7 +1598,7 @@ function is then called when <code><strong>Testable#test</strong></code> or <cod
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-duplication-of-predicates-and-actions-in-model-and-logic"><a class="link" href="#aspect-duplication-of-predicates-and-actions-in-model-and-logic">Aspect: Duplication of predicates and actions in model and logic</a></h5>
 <div class="ulist">
@@ -1280,13 +1636,13 @@ of classes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="scripting"><a class="link" href="#scripting">3.5. Scripting</a></h3>
+<h3 id="scripting"><a class="link" href="#scripting">3.9. Scripting</a></h3>
 <div class="paragraph">
 <p>The scripting feature allows users to write scripts to automate tasks and extend the
 functionality of Budget Buddy.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-6"><a class="link" href="#implementation-6">3.5.1. Implementation</a></h4>
+<h4 id="implementation-8"><a class="link" href="#implementation-8">3.9.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The script engine works independently of the rest of the application.
 At its core, it uses the
@@ -1315,7 +1671,7 @@ used together to, in effect, allow users to create custom commands.</p>
 <div class="content">
 <img src="images/ScriptsClassDiagram.png" alt="ScriptsClassDiagram">
 </div>
-<div class="title">Figure 16. Structure of scripts in the model and logic components</div>
+<div class="title">Figure 21. Structure of scripts in the model and logic components</div>
 </div>
 <div class="sect4">
 <h5 id="script-engine"><a class="link" href="#script-engine">Script engine</a></h5>
@@ -1383,7 +1739,7 @@ when the user runs a script from the script library using <code>script run my-sc
 <div class="content">
 <img src="images/ScriptsSequenceDiagram.png" alt="ScriptsSequenceDiagram">
 </div>
-<div class="title">Figure 17. Interaction between the components during the execution of <code>script run my-script</code></div>
+<div class="title">Figure 22. Interaction between the components during the execution of <code>script run my-script</code></div>
 </div>
 <div class="paragraph">
 <p>The command is parsed into <code>ScriptRunCommand</code> by the command line parser.
@@ -1442,7 +1798,7 @@ not use generics in the functional interfaces in <code>ScriptBindingInterfaces</
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design considerations</a></h4>
+<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.9.2. Design considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-javascript-engine"><a class="link" href="#aspect-javascript-engine">Aspect: JavaScript engine</a></h5>
 <div class="paragraph">
@@ -1542,7 +1898,7 @@ has to be done manually in our <code>AbstractJSObject</code> subclass.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="aliases"><a class="link" href="#aliases">3.6. [Proposed] Aliases</a></h3>
+<h3 id="aliases"><a class="link" href="#aliases">3.10. [Proposed] Aliases</a></h3>
 <div class="paragraph">
 <p>The alias is a simple hook into the command parsing engine. If there is no
 built-in command corresponding to a command line, then the alias map is checked.
@@ -1561,18 +1917,18 @@ stop evaluation if we see that the same alias has been applied more than once.</
 <div class="content">
 <img src="images/AliasActivityDiagram.png" alt="AliasActivityDiagram">
 </div>
-<div class="title">Figure 18. Alias resolution algorithm</div>
+<div class="title">Figure 23. Alias resolution algorithm</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.11. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.12, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1603,7 +1959,7 @@ stop evaluation if we see that the same alias has been applied more than once.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.12. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2856,4 +3212,4 @@ Expected: Transaction is added. Rules do not apply to transaction. No change to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:17:08 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:29:54 UTC</div></div></div></body></html>
