@@ -51,7 +51,8 @@
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-an-account">F.2. Deleting an account</a></li>
+<li><a href="#accounts">F.2. Accounts</a></li>
+<li><a href="#loans">F.3. Loans</a></li>
 </ul>
 </li>
 </ul>
@@ -2154,7 +2155,9 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-account"><a class="link" href="#deleting-an-account">F.2. Deleting an account</a></h3>
+<h3 id="accounts"><a class="link" href="#accounts">F.2. Accounts</a></h3>
+<div class="sect3">
+<h4 id="deleting-an-account"><a class="link" href="#deleting-an-account">F.2.1. Deleting an Account</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2183,4 +2186,180 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:30:18 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="loans"><a class="link" href="#loans">F.3. Loans</a></h3>
+<div class="sect3">
+<h4 id="adding-a-loan"><a class="link" href="#adding-a-loan">F.3.1. Adding a Loan</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a loan when no duplicate loan exists in the list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None</p>
+</li>
+<li>
+<p>Test case: <code>loan out x/4.20 p/John d/For dinner</code><br>
+Expected: A loan is added to the list at the appropriate position based on the current sorting order.
+The date of the loan should be the current system date.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-loans"><a class="link" href="#listing-loans">F.3.2. Listing Loans</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Listing loans in the main display panel with optional filtering/sorting</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None</p>
+</li>
+<li>
+<p>Test case: <code>loan list</code>
+Expected: All loans are listed.</p>
+</li>
+<li>
+<p>Test case: <code>loan list out p/John s/p</code>
+Expected: Only loans out involving the person "John" are listed.
+The list is also sorted by person in alphabetical order.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-loan"><a class="link" href="#editing-a-loan">F.3.3. Editing a Loan</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing an existing loan while all loans are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all loans using the <code>loan list</code> command. At least one loan in the list.</p>
+</li>
+<li>
+<p>Test case: <code>loan edit 1 x/500</code>
+Expected: First loan&#8217;s amount is changed to $500 and it is sorted into the appropriate position based on the current sorting order.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="marking-a-loan-as-paid"><a class="link" href="#marking-a-loan-as-paid">F.3.4. Marking a Loan as Paid</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Marking an existing loan as paid while all loans are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all loans using the <code>loan list</code> command. At least one loan in the list that is unpaid.</p>
+</li>
+<li>
+<p>Test case: <code>loan paid 1</code>
+Expected: First loan is marked as paid. A "tick" icon should appear to the left of the loan&#8217;s index.</p>
+</li>
+<li>
+<p>Test case: <code>loan paid p/John</code>
+Expected: All loans pertaining to the person "John" are marked as paid.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="marking-a-loan-as-unpaid"><a class="link" href="#marking-a-loan-as-unpaid">F.3.5. Marking a Loan as Unpaid</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Marking an existing loan as unpaid while all loans are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all loans using the <code>loan list</code> command. At least one loan in the list that is paid.</p>
+</li>
+<li>
+<p>Test case: <code>loan unpaid 1</code>
+Expected: First loan is marked as unpaid. The "tick" icon should disappear from the left of the loan&#8217;s index.</p>
+</li>
+<li>
+<p>Test case: <code>loan unpaid p/John</code>
+Expected: All loans pertaining to the person "John" are marked as unpaid.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-loan"><a class="link" href="#deleting-a-loan">F.3.6. Deleting a Loan</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting an existing loan while all loans are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all loans using the <code>loan list</code> command. At least one loan in the list.</p>
+</li>
+<li>
+<p>Test case: <code>loan delete 1</code>
+Expected: Deletes the first loan from the list.</p>
+</li>
+<li>
+<p>Test case: <code>loan delete p/John</code>
+Expected: All loans pertaining to the person "John" are deleted.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="splitting-a-payment-into-loans"><a class="link" href="#splitting-a-payment-into-loans">F.3.7. Splitting a Payment into Loans</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Splitting a group payment into loans/debts</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None</p>
+</li>
+<li>
+<p>Test case: <code>loan split p/John x/0 p/Mary x/10 p/Peter x/90</code>
+Expected: Displays a list saying John owes Peter $3.33 and Mary owes Peter $23.33.</p>
+</li>
+<li>
+<p>Test case: <code>loan split p/John x/0 max/10 p/Mary x/10 p/Peter x/30 p/Bruce x/90 p/Thomas x/50 me/John d/Big lunch</code>
+Expected: Displays a list saying Mary owes Bruce $32.50, Peter owes Bruce $12.50,
+and You owe Bruce and Thomas $2.50 and $7.50 respectively.
+Two new loans out to Bruce and Thomas should be added to the normal loan list as well
+(press <code>Ctrl + D</code> to switch between the two lists).</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:46:09 UTC</div></div></div></body></html>
