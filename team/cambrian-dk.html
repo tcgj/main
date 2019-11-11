@@ -1,72 +1,146 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Daryl Koh - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Budget Buddy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-W13-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Daryl Koh - Project Portfolio</h1></div><div id="content"><div class="sect1">
-<h2 id="project-addressbook-level-3"><a class="link" href="#project-addressbook-level-3">PROJECT: AddressBook - Level 3</a></h2>
+<h2 id="project-budget-buddy"><a class="link" href="#project-budget-buddy">PROJECT: Budget Buddy</a></h2>
 <div class="sectionbody">
-<hr>
+<div class="paragraph">
+<p>This portfolio provides a detailed report of my contributions to
+<strong>Budget Buddy</strong>.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook - Level 3 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 10 kLoC.</p>
+<p>Students taking part in this project were tasked to either enhance or morph a simple CLI-based address book application.
+We decided to create a finances tracker, <strong>Budget Buddy</strong>, for NUS Computing Students, to both address the need by students to
+manage their finances, as well as customise the application&#8217;s features to suit our users as much as possible,
+leveraging on their familiarity with typing and using a CLI.</p>
+</div>
+<div class="paragraph">
+<p>Budget Buddy is a finances tracker designed around the needs and habits of NUS School of Computing students.
+Interaction is mainly through a Command Line Interface (CLI), and results are displayed via a Graphical User Interface (GUI) powered by JavaFX.</p>
+</div>
+<div class="paragraph">
+<p>Budget Buddy can keep track of transactions across separate accounts, so that users can clearly and conveniently organise their spending.
+The application can also keep track of loans that users have made, addressing the habit of our users often borrowing money
+from one another, but having trouble remembering exactly who owes money to them, and how much they owe.</p>
+</div>
+<div class="paragraph">
+<p>Going above and beyond the basic functions that many other trackers have, Budget Buddy also has the ability to run Scripts
+and Rules that users have created. These scripts and rules can then carry out custom actions as defined by the users,
+who should have some experience with writing code. By capitalising on their programming know-how to create a truly personalised experience,
+Budget Buddy distinguishes itself from other finance trackers out there.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-role"><a class="link" href="#project-role">Project Role</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My role was mainly to implement Transactions within Budget Buddy. Transactions formed the core of Budget Buddy&#8217;s finances
+tracking, and I implemented the functionality to add, edit and delete Transactions from the finances tracker.</p>
+</div>
+<div class="paragraph">
+<p>The following sections will elaborate further on my contributions regarding this feature, as well as any other contributions
+that I have made.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
 <div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The following section summarizes my contributions to Budget Buddy.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="major-enhancement"><a class="link" href="#major-enhancement">Major enhancement</a></h3>
+<div class="paragraph">
+<p>Added functionality to add, edit and remove transactions, as well as to list, sort and filter them.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p>Function: Transactions provide the ability for users to record their day-to-day spending. The ability
+to delete and edit Transactions allows users to correct mistakes in finances recording, or retroactively
+update past finances.</p>
+</li>
+<li>
+<p>Purpose: Transactions form the core of the functionality of Budget Buddy. Users will be using it
+to record their transactions daily, as well as use the sorting and filtering functions to get a clear
+view of their spending habits and trends.</p>
+</li>
+<li>
+<p>Challenges: Implementing Transactions on their own was a straightforward task, but the difficulties arose
+with making sure it integrated well with the rest of the functions of Budget Buddy. One example was another
+enhancement I made to the GUI for showing the active account, and implementing the corresponding logic. The full details
+are explained below, as a minor enhancement.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minor-enhancement"><a class="link" href="#minor-enhancement">Minor enhancement</a></h3>
+<div class="paragraph">
+<p>Make manipulating transactions more intuitive when integrated with accounts, by implementing logic to determine the active account.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p>Function: Because transactions are never manipulated in isolation in Budget Buddy, the Accounts containing them need to be
+taken care of as well. This feature provided the logic to keep track of the active account, so that transaction commands
+would not always need to have a specified account, helping Budget Buddy feel more user-friendly and intuitive.</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p>Purpose: Transactions are the core feature of Budget Buddy, and hence they should be as user-friendly and intuitive to
+manipulate as possible.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
+<p>Challenges: Implementing a responsive GUI for Transactions proved to be a challenge, as this was our first time
+working with JavaFX. It was challenging to think about how to provide a intuitive user experience as well, while maintaining
+a logical flow to manipulating transactions.</p>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="code-contributed"><a class="link" href="#code-contributed">Code contributed</a></h3>
+<div class="ulist">
+<ul>
 <li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p>[<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#=undefined&amp;search=cambrian-dk">Click here for the RepoSense Report</a>]</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>GUI Enhancements:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Implemented responsive GUI for Active account: Pull request <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/194">#194</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
-</li>
-<li>
-<p><strong>Other contributions</strong>:</p>
+<p>Bug fixes:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+<p>Fixed bugs reported regarding Transactions during PE Dry run: Pull request <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/166">#166</a></p>
 </li>
 </ul>
 </div>
@@ -76,7 +150,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com">#14</a></p>
+<p>Made contributions to the User Guide/Developer Guide as shown below</p>
 </li>
 </ul>
 </div>
@@ -86,40 +160,14 @@
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples:  <a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>PRs reviewed with non-trivial comments:
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/34">#34</a></p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -136,6 +184,170 @@
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="managing-transactions-code-txn-code"><a class="link" href="#managing-transactions-code-txn-code">Managing transactions: <code>txn</code></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="../images/txnUG1.png" alt="txnUG1" width="85%">
+</div>
+<div class="title">Figure 1. Transactions in the transaction tab</div>
+</div>
+<div class="paragraph">
+<p>Transactions form the core of Budget Buddy. They can be used to track any purchases you make,
+or any money that you receive. Transactions can further be filtered by various criteria,
+if you want to find out how much money you&#8217;ve spent in a certain time period, or in
+a certain category of spending.</p>
+</div>
+<div class="sect3">
+<h4 id="add-a-transaction-code-txn-out-in-code"><a class="link" href="#add-a-transaction-code-txn-out-in-code">Add a transaction: <code>txn out|in</code></a></h4>
+<div class="paragraph">
+<p>This command will add a new transaction of the specified amount and with the given description.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>txn dn/out|in x/&lt;amount&gt; d/&lt;description&gt; [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>txn dn/out x/3 d/apples a/food c/fruits w/5/4/2019</code></p>
+</li>
+<li>
+<p><code>txn dn/in x/50 d/pocket money a/school</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The account provided has to be created before transactions can be added to it.</p>
+</li>
+<li>
+<p>If the account is not given, the transaction is added to the active account.</p>
+</li>
+<li>
+<p>If the category is not given, the transaction is not categorized.</p>
+</li>
+<li>
+<p>If the date is not given, the date is set to the current date.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-a-transaction-code-txn-edit-code"><a class="link" href="#edit-a-transaction-code-txn-edit-code">Edit a transaction: <code>txn edit</code></a></h4>
+<div class="paragraph">
+<p>This command will edit the specified transaction, setting the specified fields. At least one field should be provided for editing.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>txn edit &lt;id&gt; dn/out|in [x/&lt;amount&gt;] [d/&lt;description&gt;] [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>txn edit 1 x/50 d/apple juice c/groceries</code></p>
+</li>
+<li>
+<p><code>txn edit 4 a/personal</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The new edited transaction should have at least 1 field different from the previous transaction.</p>
+</li>
+<li>
+<p>If another account is provided, that account must exist first.</p>
+</li>
+<li>
+<p>If another account is provided, that account will be set to the new active account.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-transaction-code-txn-delete-code"><a class="link" href="#delete-a-transaction-code-txn-delete-code">Delete a transaction: <code>txn delete</code></a></h4>
+<div class="paragraph">
+<p>This command will delete the transaction with the specified ID in the displayed list of transactions.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>txn delete &lt;id&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>txn delete 3</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-transaction-s-txn-list"><a class="link" href="#list-transaction-s-txn-list">List transaction(s): 'txn list'</a></h4>
+<div class="paragraph">
+<p>This will list the transactions from the currently active account, and you can optionally filter/sort them as well.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>txn list [c/category] [f/from date] [u/until date] [af/from amount] [au/until amount] [d/description]
+[s/aw|dw|ax|dx|ad|dd]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>txn list c/food u/10/4/2019 af/5 au/10 d/fruits s/ad</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>The explanation of the sorting abbreviations following <code>s/</code> are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>aw</code>: Sort the transactions by ascending date.</p>
+</li>
+<li>
+<p><code>dw</code>: Sort the transactions by descending date.</p>
+</li>
+<li>
+<p><code>ax</code>: Sort the transactions by ascending amount.</p>
+</li>
+<li>
+<p><code>dx</code>: Sort the transactions by descending amount.</p>
+</li>
+<li>
+<p><code>ad</code>: Sort the transactions by description, ascending alphabetically.</p>
+</li>
+<li>
+<p><code>dd</code>: Sort the transactions by description, descending alphabetically.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -151,14 +363,357 @@
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
+<div class="sect2">
+<h3 id="transaction-model"><a class="link" href="#transaction-model">Transaction Model</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>Transactions are the main elements of the BudgetBuddy&#8217;s expenses tracker. Within each <code>Account</code>, a <code>TransactionList</code> is
+stored, and inside each <code>TransactionList</code>, <code>Transaction</code> objects are stored internally in the <code>internalList</code> of the
+<code>TransactionList</code>.</p>
+</div>
+<div class="paragraph">
+<p>The class diagram below shows how <code>Transaction</code> objects are stored within an <code>Account</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TransactionClassDiagram.png" alt="TransactionClassDiagram">
+</div>
+<div class="title">Figure 2. Class Diagram of the Transactions Model</div>
+</div>
+<div class="paragraph">
+<p>Each <code>Transaction</code> object must have:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>direction: Direction</code>&#8201;&#8212;&#8201;The direction of the transaction (either <code>IN</code> for money inflow or <code>OUT</code> for money outflow).</p>
+</li>
+<li>
+<p><code>amount: Amount</code>&#8201;&#8212;&#8201;The amount of money transacted.</p>
+</li>
+<li>
+<p><code>date: LocalDate</code>&#8201;&#8212;&#8201;The date of the transaction.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Optional attributes for <code>Transaction</code> objects:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>description: Description</code>&#8201;&#8212;&#8201;A short description about the transaction.</p>
+</li>
+<li>
+<p><code>categories: Set&lt;Category&gt;</code>&#8201;&#8212;&#8201;A <code>Set</code> of <code>Category</code> objects that categorize the transaction.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Because <code>Transaction</code> and <code>TransactionList</code> objects are contained within <code>Account</code> objects, which are in turn stored within the
+<code>AccountsManager</code>, it is called when any operations is made on a <code>Transaction</code>. Additionally, <code>AccountsManager</code> has an
+<code>activeTransactionList</code> which holds the <code>TransactionList</code> of the current active <code>Account</code>. <code>activeTransactionList</code> is then
+wrapped by a <code>SortedList</code> and <code>FilteredList</code> to enable the sorting and filtering of the <code>Transaction</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>These methods in <code>AccountsManager</code> below that manipulate the <code>activeTransactionList</code> are called when the list of
+transactions needs to be filtered/sorted:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountsManager#getFilteredTransactionList()</code>&#8201;&#8212;&#8201;Returns an <code>ObservableList</code> of the filtered transactions.</p>
+</li>
+<li>
+<p><code>AccountsManager#updateFilteredTransactionList(Predicate&lt;Transaction&gt; predicate)</code>&#8201;&#8212;&#8201;Updates the <code>Predicate&lt;Transaction&gt;</code> of the <code>FilteredList</code> to filter by the given <code>Predicate&lt;Transaction&gt;</code></p>
+</li>
+<li>
+<p><code>AccountsManager#resetFilteredTransactionList()</code>&#8201;&#8212;&#8201;Resets and removes any filter on the <code>FilteredList</code>.</p>
+</li>
+<li>
+<p><code>AccountsManager#updateSortedTransactionList(Comparator&lt;Transaction&gt; comparator)</code>&#8201;&#8212;&#8201;Updates the <code>Comparator&lt;Transaction&gt;</code> of the <code>SortedList</code> to sort by the given <code>Comparator&lt;Transaction&gt;</code></p>
+</li>
+<li>
+<p><code>AccountsManager#resetSortedTransactionList()</code>&#8201;&#8212;&#8201;Resets the <code>Comparator</code> on the <code>FilteredList</code> to the default comparator.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When <code>Transaction</code> objects are added/edited/deleted, the following implemented methods are called from <code>Account</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Account#addTransaction(Transaction toAdd)</code>&#8201;&#8212;&#8201;Adds a <code>Transaction</code> to the <code>transactionList</code>.</p>
+</li>
+<li>
+<p><code>Account#updateTransaction(Index txnIndex, Transaction editedTxn)</code>&#8201;&#8212;&#8201;Sets a <code>Transaction</code> to the <code>transactionList</code> at the specified <code>Index</code>.</p>
+</li>
+<li>
+<p><code>Account#deleteTransaction(Transaction toDelete)</code>&#8201;&#8212;&#8201;Deletes a <code>Transaction</code> from the <code>transactionList</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>Transaction</code> objects are saved within their respective <code>Account</code> objects after every command, and they are saved
+into the file <code>accounts.json</code>, stored in the same directory as the JAR executable.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:39:24 UTC</div></div></div></body></html>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-reference-to-respective-account-in-transaction"><a class="link" href="#aspect-reference-to-respective-account-in-transaction">Aspect: Reference to respective Account in Transaction</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: <code>Transaction</code> has no reference to <code>Account</code>; any commands that create/edit/delete <code>Transaction</code> objects
+are called via the active <code>Account</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Reduced coupling, which makes testing/maintenance easier.</p>
+</li>
+<li>
+<p>Cons: More methods are required to ensure the logic of <code>Transaction</code> commands and the current active <code>Account</code>,
+instead of calling getAccount() on a <code>Transaction</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: <code>Transaction</code> holds a reference to <code>Account</code>; commands that create/edit/delete <code>Transaction</code> objects
+directly reach the <code>Account</code> through the <code>Transaction</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It would result in shorter code by avoiding having to go through <code>AccountsManager</code> to find the respective <code>Account</code>.</p>
+</li>
+<li>
+<p>Cons: This would result in a circular dependency between <code>Transaction</code> and <code>Account</code>, as well as high coupling.
+This lowers testability and increases the risk of bugs.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-transactions-code-txn-code"><a class="link" href="#adding-transactions-code-txn-code">Adding Transactions: <code>txn</code></a></h3>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the <code>txn</code> command is processed and executed at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1: The user (ideally an NUS Computing Student) executes <code>txn dn/out x/50 d/books a/school</code> to add a purchase of $50 worth of
+books, to be added to the <code>school</code> <code>Account</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2: <code>LogicManager</code> calls <code>parseCommand</code> on the command string <code>txn dn/out x/50 d/books a/school</code></p>
+</div>
+<div class="paragraph">
+<p>Step 3: <code>CommandLineParser</code> creates a new <code>TransactionAddCommandParser</code> by identifying the <code>txn</code> String that represents a
+<code>TransactionAddCommand</code></p>
+</div>
+<div class="paragraph">
+<p>Step 4: <code>TransactionAddCommandParser</code> parses the rest of the command string <code>dn/out x/50 d/books a/school</code> and return a
+new <code>TransactionAddCommand</code> with the parsed details.</p>
+</div>
+<div class="paragraph">
+<p>Step 5: <code>LogicManager</code> then calls <code>execute()</code> on the <code>TransactionAddCommand</code>, which gets the <code>Account</code> <code>school</code> from the
+<code>AccountsManager</code></p>
+</div>
+<div class="paragraph">
+<p>Step 6: <code>addTransaction</code> is called on the returned <code>Account</code> to add the <code>Transaction</code> to the <code>TransactionList</code> of
+the Account`.</p>
+</div>
+<div class="paragraph">
+<p>Step 7: After adding the <code>Transaction</code>, RuleEngine is called to execute its rules over the newly added <code>Transaction</code>.
+The full diagram sequence diagram for this step can be found <a href="#rule-execution-sequence-diagram">below</a>, in the Implementation of the Rules Execution feature.</p>
+</div>
+<div class="paragraph">
+<p>Step 8: The <code>Account</code> which was added to is set as the active <code>Account</code> with <code>setActiveAccount()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 9: Finally, <code>TransactionAddCommand</code> returns a <code>CommandResult</code> to the <code>LogicManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 10: Before <code>LogicManager</code> returns the <code>CommandResult</code>, it calls <code>save(Model model)</code> on the <code>StorageManager</code>, which
+saves all the <code>Account</code> objects.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates the scenario as described above (the execution of <code>txn dn/out x/50 d/books a/school</code>):</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TransactionSequenceDiagram.png" alt="TransactionSequenceDiagram">
+</div>
+<div class="title">Figure 3. Sequence Diagram of the TransactionAddCommand</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-transactions-code-txn-edit-code"><a class="link" href="#editing-transactions-code-txn-edit-code">Editing transactions: <code>txn edit</code></a></h3>
+<div class="paragraph">
+<p><code>txn edit</code> allows users to edit any attribute of the <code>Transaction</code>. It uses a <code>TransactionEditDescriptor</code> to store the details
+of the new <code>Transaction</code>, then uses <code>getUpdatedTransaction</code> to generate the edited <code>Transaction</code> as well as validate that
+changes have been made to the transaction.</p>
+</div>
+<div class="paragraph">
+<p>Below is an example scenario to demonstrate how a <code>Transaction</code> is edited, as well as certain additional steps that are taken when certain
+attributes of the <code>Transaction</code> are edited, for example to edit the <code>Account</code> or to edit the <code>categories</code>. The activity diagram
+accompanies this explanation, to help visualise the steps that might take place.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TransactionActivityDiagram.png" alt="TransactionActivityDiagram">
+</div>
+<div class="title">Figure 4. Activity Diagram of the execution of a TransactionEditCommand</div>
+</div>
+<div class="paragraph">
+<p>Assume that <code>txn add dn/out x/20 d/bill a/home</code> was just executed, and that the <code>Transaction</code> shows up in the first index:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/TransactionEdit1.png" alt="TransactionEdit1">
+</div>
+<div class="title">Figure 5. Screenshot of previously added transaction</div>
+</div>
+<div class="paragraph">
+<p>Step 1: The user (ideally an NUS Computing Student) executes <code>txn edit 1 x/28 d/phone bill a/personal c/phone c/bill</code>
+to edit the previously added <code>Transaction</code> to a $28 phone bill, to be added to the <code>personal</code> <code>Account</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 2: <code>LogicManager</code> calls <code>parseCommand</code> on the command string <code>txn edit 1 x/28 d/phone bill a/personal c/phone c/bill</code></p>
+</div>
+<div class="paragraph">
+<p>Step 3: <code>CommandLineParser</code> creates a new <code>TransactionEditCommandParser</code> by identifying the <code>txn edit</code> String that represents a
+<code>TransactionAddCommand</code></p>
+</div>
+<div class="paragraph">
+<p>Step 4: <code>TransactionAddCommandParser</code> parses the rest of the command string <code>1 x/28 d/phone bill a/personal c/phone c/bill</code> and return a
+new <code>TransactionEditCommand</code> along with the <code>TransactionEditDescriptor</code> and the <code>updatedAccountName</code>, which represents the
+<code>Name</code> of the new target <code>Account</code>. A new <code>Set&lt;Categories&gt;</code> is also created from the <code>c/phone</code> and <code>c/bill</code> arguments provided.</p>
+</div>
+<div class="paragraph">
+<p>Step 5: <code>LogicManager</code> then calls <code>execute()</code> on the <code>TransactionEditCommand</code>. Then, the original <code>Transaction</code> is obtained,
+followed by the target <code>Account</code> and the edited <code>Transaction</code> via <code>getUpdatedTransaction</code>. Meanwhile, validation occurs
+at every step, to ensure that the parsed attributes conform to the requirements to edit the `Transaction.</p>
+</div>
+<div class="paragraph">
+<p>Step 6: <code>deleteTransaction</code> is called on the <code>Account</code> containing the <code>Transaction</code> to be edited.</p>
+</div>
+<div class="paragraph">
+<p>Step 7: <code>addTransaction</code> is called on the target <code>Account</code>, followed by the execution of the RulesEngine, similar to the
+situation as shown <a href="#rule-execution-sequence-diagram">further below</a>.</p>
+</div>
+<div class="paragraph">
+<p>Step 8: The <code>Account</code> which was added to is set as the active <code>Account</code> with <code>setActiveAccount()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 9: Finally, <code>TransactionAddCommand</code> returns a <code>CommandResult</code> to the <code>LogicManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>Step 10: Before <code>LogicManager</code> returns the <code>CommandResult</code>, it calls <code>save(Model model)</code> on the <code>StorageManager</code>, which
+saves all the <code>Account</code> objects.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="active-account"><a class="link" href="#active-account">Active Account</a></h3>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<div class="paragraph">
+<p>The active <code>Account</code> allows operations on <code>Transaction</code> objects to not have to specify the concerning <code>Account</code> when
+the command is entered. This allows for a more user-friendly and intuitive experience with managing finances. By updating
+<code>ActiveAccountIndex</code> where appropriate, the <code>activeAccount</code> is implemented on the idea that users want to continue to
+manipulate transactions within the same <code>Account</code> that they last interacted with.</p>
+</div>
+<div class="paragraph">
+<p>The current active <code>Account</code> is indicated in the UI by a highlight as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ActiveAccount1.png" alt="ActiveAccount1">
+</div>
+<div class="title">Figure 6. Screenshot of the UI showing the highlighted active Account.</div>
+</div>
+<div class="paragraph">
+<p>The following user commands, if executed successfully, can change the active account:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AccountAddCommand</code>&#8201;&#8212;&#8201;The added <code>Account</code> becomes the active account.</p>
+</li>
+<li>
+<p><code>AccountDeleteCommand</code>&#8201;&#8212;&#8201;If the active <code>Account</code> is deleted, a new active <code>Account</code> will be selected.</p>
+</li>
+<li>
+<p><code>AccountEditCommand</code>&#8201;&#8212;&#8201;The edited <code>Account</code> becomes the active account.</p>
+</li>
+<li>
+<p><code>AccountFindCommand</code>&#8201;&#8212;&#8201;The first <code>Account</code> in the list is set as the active <code>Account</code>.</p>
+</li>
+<li>
+<p><code>AccountListCommand</code>&#8201;&#8212;&#8201;The first <code>Account</code> in the list is set as the active <code>Account</code>.</p>
+</li>
+<li>
+<p><code>AccountReportCommand</code>&#8201;&#8212;&#8201;The target <code>Account</code> is set as the new active <code>Account</code>.</p>
+</li>
+<li>
+<p><code>AccountSwitchCommand</code>&#8201;&#8212;&#8201;The target <code>Account</code> is set as the new active <code>Account</code>.</p>
+</li>
+<li>
+<p><code>TransactionAddCommand</code>&#8201;&#8212;&#8201;The target <code>Account</code> is set as the new active <code>Account</code>.</p>
+</li>
+<li>
+<p><code>TransactionEditCommand</code>&#8201;&#8212;&#8201;The target <code>Account</code> is set as the new active <code>Account</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-responsive-ui-for-showing-the-active-code-account-code"><a class="link" href="#aspect-responsive-ui-for-showing-the-active-code-account-code">Aspect: responsive UI for showing the active <code>Account</code></a></h5>
+<div class="paragraph">
+<p>An <code>Extractor</code> is used to update the UI when an <code>Account</code> is set as active, or when the <code>balance</code> is updated. This is because
+the <code>FilteredList&lt;Account&gt;</code> only updates automatically when the Accounts themselves are changed, but not when their internal
+elements are altered.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Use an <code>Extractor</code> to listen for changes to <code>isActiveBooleanProperty</code> and <code>balanceLongProperty</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Less overhead/unnecessary movement of accounts</p>
+</li>
+<li>
+<p>Cons: Not as easy for new developers to understand and implement.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Refresh the account list by forcing removal and re-addition of each of the accounts.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy to implement, no need to change members to adapt to the <code>Property</code> class, and easier for newer developers to read and understand.</p>
+</li>
+<li>
+<p>Cons: High overhead, as more and more accounts are added to the BudgetBuddy.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 18:12:12 UTC</div></div></div></body></html>
