@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tee Hao Wei - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tee Hao Wei — Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Budget Buddy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-W13-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tee Hao Wei - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">Budget Buddy</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-W13-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tee Hao Wei — Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-budget-buddy"><a class="link" href="#project-budget-buddy">PROJECT: Budget Buddy</a></h2>
 <div class="sectionbody">
 
@@ -22,7 +22,7 @@
 <p>Budget Buddy is based on the AddressBook-Level3 application by SE-EDU, and currently consists of about 15 thousand lines of code.</p>
 </div>
 <div class="paragraph">
-<p>My main contributions are the scripting engine, import and export feature and alias feature, as well as managing releases and integration of contributions from other team members.</p>
+<p>My main contributions are the scripting engine, as well as managing releases and integrating contributions from other team members.</p>
 </div>
 </div>
 </div>
@@ -42,7 +42,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added a scripting engine and library</p>
+<p><strong>Major enhancement</strong>: added a scripting engine and library, as well as script bindings for accounts, transactions and loans</p>
 <div class="ulist">
 <ul>
 <li>
@@ -52,7 +52,7 @@
 <p>Why: This feature allows the user to perform complex operations that may be inconvenient or impossible to do through the CLI, and extend the application with new commands and features on their own, without having to modify the application&#8217;s source code directly.</p>
 </li>
 <li>
-<p>Highlights: This feature required thought to provide a ergonomic interface to allow scripts to do common operations easily, without restricting scripts from doing more complex operations.</p>
+<p>Highlights: This feature required thought to provide a ergonomic scripting interface to allow scripts to do common operations easily, without restricting scripts from doing more complex operations.</p>
 </li>
 <li>
 <p>Credits: This feature is implemented using the Nashorn JavaScript engine, bundled with Java 11.</p>
@@ -61,26 +61,10 @@
 </div>
 </li>
 <li>
-<p><strong>Major enhancement</strong>: added the ability to import and export transactions</p>
-<div class="ulist">
-<ul>
-<li>
-<p>What: This feature provides the user the ability to import and export transactions.</p>
+<p><strong>Minor enhancement</strong>: enhanced the command result mechanism to allow continuations, such as showing a file picker and performing actions after that; see <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/170">PR #170</a>.</p>
 </li>
 <li>
-<p>Why: This feature allows the user to import transactions exported from their bank transaction history and export transactions for further manipulation in an external program, such as Google Sheets or Excel.</p>
-</li>
-<li>
-<p>Highlights: This feature required retrieving exports from various banks and writing parsers for each of their formats.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Minor enhancement</strong>: added a command alias feature to allow users to create shorthands</p>
-</li>
-<li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>]</p>
+<p><strong>Code contributed</strong>: See the <a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=thwnus&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=thwnus&amp;tabRepo=AY1920S1-CS2103T-W13-4%2Fmain[master]">RepoSense report here</a>.</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -91,30 +75,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Managed releases <code>v1.1</code> to <code>v1.3</code> (4 releases) on GitHub</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme; see PRs <a href="https://github.com">#33</a>, <a href="https://github.com">#34</a></p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88% to 92%; see PRs <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Documentation:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Did cosmetic tweaks to existing contents of the User Guide; see PR <a href="https://github.com">#14</a></p>
+<p>Managed releases v1.1 to v1.4 (4 releases) on GitHub</p>
 </li>
 </ul>
 </div>
@@ -124,10 +85,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Reviewed PRs (with non-trivial comments) <a href="https://github.com">#12</a>, <a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
-</li>
-<li>
-<p>Rebased PRs #nn, #nn, #nn</p>
+<p>Helped to rebase and merge PRs, many with non-trivial merge conflicts, including PRs <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/55">#55</a>, <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/66">#66</a>, <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/85">#85</a>, <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/157">#157</a>, and <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/pull/162">#162</a></p>
 </li>
 </ul>
 </div>
@@ -163,58 +121,6 @@
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="import-and-export-strong-coming-in-v2-0-strong-code-import-code-code-export-code"><a class="link" href="#import-and-export-strong-coming-in-v2-0-strong-code-import-code-code-export-code">Import and export <strong>(coming in v2.0)</strong>: <code>import</code>, <code>export</code></a></h3>
-<div class="sect3">
-<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">Import a file: <code>import</code></a></h4>
-<div class="paragraph">
-<p>Imports transactions from the file at the given path.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>import [f/&lt;format&gt;] [p/&lt;file path&gt;]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
-If the path is omitted, a file browser is opened for you to select the file.</p>
-</li>
-<li>
-<p>Format is one of DBS (DBS Bank/POSB), OCBC (OCBC Bank), SC (Standard Chartered), or CSV (generic comma-separated values file).
-If the format is omitted, automatic detection is attempted.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">Export transactions: <code>export</code></a></h4>
-<div class="paragraph">
-<p>Exports all transactions to the given path.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>export [p/&lt;file path&gt;]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The file path can be relative to where you launched Budget Buddy from, or absolute.
-If the path is omitted, a file browser is opened for you to select where to save the file.</p>
-</li>
-<li>
-<p>The file is a comma-separated values file.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="Scripting"><a class="link" href="#Scripting">Scripting: <code>script</code></a></h3>
 <div class="imageblock">
 <div class="content">
@@ -227,7 +133,7 @@ If the path is omitted, a file browser is opened for you to select where to save
 as well as extend the application and add commands and features of your own.</p>
 </div>
 <div class="paragraph">
-<p>The scripting language is JavaScript (specifically, ECMAScript 5.1). For more details on the scripting environment and API, see <a href="#Scripting API">here</a>.</p>
+<p>The scripting language is JavaScript (specifically, ECMAScript 5.1). For more details on the scripting environment and API, see <a href="#scripting-api">here</a>.</p>
 </div>
 <div class="admonitionblock warning">
 <table>
@@ -428,68 +334,134 @@ will be reported only when the script is run.
 <div class="paragraph">
 <p>Format: <code>script reset</code></p>
 </div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The following is part of the Script API guide that I wrote, to demonstrate my ability to write end-user facing documentation for power users. <a href="https://ay1920s1-cs2103t-w13-4.github.io/main/UserGuide.html#scripting-api">See here for the full script API guide.</a></p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="aliases-strong-coming-in-v2-0-strong-code-alias-code"><a class="link" href="#aliases-strong-coming-in-v2-0-strong-code-alias-code">Aliases <strong>(coming in v2.0)</strong>: <code>alias</code></a></h3>
-<div class="sect3">
-<h4 id="add-an-alias-code-alias-add-code"><a class="link" href="#add-an-alias-code-alias-add-code">Add an alias: <code>alias add</code></a></h4>
+<h3 id="scripting-api"><a class="link" href="#scripting-api">Scripting API</a></h3>
 <div class="paragraph">
-<p>Adds an alias.</p>
+<p>The Nashorn scripting engine is used. All features and Java class access of the Nashorn engine are available. See the <a href="https://docs.oracle.com/en/java/javase/11/nashorn/nashorn-java-api.html">Nashorn documentation</a> for more details.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>alias add &lt;alias name&gt; c/&lt;alias replacement&gt;</code></p>
+<p>Budget Buddy defines a few global variables and functions to ease script writing. These are documented below.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>When executed, the alias name will be replaced by the replacement, and the resulting input executed.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>For example, suppose you add an alias named <code>abcd efgh 7890</code>, with replacement <code>script run x</code>.</p>
-</li>
-<li>
-<p>Executing <code>abcd efgh 7890 abcd</code> is equivalent to executing <code>script run x abcd</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>The alias name must appear at the start of an input, followed by a space, for it to be recognised.</p>
-</li>
-<li>
-<p>There is no restriction on the characters in the alias name. However, leading and trailing whitespace will be trimmed.</p>
-</li>
-<li>
-<p>Aliases can expand to other aliases.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="admonitionblock warning">
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-warning" title="Warning"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-Built-in commands take precedence. If you add an alias with the same name as a built-in command, it will have no effect.
+Due to the nature of JavaScript, scripts may modify these variables and functions. To reset the script
+environment, use <a href="#script-reset">the <code>script reset</code> command</a>.
 </td>
 </tr>
 </table>
 </div>
-</div>
 <div class="sect3">
-<h4 id="delete-an-alias-code-alias-delete-code"><a class="link" href="#delete-an-alias-code-alias-delete-code">Delete an alias: <code>alias delete</code></a></h4>
+<h4 id="functions"><a class="link" href="#functions">Functions</a></h4>
 <div class="paragraph">
-<p>Deletes an alias.</p>
+<p>The following helper functions are predefined in the script environment.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Function signatures</strong></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>alias delete &lt;alias name&gt;</code></p>
+<p>Function signatures specified below are in the following format:</p>
+</div>
+<div class="paragraph">
+<p><code>functionName(parameter1, parameter2, { optionalParameter1, optionalParameter2 }) &#8594; ReturnType</code></p>
+</div>
+<div class="paragraph">
+<p>Optional arguments should be given as a single JavaScript object. For example, for the above signature:</p>
+</div>
+<div class="paragraph">
+<p><code>functionName("argument 1", "argument 2", { optionalParameter1: "optional argument 1" })</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Types</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the type starts with a capital letter e.g. <code>Account</code>, it is a Java type.</p>
+</li>
+<li>
+<p>If the type starts with a lowercase letter e.g. <code>number</code>, it is a JavaScript primitive.</p>
+</li>
+<li>
+<p>If the type is <code>[Type]</code>, it is an array of <code>Type</code>.</p>
+</li>
+<li>
+<p>If a function&#8217;s return type is unspecified, the function does not return a value.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="account-functions"><a class="link" href="#account-functions">Account functions</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addAccount(name, description) &#8594; Account</code></p>
+<div class="paragraph">
+<p>Adds an account with the given name and description.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name</code>: the name of the account, as a <code>string</code></p>
+</li>
+<li>
+<p><code>description</code>: the description of the account, as a <code>string</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p><code>morphAccount(oldAccount, { name, description }) &#8594; Account</code></p>
+<div class="paragraph">
+<p>Returns a new <code>Account</code> that is the same as <code>oldAccount</code> except for the specified properties changed.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>oldAccount</code>: the <code>Account</code> to morph</p>
+</li>
+<li>
+<p>The remaining parameters are as in <code>addAccount</code>.</p>
+</li>
+<li>
+<p>If a parameter is not specified, then the associated property is not changed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -504,7 +476,7 @@ Built-in commands take precedence. If you add an alias with the same name as a b
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This section includes the parts of the user guide that I wrote, to demonstrate my ability to write technical documentation and the technical depth of my contributions to the project.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This section includes the parts of the developer guide that I wrote, to demonstrate my ability to write technical documentation and the technical depth of my contributions to the project.</p></td>
 </tr>
 </tbody>
 </table>
@@ -550,7 +522,7 @@ used together to, in effect, allow users to create custom commands.</p>
 <h5 id="script-engine"><a class="link" href="#script-engine">Script engine</a></h5>
 <div class="paragraph">
 <p>The logic component of the scripts feature contains the
-{repoURL}/blob/master/src/main/java/budgetbuddy/logic/script/ScriptEngine.java[<code>ScriptEngine</code>]
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/logic/script/ScriptEngine.java"><code>ScriptEngine</code></a>
 class which underpins the entire scripting component. At its heart, the <code>ScriptEngine</code> class is
 simply a thin layer to abstract away the underlying script engine (in our case, Nashorn). It contains a method
 <code>evaluateScript</code> that accepts a string of script code, and arguments for the script, and
@@ -578,15 +550,15 @@ maintains a list of <code>ScriptEnvironmentInitialiser</code>s and re-applies th
 <div class="paragraph">
 <p>The model component of the scripts feature is a simple script library that allows
 users to store scripts with a name and a description for repeated use. See the interface
-{repoURL}/blob/master/src/main/java/budgetbuddy/model/ScriptLibrary.java[<code>ScriptLibrary</code>]
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/model/ScriptLibrary.java"><code>ScriptLibrary</code></a>
 and its implementation
-{repoURL}/blob/master/src/main/java/budgetbuddy/model/ScriptLibraryManager.java[<code>ScriptLibraryManager</code>].</p>
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/model/ScriptLibraryManager.java"><code>ScriptLibraryManager</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>Scripts are persisted as individual files under the <code>scripts/</code> directory in
 Budget Buddy&#8217;s data directory. Script names are not stored separately, but simply
 used as the file name of the scripts with a <code>.js</code> extension. See
-{repoURL}/blob/master/src/main/java/budgetbuddy/storage/scripts/FlatfileScriptsStorage.java[<code>FlatfileScriptsStorage</code>].</p>
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/storage/scripts/FlatfileScriptsStorage.java"><code>FlatfileScriptsStorage</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>The script descriptions are stored in a separate <code>descriptions.json</code> file.</p>
@@ -624,14 +596,14 @@ and then hands the <code>Script</code> to <code>ScriptEngine</code> for evaluati
 <h5 id="script-bindings"><a class="link" href="#script-bindings">Script bindings</a></h5>
 <div class="paragraph">
 <p>Script bindings are added via
-{repoURL}/blob/master/src/main/java/budgetbuddy/logic/script/ScriptEnvironmentInitialiser.java[<code>ScriptEnvironmentInitialiser</code>s], which are registed with the <code>ScriptEngine</code> through <code>Logic#addToScriptEnvironment</code>.</p>
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/logic/script/ScriptEnvironmentInitialiser.java"><code>ScriptEnvironmentInitialiser</code>s</a>, which are registed with the <code>ScriptEngine</code> through <code>Logic#addToScriptEnvironment</code>.</p>
 </div>
 <div class="paragraph">
 <p>Most of the functions exposed in the <a href="UserGuide.html#scripting-api">Scripting API</a>
 come from the script-model bindings, in
-{repoURL}/blob/master/src/main/java/budgetbuddy/logic/script/ScriptModelBinding.java[<code>ScriptModelBinding</code>].
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/logic/script/ScriptModelBinding.java"><code>ScriptModelBinding</code></a>.
 JavaFX-specific bindings are added in
-{repoURL}/blob/master/src/main/java/budgetbuddy/ui/ScriptUiBinding.java[<code>ScriptUiBinding</code>],
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/ui/ScriptUiBinding.java"><code>ScriptUiBinding</code></a>,
 and bindings that require access to <code>MainWindow</code> internals are added in a private inner class of <code>MainWindow</code>.</p>
 </div>
 <div class="paragraph">
@@ -645,7 +617,7 @@ the amount of boilerplate required in our implementation.</p>
 <div class="paragraph">
 <p>We declare an
 entire suite of functional interfaces in
-{repoURL}/blob/master/src/main/java/budgetbuddy/logic/script/ScriptBindingInterfaces.java[<code>ScriptBindingInterfaces</code>].</p>
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/logic/script/ScriptBindingInterfaces.java"><code>ScriptBindingInterfaces</code></a>.</p>
 </div>
 <div class="paragraph">
 <p>We do not use the functional interfaces provided in the Java package <code>java.util.function</code>
@@ -794,4 +766,4 @@ stop evaluation if we see that the same alias has been applied more than once.</
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:40:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:52:39 UTC</div></div></div></body></html>
