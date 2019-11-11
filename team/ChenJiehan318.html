@@ -10,7 +10,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>BudgetBuddy is a desktop expense tracker application designed for Computing students in National University of Singapore
+<p>BudgetBuddy is a desktop expense tracker application designed for Computing students in the National University of Singapore
 who wish to better manage their expenses.
 The user interacts with it using a Command-Line Interface (CLI), and it has a Graphical User Interface (GUI) created with JavaFX.
 It is written in Java, and has about 15 kLoC. The purpose of this Project Portfolio Page is to present my contribution to BudgetBuddy.</p>
@@ -102,7 +102,7 @@ offered for the user to have an general idea about their financial status.</p>
 <div class="sect3">
 <h4 id="add-an-account-code-account-add-code"><a class="link" href="#add-an-account-code-account-add-code">Add an account: <code>account add</code></a></h4>
 <div class="paragraph">
-<p>You can create a new account. Each account has a unique ID and name. The user can choose to customise a description to describe the use of the account.</p>
+<p>You can create a new account. Each account has a unique ID and name. You can choose to customise a description to describe the use of the account.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>account add n/&lt;name&gt; [d/&lt;description&gt;]</code></p>
@@ -114,11 +114,11 @@ offered for the user to have an general idea about their financial status.</p>
 <ul>
 <li>
 <p><code>account add n/Japan trip</code><br>
-You have created an account with name of 'Japan trip'.</p>
+You have created an account with the name 'Japan trip'.</p>
 </li>
 <li>
 <p><code>account add n/Japan trip d/expense spent in Japan</code><br>
-You have created an account with name of 'Japan trip' and description of 'expense spent in Japan'.</p>
+You have created an account with the name 'Japan trip' and description 'expense spent in Japan'.</p>
 </li>
 </ul>
 </div>
@@ -126,7 +126,7 @@ You have created an account with name of 'Japan trip' and description of 'expens
 <div class="sect3">
 <h4 id="list-accounts-code-account-list-code"><a class="link" href="#list-accounts-code-account-list-code">List accounts: <code>account list</code></a></h4>
 <div class="paragraph">
-<p>If you want to see the full list of accounts you currently own, you can enter command and a list of all accounts will be displayed.</p>
+<p>If you want to see the full list of accounts you currently own, you can enter this command and a list of all accounts will be displayed.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>account list</code></p>
@@ -135,7 +135,7 @@ You have created an account with name of 'Japan trip' and description of 'expens
 <div class="sect3">
 <h4 id="edit-an-account-code-account-edit-code"><a class="link" href="#edit-an-account-code-account-edit-code">Edit an account: <code>account edit</code></a></h4>
 <div class="paragraph">
-<p>You can edit the account you think that needs modified. You can choose to edit either the name or the description of the account, or both.</p>
+<p>You can edit the account that you think needs modifiying. You can choose to edit either the name or the description of the account, or both.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>account edit &lt;id&gt; [n/&lt;name&gt;] [d/&lt;description&gt;]</code></p>
@@ -212,8 +212,8 @@ You have deleted the second account in your account list.</p>
 <div class="sect3">
 <h4 id="find-account-code-account-find-code"><a class="link" href="#find-account-code-account-find-code">Find account: <code>account find</code></a></h4>
 <div class="paragraph">
-<p>If you want to see a specific type of accounts you have, or find a specific account, you can find the account(s) with a specified keyword.
-A list of account(s) contain the keyword in their names will be displayed.</p>
+<p>If you want to see a specific type of account you have, or find a specific account, you can find the account(s) with a specified keyword.
+A list of account(s) containing the keyword in their names will be displayed.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>account find &lt;keyword&gt;</code></p>
@@ -298,12 +298,13 @@ The active account will be highlighted, as shown below:</p>
 <div class="content">
 <img src="../images/AccountSwitch.png" alt="AccountSwitch">
 </div>
+<div class="title">Figure 1. Account list after switching accounts</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="export-the-overview-of-all-accounts-code-account-overview-code"><a class="link" href="#export-the-overview-of-all-accounts-code-account-overview-code">Export the overview of all accounts: <code>account overview</code></a></h4>
 <div class="paragraph">
-<p>If you want to see the overview of all accounts, Budget Buddy allows you to export the overview of all accounts in html file.
+<p>If you want to see the overview of all accounts, Budget Buddy allows you to export the overview of all accounts in a HTML file.
 In the overview, you are able to see the balance, the total expenses, the total income, and the categories involved in each account.</p>
 </div>
 <div class="paragraph">
@@ -313,20 +314,28 @@ In the overview, you are able to see the balance, the total expenses, the total 
 <p>Step 1. Type <code>account overview</code> in the command textfield input.</p>
 </div>
 <div class="paragraph">
-<p>Step 2. Successful message displayed, and you can navigate to the exports folder in the same directory of the source file.</p>
+<p>Step 2. Successful message displayed, and you can navigate to the <code>exports</code> folder in the same directory of the source file.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/AccountOverview_3.png" alt="AccountOverview 3">
+<img src="../images/accountOverview_2.png" alt="accountOverview 2" width="85%">
 </div>
+<div class="title">Figure 2. Successful message displayed</div>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/accountoverview4.png" alt="accountoverview4">
+<img src="../images/AccountOverview_3.png" alt="AccountOverview 3" width="85%">
 </div>
+<div class="title">Figure 3. Exports folder</div>
 </div>
 <div class="paragraph">
-<p>Step 3. Open the html file in the exports folder to see the overview of all accounts.</p>
+<p>Step 3. Open the HTML file in the exports folder to see the overview of all accounts.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/accountOverview4.png" alt="accountOverview4" width="85%">
+</div>
+<div class="title">Figure 4. HTML file</div>
 </div>
 </div>
 </div>
@@ -503,4 +512,4 @@ After each command, <code>AccountsManager#resetFilteredAccountList</code> is cal
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:13:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:34:52 UTC</div></div></div></body></html>

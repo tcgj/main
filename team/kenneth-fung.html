@@ -146,12 +146,13 @@ to read them in their entirety. I was responsible for the section on <strong>Man
 <div class="content">
 <img src="../images/LoanUG1.png" alt="LoanUG1" width="85%">
 </div>
+<div class="title">Figure 1. Loans in the loan tab</div>
 </div>
 <div class="paragraph">
-<p>This feature enables you to keep track of who owes you money - and exactly how much they owe you.
+<p>This feature enables you to keep track of who owes you money and exactly how much they owe you.
 Never again allow those small sums you lend out to accumulate into a massive pile of forgotten gold.
 You can also record who you owe money to, saving you the embarrassment of being publicly reminded by your loan shark friends.
-Finally, it can even help you calculate who owes who how much
+Finally, it can help you calculate who owes who how much
 when you and said friends wake in the morning after an expensive night out.</p>
 </div>
 <div style="page-break-after: always;"></div>
@@ -165,6 +166,7 @@ A paid loan can be visually distinguished by a large "tick" icon to the left of 
 <div class="content">
 <img src="../images/LoanUG2.png" alt="LoanUG2" width="50%">
 </div>
+<div class="title">Figure 2. Tick icon for paid loans</div>
 </div>
 <div class="paragraph">
 <p>Multiple loans can be marked at once.
@@ -231,7 +233,7 @@ such that the hundred-dollar bill is split equally among you three.</p>
 The format of the command is as follows.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>loan split p/&lt;person&gt; x/&lt;amount paid&gt; [max/&lt;limit&gt;] &#8230;&#8203; [me/&lt;your name&gt; w/&lt;date&gt; d/&lt;description&gt;]</code></p>
+<p>Format: <code>loan split p/&lt;person&gt; x/&lt;amount paid&gt; [max/&lt;limit&gt;] &#8230;&#8203; [me/&lt;your name&gt; [w/&lt;date&gt;] [d/&lt;description&gt;]]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -308,7 +310,7 @@ but once a list is calculated it will persist in the Loan tab across sessions (u
 <ul>
 <li>
 <p><code>loan split p/John x/0 p/Mary x/40 p/Peter x/60</code><br>
-Calculates the money owed between <code>John</code>, <code>Mary</code> and <code>Peter</code> for a scenario where (initially) <code>Mary</code> paid <code>40</code> and <code>Peter</code> paid <code>60</code>.<br>
+Calculates the money owed between <code>John</code>, <code>Mary</code> and <code>Peter</code> for a scenario where (initially) <code>Mary</code> paid <code>40</code> and <code>Peter</code> paid <code>60</code>.
 The resulting display should show that <code>John</code> owes <code>Mary</code> <strong>$6.66</strong> and also owes <code>Peter</code> <strong>$26.67</strong>, as seen in the image below.</p>
 </li>
 </ul>
@@ -317,6 +319,7 @@ The resulting display should show that <code>John</code> owes <code>Mary</code> 
 <div class="content">
 <img src="../images/LoanUG4.png" alt="LoanUG4" width="85%">
 </div>
+<div class="title">Figure 3. End result of calculations</div>
 </div>
 <div class="ulist">
 <ul>
@@ -325,7 +328,7 @@ The resulting display should show that <code>John</code> owes <code>Mary</code> 
 In this scenario, <code>Mary</code> paid <code>10</code> and <code>Peter</code> paid <code>90</code>.
 <code>max/10</code> restricts the final amount <code>John</code> pays/owes to <code>10</code>, despite the total amount being <code>0 + 10 + 90 = 100</code>.
 Furthermore, <code>me/Mary</code> marks <code>Mary</code> as the user (you),
-so any debts <code>Mary</code> owes/is owed will be added to the normal loan list with the description <code>Dinner.</code>.<br>
+so any debts <code>Mary</code> owes/is owed will be added to the normal loan list with the description <code>Dinner.</code>.
 The resulting display should show that <code>John</code> owes <code>Peter</code> <strong>$10</strong> and <code>You</code> owe <code>Peter</code> <strong>$35</strong>, as seen below.</p>
 </li>
 </ul>
@@ -334,6 +337,7 @@ The resulting display should show that <code>John</code> owes <code>Peter</code>
 <div class="content">
 <img src="../images/LoanUG5.png" alt="LoanUG5" width="85%">
 </div>
+<div class="title">Figure 4. End result of more calculations</div>
 </div>
 <div class="paragraph">
 <p>The latter debt will also have been added to your loan list,
@@ -377,7 +381,7 @@ Miscellaneous methods (such as <code>LoansManager#getLoans</code> and <code>Loan
 <div class="content">
 <img src="../images/LoanClassDiagram.png" alt="LoanClassDiagram">
 </div>
-<div class="title">Figure 1. Class Diagram of the Loans Model</div>
+<div class="title">Figure 5. Class Diagram of the Loans Model</div>
 </div>
 <div style="page-break-after: always;"></div>
 <div class="paragraph">
@@ -405,7 +409,7 @@ Since the user did not provide a date, the current system date is used for the <
 <div class="content">
 <img src="../images/LoanSequenceDiagram.png" alt="LoanSequenceDiagram">
 </div>
-<div class="title">Figure 2. Sequence Diagram for Adding a Loan</div>
+<div class="title">Figure 6. Sequence Diagram for Adding a Loan</div>
 </div>
 <div class="paragraph">
 <p>In general, the rest of the operations work using a similar sequence of steps.
@@ -467,7 +471,7 @@ which might prove helpful for following the steps in the example scenario:</p>
 <div class="content">
 <img src="../images/LoanSplitActivityDiagram.png" alt="LoanSplitActivityDiagram">
 </div>
-<div class="title">Figure 3. Activity Diagram for Loan Split Algorithm</div>
+<div class="title">Figure 7. Activity Diagram for Loan Split Algorithm</div>
 </div>
 <div class="paragraph">
 <p>Step 1.
@@ -548,4 +552,4 @@ and <code>You</code> (<code>Ben</code>, the user) owe <code>Zed</code> and <code
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:13:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:34:52 UTC</div></div></div></body></html>

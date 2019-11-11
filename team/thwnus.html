@@ -181,7 +181,7 @@
 If the path is omitted, a file browser is opened for you to select the file.</p>
 </li>
 <li>
-<p>Format is one of dbs (DBS Bank/POSB), ocbc (OCBC Bank), sc (Standard Chartered), csv (generic comma-separated values file).
+<p>Format is one of DBS (DBS Bank/POSB), OCBC (OCBC Bank), SC (Standard Chartered), or CSV (generic comma-separated values file).
 If the format is omitted, automatic detection is attempted.</p>
 </li>
 </ul>
@@ -271,7 +271,7 @@ application behaviour if scripts are used.
 <p>Stores a script for future invocation. If a script with the same name already exists, that script is replaced.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>script add &lt;script name&gt; [d/&lt;description&gt;] [p/&lt;file path&gt; | s/&lt;script&gt;]</code></p>
+<p>Format: <code>script add &lt;script name&gt; [d/&lt;description&gt;] [p/&lt;file path&gt;|s/&lt;script&gt;]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -300,7 +300,7 @@ application behaviour if scripts are used.
 </div>
 </li>
 <li>
-<p>If neither a file path nor the script code is given, a file browser is opened for you to
+<p>If neither a file path nor the script code is given, a file picker is opened for you to
 select the script file.</p>
 </li>
 </ul>
@@ -379,7 +379,7 @@ will be reported only when the script is run.
 <p>The script is run in the current script environment, which may contain variables from previous scripts that have run.</p>
 </li>
 <li>
-<p>The argument is the rest of the command line after the script name, and is passed to the script as a single string.</p>
+<p>The argument is the rest of the input after the script name, and is passed to the script as a single string.</p>
 </li>
 </ul>
 </div>
@@ -439,7 +439,7 @@ will be reported only when the script is run.
 <div class="ulist">
 <ul>
 <li>
-<p>When executed, the alias name will be replaced by the replacement, and the resulting command line executed.</p>
+<p>When executed, the alias name will be replaced by the replacement, and the resulting input executed.</p>
 <div class="ulist">
 <ul>
 <li>
@@ -452,7 +452,7 @@ will be reported only when the script is run.
 </div>
 </li>
 <li>
-<p>The alias name must appear at the start of a command line, followed by a space, for it to be recognised.</p>
+<p>The alias name must appear at the start of an input, followed by a space, for it to be recognised.</p>
 </li>
 <li>
 <p>There is no restriction on the characters in the alias name. However, leading and trailing whitespace will be trimmed.</p>
@@ -588,4 +588,4 @@ stop evaluation if we see that the same alias has been applied more than once.</
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:13:16 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:34:52 UTC</div></div></div></body></html>
