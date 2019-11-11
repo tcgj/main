@@ -29,9 +29,8 @@
 <li><a href="#import-and-export">3.5. Import and export</a></li>
 <li><a href="#scripting">3.6. Scripting</a></li>
 <li><a href="#aliases">3.7. Aliases</a></li>
-<li><a href="#proposed-undo-redo-feature">3.8. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#logging">3.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.10. Configuration</a></li>
+<li><a href="#logging">3.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -44,6 +43,7 @@
 <li><a href="#use-case-add-loan">C.1. Use case: Add loan</a></li>
 <li><a href="#use-case-edit-loan">C.2. Use case: Edit loan</a></li>
 <li><a href="#use-case-add-account">C.3. Use case: Add account</a></li>
+<li><a href="#use-case-add-rule">C.4. Use case: Add rule</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
@@ -53,6 +53,7 @@
 <li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
 <li><a href="#accounts">F.2. Accounts</a></li>
 <li><a href="#loans">F.3. Loans</a></li>
+<li><a href="#rules">F.4. Rules</a></li>
 </ul>
 </li>
 </ul>
@@ -272,7 +273,7 @@ For example, a more detailed class diagram of the <code>AccountsManager</code> c
 <p>stores Budget Buddy&#8217;s data.</p>
 </li>
 <li>
-<p>exposes multiple unmodifiable <code>ObservableLists</code> that can be 'observed' e.g. the `PanelTab`s in UI are bound to these lists so that the UI automatically updates when the data in the lists change.</p>
+<p>exposes multiple unmodifiable <code>ObservableList</code>s that can be 'observed' e.g. the different <code>DisplayPanel</code>s in UI are bound to these lists so that the UI automatically updates when the data in the lists change.</p>
 </li>
 <li>
 <p>does not depend on any of the other three components.</p>
@@ -330,7 +331,7 @@ In addition, the user&#8217;s custom scripts are saved in the <code>/scripts/</c
 <h4 id="implementation-2"><a class="link" href="#implementation-2">3.1.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The Accounts Feature allows the users to manage their accounts.
-It is managed by <code>AccountsManager</code>, with <code>Account</code> objects stored internally in a <code>Accounts</code> and <code>filteredAccounts</code>.</p>
+It is managed by <code>AccountsManager</code>, with <code>Account</code> objects stored internally in an <code>accounts</code> and <code>filteredAccounts</code>.</p>
 </div>
 <div class="paragraph">
 <p>The class diagram below shows how the <code>AccountsManager</code> maanges its list of <code>Account</code> objects:</p>
@@ -1015,8 +1016,8 @@ for expressions and <code><strong>PredicateScript</strong></code> and <code><str
 </div>
 <div class="paragraph">
 <p>For predicate expressions, they are formed using binary comparison operations, which means that each expression contains
-an <code><strong>Operator</strong></code> which takes in two arguments, an <code><strong>Attribute</strong></code> to represent an attribute of a <code><strong>Transaction</strong></code>, as well as
-a <code><strong>Value</strong></code> to represent a given value to test against the attribute.</p>
+a predefined <code><strong>Operator</strong></code> which takes in two arguments, a predefined <code><strong>Attribute</strong></code> to represent an attribute of a <code><strong>Transaction</strong></code>,
+as well as a <code><strong>Value</strong></code> to represent a given value to test against the attribute.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -1045,17 +1046,17 @@ only a single argument, a <code><strong>Value</strong></code> to represent a giv
 </div>
 </div>
 <div class="paragraph">
-<p>Predicate and actions implemented as scripts on the other hand are defined with a single <code><strong>ScriptName</strong></code>, which refers to the
+<p>Predicates and actions implemented as scripts on the other hand are each defined with a single <code><strong>ScriptName</strong></code>, which refers to the
 name of the script itself.</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Predicate and action scripts are defined the same way. An example of both:<br>
+<p>An example of both predicate and action script names a user may type:<br>
 <code>p/CheckIsTransport a/SetTransportFare</code></p>
 </div>
 <div class="paragraph">
-<p>In this case, both <code>CheckIsTransport</code> and <code>SetTransportFare</code> are <code><strong>ScriptNames</strong></code> .</p>
+<p>In this case, both <code>CheckIsTransport</code> and <code>SetTransportFare</code> are <code><strong>ScriptName</strong></code>s .</p>
 </div>
 </div>
 </div>
@@ -1192,8 +1193,8 @@ after the new transaction has already been added. The <code><strong>RuleEngine</
 </div>
 <div class="paragraph">
 <p>Thereafter, the list of rules is retrieved from the <code><strong>RuleManager</strong></code>. The <code><strong>RuleEngine</strong></code> iterates through the list,
-using the <code><strong>RulePredicate</strong></code> and <code><strong>RuleAction</strong></code> of each rule to create the required <code><strong>Testable</strong></code> for testing on the
-transaction, as well as the <code><strong>Performable</strong></code> for performing the action.</p>
+using the <code><strong>RulePredicate</strong></code> and <code><strong>RuleAction</strong></code> of each rule to create the required <code><strong>Testable</strong></code>s for testing on the
+transaction, as well as the <code><strong>Performable</strong></code>s for performing the action.</p>
 </div>
 <div class="paragraph">
 <p>The following activity diagram shows in greater detail the workflow of executing rules.</p>
@@ -1366,228 +1367,14 @@ stop evaluation if we see that the same alias has been applied more than once.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.8. [Proposed] Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.8.1. Proposed Implementation</a></h4>
-<div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState0.png" alt="UndoRedoState0">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState3.png" alt="UndoRedoState3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-8"><a class="link" href="#design-considerations-8">3.8.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.9. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1618,7 +1405,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1727,6 +1514,12 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <td class="tableblock halign-left valign-top"><p class="tableblock">busy user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my spending in different account books</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">segregate completely unrelated spending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lazy user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">simplify repetitive actions by setting rules for every transaction added</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">automate repetitive and tedious processes</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -2060,6 +1853,75 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="use-case-add-rule"><a class="link" href="#use-case-add-rule">C.4. Use case: Add rule</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a new rule.</p>
+</li>
+<li>
+<p>Budget Buddy creates the new rule.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. No predicate was provided.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. Budget Buddy shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. No action was provided.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. Budget Buddy shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c. Predicate is an expression but not in the form of &lt;attribute&gt; &lt;operator&gt; &lt;value&gt;.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. Budget Buddy shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -2132,7 +1994,7 @@ These instructions only provide a starting point for testers to work on.
 </li>
 <li>
 <p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+Expected: Shows the GUI starting in the transaction panel. The window size may not be optimum.</p>
 </li>
 </ol>
 </div>
@@ -2361,5 +2223,194 @@ Two new loans out to Bruce and Thomas should be added to the normal loan list as
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="rules"><a class="link" href="#rules">F.4. Rules</a></h3>
+<div class="sect3">
+<h4 id="listing-rules"><a class="link" href="#listing-rules">F.4.1. Listing rules</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Listing rules while another panel is shown</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Display another panel using <code>account list</code>, <code>loan list</code>, <code>txn list</code>, or <code>script list</code>.</p>
+</li>
+<li>
+<p>Test case: <code>rule list</code><br>
+Expected: Current panel switches over to the rule panel and displays rule list.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:46:09 UTC</div></div></div></body></html>
+</li>
+<li>
+<p>Listing rules while on rule panel.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Display the rule panel with with <code>rule list</code>.</p>
+</li>
+<li>
+<p>Test case: <code>rule list</code><br>
+Expected: Current panel remains on the rule panel, displays rule list.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-rule"><a class="link" href="#adding-a-rule">F.4.2. Adding a rule</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a rule while on a different panel</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Display another panel using <code>account list</code>, <code>loan list</code>, <code>txn list</code>, or <code>script list</code>.</p>
+</li>
+<li>
+<p>Test case: <code>rule add p/desc = m a/set_desc Monthly Allowance</code>+
+Expected: Rule is created, panel switches to rule panel.</p>
+</li>
+<li>
+<p>Test case: <code>rule add p/it is monday a/prep_desc [Monday]</code>
+Expected: No rule created. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect rule add commands to try: <code>rule add a/set_in</code>, <code>rule add p/outamt &gt; 100</code><br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a rule while on the same panel</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Same test cases as above: e.g. <code>rule add p/desc = m a/set_desc Monthly Allowance</code>
+Expected: Similar output as above, app remains on the rule panel.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-a-rule"><a class="link" href="#editing-a-rule">F.4.3. Editing a rule</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing a rule on the same panel</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: At least 1 rule in the list.</p>
+</li>
+<li>
+<p>Test case: <code>rule edit 1 p/date &lt; 11/11/2019</code>
+Expected: Rule is edited and edited rule is shown on the rule list.</p>
+</li>
+<li>
+<p>Test case: <code>rule edit 0 p/date &lt; 11/11/2019</code>
+Expected: No rule edited. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect rule edit commands to try: <code>rule edit 1</code>, <code>rule edit 1 p/outamt contains letters</code>, <code>rule edit 1 a/</code>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Editing a rule on a different panel</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Display another panel using <code>account list</code>, <code>loan list</code>, <code>txn list</code>, or <code>script list</code>. At least 1 rule in the list.</p>
+</li>
+<li>
+<p>Same test cases as above: e.g. <code>rule edit 1 p/date &lt; 11/11/2019</code>
+Expected: Similar output as above, app switches over to the rule panel if rule is successfully edited.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-rule"><a class="link" href="#deleting-a-rule">F.4.4. Deleting a rule</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a rule</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: More than 1 rule in the list</p>
+</li>
+<li>
+<p>Test case: <code>rule delete 1</code>
+Expected: Rule is deleted. If not on the rule panel, app switches to rule panel.</p>
+</li>
+<li>
+<p>Test case: <code>rule delete 0</code>
+Expected: No rule deleted. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete commands to try: <code>rule delete</code>, <code>rule delete x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="executing-rules"><a class="link" href="#executing-rules">F.4.5. Executing rules</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Rules are executed on newly added transaction</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites:</p>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Add rule: <code>rule add p/desc = m a/set_desc Monthly Allowance</code></p>
+</li>
+<li>
+<p>Add rule: <code>rule add p/inamt &gt; 100 a/set_cat Large Savings</code></p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Test case: <code>txn dn/in x/10 d/m</code>
+Expected: Transaction is added. Transaction description seen in the transaction panel is "Monthly Allowance".</p>
+</li>
+<li>
+<p>Test case: <code>txn dn/in x/100 d/m</code>
+Expected: Similar to previous. Transaction also has a category "Large Savings"</p>
+</li>
+<li>
+<p>Test case: <code>txn dn/out x/100 d/Buffet</code>
+Expected: Transaction is added. Rules do not apply to transaction. No change to description or categories.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:14:49 UTC</div></div></div></body></html>
