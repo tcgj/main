@@ -1283,7 +1283,7 @@ Rules will be executed from the top of the list downwards.
 <p>Swaps the position of two specified rules in the Rule Engine.</p>
 </div>
 <div class="paragraph">
-<p>Format: `rule swap &lt;rule 1 ID&gt; &lt;rule 2 ID&gt;</p>
+<p>Format: <code>rule swap &lt;rule 1 ID&gt; &lt;rule 2 ID&gt;</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1860,48 +1860,292 @@ if you wish to use <code>bb</code>.</p>
 <div class="paragraph">
 <p>The following helper functions are predefined in the script environment.</p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Function signatures</strong></p>
+</div>
+<div class="paragraph">
+<p>Function signatures specified below are in the following format:</p>
+</div>
+<div class="paragraph">
+<p><code>functionName(parameter1, parameter2, { optionalParameter1, optionalParameter2 }) &#8594; ReturnType</code></p>
+</div>
+<div class="paragraph">
+<p>Optional arguments should be given as a single JavaScript object. For example, for the above signature:</p>
+</div>
+<div class="paragraph">
+<p><code>functionName("argument 1", "argument 2", { optionalParameter1: "optional argument 1" })</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Types</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the type starts with a capital letter e.g. <code>Account</code>, it is a Java type.</p>
+</li>
+<li>
+<p>If the type starts with a lowercase letter e.g. <code>number</code>, it is a JavaScript primitive.</p>
+</li>
+<li>
+<p>If the type is <code>[Type]</code>, it is an array of <code>Type</code>.</p>
+</li>
+<li>
+<p>If a function&#8217;s return type is unspecified, the function does not return a value.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="sect3">
 <h4 id="account-functions"><a class="link" href="#account-functions">6.2.1. Account functions</a></h4>
 <div class="ulist">
 <ul>
 <li>
 <p><code>refreshAccountView()</code></p>
+<div class="paragraph">
+<p>Refreshes the account list after accounts have been added, modified or deleted. This does not activate the account tab.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>getAccounts() &#8594; List&lt;Account&gt;</code></p>
+<div class="paragraph">
+<p>Gets the list of all accounts.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p><code>getShownAccounts() &#8594; List&lt;Account&gt;</code></p>
+<div class="paragraph">
+<p>Gets the list of accounts currently shown in the accounts tab. (This depends on the previous execution of the command <code>account find</code>.)</p>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>getActiveAccount() &#8594; Account</code></p>
+<div class="paragraph">
+<p>Gets the current active account.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
-<p><code>setActiveAccount(nameOrIndex) &#8594; Account</code></p>
+<p><code>setActiveAccount(index) &#8594; Account</code></p>
+<div class="paragraph">
+<p>Sets the current active account.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>index</code>: the zero-based index of the account, as in <code>getShownAccounts()</code></p>
 </li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>getAccount(nameOrIndex) &#8594; Account</code></p>
+<div class="paragraph">
+<p>Gets an account by name or index.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>nameOrIndex</code>: the zero-based index of the account, as in <code>getAccounts()</code>, or the account&#8217;s name (case-sensitive) as a <code>string</code></p>
 </li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p><code>getShownAccount(index) &#8594; Account</code></p>
+<div class="paragraph">
+<p>Gets an account by index.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>index</code>: the zero-based index of the account, as in <code>getShownAccounts()</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>addAccount(name, description) &#8594; Account</code></p>
+<div class="paragraph">
+<p>Adds an account with the given name and description.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>name</code>: the name of the account, as a <code>string</code></p>
 </li>
+<li>
+<p><code>description</code>: the description of the account, as a <code>string</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>morphAccount(oldAccount, { name, description }) &#8594; Account</code></p>
+<div class="paragraph">
+<p>Returns a new <code>Account</code> that is the same as <code>oldAccount</code> except for the specified properties changed.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>oldAccount</code>: the <code>Account</code> to morph</p>
 </li>
+<li>
+<p>The remaining parameters are as in <code>addAccount</code>.</p>
+</li>
+<li>
+<p>If a parameter is not specified, then the associated property is not changed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>editAccount(nameOrIndex, { name, description }) &#8594; Account</code></p>
+<div class="paragraph">
+<p>Edits the specified account, changing the specified properties, and returns the edited account.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>nameOrIndex</code>: the zero-based index of the account, as in <code>getAccounts()</code>, or the account&#8217;s name (case-sensitive) as a <code>string</code></p>
 </li>
+<li>
+<p>The remaining parameters are as in <code>addAccount</code>.</p>
+</li>
+<li>
+<p>If a parameter is not specified, then the associated property is not changed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>deleteAccount(nameOrIndex)</code></p>
+<div class="paragraph">
+<p>Edits the specified account, changing the specified properties, and returns the edited account.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>nameOrIndex</code>: the zero-based index of the account, as in <code>getAccounts()</code>, or the account&#8217;s name (case-sensitive) as a <code>string</code></p>
 </li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>accountName(account) &#8594; string</code></p>
+<div class="paragraph">
+<p>Gets the account&#8217;s name.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>accountDescription(account) &#8594; string</code></p>
+<div class="paragraph">
+<p>Gets the account&#8217;s description.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>accountBalance(account) &#8594; number</code></p>
+<div class="paragraph">
+<p>Gets the account&#8217;s balance, in cents.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>accountTxns(account) &#8594; List&lt;Transaction&gt;</code></p>
+<div class="paragraph">
+<p>Gets the list of transactions of the account.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -1912,45 +2156,248 @@ if you wish to use <code>bb</code>.</p>
 <ul>
 <li>
 <p><code>refreshTxnView()</code></p>
+<div class="paragraph">
+<p>Refreshes the transaction list after transactions have been added, modified or deleted. This does not activate the transaction tab.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>addTxn(amount, direction, description, { account, date, categories }) &#8594; Transaction</code></p>
+<div class="paragraph">
+<p>Adds a transaction with the given information.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>amount</code>: the amount in cents as a <code>number</code></p>
 </li>
+<li>
+<p><code>direction</code>: the direction, either <code>'IN'</code> or <code>'OUT'</code></p>
+</li>
+<li>
+<p><code>description</code>: the description as a <code>string</code></p>
+</li>
+<li>
+<p><code>account</code>: the <code>Account</code> to add the transaction to; defaults to <code>getActiveAccount()</code></p>
+</li>
+<li>
+<p><code>date</code>: the date of the transaction, either as a <code>LocalDate</code> or a <code>string</code> parsable by <code>parseDate</code>; defaults to today&#8217;s date</p>
+</li>
+<li>
+<p><code>categories</code>: the categories of the transaction, as an array of <code>string</code>; defaults to empty</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>morphTxn(oldTxn, { amount, direction, description, date, categories }) &#8594; Transaction</code></p>
+<div class="paragraph">
+<p>Returns a new <code>Transaction</code> that is the same as <code>oldTxn</code> except for the specified properties changed.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>oldTxn</code>: the <code>Transaction</code> to morph</p>
 </li>
+<li>
+<p>The remaining parameters are as in <code>addTxn</code>.</p>
+</li>
+<li>
+<p>If a parameter is not specified, then the associated property is not changed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>editTxn(account, oldTxn, { amount, direction, description, date, categories }) &#8594; Transaction</code></p>
+<div class="paragraph">
+<p>Edits the given transaction, changing the specified properties, and returns the edited transaction.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>account</code>: the <code>Account</code> containing <code>oldTxn</code></p>
 </li>
+<li>
+<p><code>oldTxn</code>: the <code>Transaction</code> to edit</p>
+</li>
+<li>
+<p>The remaining parameters are as in <code>addTxn</code>.</p>
+</li>
+<li>
+<p>If a parameter is not specified, then the associated property is not changed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>deleteTxn(account, txn)</code></p>
+<div class="paragraph">
+<p>Deletes the given transaction from the given account.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>getShownTxn(index) &#8594; Transaction</code></p>
+<div class="paragraph">
+<p>Gets a transaction by index.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>index</code>: the zero-based index of the transaction, as in <code>getShownTxns()</code></p>
 </li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>editShownTxn(index, { amount, direction, description, date, categories }) &#8594; Transaction</code></p>
+<div class="paragraph">
+<p>Edits a transaction, changing the specified properties, and returns the edited transaction.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>index</code>: the zero-based index of the transaction, as in <code>getShownTxns()</code></p>
 </li>
+<li>
+<p>The remaining parameters are as in <code>addTxn</code>.</p>
+</li>
+<li>
+<p>If a parameter is not specified, then the associated property is not changed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>deleteShownTxn(index)</code></p>
+<div class="paragraph">
+<p>Deletes a transaction.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>index</code>: the zero-based index of the transaction, as in <code>getShownTxns()</code></p>
 </li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>getShownTxns() &#8594; List&lt;Transaction&gt;</code></p>
+<div class="paragraph">
+<p>Gets the list of transactions currently shown in the transactions tab. (This depends on the current active account as well as the last time the view was refreshed.)</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>txnAmount(txn) &#8594; number</code></p>
+<div class="paragraph">
+<p>Gets the amount of the transaction, in cents.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>txnDescription(txn) &#8594; string</code></p>
+<div class="paragraph">
+<p>Gets the description of the transaction.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>txnDate(txn) &#8594; LocalDate</code></p>
+<div class="paragraph">
+<p>Gets the date of the transaction.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>txnDirection(txn) &#8594; string ("IN" | "OUT")</code></p>
+<div class="paragraph">
+<p>Gets the direction of the transaction.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>txnCategories(txn) &#8594; [string]</code></p>
+<div class="paragraph">
+<p>Gets the categories the transaction is in, as an array of <code>string</code>s.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -1961,39 +2408,197 @@ if you wish to use <code>bb</code>.</p>
 <ul>
 <li>
 <p><code>addLoan(amount, direction, person, { description, date, paid }) &#8594; Loan</code></p>
+<div class="paragraph">
+<p>Adds a loan with the given information.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>amount</code>: the amount in cents as a <code>number</code></p>
 </li>
+<li>
+<p><code>direction</code>: the direction, either <code>'IN'</code> or <code>'OUT'</code></p>
+</li>
+<li>
+<p><code>person</code>: the name of the other party as a <code>string</code></p>
+</li>
+<li>
+<p><code>description</code>: the description as a <code>string</code>; defaults to empty</p>
+</li>
+<li>
+<p><code>date</code>: the date of the loan, either as a <code>LocalDate</code> or a <code>string</code> parsable by <code>parseDate</code>; defaults to today&#8217;s date</p>
+</li>
+<li>
+<p><code>paid</code>: whether the loan is paid; either <code>true</code> or <code>false</code>; defaults to <code>false</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>morphLoan(loan, { amount, direction, person, description, date, paid }) &#8594; Loan</code></p>
+<div class="paragraph">
+<p>Returns a new <code>Loan</code> that is the same as <code>loan</code> except for the specified properties changed.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>loan</code>: the <code>Loan</code> to morph</p>
 </li>
+<li>
+<p>The remaining parameters are as in <code>addLoan</code>.</p>
+</li>
+<li>
+<p>If a parameter is not specified, then the associated property is not changed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>editShownLoan(index, { amount, direction, person, description, date, paid }) &#8594; Loan</code></p>
+<div class="paragraph">
+<p>Edits the given loan, changing the specified properties, and returns the edited loan.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>index</code>: the zero-based index of the transaction, as in <code>getShownLoans()</code></p>
 </li>
+<li>
+<p>The remaining parameters are as in <code>addLoan</code>.</p>
+</li>
+<li>
+<p>If a parameter is not specified, then the associated property is not changed.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>deleteShownLoan(index)</code></p>
+<div class="paragraph">
+<p>Deletes the specified loan.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>index</code>: the zero-based index of the transaction, as in <code>getShownLoans()</code></p>
 </li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>getShownLoans() &#8594; List&lt;Loan&gt;</code></p>
+<div class="paragraph">
+<p>Gets the loans currently shown in the loans tab. (This depends on the previous execution of the command <code>loan list</code>.)</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>getLoans() &#8594; List&lt;Loan&gt;</code></p>
+<div class="paragraph">
+<p>Gets all loans.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>loanAmount(loan) &#8594; number</code></p>
+<div class="paragraph">
+<p>Gets the amount in cents of the loan.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>loanDirection(loan) &#8594; string ("IN" | "OUT")</code></p>
+<div class="paragraph">
+<p>Gets the direction of the loan.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>loanPerson(loan) &#8594; string</code></p>
+<div class="paragraph">
+<p>Gets the name of the other party in the loan.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>loanDate(loan) &#8594; LocalDate</code></p>
+<div class="paragraph">
+<p>Gets the date of the loan.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>loanDescription(loan) &#8594; string</code></p>
+<div class="paragraph">
+<p>Gets the loan&#8217;s description.</p>
+</div>
 </li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
 <li>
 <p><code>loanIsPaid(loan) &#8594; boolean</code></p>
+<div class="paragraph">
+<p>Returns <code>true</code> if the loan is paid; <code>false</code> otherwise.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -2026,7 +2631,7 @@ if you wish to use <code>bb</code>.</p>
 <li>
 <p><code>makeDate(year, month, day) &#8594; LocalDate</code></p>
 <div class="paragraph">
-<p>Constructs a date from the year, month and day, passed as `number`s.</p>
+<p>Constructs a date from the year, month and day, passed as <code>number</code>s.</p>
 </div>
 </li>
 </ul>
@@ -2049,6 +2654,23 @@ if you wish to use <code>bb</code>.</p>
 <p><code>executeCommand(command) &#8594; CommandResult</code></p>
 <div class="paragraph">
 <p>Executes a command.</p>
+</div>
+<div class="paragraph">
+<p>This may only be executed from the JavaFX application thread. Behaviour is undefined
+if this is called from a background thread.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+While Budget Buddy does not by itself run commands from background threads,
+scripts are free to create threads.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Parameters:</p>
@@ -2251,4 +2873,4 @@ Deleting that folder will reset the application data upon rebooting the applicat
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:20:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:30:18 UTC</div></div></div></body></html>
