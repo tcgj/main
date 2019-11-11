@@ -26,11 +26,10 @@
 <li><a href="#loans-feature">3.2. Loans Feature</a></li>
 <li><a href="#rule-management-feature">3.3. Rule Management Feature</a></li>
 <li><a href="#rule-execution-feature">3.4. Rule Execution Feature</a></li>
-<li><a href="#import-and-export">3.5. Import and export</a></li>
-<li><a href="#scripting">3.6. Scripting</a></li>
-<li><a href="#aliases">3.7. Aliases</a></li>
-<li><a href="#logging">3.8. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
+<li><a href="#scripting">3.5. Scripting</a></li>
+<li><a href="#aliases">3.6. [Proposed] Aliases</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -54,6 +53,7 @@
 <li><a href="#accounts">F.2. Accounts</a></li>
 <li><a href="#loans">F.3. Loans</a></li>
 <li><a href="#rules">F.4. Rules</a></li>
+<li><a href="#scripts">F.5. Scripts</a></li>
 </ul>
 </li>
 </ul>
@@ -82,15 +82,15 @@
 <p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
 </div>
 <div class="paragraph">
-<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/src/main/java/budgetbuddy/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/src/main/java/budgetbuddy/MainApp.java"><code>MainApp</code></a>. It is responsible for,</p>
+<p><code>Main</code> has two classes called <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/src/main/java/budgetbuddy/Main.java"><code>Main</code></a> and <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/src/main/java/budgetbuddy/MainApp.java"><code>MainApp</code></a>. It is responsible for:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+<p>At app launch, initialising the components in the correct sequence, and connecting them up with each other.</p>
 </li>
 <li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+<p>At shut down, shutting down the components and invoking cleanup methods where necessary.</p>
 </li>
 </ul>
 </div>
@@ -293,20 +293,20 @@ For example, a more detailed class diagram of the <code>AccountsManager</code> c
 <p><strong>API</strong> : <a href="https://github.com/AY1920S1-CS2103T-W13-4/main/src/main/java/budgetbuddy/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The <code>Storage</code> component,</p>
+<p>The <code>Storage</code> component</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>can save <code>UserPref</code> objects in json format and read it back.</p>
+<p>can save <code>UserPref</code> objects in JSON format and read it back.</p>
 </li>
 <li>
-<p>can save Budget Buddy&#8217;s data in json format and read it back.</p>
+<p>can save Budget Buddy&#8217;s data in JSON format and read it back.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Budget Buddy saves its data in a few different json files,
+<p>Budget Buddy saves its data in a few different JSON files,
 namely <code>accounts.json</code>, <code>loans.json</code>, <code>rules.json</code> and <code>/scripts/descriptions.json</code>.
 In addition, the user&#8217;s custom scripts are saved in the <code>/scripts/</code> folder.</p>
 </div>
@@ -1280,71 +1280,269 @@ of classes.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-and-export"><a class="link" href="#import-and-export">3.5. Import and export</a></h3>
+<h3 id="scripting"><a class="link" href="#scripting">3.5. Scripting</a></h3>
+<div class="paragraph">
+<p>The scripting feature allows users to write scripts to automate tasks and extend the
+functionality of Budget Buddy.</p>
+</div>
 <div class="sect3">
 <h4 id="implementation-6"><a class="link" href="#implementation-6">3.5.1. Implementation</a></h4>
 <div class="paragraph">
-<p>The import functionality takes in a file and parses it into <code>Transaction</code>s.</p>
-</div>
-<div class="paragraph">
-<p>All of the supported formats are comma-separated value (CSV) files. The bulk of
-the work is parsing the different ways the different banks represent the same data,
-and mapping each column from bank transaction export into the fields contained by
-Budget Buddy <code>Transaction</code>s.</p>
-</div>
-<div class="paragraph">
-<p>The following class diagram illustrates the design of the import and export function.</p>
-</div>
-<div class="paragraph">
-<p><em>TODO: Class diagram</em></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design considerations</a></h4>
-<div class="paragraph">
-<p><em>TODO</em></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="scripting"><a class="link" href="#scripting">3.6. Scripting</a></h3>
-<div class="sect3">
-<h4 id="implementation-7"><a class="link" href="#implementation-7">3.6.1. Implementation</a></h4>
-<div class="paragraph">
-<p>The scripting engine works independently of the rest of the application.
-At its core, it uses the Nashorn ECMAScript 5.1 engine bundled with Java 11 to
-evaluate scripts.</p>
+<p>The script engine works independently of the rest of the application.
+At its core, it uses the
+<a href="https://docs.oracle.com/en/java/javase/11/nashorn/nashorn-java-api.html">Nashorn ECMAScript 5.1</a>
+engine bundled with Java 11 to evaluate scripts.</p>
 </div>
 <div class="paragraph">
 <p>A set of convenience functions are provided to make basic tasks, such as manipulating
-transactions and accounts, easier. The full model and UI are nevertheless exposed to
+transactions and accounts, easier. The full model is nevertheless exposed to
 scripts, and scripts are able to access any classes provided in the Java 11 standard
 library, as well as any dependencies included in the application.</p>
 </div>
 <div class="paragraph">
 <p>There is a simple mechanism to store scripts to be run in future. This works together
 with rules to give the ability to have complex predicates and actions outside of
-those supported inherently by the program. This also works with aliases to allow,
-in effect, custom commands to be created.</p>
+those supported inherently by the program.</p>
 </div>
 <div class="paragraph">
-<p>The following class diagram illustrates the design of the scripting engine and model.</p>
+<p>When the <a href="#aliases">proposed alias feature</a> is implemented, scripts and aliases can be
+used together to, in effect, allow users to create custom commands.</p>
 </div>
 <div class="paragraph">
-<p><em>TODO: Class diagram</em></p>
+<p>The following class diagram illustrates the design of the script engine and model. For clarity, parts of the model and logic components that do not interact directly with the script engine are omitted.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScriptsClassDiagram.png" alt="ScriptsClassDiagram">
+</div>
+<div class="title">Figure 16. Structure of scripts in the model and logic components</div>
+</div>
+<div class="sect4">
+<h5 id="script-engine"><a class="link" href="#script-engine">Script engine</a></h5>
+<div class="paragraph">
+<p>The logic component of the scripts feature contains the
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/logic/script/ScriptEngine.java"><code>ScriptEngine</code></a>
+class which underpins the entire scripting component. At its heart, the <code>ScriptEngine</code> class is
+simply a thin layer to abstract away the underlying script engine (in our case, Nashorn). It contains a method
+<code>evaluateScript</code> that accepts a string of script code, and arguments for the script, and
+then evaluates the script. There is an overload of <code>evaluateScript</code> that accepts a <code>Script</code>
+from the script model, which is simply a convenience method. There is no other relationship
+between the logic and model components.</p>
+</div>
+<div class="paragraph">
+<p>The logic component also contains methods <code>setVariable</code>, <code>addToEnvironment</code> and <code>resetEnvironment</code>
+that allow functions and variables to be set in the script environment, to provide helper functions
+to the scripts, like those in the <a href="UserGuide.html#scripting-api">Scripting API</a>.</p>
+</div>
+<div class="paragraph">
+<p>To allow other components to add helper functions to the script environment,
+without the script engine having to be aware of those components,
+the <code>ScriptEngine</code> accepts <code>ScriptEnvironmentInitialiser</code>s. A <code>ScriptEnvironmentInitialiser</code>
+is a <code>FunctionalInterface</code> that simply accepts a <code>ScriptEngine</code> and does some setup
+on it e.g. setting variables and functions using <code>ScriptEngine#setVariable</code>. <code>ScriptEngine</code>
+maintains a list of <code>ScriptEnvironmentInitialiser</code>s and re-applies them each time
+<code>ScriptEngine#resetEnvironment</code> is called.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="library-and-storage"><a class="link" href="#library-and-storage">Library and storage</a></h5>
+<div class="paragraph">
+<p>The model component of the scripts feature is a simple script library that allows
+users to store scripts with a name and a description for repeated use. See the interface
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/model/ScriptLibrary.java"><code>ScriptLibrary</code></a>
+and its implementation
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/model/ScriptLibraryManager.java"><code>ScriptLibraryManager</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>Scripts are persisted as individual files under the <code>scripts/</code> directory in
+Budget Buddy&#8217;s data directory. Script names are not stored separately, but simply
+used as the file name of the scripts with a <code>.js</code> extension. See
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/storage/scripts/FlatfileScriptsStorage.java"><code>FlatfileScriptsStorage</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>The script descriptions are stored in a separate <code>descriptions.json</code> file.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="user-interface"><a class="link" href="#user-interface">User interface</a></h5>
+<div class="paragraph">
+<p>The last component of the scripts feature is the user interface.</p>
+</div>
+<div class="paragraph">
+<p>The script engine is presented to the user as a set of simple commands.
+<a href="UserGuide.html#script-eval"><code>script eval</code></a> and <a href="UserGuide.html#script-run"><code>script run</code></a>
+run scripts, while <a href="UserGuide.html#script-reset"><code>script reset</code></a> resets the script environment.
+<a href="UserGuide.html#script-add"><code>script add</code></a>, <a href="UserGuide.html#script-list"><code>script list</code></a>
+and <a href="UserGuide.html#script-delete"><code>script delete</code></a> manage the script library.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows the interaction between the different components
+when the user runs a script from the script library using <code>script run my-script</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ScriptsSequenceDiagram.png" alt="ScriptsSequenceDiagram">
+</div>
+<div class="title">Figure 17. Interaction between the components during the execution of <code>script run my-script</code></div>
+</div>
+<div class="paragraph">
+<p>The command is parsed into <code>ScriptRunCommand</code> by the command line parser.
+<code>ScriptRunCommand</code> then retrieves the <code>Script</code> from the <code>ScriptLibraryManager</code>
+and then hands the <code>Script</code> to <code>ScriptEngine</code> for evaluation.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="script-bindings"><a class="link" href="#script-bindings">Script bindings</a></h5>
+<div class="paragraph">
+<p>Script bindings are added via
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/logic/script/ScriptEnvironmentInitialiser.java"><code>ScriptEnvironmentInitialiser</code>s</a>, which are registed with the <code>ScriptEngine</code> through <code>Logic#addToScriptEnvironment</code>.</p>
+</div>
+<div class="paragraph">
+<p>Most of the functions exposed in the <a href="UserGuide.html#scripting-api">Scripting API</a>
+come from the script-model bindings, in
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/logic/script/ScriptModelBinding.java"><code>ScriptModelBinding</code></a>.
+JavaFX-specific bindings are added in
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/ui/ScriptUiBinding.java"><code>ScriptUiBinding</code></a>,
+and bindings that require access to <code>MainWindow</code> internals are added in a private inner class of <code>MainWindow</code>.</p>
+</div>
+<div class="paragraph">
+<p>Methods in the binding classes are added into the script environment by casting
+their method references to appropriate <code>FunctionalInterface</code>s. Nashorn allows
+objects which implement a <code>FunctionalInterface</code> to be called as if they were
+functions, providing an ergonomic scripting experience for the user. Nashorn also
+helps to do some type conversion from JavaScript types to Java types, saving on
+the amount of boilerplate required in our implementation.</p>
+</div>
+<div class="paragraph">
+<p>We declare an
+entire suite of functional interfaces in
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/logic/script/ScriptBindingInterfaces.java"><code>ScriptBindingInterfaces</code></a>.</p>
+</div>
+<div class="paragraph">
+<p>We do not use the functional interfaces provided in the Java package <code>java.util.function</code>
+because of these reasons:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>These interfaces cannot be used if the methods throw any checked exceptions.
+Many script methods involve parsing strings into appropriate model types, which
+means that parsing exceptions need to be thrown, but they are checked exceptions.</p>
+</li>
+<li>
+<p>These interfaces have generic type parameters. However, because Java implements
+generics using type erasure, it is not possible for Nashorn to determine the actual
+types of parameters, in order to do automatic conversion between JavaScript and Java
+types, if functional interfaces with generic type parameters were used.
+(They would all appear as <code>Object</code> at runtime.) This is also the reason that we do
+not use generics in the functional interfaces in <code>ScriptBindingInterfaces</code>.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-6"><a class="link" href="#design-considerations-6">3.6.2. Design considerations</a></h4>
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.5.2. Design considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-javascript-engine"><a class="link" href="#aspect-javascript-engine">Aspect: JavaScript engine</a></h5>
 <div class="paragraph">
-<p><em>TODO</em></p>
+<p>Two JavaScript engines were considered.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Use the Nashorn JavaScript engine.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is bundled with Java 11.</p>
+</li>
+<li>
+<p>Cons: It is deprecated and marked for removal in a future Java version, and
+it also interprets scripts, so it is slower than GraalVM.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Use the GraalVM engine.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It is well-maintained, and it also just-in-time (JIT) compiles scripts,
+so it will be faster than Nashorn.</p>
+</li>
+<li>
+<p>Cons: It is not bundled with Java 11, so it is an additional dependency.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>We chose Nashorn because:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>While it is slower, it is not too slow for the kinds of lightweight scripting tasks
+in Budget Buddy.</p>
+</li>
+<li>
+<p>While it is deprecated, we are targetting specifically Java 11, so its future removal
+is not a concern at this moment.</p>
+</li>
+<li>
+<p>It is bundled with Java 11, so we do not need to manage and ship an additional
+dependency.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-script-bindings"><a class="link" href="#aspect-script-bindings">Aspect: Script bindings</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice)</strong>: Use functional interfaces.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: It requires less marshalling code in Budget Buddy, because Nashorn helps
+to perform most of the type conversion.</p>
+</li>
+<li>
+<p>Cons: Many functional interfaces need to be declared for every unique method
+signature exposed to the script environment.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong>: Extend Nashorn&#8217;s
+<a href="https://docs.oracle.com/javase/8/docs/jdk/api/nashorn/jdk/nashorn/api/scripting/AbstractJSObject.html"><code>AbstractJSObject</code></a>,
+overriding the <code>call</code> method.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: No extra declarations (e.g. functional interfaces) need to be made if a
+new method signature is to be exposed to the script environment.</p>
+</li>
+<li>
+<p>Cons: Nashorn&#8217;s built-in type conversion and marshalling are not applicable; it
+has to be done manually in our <code>AbstractJSObject</code> subclass.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="aliases"><a class="link" href="#aliases">3.7. Aliases</a></h3>
-<div class="sect3">
-<h4 id="implementation-8"><a class="link" href="#implementation-8">3.7.1. Implementation</a></h4>
+<h3 id="aliases"><a class="link" href="#aliases">3.6. [Proposed] Aliases</a></h3>
 <div class="paragraph">
 <p>The alias is a simple hook into the command parsing engine. If there is no
 built-in command corresponding to a command line, then the alias map is checked.
@@ -1356,23 +1554,25 @@ and the command execution is re-tried.</p>
 alias <code>y</code> mapping to <code>x</code>, we track the aliases that have been applied, and
 stop evaluation if we see that the same alias has been applied more than once.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations-7"><a class="link" href="#design-considerations-7">3.7.2. Design considerations</a></h4>
 <div class="paragraph">
-<p><em>TODO</em></p>
+<p>The following activity diagram illustrates the above algorithm.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AliasActivityDiagram.png" alt="AliasActivityDiagram">
+</div>
+<div class="title">Figure 18. Alias resolution algorithm</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1403,7 +1603,7 @@ stop evaluation if we see that the same alias has been applied more than once.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2516,5 +2716,144 @@ Expected: Transaction is added. Rules do not apply to transaction. No change to 
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="scripts"><a class="link" href="#scripts">F.5. Scripts</a></h3>
+<div class="sect3">
+<h4 id="evaluating-an-expression"><a class="link" href="#evaluating-an-expression">F.5.1. Evaluating an expression</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Evaluating an expression</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None</p>
+</li>
+<li>
+<p>Test case: <code>script eval 123 + 456</code> Expected: "579" is shown in the command result box.</p>
+</li>
+<li>
+<p>Test case: <code>script eval showAlert("Hello", "World")</code> Expected: An alert box with "Hello" as the title and "World" as the message is shown. "Script succeeded with no result." is shown in the command result box.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:59:07 UTC</div></div></div></body></html>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="listing-scripts"><a class="link" href="#listing-scripts">F.5.2. Listing scripts</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Listing scripts</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: A tab other than the script tab is active.</p>
+</li>
+<li>
+<p>Test case: <code>script list</code> Expected: The script tab is activated.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-script"><a class="link" href="#adding-a-script">F.5.3. Adding a script</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a script from the command line</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: No script named <code>hello-world</code> exists.</p>
+</li>
+<li>
+<p>Test case: <code>script add hello-world s/"Hello world"</code> Expected: The script tab is shown. "New script hello-world added." is shown in the command result box. A script <code>hello-world</code> with description "No description provided" is shown in the list of scripts.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Adding a script from file</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: No script named <code>hello-world</code> exists.</p>
+</li>
+<li>
+<p>Test case: <code>script add hello-world</code> Expected: The script tab is shown. A file picker dialog appears. Once any file is selected, "New script hello-world added." is shown in the command result box. A script <code>hello-world</code> with description "No description provided" is shown in the list of scripts.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="running-a-script"><a class="link" href="#running-a-script">F.5.4. Running a script</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Running a script</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: <code>script add hello-world s/"Hello world"</code></p>
+</li>
+<li>
+<p>Test case: <code>script run hello-world</code> Expected: "Hello world" is shown in the command result box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-script"><a class="link" href="#deleting-a-script">F.5.5. Deleting a script</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a script</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: <code>script add hello-world s/"Hello world"</code></p>
+</li>
+<li>
+<p>Test case: <code>script delete hello-world</code> Expected: The script tab is shown. "Script hello-world deleted." is shown in the command result box. No script with the name <code>hello-world</code> is listed in the list of scripts.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="resetting-the-scripting-environment"><a class="link" href="#resetting-the-scripting-environment">F.5.6. Resetting the scripting environment</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Resetting the scripting environment</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: <code>script eval var a = 1</code></p>
+</li>
+<li>
+<p>Test case: <code>script reset</code>, then <code>script eval a</code> Expected: "Exception while evaluating script: javax.script.ScriptException: ReferenceError: "a" is not defined in &lt;eval&gt; at line number 1" is shown in the command result box.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:08:44 UTC</div></div></div></body></html>
