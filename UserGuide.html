@@ -260,30 +260,53 @@ which can be useful should you ever forget how to execute a certain command.</p>
 </div>
 <div class="sect2">
 <h3 id="managing-transactions-code-txn-code"><a class="link" href="#managing-transactions-code-txn-code">4.2. Managing transactions: <code>txn</code></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/txnUG1.png" alt="txnUG1">
+</div>
+</div>
+<div class="paragraph">
+<p>Transactions form the core of BudgetBuddy. They can be used to track any purchases you make,
+or any money that you receive. Transactions can further be filtered by various criteria,
+if you want to find out how much money you&#8217;ve spent in a certain time period, on in
+a certain category of spending.</p>
+</div>
 <div class="sect3">
 <h4 id="add-a-transaction-code-txn-out-in-code"><a class="link" href="#add-a-transaction-code-txn-out-in-code">4.2.1. Add a transaction: <code>txn out|in</code></a></h4>
 <div class="paragraph">
 <p>Adds a new transaction of the specified amount and with the given description.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>txn dn/out|in x/&lt;amount&gt; d/&lt;description&gt; [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;] [r/&lt;d|w|m|y&gt;]</code></p>
+<p>Format: <code>txn dn/out|in x/&lt;amount&gt; d/&lt;description&gt; [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>txn dn/out x/3 d/apples a/food c/fruits w/5/4/2019</p>
+</li>
+<li>
+<p>txn dn/in x/50 d/pocket money a/school</p>
+</li>
+</ul>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>If the account is not given, the transaction is inserted into the active account.</p>
+<p>The account provided has to be exist before transactions can be added to it.</p>
+</li>
+<li>
+<p>If the account is not given, the transaction is added to the active account.</p>
 </li>
 <li>
 <p>If the category is not given, the transaction is not categorized.</p>
 </li>
 <li>
 <p>If the date is not given, the date is set to the current date.</p>
-</li>
-<li>
-<p>If the argument ‘r’ is added, the transition is marked as recurring;
-identical entries will be added either daily, weekly, monthly, or yearly.</p>
 </li>
 </ul>
 </div>
@@ -293,20 +316,105 @@ identical entries will be added either daily, weekly, monthly, or yearly.</p>
 <div class="sect3">
 <h4 id="edit-a-transaction-code-txn-edit-code"><a class="link" href="#edit-a-transaction-code-txn-edit-code">4.2.2. Edit a transaction: <code>txn edit</code></a></h4>
 <div class="paragraph">
-<p>Edits the specified transaction, setting the specified fields.
-If the ‘recurring’ field is modified, the app will ask if all previous recurring entries should be deleted.</p>
+<p>Edits the specified transaction, setting the specified fields. At least one field should be provided.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>txn edit &lt;id&gt; dn/out|in [x/&lt;amount&gt;] [d/&lt;description&gt;] [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;] [r/&lt;d|w|m|y&gt;]</code></p>
+<p>Format: <code>txn edit &lt;id&gt; dn/out|in [x/&lt;amount&gt;] [d/&lt;description&gt;] [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>txn edit 1 x/50 d/apple juice c/groceries</p>
+</li>
+<li>
+<p>txn edit 4 a/personal</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The new edited transaction should have at least 1 field different from the previous transaction.</p>
+</li>
+<li>
+<p>If a new account is provided, that account will be the new active account.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="delete-transaction-s-code-txn-delete-code"><a class="link" href="#delete-transaction-s-code-txn-delete-code">4.2.3. Delete transaction(s): <code>txn delete</code></a></h4>
 <div class="paragraph">
-<p>Deletes the transaction with the specified ID.</p>
+<p>Deletes the transaction with the specified ID on the current list of filtered transactions.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>txn delete &lt;id&gt;</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>txn delete 3</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-transactions-s-txn-list"><a class="link" href="#list-transactions-s-txn-list">4.2.4. List transactions(s): 'txn list'</a></h4>
+<div class="paragraph">
+<p>Lists the transactions from the current active account, with optional filters and sorting methods.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>txn list [c/category] [f/from date] [u/until date] [af/from amount] [au/until amount] [d/description]
+[s/&lt;aw|dw|ax|dx|ad|dd&gt;]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>txn list c/food u/10/4/2019 af/5 au/10 d/fruits s/ad</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>The explanation of the sorting abbreviations are as follows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>aw: Sort transactions by ascending date.</p>
+</li>
+<li>
+<p>dw: Sort transactions by descending date.</p>
+</li>
+<li>
+<p>ax: Sort transactions by ascending amount.</p>
+</li>
+<li>
+<p>dx: Sort transactions by descending amount.</p>
+</li>
+<li>
+<p>ad: Sort transactions by description, ascending alphabetically.</p>
+</li>
+<li>
+<p>dd: Sort transactions by description, descending alphabetically.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -2143,4 +2251,4 @@ Deleting that folder will reset the application data upon rebooting the applicat
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:05:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:20:53 UTC</div></div></div></body></html>
