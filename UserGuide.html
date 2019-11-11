@@ -20,22 +20,27 @@
 <li><a href="#managing-loans-code-loan-code">4.4. Managing loans: <code>loan</code></a></li>
 <li><a href="#automating-with-rules-code-rule-code">4.5. Automating with rules: <code>rule</code></a></li>
 <li><a href="#Scripting">4.6. Scripting: <code>script</code></a></li>
-<li><a href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">4.7. Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></li>
 </ul>
 </li>
-<li><a href="#coming-in-v2-0">5. Coming In v2.0</a>
+<li><a href="#coming-in-v2-0">5. Coming in v2.0</a>
 <ul class="sectlevel2">
-<li><a href="#managing-defaults-strong-coming-in-v2-0-strong-code-default-code">5.1. Managing defaults <strong>(Coming in v2.0)</strong> : <code>default</code></a></li>
-<li><a href="#managing-the-main-transaction-view-strong-coming-in-v2-0-strong-code-view-code">5.2. Managing the main transaction view <strong>(Coming in v2.0)</strong> : <code>view</code></a></li>
-<li><a href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">5.3. Managing budgets <strong>(Coming in v2.0)</strong> : <code>budget</code></a></li>
-<li><a href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">5.4. Goal setting <strong>(Coming in v2.0)</strong> : <code>goal</code></a></li>
-<li><a href="#managing-categories-strong-coming-in-v2-0-strong-code-category-code">5.5. Managing categories <strong>(Coming in v2.0)</strong> : <code>category</code></a></li>
-<li><a href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">5.6. Viewing reports <strong>(Coming in v2.0)</strong>: <code>report</code></a></li>
-<li><a href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">5.7. Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></li>
-<li><a href="#getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code">5.8. Getting help with specific commands <strong>(Coming in v2.0)</strong>: <code>help</code></a></li>
+<li><a href="#managing-defaults-strong-coming-in-v2-0-strong-code-default-code">5.1. Managing defaults <strong>(coming in v2.0)</strong>: <code>default</code></a></li>
+<li><a href="#managing-the-main-transaction-view-strong-coming-in-v2-0-strong-code-view-code">5.2. Managing the main transaction view <strong>(coming in v2.0)</strong>: <code>view</code></a></li>
+<li><a href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">5.3. Managing budgets <strong>(coming in v2.0)</strong>: <code>budget</code></a></li>
+<li><a href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">5.4. Goal setting <strong>(coming in v2.0)</strong>: <code>goal</code></a></li>
+<li><a href="#managing-categories-strong-coming-in-v2-0-strong-code-category-code">5.5. Managing categories <strong>(coming in v2.0)</strong>: <code>category</code></a></li>
+<li><a href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">5.6. Viewing reports <strong>(coming in v2.0)</strong>: <code>report</code></a></li>
+<li><a href="#aliases-strong-coming-in-v2-0-strong-code-alias-code">5.7. Aliases <strong>(coming in v2.0)</strong>: <code>alias</code></a></li>
+<li><a href="#import-and-export-strong-coming-in-v2-0-strong-code-import-code-code-export-code">5.8. Import and export <strong>(coming in v2.0)</strong>: <code>import</code>, <code>export</code></a></li>
+<li><a href="#getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code">5.9. Getting help with specific commands <strong>(coming in v2.0)</strong>: <code>help</code></a></li>
 </ul>
 </li>
-<li><a href="#scripting-api">6. Scripting API</a></li>
+<li><a href="#scripting-api">6. Scripting API</a>
+<ul class="sectlevel2">
+<li><a href="#global-variables">6.1. Global variables</a></li>
+<li><a href="#functions">6.2. Functions</a></li>
+</ul>
+</li>
 <li><a href="#faq">7. FAQ</a></li>
 <li><a href="#command-summary">8. Command Summary</a>
 <ul class="sectlevel2">
@@ -1252,6 +1257,9 @@ Swaps the ordering of the 2nd rule and the 4th rule.</p>
 <p>The scripting engine allows you to evaluate arbitrary scripts to perform complex operations on your transaction data,
 as well as extend the application and add commands and features of your own.</p>
 </div>
+<div class="paragraph">
+<p>The scripting language is JavaScript (specifically, ECMAScript 5.1). For more details on the scripting environment and API, see <a href="#scripting-api">here</a>.</p>
+</div>
 <div class="admonitionblock warning">
 <table>
 <tr>
@@ -1267,39 +1275,66 @@ application behaviour if scripts are used.
 </table>
 </div>
 <div class="sect3">
-<h4 id="evaluate-a-script-code-script-eval-code"><a class="link" href="#evaluate-a-script-code-script-eval-code">4.6.1. Evaluate a script: <code>script eval</code></a></h4>
+<h4 id="script-eval"><a class="link" href="#script-eval">4.6.1. Evaluate a script: <code>script eval</code></a></h4>
 <div class="paragraph">
-<p>Evaluates a script and displays the result.</p>
+<p>Evaluates a script and displays the result, which is the last expression evaluated in the script.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>script eval &lt;script&gt;</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>The scripting language is JavaScript (specifically, ECMAScript 5.1).</p>
+<p><code>script eval 1</code></p>
+<div class="paragraph">
+<p>Evaluates to: <code>1</code></p>
+</div>
+</li>
+<li>
+<p><code>addTxn(1000, 'out', 'Lunch')</code></p>
+<div class="paragraph">
+<p>Adds an out-transaction for $10 with description "Lunch".</p>
+</div>
 </li>
 </ul>
 </div>
 </div>
-</div>
-</div>
 <div class="sect3">
-<h4 id="add-a-stored-script-code-script-add-code"><a class="link" href="#add-a-stored-script-code-script-add-code">4.6.2. Add a stored script: <code>script add</code></a></h4>
+<h4 id="script-add"><a class="link" href="#script-add">4.6.2. Add a stored script: <code>script add</code></a></h4>
 <div class="paragraph">
-<p>Stores a script for future invocation.</p>
+<p>Stores a script for future invocation. If a script with the same name already exists, that script is replaced.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>script add &lt;script name&gt; [p/&lt;file path&gt; | s/&lt;script&gt;]</code></p>
+<p>Format: <code>script add &lt;script name&gt; [d/&lt;description&gt;] [p/&lt;file path&gt; | s/&lt;script&gt;]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The script name may contain only alphanumeric characters, underscores, and dashes.</p>
+<p>Script names may contain only alphanumeric characters, underscores, and dashes.</p>
+</li>
+<li>
+<p>Script names are case-sensitive.</p>
+</li>
+<li>
+<p>The file path may be absolute or relative. If it is relative, it is relative to the <em>current working directory</em> of Budget Buddy.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>If you launched Budget Buddy from the command line, the current working directory starts from the directory your shell was in.</p>
+</li>
+<li>
+<p>If you launched Budget Buddy by double-clicking the JAR file, the current working directory is typically the directory the JAR file is in.</p>
+</li>
+<li>
+<p>There is no command that changes the current working directory, but a script may have done that.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>If neither a file path nor the script code is given, a file browser is opened for you to
@@ -1322,20 +1357,50 @@ will be reported only when the script is run.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>script add hello-world s/"Hello world!"</code></p>
+<div class="paragraph">
+<p>Adds a script named <code>hello-world</code> that simply results in "Hello world!" being printed.</p>
+</div>
+</li>
+<li>
+<p><code>script add add-transport d/Adds today&#8217;s transport fare.</code></p>
+<div class="paragraph">
+<p>Adds a script named <code>add-transport</code> with description "Adds today&#8217;s transport fare.". A file picker is opened for you to select the script file.</p>
+</div>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="delete-a-stored-script-code-script-delete-code"><a class="link" href="#delete-a-stored-script-code-script-delete-code">4.6.3. Delete a stored script: <code>script delete</code></a></h4>
+<h4 id="script-delete"><a class="link" href="#script-delete">4.6.3. Delete a stored script: <code>script delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes a previously-stored script.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>script delete &lt;script name&gt;</code></p>
 </div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Script names are case-sensitive.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
-<h4 id="run-a-stored-script-code-script-run-code"><a class="link" href="#run-a-stored-script-code-script-run-code">4.6.4. Run a stored script: <code>script run</code></a></h4>
+<h4 id="script-run"><a class="link" href="#script-run">4.6.4. Run a stored script: <code>script run</code></a></h4>
 <div class="paragraph">
-<p>Runs a previously-stored script.</p>
+<p>Runs a previously-stored script and displays the result, which is the last expression evaluated in the script.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>script run &lt;script name&gt; [&lt;argument&gt;]</code></p>
@@ -1345,15 +1410,40 @@ will be reported only when the script is run.
 <div class="ulist">
 <ul>
 <li>
+<p>Script names are case-sensitive.</p>
+</li>
+<li>
+<p>The script is run in the current script environment, which may contain variables from previous scripts that have run.</p>
+</li>
+<li>
 <p>The argument is the rest of the command line after the script name, and is passed to the script as a single string.</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>script run add-transport</code></p>
+<div class="paragraph">
+<p>Runs the script named <code>add-transport</code>. <code>argv</code> is an empty array.</p>
+</div>
+</li>
+<li>
+<p><code>script run echo Hello world!</code></p>
+<div class="paragraph">
+<p>Runs the script named <code>echo</code>, with <code>argv[0]</code> set to <code>"Hello world!"</code>.</p>
+</div>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="list-stored-scripts-code-script-list-code"><a class="link" href="#list-stored-scripts-code-script-list-code">4.6.5. List stored scripts: <code>script list</code></a></h4>
+<h4 id="script-list"><a class="link" href="#script-list">4.6.5. List stored scripts: <code>script list</code></a></h4>
 <div class="paragraph">
 <p>Lists stored scripts.</p>
 </div>
@@ -1362,19 +1452,184 @@ will be reported only when the script is run.
 </div>
 </div>
 <div class="sect3">
-<h4 id="reset-the-scripting-environment-code-script-reset-code"><a class="link" href="#reset-the-scripting-environment-code-script-reset-code">4.6.6. Reset the scripting environment: <code>script reset</code></a></h4>
+<h4 id="script-reset"><a class="link" href="#script-reset">4.6.6. Reset the scripting environment: <code>script reset</code></a></h4>
 <div class="paragraph">
-<p>Resets the scripting environment.</p>
+<p>Resets the scripting environment. This clears all previously defined variables, and restores all global variables and functions that may have been modified by scripts.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>script reset</code></p>
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="coming-in-v2-0"><a class="link" href="#coming-in-v2-0">5. Coming in v2.0</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Look forward to these features coming up in version 2.0 of Budget Buddy!</p>
+</div>
 <div class="sect2">
-<h3 id="aliases-strong-coming-in-v1-4-strong-code-alias-code"><a class="link" href="#aliases-strong-coming-in-v1-4-strong-code-alias-code">4.7. Aliases <strong>(Coming in v1.4)</strong> : <code>alias</code></a></h3>
+<h3 id="managing-defaults-strong-coming-in-v2-0-strong-code-default-code"><a class="link" href="#managing-defaults-strong-coming-in-v2-0-strong-code-default-code">5.1. Managing defaults <strong>(coming in v2.0)</strong>: <code>default</code></a></h3>
 <div class="sect3">
-<h4 id="add-an-alias-code-alias-add-code"><a class="link" href="#add-an-alias-code-alias-add-code">4.7.1. Add an alias: <code>alias add</code></a></h4>
+<h4 id="set-default-account-code-default-account-code"><a class="link" href="#set-default-account-code-default-account-code">5.1.1. Set default account: <code>default account</code></a></h4>
+<div class="paragraph">
+<p>Sets the default account.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>default account &lt;id&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-the-main-transaction-view-strong-coming-in-v2-0-strong-code-view-code"><a class="link" href="#managing-the-main-transaction-view-strong-coming-in-v2-0-strong-code-view-code">5.2. Managing the main transaction view <strong>(coming in v2.0)</strong>: <code>view</code></a></h3>
+<div class="sect3">
+<h4 id="filter-transactions-code-view-filter-code"><a class="link" href="#filter-transactions-code-view-filter-code">5.2.1. Filter transactions: <code>view filter</code></a></h4>
+<div class="paragraph">
+<p>Filters the main transaction view. If no arguments are provided, all transactions are shown.
+Otherwise, only transactions meeting all the criteria are shown.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>view filter [a/&lt;account&gt;] [c/&lt;category&gt;] [f/&lt;from date&gt;] [t/&lt;to date&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sort-transactions-code-view-sort-code"><a class="link" href="#sort-transactions-code-view-sort-code">5.2.2. Sort transactions: <code>view sort</code></a></h4>
+<div class="paragraph">
+<p>Sorts transactions by (a)ccount, (c)ategory, (d)ate or (x)amount.
+Specify <code>o/a</code> to sort in ascending order, or <code>o/d</code> to sort in descending order.
+If omitted, sort in ascending order.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>view sort s/&lt;a|c|d|x&gt; [o/&lt;a|d&gt;]</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-budgets-strong-coming-in-v2-0-strong-code-budget-code"><a class="link" href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">5.3. Managing budgets <strong>(coming in v2.0)</strong>: <code>budget</code></a></h3>
+<div class="paragraph">
+<p>Budgets allow you to keep you on track with your spending limits!
+See how much money you still have left for the week, month, or year! With budgets,
+you can plan out your expenses easier than ever.</p>
+</div>
+<div class="sect3">
+<h4 id="view-budgets-code-budget-list-code"><a class="link" href="#view-budgets-code-budget-list-code">5.3.1. View budgets: <code>budget list</code></a></h4>
+<div class="paragraph">
+<p>Views the list of budgets currently stored.
+All budgets within the specified period will be displayed.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>budget list [f/&lt;from date&gt; t/&lt;to date&gt; | p/&lt;this month|last month|this week|last week|today|yesterday&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-budgets-code-budget-add-code"><a class="link" href="#add-budgets-code-budget-add-code">5.3.2. Add budgets: <code>budget add</code></a></h4>
+<div class="paragraph">
+<p>This command adds a new budget of a certain amount, with the specified date range or period.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>budget add x/&lt;amount&gt; [f/&lt;from date&gt; t/&lt;to date&gt; | p/&lt;this month|last month|this week|last week|today|yesterday&gt;]</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="remove-budgets-code-budget-delete-code"><a class="link" href="#remove-budgets-code-budget-delete-code">5.3.3. Remove budgets: <code>budget delete</code></a></h4>
+<div class="paragraph">
+<p>This command removes a budget from the list given the budget ID.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>budget delete &lt;budget ID&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="goal-setting-strong-coming-in-v2-0-strong-code-goal-code"><a class="link" href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">5.4. Goal setting <strong>(coming in v2.0)</strong>: <code>goal</code></a></h3>
+<div class="sect3">
+<h4 id="add-a-goal-code-goal-add-code"><a class="link" href="#add-a-goal-code-goal-add-code">5.4.1. Add a goal: <code>goal add</code></a></h4>
+<div class="paragraph">
+<p>Adds a goal on the specified account to reach the specified amount by the target date or at the end of the specified period.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-goals-code-goal-list-code"><a class="link" href="#view-goals-code-goal-list-code">5.4.2. View goals: <code>goal list</code></a></h4>
+<div class="paragraph">
+<p>List all goals.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-goal-s-code-goal-delete-code"><a class="link" href="#delete-goal-s-code-goal-delete-code">5.4.3. Delete goal(s): <code>goal delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the goal with the specified goal ID.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="managing-categories-strong-coming-in-v2-0-strong-code-category-code"><a class="link" href="#managing-categories-strong-coming-in-v2-0-strong-code-category-code">5.5. Managing categories <strong>(coming in v2.0)</strong>: <code>category</code></a></h3>
+<div class="sect3">
+<h4 id="add-a-category"><a class="link" href="#add-a-category">5.5.1. Add a category</a></h4>
+<div class="paragraph">
+<p>Categories do not need to be added; you can simply use the category name and a new category will be created if no such one exists.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="list-categories-code-category-list-code"><a class="link" href="#list-categories-code-category-list-code">5.5.2. List categories: <code>category list</code></a></h4>
+<div class="paragraph">
+<p>Lists all categories.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rename-a-category-code-category-rename-code"><a class="link" href="#rename-a-category-code-category-rename-code">5.5.3. Rename a category: <code>category rename</code></a></h4>
+<div class="paragraph">
+<p>Renames the specified category.
+Note that this is the same as setting the category of all transactions of category <code>old name</code> to <code>new name</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>category rename o/&lt;old name&gt; n/&lt;new name&gt;</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-a-category-code-category-delete-code"><a class="link" href="#delete-a-category-code-category-delete-code">5.5.4. Delete a category: <code>category delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes the specified category.
+Note that this is the same as un-categorising all transactions under the specified category.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>category delete n/&lt;name&gt;</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-reports-strong-coming-in-v2-0-strong-code-report-code"><a class="link" href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">5.6. Viewing reports <strong>(coming in v2.0)</strong>: <code>report</code></a></h3>
+<div class="paragraph">
+<p>Displays a report.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>report [[f/&lt;from date&gt;] [t/&lt;to date&gt;] | [p/&lt;this month|last month|this week|last week|today|yesterday&gt;]] [total|category]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You can specify either the start and end date range, inclusive, or name a period.
+If no period is specified, it defaults to the current month-to-date.</p>
+</li>
+<li>
+<p>You can see a total report that shows your total income and expenditure and budget information,
+if a budget has been set up,  or a report that breaks your income and expenditure down into categories.
+If the type is omitted, it defaults to a total report.</p>
+</li>
+<li>
+<p>Your goal progress will also be shown in both reports.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="aliases-strong-coming-in-v2-0-strong-code-alias-code"><a class="link" href="#aliases-strong-coming-in-v2-0-strong-code-alias-code">5.7. Aliases <strong>(coming in v2.0)</strong>: <code>alias</code></a></h3>
+<div class="sect3">
+<h4 id="add-an-alias-code-alias-add-code"><a class="link" href="#add-an-alias-code-alias-add-code">5.7.1. Add an alias: <code>alias add</code></a></h4>
 <div class="paragraph">
 <p>Adds an alias.</p>
 </div>
@@ -1425,7 +1680,7 @@ Built-in commands take precedence. If you add an alias with the same name as a b
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-an-alias-code-alias-delete-code"><a class="link" href="#delete-an-alias-code-alias-delete-code">4.7.2. Delete an alias: <code>alias delete</code></a></h4>
+<h4 id="delete-an-alias-code-alias-delete-code"><a class="link" href="#delete-an-alias-code-alias-delete-code">5.7.2. Delete an alias: <code>alias delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes an alias.</p>
 </div>
@@ -1434,175 +1689,10 @@ Built-in commands take precedence. If you add an alias with the same name as a b
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="coming-in-v2-0"><a class="link" href="#coming-in-v2-0">5. Coming In v2.0</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Look forward to these features coming up in version 2.0 of Budget Buddy!</p>
-</div>
 <div class="sect2">
-<h3 id="managing-defaults-strong-coming-in-v2-0-strong-code-default-code"><a class="link" href="#managing-defaults-strong-coming-in-v2-0-strong-code-default-code">5.1. Managing defaults <strong>(Coming in v2.0)</strong> : <code>default</code></a></h3>
+<h3 id="import-and-export-strong-coming-in-v2-0-strong-code-import-code-code-export-code"><a class="link" href="#import-and-export-strong-coming-in-v2-0-strong-code-import-code-code-export-code">5.8. Import and export <strong>(coming in v2.0)</strong>: <code>import</code>, <code>export</code></a></h3>
 <div class="sect3">
-<h4 id="set-default-account-code-default-account-code"><a class="link" href="#set-default-account-code-default-account-code">5.1.1. Set default account: <code>default account</code></a></h4>
-<div class="paragraph">
-<p>Sets the default account.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>default account &lt;id&gt;</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="managing-the-main-transaction-view-strong-coming-in-v2-0-strong-code-view-code"><a class="link" href="#managing-the-main-transaction-view-strong-coming-in-v2-0-strong-code-view-code">5.2. Managing the main transaction view <strong>(Coming in v2.0)</strong> : <code>view</code></a></h3>
-<div class="sect3">
-<h4 id="filter-transactions-code-view-filter-code"><a class="link" href="#filter-transactions-code-view-filter-code">5.2.1. Filter transactions: <code>view filter</code></a></h4>
-<div class="paragraph">
-<p>Filters the main transaction view. If no arguments are provided, all transactions are shown.
-Otherwise, only transactions meeting all the criteria are shown.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>view filter [a/&lt;account&gt;] [c/&lt;category&gt;] [f/&lt;from date&gt;] [t/&lt;to date&gt;]</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="sort-transactions-code-view-sort-code"><a class="link" href="#sort-transactions-code-view-sort-code">5.2.2. Sort transactions: <code>view sort</code></a></h4>
-<div class="paragraph">
-<p>Sorts transactions by (a)ccount, (c)ategory, (d)ate or (x)amount.
-Specify <code>o/a</code> to sort in ascending order, or <code>o/d</code> to sort in descending order.
-If omitted, sort in ascending order.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>view sort s/&lt;a|c|d|x&gt; [o/&lt;a|d&gt;]</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="managing-budgets-strong-coming-in-v2-0-strong-code-budget-code"><a class="link" href="#managing-budgets-strong-coming-in-v2-0-strong-code-budget-code">5.3. Managing budgets <strong>(Coming in v2.0)</strong> : <code>budget</code></a></h3>
-<div class="paragraph">
-<p>Budgets allow you to keep you on track with your spending limits!
-See how much money you still have left for the week, month, or year! With budgets,
-you can plan out your expenses easier than ever.</p>
-</div>
-<div class="sect3">
-<h4 id="view-budgets-code-budget-list-code"><a class="link" href="#view-budgets-code-budget-list-code">5.3.1. View budgets: <code>budget list</code></a></h4>
-<div class="paragraph">
-<p>Views the list of budgets currently stored.
-All budgets within the specified period will be displayed.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>budget list [f/&lt;from date&gt; t/&lt;to date&gt; | p/&lt;this month|last month|this week|last week|today|yesterday&gt;]</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="add-budgets-code-budget-add-code"><a class="link" href="#add-budgets-code-budget-add-code">5.3.2. Add budgets: <code>budget add</code></a></h4>
-<div class="paragraph">
-<p>This command adds a new budget of a certain amount, with the specified date range or period.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>budget add x/&lt;amount&gt; [f/&lt;from date&gt; t/&lt;to date&gt; | p/&lt;this month|last month|this week|last week|today|yesterday&gt;]</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="remove-budgets-code-budget-delete-code"><a class="link" href="#remove-budgets-code-budget-delete-code">5.3.3. Remove budgets: <code>budget delete</code></a></h4>
-<div class="paragraph">
-<p>This command removes a budget from the list given the budget ID.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>budget delete &lt;budget ID&gt;</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="goal-setting-strong-coming-in-v2-0-strong-code-goal-code"><a class="link" href="#goal-setting-strong-coming-in-v2-0-strong-code-goal-code">5.4. Goal setting <strong>(Coming in v2.0)</strong> : <code>goal</code></a></h3>
-<div class="sect3">
-<h4 id="add-a-goal-code-goal-add-code"><a class="link" href="#add-a-goal-code-goal-add-code">5.4.1. Add a goal: <code>goal add</code></a></h4>
-<div class="paragraph">
-<p>Adds a goal on the specified account to reach the specified amount by the target date or at the end of the specified period.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="view-goals-code-goal-list-code"><a class="link" href="#view-goals-code-goal-list-code">5.4.2. View goals: <code>goal list</code></a></h4>
-<div class="paragraph">
-<p>List all goals.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-goal-s-code-goal-delete-code"><a class="link" href="#delete-goal-s-code-goal-delete-code">5.4.3. Delete goal(s): <code>goal delete</code></a></h4>
-<div class="paragraph">
-<p>Deletes the goal with the specified goal ID.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="managing-categories-strong-coming-in-v2-0-strong-code-category-code"><a class="link" href="#managing-categories-strong-coming-in-v2-0-strong-code-category-code">5.5. Managing categories <strong>(Coming in v2.0)</strong> : <code>category</code></a></h3>
-<div class="sect3">
-<h4 id="add-a-category"><a class="link" href="#add-a-category">5.5.1. Add a category</a></h4>
-<div class="paragraph">
-<p>Categories do not need to be added; you can simply use the category name and a new category will be created if no such one exists.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="list-categories-code-category-list-code"><a class="link" href="#list-categories-code-category-list-code">5.5.2. List categories: <code>category list</code></a></h4>
-<div class="paragraph">
-<p>Lists all categories.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="rename-a-category-code-category-rename-code"><a class="link" href="#rename-a-category-code-category-rename-code">5.5.3. Rename a category: <code>category rename</code></a></h4>
-<div class="paragraph">
-<p>Renames the specified category.
-Note that this is the same as setting the category of all transactions of category <code>old name</code> to <code>new name</code>.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>category rename o/&lt;old name&gt; n/&lt;new name&gt;</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="delete-a-category-code-category-delete-code"><a class="link" href="#delete-a-category-code-category-delete-code">5.5.4. Delete a category: <code>category delete</code></a></h4>
-<div class="paragraph">
-<p>Deletes the specified category.
-Note that this is the same as un-categorising all transactions under the specified category.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>category delete n/&lt;name&gt;</code></p>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="viewing-reports-strong-coming-in-v2-0-strong-code-report-code"><a class="link" href="#viewing-reports-strong-coming-in-v2-0-strong-code-report-code">5.6. Viewing reports <strong>(Coming in v2.0)</strong>: <code>report</code></a></h3>
-<div class="paragraph">
-<p>Displays a report.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>report [[f/&lt;from date&gt;] [t/&lt;to date&gt;] | [p/&lt;this month|last month|this week|last week|today|yesterday&gt;]] [total|category]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>You can specify either the start and end date range, inclusive, or name a period.
-If no period is specified, it defaults to the current month-to-date.</p>
-</li>
-<li>
-<p>You can see a total report that shows your total income and expenditure and budget information,
-if a budget has been set up,  or a report that breaks your income and expenditure down into categories.
-If the type is omitted, it defaults to a total report.</p>
-</li>
-<li>
-<p>Your goal progress will also be shown in both reports.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code"><a class="link" href="#import-and-export-strong-coming-in-v1-4-strong-code-import-code-code-export-code">5.7. Import and export <strong>(Coming in v1.4)</strong> : <code>import</code>, <code>export</code></a></h3>
-<div class="sect3">
-<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">5.7.1. Import a file: <code>import</code></a></h4>
+<h4 id="import-a-file-code-import-code"><a class="link" href="#import-a-file-code-import-code">5.8.1. Import a file: <code>import</code></a></h4>
 <div class="paragraph">
 <p>Imports transactions from the file at the given path.</p>
 </div>
@@ -1627,7 +1717,7 @@ If the format is omitted, automatic detection is attempted.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">5.7.2. Export transactions: <code>export</code></a></h4>
+<h4 id="export-transactions-code-export-code"><a class="link" href="#export-transactions-code-export-code">5.8.2. Export transactions: <code>export</code></a></h4>
 <div class="paragraph">
 <p>Exports all transactions to the given path.</p>
 </div>
@@ -1652,7 +1742,7 @@ If the path is omitted, a file browser is opened for you to select where to save
 </div>
 </div>
 <div class="sect2">
-<h3 id="getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code"><a class="link" href="#getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code">5.8. Getting help with specific commands <strong>(Coming in v2.0)</strong>: <code>help</code></a></h3>
+<h3 id="getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code"><a class="link" href="#getting-help-with-specific-commands-strong-coming-in-v2-0-strong-code-help-code">5.9. Getting help with specific commands <strong>(coming in v2.0)</strong>: <code>help</code></a></h3>
 <div class="paragraph">
 <p>Displays detailed help for a specific command.</p>
 </div>
@@ -1669,10 +1759,282 @@ If the path is omitted, a file browser is opened for you to select where to save
 <p>The Nashorn scripting engine is used. All features and Java class access of the Nashorn engine are available. See the <a href="https://docs.oracle.com/en/java/javase/11/nashorn/nashorn-java-api.html">Nashorn documentation</a> for more details.</p>
 </div>
 <div class="paragraph">
-<p>Currently, the only exposed interface to the Budget Buddy model is <code>bb</code>, which exposes the full application model to scripts.</p>
+<p>Budget Buddy defines a few global variables and functions to ease script writing. These are documented below.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Due to the nature of JavaScript, scripts may modify these variables and functions. To reset the script
+environment, use <a href="#script-reset">the <code>script reset</code> command</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="global-variables"><a class="link" href="#global-variables">6.1. Global variables</a></h3>
+<div class="paragraph">
+<p>The following global variables are predefined in the script environment.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>bb</code>: The application&#8217;s model, of type <code>ModelManager</code>.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Modifying data through the model directly can result in inconsistent state,
+or corrupted data. Where possible, you are strongly recommended to use the helper functions
+documented below.</p>
 </div>
 <div class="paragraph">
-<p>Convenience functions as well as access to the UI will be added in v1.4.</p>
+<p>To discourage use of <code>bb</code>, the API is intentionally left undocumented. You may
+<a href="https://github.com/AY1920S1-CS2103T-W13-4/main/blob/master/src/main/java/budgetbuddy/model/ModelManager.java">refer to the Java source code</a>
+if you wish to use <code>bb</code>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="functions"><a class="link" href="#functions">6.2. Functions</a></h3>
+<div class="paragraph">
+<p>The following helper functions are predefined in the script environment.</p>
+</div>
+<div class="sect3">
+<h4 id="account-functions"><a class="link" href="#account-functions">6.2.1. Account functions</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>refreshAccountView()</code></p>
+</li>
+<li>
+<p><code>getAccounts() &#8594; List&lt;Account&gt;</code></p>
+</li>
+<li>
+<p><code>getActiveAccount() &#8594; Account</code></p>
+</li>
+<li>
+<p><code>setActiveAccount(nameOrIndex) &#8594; Account</code></p>
+</li>
+<li>
+<p><code>getAccount(nameOrIndex) &#8594; Account</code></p>
+</li>
+<li>
+<p><code>addAccount(name, description) &#8594; Account</code></p>
+</li>
+<li>
+<p><code>morphAccount(oldAccount, { name, description }) &#8594; Account</code></p>
+</li>
+<li>
+<p><code>editAccount(nameOrIndex, { name, description }) &#8594; Account</code></p>
+</li>
+<li>
+<p><code>deleteAccount(nameOrIndex)</code></p>
+</li>
+<li>
+<p><code>accountName(account) &#8594; string</code></p>
+</li>
+<li>
+<p><code>accountDescription(account) &#8594; string</code></p>
+</li>
+<li>
+<p><code>accountBalance(account) &#8594; number</code></p>
+</li>
+<li>
+<p><code>accountTxns(account) &#8594; List&lt;Transaction&gt;</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="transaction-functions"><a class="link" href="#transaction-functions">6.2.2. Transaction functions</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>refreshTxnView()</code></p>
+</li>
+<li>
+<p><code>addTxn(amount, direction, description, { account, date, categories }) &#8594; Transaction</code></p>
+</li>
+<li>
+<p><code>morphTxn(oldTxn, { amount, direction, description, date, categories }) &#8594; Transaction</code></p>
+</li>
+<li>
+<p><code>editTxn(account, oldTxn, { amount, direction, description, date, categories }) &#8594; Transaction</code></p>
+</li>
+<li>
+<p><code>deleteTxn(account, txn)</code></p>
+</li>
+<li>
+<p><code>getShownTxn(index) &#8594; Transaction</code></p>
+</li>
+<li>
+<p><code>editShownTxn(index, { amount, direction, description, date, categories }) &#8594; Transaction</code></p>
+</li>
+<li>
+<p><code>deleteShownTxn(index)</code></p>
+</li>
+<li>
+<p><code>getShownTxns() &#8594; List&lt;Transaction&gt;</code></p>
+</li>
+<li>
+<p><code>txnAmount(txn) &#8594; number</code></p>
+</li>
+<li>
+<p><code>txnDescription(txn) &#8594; string</code></p>
+</li>
+<li>
+<p><code>txnDate(txn) &#8594; LocalDate</code></p>
+</li>
+<li>
+<p><code>txnDirection(txn) &#8594; string ("IN" | "OUT")</code></p>
+</li>
+<li>
+<p><code>txnCategories(txn) &#8594; [string]</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="loan-functions"><a class="link" href="#loan-functions">6.2.3. Loan functions</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>addLoan(amount, direction, person, { description, date, paid }) &#8594; Loan</code></p>
+</li>
+<li>
+<p><code>morphLoan(loan, { amount, direction, person, description, date, paid }) &#8594; Loan</code></p>
+</li>
+<li>
+<p><code>editShownLoan(index, { amount, direction, person, description, date, paid }) &#8594; Loan</code></p>
+</li>
+<li>
+<p><code>deleteShownLoan(index)</code></p>
+</li>
+<li>
+<p><code>getShownLoans() &#8594; List&lt;Loan&gt;</code></p>
+</li>
+<li>
+<p><code>getLoans() &#8594; List&lt;Loan&gt;</code></p>
+</li>
+<li>
+<p><code>loanAmount(loan) &#8594; number</code></p>
+</li>
+<li>
+<p><code>loanDirection(loan) &#8594; string ("IN" | "OUT")</code></p>
+</li>
+<li>
+<p><code>loanPerson(loan) &#8594; string</code></p>
+</li>
+<li>
+<p><code>loanDate(loan) &#8594; LocalDate</code></p>
+</li>
+<li>
+<p><code>loanDescription(loan) &#8594; string</code></p>
+</li>
+<li>
+<p><code>loanIsPaid(loan) &#8594; boolean</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="miscellaneous-functions"><a class="link" href="#miscellaneous-functions">6.2.4. Miscellaneous functions</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>parseDate(date) &#8594; LocalDate</code></p>
+<div class="paragraph">
+<p>Parses a date.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>date</code>: The date, as a <code>string</code> in the format <code>d/M/yyyy</code>, e.g. <code>"1/1/2011"</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p><code>makeDate(year, month, day) &#8594; LocalDate</code></p>
+<div class="paragraph">
+<p>Constructs a date from the year, month and day, passed as `number`s.</p>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p><code>showAlert(title, message)</code></p>
+<div class="paragraph">
+<p>Shows an alert dialog and waits for the user to dismiss the dialog.</p>
+</div>
+</li>
+</ul>
+</div>
+<hr>
+<div class="ulist">
+<ul>
+<li>
+<p><code>executeCommand(command) &#8594; CommandResult</code></p>
+<div class="paragraph">
+<p>Executes a command.</p>
+</div>
+<div class="paragraph">
+<p>Parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>command</code>: The command, as a <code>string</code>.</p>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>You are recommended not to use this, where possible, and instead use the other helper
+functions documented above.</p>
+</div>
+<div class="paragraph">
+<p>Use of this function may result in undefined behaviour.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1842,4 +2204,4 @@ Deleting that folder will reset the application data upon rebooting the applicat
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 19:56:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 02:45:24 UTC</div></div></div></body></html>
