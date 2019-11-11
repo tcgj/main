@@ -397,67 +397,6 @@ It is managed by <code>AccountsManager</code>, with <code>Account</code> objects
 </ul>
 </div>
 <div class="paragraph">
-<p>To facilitate the manipulation of <code>Account</code> objects, <code>AccountsManager</code> implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>AccountsManager#updateFilteredAccountList(Predicate&lt;Account&gt; predicate)</code>&#8201;&#8212;&#8201;Updates the predicate of <code>filteredAccounts</code>.</p>
-</li>
-<li>
-<p><code>AccountsManager#getFilteredAccountList()</code>&#8201;&#8212;&#8201;Gets the list of <code>filteredAccounts</code> after applying its <code>predicate</code>.</p>
-</li>
-<li>
-<p><code>AccountsManager#resetFilteredAccountList()</code>&#8201;&#8212;&#8201;Reset <code>filteredAccounts</code> so that all accounts present in <code>accounts</code> exist in <code>filteredAccounts</code>.</p>
-</li>
-<li>
-<p><code>AccountsManager#getActiveTransactionList()</code>&#8201;&#8212;&#8201;Gets the <code>activeTransactionList</code> of the active account.</p>
-</li>
-<li>
-<p><code>AccountsManager#getAccounts()</code>&#8201;&#8212;&#8201;Gets the list of <code>accounts</code>.</p>
-</li>
-<li>
-<p><code>AccountsManager#size()</code>&#8201;&#8212;&#8201;Gets the size of the <code>accounts</code> list.</p>
-</li>
-<li>
-<p><code>AccountsManager#addAccount(Account toAdd)</code>&#8201;&#8212;&#8201;Adds the <code>Account toAdd</code> to <code>accounts</code>.</p>
-</li>
-<li>
-<p><code>AccountsManager#deleteAccount(Account toDelete)</code>&#8201;&#8212;&#8201;Deletes the account at <code>Index toDelete</code> from <code>accounts</code>.</p>
-</li>
-<li>
-<p><code>AccountsManager#editAccount(Index toEdit, Account editedAccount)</code>&#8201;&#8212;&#8201;Edits the account at <code>Index Edit</code> to match <code>Account editedAccount</code>.</p>
-</li>
-<li>
-<p><code>AccountsManager#switchActiveAccount(Index targetAccountIndex)</code>&#8201;&#8212;&#8201;Inactivate the current active account, and activate the target account.</p>
-</li>
-<li>
-<p><code>AccountsManager#unsetActiveAccount()</code>&#8201;&#8212;&#8201;Inactivate any currently active account.</p>
-</li>
-<li>
-<p><code>AccountsManager#setActiveAccount(Index toSet)</code>&#8201;&#8212;&#8201;Activate the target account.</p>
-</li>
-<li>
-<p><code>AccountsManager#getAccount()</code>&#8201;&#8212;&#8201;Gets the target account.</p>
-</li>
-<li>
-<p><code>AccountsManager#getActiveAccountIndex()</code>&#8201;&#8212;&#8201;Gets the index of the currently active account.</p>
-</li>
-<li>
-<p><code>AccountsManager#getActiveAccount()</code>&#8201;&#8212;&#8201;Gets the currently active account.</p>
-</li>
-<li>
-<p><code>AccountsManager#transactionListSwitchSource(Account account)</code>&#8201;&#8212;&#8201;Switches the account source for the TransactionList.</p>
-</li>
-<li>
-<p><code>AccountsManager#transactionListUpdateSource()</code>&#8201;&#8212;&#8201;Updates the transactionList linked to the currentActiveAccount.</p>
-</li>
-<li>
-<p><code>AccountsManager#exportReport()</code>&#8201;&#8212;&#8201;Exports the overview report of all accounts.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
 <p>When the user inputs a command, several of the above operations are carried out.
 For example, <code>account edit</code> will call <code>AccountsManager#resetFilteredAccountList</code> to update the <code>filteredAccounts</code>,
 so that all accounts present in <code>accounts</code> will be present in <code>filteredAccounts</code>,
@@ -599,4 +538,4 @@ After each command, <code>AccountsManager#resetFilteredAccountList</code> is cal
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:27:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:39:37 UTC</div></div></div></body></html>

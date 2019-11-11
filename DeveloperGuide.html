@@ -365,15 +365,9 @@ It is managed by <code>AccountsManager</code>, with <code>Account</code> objects
 <p><code>balanceLongProperty:LongProperty</code>&#8201;&#8212;&#8201;The Long property of the balance.</p>
 </li>
 <li>
-<p><code>categoryset:Set&lt;Category&gt;</code>&#8201;&#8212;&#8201;The set of categories involved in the account.</p>
+<p><code>categoryset:Set&lt;Category&gt;</code>&#8201;&#8212;&#8201;The set of categories involved in the account.
+To facilitate the manipulation of <code>Account</code> objects, <code>AccountsManager</code> implements the following operations:</p>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>To facilitate the manipulation of <code>Account</code> objects, <code>AccountsManager</code> implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
 <li>
 <p><code>AccountsManager#updateFilteredAccountList(Predicate&lt;Account&gt; predicate)</code>&#8201;&#8212;&#8201;Updates the predicate of <code>filteredAccounts</code>.</p>
 </li>
@@ -426,16 +420,14 @@ It is managed by <code>AccountsManager</code>, with <code>Account</code> objects
 <p><code>AccountsManager#transactionListUpdateSource()</code>&#8201;&#8212;&#8201;Updates the transactionList linked to the currentActiveAccount.</p>
 </li>
 <li>
-<p><code>AccountsManager#exportReport()</code>&#8201;&#8212;&#8201;Exports the overview report of all accounts.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>When the user inputs a command, several of the above operations are carried out.
+<p><code>AccountsManager#exportReport()</code>&#8201;&#8212;&#8201;Exports the overview report of all accounts.
+When the user inputs a command, several of the above operations are carried out.
 For example, <code>account edit</code> will call <code>AccountsManager#resetFilteredAccountList</code> to update the <code>filteredAccounts</code>,
 so that all accounts present in <code>accounts</code> will be present in <code>filteredAccounts</code>,
 then <code>AccountsManager#editAccount</code> to edit the account,
 finally <code>AccountsManager#getFilteredAccountList()</code> to display the list of accounts.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>After each command, the list of <code>accounts</code> is saved in <code>accounts.json</code>,
@@ -2019,7 +2011,28 @@ Expected: The most recent window size and location is retained.</p>
 <div class="sect2">
 <h3 id="accounts"><a class="link" href="#accounts">F.2. Accounts</a></h3>
 <div class="sect3">
-<h4 id="deleting-an-account"><a class="link" href="#deleting-an-account">F.2.1. Deleting an Account</a></h4>
+<h4 id="adding-an-account"><a class="link" href="#adding-an-account">F.2.1. Adding an Account</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding an account when no duplicate account exists in the list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None</p>
+</li>
+<li>
+<p>Test case: <code>account add n/food</code><br>
+Expected: An account with name "food" is added to the current list of accounts.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-an-account"><a class="link" href="#deleting-an-account">F.2.2. Deleting an Account</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -2040,6 +2053,91 @@ Expected: No account is deleted. Error details shown in the status message.</p>
 <li>
 <p>Other incorrect delete commands to try: <code>account delete</code>, <code>account delete x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-an-account"><a class="link" href="#editing-an-account">F.2.3. Editing an Account</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing one or all specified fields of an existing account from the account list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all accounts using the <code>account list</code> command. At least one account in the list.</p>
+</li>
+<li>
+<p>Test case: <code>account edit 1 n/food</code><br>
+Expected: The name field of the first account is changed to "food".</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="finding-account-s"><a class="link" href="#finding-account-s">F.2.4. Finding Account(s)</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Finding account(s) that contain specified keyword in their names</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None.</p>
+</li>
+<li>
+<p>Test case: <code>account find trip</code><br>
+Expected: Account(s) that contain the keyword "trip" in their names will be listed.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-the-report-of-an-account"><a class="link" href="#viewing-the-report-of-an-account">F.2.5. Viewing the Report of an Account</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing the details of an existing account in the account list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None.</p>
+</li>
+<li>
+<p>Test case: <code>account report 2</code><br>
+Expected: The details of the account will be displayed in the commandBox textfield.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="viewing-the-report-of-all-accounts"><a class="link" href="#viewing-the-report-of-all-accounts">F.2.6. Viewing the Report of all Accounts</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Viewing the reports of all accounts to have an overview of the user&#8217;s financial status.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisite: None.</p>
+</li>
+<li>
+<p>Test case: <code>account overview</code><br>
+Expected: Successful message will be displayed, with an html file generated containing the overview
+in the exports folder.</p>
 </li>
 </ol>
 </div>
@@ -2413,4 +2511,4 @@ Expected: Transaction is added. Rules do not apply to transaction. No change to 
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:27:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:39:37 UTC</div></div></div></body></html>
