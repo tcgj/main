@@ -202,7 +202,7 @@ you should first familiarize yourself with the syntax that will be used througho
 <p>Parameters within <code>[]</code> brackets are optional and can be omitted.</p>
 </li>
 <li>
-<p><code>|</code> indicates that a choice must be made between two parameters.</p>
+<p><code>|</code> indicates that a choice must be made between multiple parameters.</p>
 </li>
 <li>
 <p><code>&#8230;&#8203;</code> indicates a variable number (at least 1) of the specified parameter.</p>
@@ -213,7 +213,7 @@ you should first familiarize yourself with the syntax that will be used througho
 </div>
 <div class="paragraph">
 <p>Budget Buddy also comes with various keyboard shortcuts,
-further helping you to use the app with the keyboard alone.</p>
+for a better user experience with the Command Line Interface(CLI).</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -274,7 +274,7 @@ a certain category of spending.</p>
 <div class="sect3">
 <h4 id="add-a-transaction-code-txn-out-in-code"><a class="link" href="#add-a-transaction-code-txn-out-in-code">4.2.1. Add a transaction: <code>txn out|in</code></a></h4>
 <div class="paragraph">
-<p>Adds a new transaction of the specified amount and with the given description.</p>
+<p>This command will add a new transaction of the specified amount and with the given description.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>txn dn/out|in x/&lt;amount&gt; d/&lt;description&gt; [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;]</code></p>
@@ -297,7 +297,7 @@ a certain category of spending.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The account provided has to be exist before transactions can be added to it.</p>
+<p>The account provided has to be created before transactions can be added to it.</p>
 </li>
 <li>
 <p>If the account is not given, the transaction is added to the active account.</p>
@@ -316,7 +316,7 @@ a certain category of spending.</p>
 <div class="sect3">
 <h4 id="edit-a-transaction-code-txn-edit-code"><a class="link" href="#edit-a-transaction-code-txn-edit-code">4.2.2. Edit a transaction: <code>txn edit</code></a></h4>
 <div class="paragraph">
-<p>Edits the specified transaction, setting the specified fields. At least one field should be provided.</p>
+<p>This command will edit the specified transaction, setting the specified fields. At least one field should be provided for editing.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>txn edit &lt;id&gt; dn/out|in [x/&lt;amount&gt;] [d/&lt;description&gt;] [a/&lt;account&gt;] [c/&lt;category&gt;] [w/&lt;date&gt;]</code></p>
@@ -342,7 +342,10 @@ a certain category of spending.</p>
 <p>The new edited transaction should have at least 1 field different from the previous transaction.</p>
 </li>
 <li>
-<p>If a new account is provided, that account will be the new active account.</p>
+<p>If another account is provided, that account must exist first.</p>
+</li>
+<li>
+<p>If another account is provided, that account will be set to the new active account.</p>
 </li>
 </ul>
 </div>
@@ -350,9 +353,9 @@ a certain category of spending.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="delete-transaction-s-code-txn-delete-code"><a class="link" href="#delete-transaction-s-code-txn-delete-code">4.2.3. Delete transaction(s): <code>txn delete</code></a></h4>
+<h4 id="delete-a-transaction-code-txn-delete-code"><a class="link" href="#delete-a-transaction-code-txn-delete-code">4.2.3. Delete a transaction: <code>txn delete</code></a></h4>
 <div class="paragraph">
-<p>Deletes the transaction with the specified ID on the current list of filtered transactions.</p>
+<p>This command will delete the transaction with the specified id in the displayed list of transactions.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>txn delete &lt;id&gt;</code></p>
@@ -371,7 +374,7 @@ a certain category of spending.</p>
 <div class="sect3">
 <h4 id="list-transactions-s-txn-list"><a class="link" href="#list-transactions-s-txn-list">4.2.4. List transactions(s): 'txn list'</a></h4>
 <div class="paragraph">
-<p>Lists the transactions from the current active account, with optional filters and sorting methods.</p>
+<p>This will the transactions from the currently active account, and you can optionally filter/sort them as well.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>txn list [c/category] [f/from date] [u/until date] [af/from amount] [au/until amount] [d/description]
@@ -390,27 +393,27 @@ a certain category of spending.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>The explanation of the sorting abbreviations are as follows:</p>
+<p>The explanation of the sorting abbreviations following 's/' are as follows:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>aw: Sort transactions by ascending date.</p>
+<p>aw: Sort the transactions by ascending date.</p>
 </li>
 <li>
-<p>dw: Sort transactions by descending date.</p>
+<p>dw: Sort the transactions by descending date.</p>
 </li>
 <li>
-<p>ax: Sort transactions by ascending amount.</p>
+<p>ax: Sort the transactions by ascending amount.</p>
 </li>
 <li>
-<p>dx: Sort transactions by descending amount.</p>
+<p>dx: Sort the transactions by descending amount.</p>
 </li>
 <li>
-<p>ad: Sort transactions by description, ascending alphabetically.</p>
+<p>ad: Sort the transactions by description, ascending alphabetically.</p>
 </li>
 <li>
-<p>dd: Sort transactions by description, descending alphabetically.</p>
+<p>dd: Sort the transactions by description, descending alphabetically.</p>
 </li>
 </ul>
 </div>
@@ -583,7 +586,44 @@ The report contains the balance, the total expenses, the total income, and the c
 </div>
 </div>
 <div class="sect3">
-<h4 id="export-the-overview-of-all-accounts-code-account-overview-code"><a class="link" href="#export-the-overview-of-all-accounts-code-account-overview-code">4.3.7. Export the overview of all accounts: <code>account overview</code></a></h4>
+<h4 id="switch-the-active-account-code-account-switch-code"><a class="link" href="#switch-the-active-account-code-account-switch-code">4.3.7. Switch the active account: <code>account switch</code></a></h4>
+<div class="paragraph">
+<p>To switch the active account to another in the account list, specify the ID of the new account to switch to.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>account switch &lt;id&gt;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Switches the active account to the account with the specified index, and updates the shown <code>Transaction</code> list.
+The index refers to the index number as shown in the displayed account list. The index must be a positive integer 1, 2, 3&#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>account switch 3</code> Will switch the active account to the third one in the list, as long as there are at least 3 accounts listed.
+The active account will be highlighted, as shown below:</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AccountSwitch1.png" alt="AccountSwitch1">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="export-the-overview-of-all-accounts-code-account-overview-code"><a class="link" href="#export-the-overview-of-all-accounts-code-account-overview-code">4.3.8. Export the overview of all accounts: <code>account overview</code></a></h4>
 <div class="paragraph">
 <p>If you want to see the overview of all accounts, Budget Buddy allows you to export the overview of all accounts in html file.
 In the overview, you are able to see the balance, the total expenses, the total income, and the categories involved in each account.</p>
@@ -2873,4 +2913,4 @@ Deleting that folder will reset the application data upon rebooting the applicat
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:14:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:27:45 UTC</div></div></div></body></html>
